@@ -35,7 +35,7 @@ tower
 
 STRING 8
 {
-MCFC 7.2
+MCFC 7.3
 }
 
 STRING 9
@@ -180,7 +180,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.2 - 31-01-2019
+Version 7.3 - 19-02-2020
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -16952,18 +16952,6 @@ STRING 4974
 The ever seeing eternal eye of a wandering spirit provides +25 spell resistance +100 int +3 mp/sec|n|cff0078d7Hat|r
 }
 
-STRING 4975
-// Items: I08I (Bronze Hat), Description (Description)
-{
-A metal helmet useful for survival +1 all stats +1hp/sec +25% spell resistance|n|cff0078d7Hat|r
-}
-
-STRING 4976
-// Items: I08I (Bronze Hat), Ubertip (Tooltip - Extended)
-{
-A metal helmet useful for survival +1 all stats +1hp/sec +25% spell resistance|n|cff0078d7Hat|r
-}
-
 STRING 4977
 // Items: I08K (Hat), Description (Description)
 {
@@ -19474,12 +19462,12 @@ You will never survive in here mortal!
 
 STRING 5460
 {
-WAVE 10
+WAVE 7
 }
 
 STRING 5462
 {
-WAVE 5
+WAVE 3
 }
 
 STRING 5463
@@ -20015,5 +20003,155 @@ STRING 5563
 // Units: n04J (Metal Man), Ubertip (Tooltip - Extended)
 {
 Metal Man
+}
+
+STRING 5564
+// Doodads: D023 (Floor), Name (Name)
+{
+Floor
+}
+
+STRING 5565
+// Doodads: D024 (Floor pathing), Name (Name)
+{
+Floor pathing
+}
+
+STRING 5567
+// Units: n04L (Sandy Chunks), Name (Name)
+{
+Sandy Chunks
+}
+
+STRING 5568
+// Units: n04M (Sandy Clumps), Name (Name)
+{
+Sandy Clumps
+}
+
+STRING 5571
+// Units: n04N (|cffff0000Sandy Rocks|r), Name (Name)
+{
+|cffff0000Sandy Rocks|r
+}
+
+STRING 5572
+// Units: u000 (Pharaoh), Name (Name)
+{
+Pharaoh
+}
+
+STRING 5573
+// Items: I0AM (Benign Molder), Name (Name)
+{
+Benign Molder
+}
+
+STRING 5574
+// Items: I0AM (Benign Molder), Description (Description)
+{
+A bow coated in gold and mold using your life essence to grow and spread.|n+150 dmg|n30% x4 crit|n125 str|n200 agi|n|cff0078d7Right-handed Weapon|r
+}
+
+STRING 5575
+// Items: I0AM (Benign Molder), Tip (Tooltip - Basic)
+{
+Benign Molder
+}
+
+STRING 5576
+// Items: I0AM (Benign Molder), Ubertip (Tooltip - Extended)
+{
+A bow coated in gold and mold using your life essence to grow and spread.|n+150 dmg|n30% x4 crit|n125 str|n200 agi|n|cff0078d7Right-handed Weapon|r
+}
+
+STRING 5577
+// Abilities: A0EZ (stats +150 str/agi +75 int), Name (Name)
+{
+stats +150 str/agi +75 int
+}
+
+STRING 5578
+// Abilities: A0F0 (stats +100 str +125 agi +75 int), Name (Name)
+{
+stats +100 str +125 agi +75 int
+}
+
+STRING 5579
+// Units: n04K (Sand Crawler), Name (Name)
+{
+Sand Crawler
+}
+
+STRING 5580
+// Items: I08I (Bronze Hat), Description (Description)
+{
+A metal helmet useful for survival|n+10 str |n+3 hp/sec |n+25% spell resistance|n|cff0078d7Hat|r
+}
+
+STRING 5581
+// Items: I08I (Bronze Hat), Ubertip (Tooltip - Extended)
+{
+A metal helmet useful for survival|n+10 str |n+3 hp/sec |n+25% spell resistance|n|cff0078d7Hat|r
+}
+
+STRING 5582
+// Items: I0AN (Titanium Helm), Name (Name)
+{
+Titanium Helm
+}
+
+STRING 5583
+// Items: I0AN (Titanium Helm), Description (Description)
+{
+A helm made of titanium +50 armor +75 str 25% spell dmg reduction|n|cff0078d7Hat|r
+}
+
+STRING 5584
+// Items: I0AN (Titanium Helm), Tip (Tooltip - Basic)
+{
+Titanium Helm
+}
+
+STRING 5585
+// Items: I0AN (Titanium Helm), Ubertip (Tooltip - Extended)
+{
+A helm made of titanium +50 armor +75 str 25% spell dmg reduction|n|cff0078d7Hat|r
+}
+
+STRING 5586
+// Items: I0AO (Stinger Arrows), Name (Name)
+{
+Stinger Arrows
+}
+
+STRING 5587
+// Items: I0AO (Stinger Arrows), Description (Description)
+{
+Stronger poison than the weak spiders, but don't touch the tip|n+20 poison dmg/sec|n+10 str|n+10 agi|n|cff0078d7Left Hand|r
+}
+
+STRING 5588
+// Items: I0AO (Stinger Arrows), Tip (Tooltip - Basic)
+{
+Stinger Arrows
+}
+
+STRING 5589
+// Items: I0AO (Stinger Arrows), Ubertip (Tooltip - Extended)
+{
+Stronger poison than the weak spiders, but don't touch the tip|n+20 poison dmg/sec|n+10 str|n+10 agi|n|cff0078d7Left Hand|r
+}
+
+STRING 5590
+// Abilities: A0F1 (stats +75 str), Name (Name)
+{
+stats +75 str
+}
+
+STRING 5591
+// Abilities: A0F2 (poison 20/sec), Name (Name)
+{
+poison 20/sec
 }
 

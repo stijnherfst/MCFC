@@ -1,86 +1,86 @@
 globals
 //globals from CTL:
 constant boolean LIBRARY_CTL=true
-integer CTL___tgc= 0
-integer array CTL___tgr
+integer CTL__tgc= 0
+integer array CTL__tgr
        
-integer CTL___ic=0
-integer CTL___tc=0
-integer array CTL___rf
-integer array CTL___n
-integer array CTL___p
-integer array CTL___th
-integer array CTL___ns
-trigger CTL___t=CreateTrigger()
-timer CTL___m=CreateTimer()
-triggercondition array CTL___ct
-conditionfunc array CTL___rc
+integer CTL__ic=0
+integer CTL__tc=0
+integer array CTL__rf
+integer array CTL__n
+integer array CTL__p
+integer array CTL__th
+integer array CTL__ns
+trigger CTL__t=CreateTrigger()
+timer CTL__m=CreateTimer()
+triggercondition array CTL__ct
+conditionfunc array CTL__rc
        
-boolean array CTL___e32
-integer array CTL___i32r
-integer CTL___i32cr= 0
-boolean array CTL___ir32
-boolean array CTL___id32
+boolean array CTL__e32
+integer array CTL__i32r
+integer CTL__i32cr= 0
+boolean array CTL__ir32
+boolean array CTL__id32
 //endglobals from CTL
 //globals from IsTerrainWalkable:
 constant boolean LIBRARY_IsTerrainWalkable=true
         // this value is how far from a point the item may end up for the point to be considered pathable
-constant real IsTerrainWalkable___MAX_RANGE=1.
+constant real IsTerrainWalkable__MAX_RANGE=1.
         // the following two variables are set to the position of the item after each pathing check
         // that way, if a point isn't pathable, these will be the coordinates of the nearest point that is
 real IsTerrainWalkable_X=0.
 real IsTerrainWalkable_Y=0.
-rect IsTerrainWalkable___r
-item IsTerrainWalkable___check
-item array IsTerrainWalkable___hidden
-integer IsTerrainWalkable___hiddenMax=0
+rect IsTerrainWalkable__r
+item IsTerrainWalkable__check
+item array IsTerrainWalkable__hidden
+integer IsTerrainWalkable__hiddenMax=0
 //endglobals from IsTerrainWalkable
 //globals from RegisterPlayerUnitEvent:
 constant boolean LIBRARY_RegisterPlayerUnitEvent=true
-trigger array RegisterPlayerUnitEvent___t
+trigger array RegisterPlayerUnitEvent__t
 //endglobals from RegisterPlayerUnitEvent
 //globals from Table:
 constant boolean LIBRARY_Table=true
-hashtable Table___ht= InitHashtable()
-integer Table___more= 2
-integer Table___less= 0
+hashtable Table__ht= InitHashtable()
+integer Table__more= 2
+integer Table__less= 0
 //endglobals from Table
 //globals from BonusChance:
 constant boolean LIBRARY_BonusChance=true
-integer BonusChance___Hash
-real array BonusChance___BonusDirect
-real array BonusChance___BonusMultiplier
-integer BonusChance___BU_Total= 0
+integer BonusChance__Hash
+real array BonusChance__BonusDirect
+real array BonusChance__BonusMultiplier
+integer BonusChance__BU_Total= 0
 //endglobals from BonusChance
 //globals from IPool:
 constant boolean LIBRARY_IPool=true
-integer IPool___ITEMS= 0
-integer IPool___WEIGHT= 0
+integer IPool__ITEMS= 0
+integer IPool__WEIGHT= 0
 //endglobals from IPool
 //globals from Jump:
 constant boolean LIBRARY_Jump=true
         // Tolerance distance for pathability
-constant real Jump___TOL= 1
+constant real Jump__TOL= 1
         // Minimum flying heigh for colliding with units. If set to 0 then won't collide with units.
-constant real Jump___U_COL_Z= 0
+constant real Jump__U_COL_Z= 0
         // Collision distance with units. Uses this if GetUnitCollision library is not used
-constant real Jump___U_COL_D= 96
+constant real Jump__U_COL_D= 96
         // Collision distance with destructables. If set to 0 then won't collide with destructables.
-constant real Jump___D_COL_D= 0
+constant real Jump__D_COL_D= 0
         // Maximum collision radius of units in the map. 196 for tier 3 Town Halls etc.
-constant real Jump___MAX_RAD= 196
+constant real Jump__MAX_RAD= 196
         // Moves the unit to nearest pathable point when landing
-constant boolean Jump___PATHING_LAND= false
+constant boolean Jump__PATHING_LAND= false
         // Is the turn speed locked when jumping
-constant boolean Jump___LOCK_FACING= false
+constant boolean Jump__LOCK_FACING= false
         
-rect Jump___rct= Rect(0, 0, 0, 0)
-group Jump___enu= CreateGroup()
-location Jump___loc= Location(0, 0)
+rect Jump__rct= Rect(0, 0, 0, 0)
+group Jump__enu= CreateGroup()
+location Jump__loc= Location(0, 0)
 real EVENT_JUMP_FINISH= 0
 unit EVENT_JUMP_UNIT= null
-real Jump___flh= 0
-boolean Jump___b= false
+real Jump__flh= 0
+boolean Jump__b= false
 //endglobals from Jump
 //globals from SpellEffectEvent:
 constant boolean LIBRARY_SpellEffectEvent=true
@@ -90,14 +90,14 @@ constant boolean LIBRARY_ItemDropSystem=true
         
         
             
-constant integer ItemDropSystem___ITEMS_MAX= 10
+constant integer ItemDropSystem__ITEMS_MAX= 10
             
         
         
-constant string ItemDropSystem___ERROR_COLOR= "|cffff0000"
-integer ItemDropSystem___GenDrop
-integer ItemDropSystem___SpecDrop
-integer ItemDropSystem___DropBoth
+constant string ItemDropSystem__ERROR_COLOR= "|cffff0000"
+integer ItemDropSystem__GenDrop
+integer ItemDropSystem__SpecDrop
+integer ItemDropSystem__DropBoth
 //endglobals from ItemDropSystem
     // User-defined
 itemtype array udg_itemclass
@@ -378,6 +378,7 @@ rect gg_rct_Volcano_Lava_4= null
 rect gg_rct_Volcano_Lava_5= null
 rect gg_rct_Arena_Entry= null
 rect gg_rct_Arena= null
+rect gg_rct_Volcano_PotTok_Spawn1= null
 camerasetup gg_cam_Arena= null
 camerasetup gg_cam_Air_Fortress= null
 camerasetup gg_cam_Shroom_Cam= null
@@ -601,9 +602,10 @@ trigger gg_trg_S_Toxic_Spider= null
 trigger gg_trg_S_Critical_Charger= null
 trigger gg_trg_S_Savage_Shrub= null
 trigger gg_trg_S_Vampire= null
-trigger gg_trg_S_Vampire_Copy= null
 trigger gg_trg_S_master_summoner= null
 trigger gg_trg_S_advanced_summon= null
+trigger gg_trg_Advanced_Summoning= null
+trigger gg_trg_Master_Summoning= null
 trigger gg_trg_Godly_Summoning= null
 trigger gg_trg_Weapon_enchance= null
 trigger gg_trg_Enhancementability= null
@@ -878,9 +880,6 @@ trigger gg_trg_Volcano_Wave_4= null
 trigger gg_trg_Volcano_Wave_5= null
 trigger gg_trg_Volcano_Wave_6= null
 trigger gg_trg_Volcano_Wave_7= null
-trigger gg_trg_Volcano_Wave_8= null
-trigger gg_trg_Volcano_Wave_9= null
-trigger gg_trg_Volcano_Wave_10= null
 trigger gg_trg_Volcano_Dhorak_Enrage= null
 trigger gg_trg_Volcano_Final_Wave= null
 trigger gg_trg_Volcano_Dhorak_Healers= null
@@ -916,11 +915,9 @@ unit gg_unit_h03D_0534= null
 unit gg_unit_h03E_0533= null
 unit gg_unit_h03G_0556= null
 unit gg_unit_h03G_0557= null
-destructable gg_dest_B000_9927= null
 destructable gg_dest_B000_1013= null
-destructable gg_dest_B002_6417= null
-destructable gg_dest_DTlv_1278= null
 destructable gg_dest_B004_13629= null
+destructable gg_dest_DTlv_1278= null
 integer item_to_unit_type
 integer type_family
 integer weapon_to_struct
@@ -941,67 +938,67 @@ integer kill_quests_count= 5
 integer array typeToFortified
 integer array typeToDivine
 integer array typeToFlying
-string JumpSpellvJASS___EFF= "Abilities\\Spells\\Human\\ThunderClap\\ThunderClapCaster.mdl"
-constant integer JumpSpellvJASS___AID= 'A0ER'
-constant integer JumpSpellvJASS___DID= 'e000'
-constant integer JumpSpellvJASS___OID= 852121
-unit JumpSpellvJASS___HARVESTER
-group JumpSpellvJASS___ENU= CreateGroup()
-constant real JumpSpellvJASS___GRAVITY= 100
-constant real JumpSpellvJASS___SPEED= 500
-constant real JumpSpellvJASS___MAX_HEIGHT= 250
-constant real JumpSpellvJASS___AOE= 200
-rect JumpSpellvJASS___REC= Rect(0, 0, 0, 0)
-integer JumpSpellvJASS___TAB
+string JumpSpellvJASS__EFF= "Abilities\\Spells\\Human\\ThunderClap\\ThunderClapCaster.mdl"
+constant integer JumpSpellvJASS__AID= 'A0ER'
+constant integer JumpSpellvJASS__DID= 'e000'
+constant integer JumpSpellvJASS__OID= 852121
+unit JumpSpellvJASS__HARVESTER
+group JumpSpellvJASS__ENU= CreateGroup()
+constant real JumpSpellvJASS__GRAVITY= 100
+constant real JumpSpellvJASS__SPEED= 500
+constant real JumpSpellvJASS__MAX_HEIGHT= 250
+constant real JumpSpellvJASS__AOE= 200
+rect JumpSpellvJASS__REC= Rect(0, 0, 0, 0)
+integer JumpSpellvJASS__TAB
 
 trigger l__library_init
 
 //JASSHelper struct globals:
 constant integer si__TimerGroup32=1
-constant integer si__Table___dex=2
-constant integer si__Table___handles=3
-constant integer si__Table___agents=4
-constant integer si__Table___reals=5
-constant integer si__Table___booleans=6
-constant integer si__Table___strings=7
-constant integer si__Table___players=8
-constant integer si__Table___widgets=9
-constant integer si__Table___destructables=10
-constant integer si__Table___items=11
-constant integer si__Table___units=12
-constant integer si__Table___abilitys=13
-constant integer si__Table___timers=14
-constant integer si__Table___triggers=15
-constant integer si__Table___triggerconditions=16
-constant integer si__Table___triggeractions=17
-constant integer si__Table___events=18
-constant integer si__Table___forces=19
-constant integer si__Table___groups=20
-constant integer si__Table___locations=21
-constant integer si__Table___rects=22
-constant integer si__Table___boolexprs=23
-constant integer si__Table___sounds=24
-constant integer si__Table___effects=25
-constant integer si__Table___unitpools=26
-constant integer si__Table___itempools=27
-constant integer si__Table___quests=28
-constant integer si__Table___questitems=29
-constant integer si__Table___defeatconditions=30
-constant integer si__Table___timerdialogs=31
-constant integer si__Table___leaderboards=32
-constant integer si__Table___multiboards=33
-constant integer si__Table___multiboarditems=34
-constant integer si__Table___trackables=35
-constant integer si__Table___dialogs=36
-constant integer si__Table___buttons=37
-constant integer si__Table___texttags=38
-constant integer si__Table___lightnings=39
-constant integer si__Table___images=40
-constant integer si__Table___ubersplats=41
-constant integer si__Table___regions=42
-constant integer si__Table___fogstates=43
-constant integer si__Table___fogmodifiers=44
-constant integer si__Table___hashtables=45
+constant integer si__Table__dex=2
+constant integer si__Table__handles=3
+constant integer si__Table__agents=4
+constant integer si__Table__reals=5
+constant integer si__Table__booleans=6
+constant integer si__Table__strings=7
+constant integer si__Table__players=8
+constant integer si__Table__widgets=9
+constant integer si__Table__destructables=10
+constant integer si__Table__items=11
+constant integer si__Table__units=12
+constant integer si__Table__abilitys=13
+constant integer si__Table__timers=14
+constant integer si__Table__triggers=15
+constant integer si__Table__triggerconditions=16
+constant integer si__Table__triggeractions=17
+constant integer si__Table__events=18
+constant integer si__Table__forces=19
+constant integer si__Table__groups=20
+constant integer si__Table__locations=21
+constant integer si__Table__rects=22
+constant integer si__Table__boolexprs=23
+constant integer si__Table__sounds=24
+constant integer si__Table__effects=25
+constant integer si__Table__unitpools=26
+constant integer si__Table__itempools=27
+constant integer si__Table__quests=28
+constant integer si__Table__questitems=29
+constant integer si__Table__defeatconditions=30
+constant integer si__Table__timerdialogs=31
+constant integer si__Table__leaderboards=32
+constant integer si__Table__multiboards=33
+constant integer si__Table__multiboarditems=34
+constant integer si__Table__trackables=35
+constant integer si__Table__dialogs=36
+constant integer si__Table__buttons=37
+constant integer si__Table__texttags=38
+constant integer si__Table__lightnings=39
+constant integer si__Table__images=40
+constant integer si__Table__ubersplats=41
+constant integer si__Table__regions=42
+constant integer si__Table__fogstates=43
+constant integer si__Table__fogmodifiers=44
+constant integer si__Table__hashtables=45
 constant integer si__Table=46
 constant integer si__TableArray=47
 constant integer si__A=48
@@ -1025,8 +1022,8 @@ real array s__Jump_colDD
 real array s__Jump_pw
 real array s__Jump_ts
 integer s__Jump_rctl32
-constant integer si__SpellEffectEvent___S=51
-integer s__SpellEffectEvent___S_tb
+constant integer si__SpellEffectEvent__S=51
+integer s__SpellEffectEvent__S_tb
 constant integer si__ItemDrop=52
 integer si__ItemDrop_F=0
 integer si__ItemDrop_I=0
@@ -1134,182 +1131,182 @@ function sc___prototype21_evaluate takes integer i,integer a1,integer a2 returns
 endfunction
 
 //library CTL:
-    function CTL___E takes nothing returns nothing
-        local integer i=CTL___ns[0]
-        set CTL___ns[0]=0
+    function CTL__E takes nothing returns nothing
+        local integer i=CTL__ns[0]
+        set CTL__ns[0]=0
         loop
             exitwhen 0 == i
-            if ( 0 == CTL___p[i] ) then
-                if ( 0 == CTL___n[i] ) then
-                    call TriggerRemoveCondition(CTL___t, CTL___ct[CTL___th[i]])
-                    set CTL___ct[CTL___th[i]]=null
-                    set CTL___tc=CTL___tc - 1
-                    set CTL___rf[CTL___th[i]]=0
+            if ( 0 == CTL__p[i] ) then
+                if ( 0 == CTL__n[i] ) then
+                    call TriggerRemoveCondition(CTL__t, CTL__ct[CTL__th[i]])
+                    set CTL__ct[CTL__th[i]]=null
+                    set CTL__tc=CTL__tc - 1
+                    set CTL__rf[CTL__th[i]]=0
                 else
-                    set CTL___rf[CTL___th[i]]=CTL___n[i]
-                    set CTL___p[CTL___n[i]]=0
+                    set CTL__rf[CTL__th[i]]=CTL__n[i]
+                    set CTL__p[CTL__n[i]]=0
                 endif
             else
-                set CTL___p[CTL___n[i]]=CTL___p[i]
-                set CTL___n[CTL___p[i]]=CTL___n[i]
+                set CTL__p[CTL__n[i]]=CTL__p[i]
+                set CTL__n[CTL__p[i]]=CTL__n[i]
             endif
-            set CTL___n[i]=CTL___n[0]
-            set CTL___n[0]=i
-            set i=CTL___ns[i]
+            set CTL__n[i]=CTL__n[0]
+            set CTL__n[0]=i
+            set i=CTL__ns[i]
         endloop
         loop
-            exitwhen 0 == CTL___i32cr
-            set CTL___i32cr=CTL___i32cr - 1
-            set i=CTL___i32r[CTL___i32cr]
-            if ( not CTL___e32[i] ) then
-                call TriggerRemoveCondition(CTL___t, CTL___ct[i])
-                set CTL___ct[i]=null
+            exitwhen 0 == CTL__i32cr
+            set CTL__i32cr=CTL__i32cr - 1
+            set i=CTL__i32r[CTL__i32cr]
+            if ( not CTL__e32[i] ) then
+                call TriggerRemoveCondition(CTL__t, CTL__ct[i])
+                set CTL__ct[i]=null
                
-                if ( CTL___id32[i] ) then
-                    set CTL___tgr[i]=CTL___tgr[0]
-                    set CTL___tgr[0]=i
-                    set CTL___id32[i]=false
-                    set CTL___e32[i]=false
-                    set CTL___ir32[i]=false
+                if ( CTL__id32[i] ) then
+                    set CTL__tgr[i]=CTL__tgr[0]
+                    set CTL__tgr[0]=i
+                    set CTL__id32[i]=false
+                    set CTL__e32[i]=false
+                    set CTL__ir32[i]=false
                 endif
             endif
         endloop
-        if ( 0 == CTL___tc ) then
-            call PauseTimer(CTL___m)
+        if ( 0 == CTL__tc ) then
+            call PauseTimer(CTL__m)
         else
-            call TriggerEvaluate(CTL___t)
+            call TriggerEvaluate(CTL__t)
         endif
     endfunction
-    function CTL___CT takes integer r returns integer
+    function CTL__CT takes integer r returns integer
         local integer i
         local integer f
-        if ( 0 == CTL___n[0] ) then
-            set i=CTL___ic + 1
-            set CTL___ic=i
+        if ( 0 == CTL__n[0] ) then
+            set i=CTL__ic + 1
+            set CTL__ic=i
         else
-            set i=CTL___n[0]
-            set CTL___n[0]=CTL___n[i]
+            set i=CTL__n[0]
+            set CTL__n[0]=CTL__n[i]
         endif
-        set CTL___th[i]=r
-        set CTL___ns[i]=- 1
-        set f=CTL___rf[r]
+        set CTL__th[i]=r
+        set CTL__ns[i]=- 1
+        set f=CTL__rf[r]
         if ( 0 == f ) then
-            set CTL___n[i]=0
-            set CTL___p[i]=0
-            set CTL___rf[r]=i
-            set CTL___ct[r]=TriggerAddCondition(CTL___t, CTL___rc[r])
+            set CTL__n[i]=0
+            set CTL__p[i]=0
+            set CTL__rf[r]=i
+            set CTL__ct[r]=TriggerAddCondition(CTL__t, CTL__rc[r])
             //set ct[r] = null
-            if ( 0 == CTL___tc ) then
-                call TimerStart(CTL___m, .031250000, true, function CTL___E)
+            if ( 0 == CTL__tc ) then
+                call TimerStart(CTL__m, .031250000, true, function CTL__E)
             endif
-            set CTL___tc=CTL___tc + 1
+            set CTL__tc=CTL__tc + 1
         else
-            set CTL___n[i]=f
-            set CTL___p[i]=0
-            set CTL___p[f]=i
-            set CTL___rf[r]=i
+            set CTL__n[i]=f
+            set CTL__p[i]=0
+            set CTL__p[f]=i
+            set CTL__rf[r]=i
         endif
         return i
     endfunction
-function CTL___DT takes integer l__CTL___t returns nothing
-            set CTL___ns[l__CTL___t]=CTL___ns[0]
-            set CTL___ns[0]=l__CTL___t
+function CTL__DT takes integer l__CTL__t returns nothing
+            set CTL__ns[l__CTL__t]=CTL__ns[0]
+            set CTL__ns[0]=l__CTL__t
     endfunction
-    function CTL___A takes code c returns integer
-        local integer i= CTL___tgr[0]
+    function CTL__A takes code c returns integer
+        local integer i= CTL__tgr[0]
         if ( 0 == i ) then
-            set i=CTL___tgc + 1
-            set CTL___tgc=i
+            set i=CTL__tgc + 1
+            set CTL__tgc=i
         else
-            set CTL___tgr[0]=CTL___tgr[i]
+            set CTL__tgr[0]=CTL__tgr[i]
         endif
-        set CTL___rc[i]=Condition(c)
+        set CTL__rc[i]=Condition(c)
         return i
     endfunction
-    function CTL___A32 takes integer i returns nothing
-        if ( not CTL___e32[i] ) then
-            if ( not CTL___ir32[i] and not CTL___id32[i] ) then
-                set CTL___ct[i]=TriggerAddCondition(CTL___t, CTL___rc[i])
+    function CTL__A32 takes integer i returns nothing
+        if ( not CTL__e32[i] ) then
+            if ( not CTL__ir32[i] and not CTL__id32[i] ) then
+                set CTL__ct[i]=TriggerAddCondition(CTL__t, CTL__rc[i])
             endif
-            if ( 0 == CTL___tc ) then
-                call TimerStart(CTL___m, .031250000, true, function CTL___E)
+            if ( 0 == CTL__tc ) then
+                call TimerStart(CTL__m, .031250000, true, function CTL__E)
             endif
-            set CTL___tc=CTL___tc + 1
-            set CTL___e32[i]=true
+            set CTL__tc=CTL__tc + 1
+            set CTL__e32[i]=true
         endif
     endfunction
-    function CTL___SR32 takes integer i returns nothing
-        if ( CTL___e32[i] ) then
-            if ( not CTL___ir32[i] and not CTL___id32[i] ) then
-                set CTL___i32r[CTL___i32cr]=i
-                set CTL___i32cr=CTL___i32cr + 1
-                set CTL___ir32[i]=true
+    function CTL__SR32 takes integer i returns nothing
+        if ( CTL__e32[i] ) then
+            if ( not CTL__ir32[i] and not CTL__id32[i] ) then
+                set CTL__i32r[CTL__i32cr]=i
+                set CTL__i32cr=CTL__i32cr + 1
+                set CTL__ir32[i]=true
             endif
-            set CTL___e32[i]=false
-            set CTL___tc=CTL___tc - 1
+            set CTL__e32[i]=false
+            set CTL__tc=CTL__tc - 1
         endif
     endfunction
-    function CTL___DT32 takes integer i returns nothing
-        if ( not CTL___id32[i] ) then
-            if ( not CTL___ir32[i] ) then
-                set CTL___ir32[i]=true
-                set CTL___tc=CTL___tc - 1
-                set CTL___i32r[CTL___i32cr]=i
-                set CTL___i32cr=CTL___i32cr + 1
-                set CTL___e32[i]=false
+    function CTL__DT32 takes integer i returns nothing
+        if ( not CTL__id32[i] ) then
+            if ( not CTL__ir32[i] ) then
+                set CTL__ir32[i]=true
+                set CTL__tc=CTL__tc - 1
+                set CTL__i32r[CTL__i32cr]=i
+                set CTL__i32cr=CTL__i32cr + 1
+                set CTL__e32[i]=false
             endif
-            set CTL___id32[i]=true
+            set CTL__id32[i]=true
         endif
     endfunction
    
         function s__TimerGroup32_create takes code c returns integer
-            return CTL___A(c)
+            return CTL__A(c)
         endfunction
         function s__TimerGroup32_destroy takes integer this returns nothing
-            call CTL___DT32(this)
+            call CTL__DT32(this)
         endfunction
         function s__TimerGroup32_start takes integer this returns nothing
-            call CTL___A32(this)
+            call CTL__A32(this)
         endfunction
         function s__TimerGroup32_stop takes integer this returns nothing
-            call CTL___SR32(this)
+            call CTL__SR32(this)
         endfunction
 
 //library CTL ends
 //library IsTerrainWalkable:
  
-    function IsTerrainWalkable___Init takes nothing returns nothing
-        set IsTerrainWalkable___check=CreateItem('ciri', 0, 0)
-        call SetItemVisible(IsTerrainWalkable___check, false)
-        set IsTerrainWalkable___r=Rect(0.0, 0.0, 128.0, 128.0)
+    function IsTerrainWalkable__Init takes nothing returns nothing
+        set IsTerrainWalkable__check=CreateItem('ciri', 0, 0)
+        call SetItemVisible(IsTerrainWalkable__check, false)
+        set IsTerrainWalkable__r=Rect(0.0, 0.0, 128.0, 128.0)
     endfunction
  
-    function IsTerrainWalkable___HideBothersomeItem takes nothing returns nothing
+    function IsTerrainWalkable__HideBothersomeItem takes nothing returns nothing
         if IsItemVisible(GetEnumItem()) then
-            set IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax]=GetEnumItem()
-            call SetItemVisible(IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax], false)
-            set IsTerrainWalkable___hiddenMax=IsTerrainWalkable___hiddenMax + 1
+            set IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax]=GetEnumItem()
+            call SetItemVisible(IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax], false)
+            set IsTerrainWalkable__hiddenMax=IsTerrainWalkable__hiddenMax + 1
         endif
     endfunction
  
     function IsTerrainWalkable takes real x,real y returns boolean
         // first, hide any items in the area so they don't get in the way of our item
-        call MoveRectTo(IsTerrainWalkable___r, x, y)
-        call EnumItemsInRect(IsTerrainWalkable___r, null, function IsTerrainWalkable___HideBothersomeItem)
+        call MoveRectTo(IsTerrainWalkable__r, x, y)
+        call EnumItemsInRect(IsTerrainWalkable__r, null, function IsTerrainWalkable__HideBothersomeItem)
         // try to move the check item and get it's coordinates
-        call SetItemPosition(IsTerrainWalkable___check, x, y) //this unhides the item...
-        set IsTerrainWalkable_X=GetItemX(IsTerrainWalkable___check) - x
-        set IsTerrainWalkable_Y=GetItemY(IsTerrainWalkable___check) - y
-        call SetItemVisible(IsTerrainWalkable___check, false) //...so we must hide it again
+        call SetItemPosition(IsTerrainWalkable__check, x, y) //this unhides the item...
+        set IsTerrainWalkable_X=GetItemX(IsTerrainWalkable__check) - x
+        set IsTerrainWalkable_Y=GetItemY(IsTerrainWalkable__check) - y
+        call SetItemVisible(IsTerrainWalkable__check, false) //...so we must hide it again
         // before returning, unhide any items that got hidden at the start
         loop
-            exitwhen IsTerrainWalkable___hiddenMax <= 0
-            set IsTerrainWalkable___hiddenMax=IsTerrainWalkable___hiddenMax - 1
-            call SetItemVisible(IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax], true)
-            set IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax]=null
+            exitwhen IsTerrainWalkable__hiddenMax <= 0
+            set IsTerrainWalkable__hiddenMax=IsTerrainWalkable__hiddenMax - 1
+            call SetItemVisible(IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax], true)
+            set IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax]=null
         endloop
         // return pathability status
-        return IsTerrainWalkable_X * IsTerrainWalkable_X + IsTerrainWalkable_Y * IsTerrainWalkable_Y < IsTerrainWalkable___MAX_RANGE
+        return IsTerrainWalkable_X * IsTerrainWalkable_X + IsTerrainWalkable_Y * IsTerrainWalkable_Y < IsTerrainWalkable__MAX_RANGE
     endfunction
 
 //library IsTerrainWalkable ends
@@ -1318,28 +1315,28 @@ function CTL___DT takes integer l__CTL___t returns nothing
     function RegisterPlayerUnitEvent takes playerunitevent p,code c returns nothing
         local integer i= GetHandleId(p)
         local integer k= 15
-        if RegisterPlayerUnitEvent___t[i] == null then
-            set RegisterPlayerUnitEvent___t[i]=CreateTrigger()
+        if RegisterPlayerUnitEvent__t[i] == null then
+            set RegisterPlayerUnitEvent__t[i]=CreateTrigger()
             loop
-                call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent___t[i], Player(k), p, null)
+                call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent__t[i], Player(k), p, null)
                 exitwhen k == 0
                 set k=k - 1
             endloop
         endif
-        call TriggerAddCondition(RegisterPlayerUnitEvent___t[i], Filter(c))
+        call TriggerAddCondition(RegisterPlayerUnitEvent__t[i], Filter(c))
     endfunction
    
     function RegisterPlayerUnitEventForPlayer takes playerunitevent p,code c,player pl returns nothing
         local integer i= 16 * GetHandleId(p) + GetPlayerId(pl)
-        if RegisterPlayerUnitEvent___t[i] == null then
-            set RegisterPlayerUnitEvent___t[i]=CreateTrigger()
-            call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent___t[i], pl, p, null)
+        if RegisterPlayerUnitEvent__t[i] == null then
+            set RegisterPlayerUnitEvent__t[i]=CreateTrigger()
+            call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent__t[i], pl, p, null)
         endif
-        call TriggerAddCondition(RegisterPlayerUnitEvent___t[i], Filter(c))
+        call TriggerAddCondition(RegisterPlayerUnitEvent__t[i], Filter(c))
     endfunction
    
     function GetPlayerUnitEventTrigger takes playerunitevent p returns trigger
-        return RegisterPlayerUnitEvent___t[GetHandleId(p)]
+        return RegisterPlayerUnitEvent__t[GetHandleId(p)]
     endfunction
 
 //library RegisterPlayerUnitEvent ends
@@ -1347,537 +1344,537 @@ function CTL___DT takes integer l__CTL___t returns nothing
 
     
     
-    function s__Table___dex__get_size takes nothing returns integer
+    function s__Table__dex__get_size takes nothing returns integer
         return 1
     endfunction
-    function s__Table___dex__get_list takes nothing returns integer
+    function s__Table__dex__get_list takes nothing returns integer
         return 2
     endfunction
     
-    function s__Table___handles_has takes integer this,integer key returns boolean
-        return HaveSavedHandle(Table___ht, this, key)
+    function s__Table__handles_has takes integer this,integer key returns boolean
+        return HaveSavedHandle(Table__ht, this, key)
     endfunction
-    function s__Table___handles_remove takes integer this,integer key returns nothing
-        call RemoveSavedHandle(Table___ht, this, key)
+    function s__Table__handles_remove takes integer this,integer key returns nothing
+        call RemoveSavedHandle(Table__ht, this, key)
     endfunction
     
-    function s__Table___agents__setindex takes integer this,integer key,agent value returns nothing
-        call SaveAgentHandle(Table___ht, this, key, value)
+    function s__Table__agents__setindex takes integer this,integer key,agent value returns nothing
+        call SaveAgentHandle(Table__ht, this, key, value)
     endfunction
     
     
     
 //textmacro instance: NEW_ARRAY_BASIC("Real", "Real", "real")
-    function s__Table___reals__getindex takes integer this,integer key returns real
-        return LoadReal(Table___ht, this, key)
+    function s__Table__reals__getindex takes integer this,integer key returns real
+        return LoadReal(Table__ht, this, key)
     endfunction
-    function s__Table___reals__setindex takes integer this,integer key,real value returns nothing
-        call SaveReal(Table___ht, this, key, value)
+    function s__Table__reals__setindex takes integer this,integer key,real value returns nothing
+        call SaveReal(Table__ht, this, key, value)
     endfunction
-    function s__Table___reals_has takes integer this,integer key returns boolean
-        return HaveSavedReal(Table___ht, this, key)
+    function s__Table__reals_has takes integer this,integer key returns boolean
+        return HaveSavedReal(Table__ht, this, key)
     endfunction
-    function s__Table___reals_remove takes integer this,integer key returns nothing
-        call RemoveSavedReal(Table___ht, this, key)
+    function s__Table__reals_remove takes integer this,integer key returns nothing
+        call RemoveSavedReal(Table__ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("Real", "Real", "real")
 //textmacro instance: NEW_ARRAY_BASIC("Boolean", "Boolean", "boolean")
-    function s__Table___booleans__getindex takes integer this,integer key returns boolean
-        return LoadBoolean(Table___ht, this, key)
+    function s__Table__booleans__getindex takes integer this,integer key returns boolean
+        return LoadBoolean(Table__ht, this, key)
     endfunction
-    function s__Table___booleans__setindex takes integer this,integer key,boolean value returns nothing
-        call SaveBoolean(Table___ht, this, key, value)
+    function s__Table__booleans__setindex takes integer this,integer key,boolean value returns nothing
+        call SaveBoolean(Table__ht, this, key, value)
     endfunction
-    function s__Table___booleans_has takes integer this,integer key returns boolean
-        return HaveSavedBoolean(Table___ht, this, key)
+    function s__Table__booleans_has takes integer this,integer key returns boolean
+        return HaveSavedBoolean(Table__ht, this, key)
     endfunction
-    function s__Table___booleans_remove takes integer this,integer key returns nothing
-        call RemoveSavedBoolean(Table___ht, this, key)
+    function s__Table__booleans_remove takes integer this,integer key returns nothing
+        call RemoveSavedBoolean(Table__ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("Boolean", "Boolean", "boolean")
 //textmacro instance: NEW_ARRAY_BASIC("String", "Str", "string")
-    function s__Table___strings__getindex takes integer this,integer key returns string
-        return LoadStr(Table___ht, this, key)
+    function s__Table__strings__getindex takes integer this,integer key returns string
+        return LoadStr(Table__ht, this, key)
     endfunction
-    function s__Table___strings__setindex takes integer this,integer key,string value returns nothing
-        call SaveStr(Table___ht, this, key, value)
+    function s__Table__strings__setindex takes integer this,integer key,string value returns nothing
+        call SaveStr(Table__ht, this, key, value)
     endfunction
-    function s__Table___strings_has takes integer this,integer key returns boolean
-        return HaveSavedString(Table___ht, this, key)
+    function s__Table__strings_has takes integer this,integer key returns boolean
+        return HaveSavedString(Table__ht, this, key)
     endfunction
-    function s__Table___strings_remove takes integer this,integer key returns nothing
-        call RemoveSavedString(Table___ht, this, key)
+    function s__Table__strings_remove takes integer this,integer key returns nothing
+        call RemoveSavedString(Table__ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("String", "Str", "string")
     
 //textmacro instance: NEW_ARRAY("Player", "player")
-    function s__Table___players__getindex takes integer this,integer key returns player
-        return LoadPlayerHandle(Table___ht, this, key)
+    function s__Table__players__getindex takes integer this,integer key returns player
+        return LoadPlayerHandle(Table__ht, this, key)
     endfunction
-    function s__Table___players__setindex takes integer this,integer key,player value returns nothing
-        call SavePlayerHandle(Table___ht, this, key, value)
+    function s__Table__players__setindex takes integer this,integer key,player value returns nothing
+        call SavePlayerHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Player", "player")
 //textmacro instance: NEW_ARRAY("Widget", "widget")
-    function s__Table___widgets__getindex takes integer this,integer key returns widget
-        return LoadWidgetHandle(Table___ht, this, key)
+    function s__Table__widgets__getindex takes integer this,integer key returns widget
+        return LoadWidgetHandle(Table__ht, this, key)
     endfunction
-    function s__Table___widgets__setindex takes integer this,integer key,widget value returns nothing
-        call SaveWidgetHandle(Table___ht, this, key, value)
+    function s__Table__widgets__setindex takes integer this,integer key,widget value returns nothing
+        call SaveWidgetHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Widget", "widget")
 //textmacro instance: NEW_ARRAY("Destructable", "destructable")
-    function s__Table___destructables__getindex takes integer this,integer key returns destructable
-        return LoadDestructableHandle(Table___ht, this, key)
+    function s__Table__destructables__getindex takes integer this,integer key returns destructable
+        return LoadDestructableHandle(Table__ht, this, key)
     endfunction
-    function s__Table___destructables__setindex takes integer this,integer key,destructable value returns nothing
-        call SaveDestructableHandle(Table___ht, this, key, value)
+    function s__Table__destructables__setindex takes integer this,integer key,destructable value returns nothing
+        call SaveDestructableHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Destructable", "destructable")
 //textmacro instance: NEW_ARRAY("Item", "item")
-    function s__Table___items__getindex takes integer this,integer key returns item
-        return LoadItemHandle(Table___ht, this, key)
+    function s__Table__items__getindex takes integer this,integer key returns item
+        return LoadItemHandle(Table__ht, this, key)
     endfunction
-    function s__Table___items__setindex takes integer this,integer key,item value returns nothing
-        call SaveItemHandle(Table___ht, this, key, value)
+    function s__Table__items__setindex takes integer this,integer key,item value returns nothing
+        call SaveItemHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Item", "item")
 //textmacro instance: NEW_ARRAY("Unit", "unit")
-    function s__Table___units__getindex takes integer this,integer key returns unit
-        return LoadUnitHandle(Table___ht, this, key)
+    function s__Table__units__getindex takes integer this,integer key returns unit
+        return LoadUnitHandle(Table__ht, this, key)
     endfunction
-    function s__Table___units__setindex takes integer this,integer key,unit value returns nothing
-        call SaveUnitHandle(Table___ht, this, key, value)
+    function s__Table__units__setindex takes integer this,integer key,unit value returns nothing
+        call SaveUnitHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Unit", "unit")
 //textmacro instance: NEW_ARRAY("Ability", "ability")
-    function s__Table___abilitys__getindex takes integer this,integer key returns ability
-        return LoadAbilityHandle(Table___ht, this, key)
+    function s__Table__abilitys__getindex takes integer this,integer key returns ability
+        return LoadAbilityHandle(Table__ht, this, key)
     endfunction
-    function s__Table___abilitys__setindex takes integer this,integer key,ability value returns nothing
-        call SaveAbilityHandle(Table___ht, this, key, value)
+    function s__Table__abilitys__setindex takes integer this,integer key,ability value returns nothing
+        call SaveAbilityHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Ability", "ability")
 //textmacro instance: NEW_ARRAY("Timer", "timer")
-    function s__Table___timers__getindex takes integer this,integer key returns timer
-        return LoadTimerHandle(Table___ht, this, key)
+    function s__Table__timers__getindex takes integer this,integer key returns timer
+        return LoadTimerHandle(Table__ht, this, key)
     endfunction
-    function s__Table___timers__setindex takes integer this,integer key,timer value returns nothing
-        call SaveTimerHandle(Table___ht, this, key, value)
+    function s__Table__timers__setindex takes integer this,integer key,timer value returns nothing
+        call SaveTimerHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Timer", "timer")
 //textmacro instance: NEW_ARRAY("Trigger", "trigger")
-    function s__Table___triggers__getindex takes integer this,integer key returns trigger
-        return LoadTriggerHandle(Table___ht, this, key)
+    function s__Table__triggers__getindex takes integer this,integer key returns trigger
+        return LoadTriggerHandle(Table__ht, this, key)
     endfunction
-    function s__Table___triggers__setindex takes integer this,integer key,trigger value returns nothing
-        call SaveTriggerHandle(Table___ht, this, key, value)
+    function s__Table__triggers__setindex takes integer this,integer key,trigger value returns nothing
+        call SaveTriggerHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Trigger", "trigger")
 //textmacro instance: NEW_ARRAY("TriggerCondition", "triggercondition")
-    function s__Table___triggerconditions__getindex takes integer this,integer key returns triggercondition
-        return LoadTriggerConditionHandle(Table___ht, this, key)
+    function s__Table__triggerconditions__getindex takes integer this,integer key returns triggercondition
+        return LoadTriggerConditionHandle(Table__ht, this, key)
     endfunction
-    function s__Table___triggerconditions__setindex takes integer this,integer key,triggercondition value returns nothing
-        call SaveTriggerConditionHandle(Table___ht, this, key, value)
+    function s__Table__triggerconditions__setindex takes integer this,integer key,triggercondition value returns nothing
+        call SaveTriggerConditionHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerCondition", "triggercondition")
 //textmacro instance: NEW_ARRAY("TriggerAction", "triggeraction")
-    function s__Table___triggeractions__getindex takes integer this,integer key returns triggeraction
-        return LoadTriggerActionHandle(Table___ht, this, key)
+    function s__Table__triggeractions__getindex takes integer this,integer key returns triggeraction
+        return LoadTriggerActionHandle(Table__ht, this, key)
     endfunction
-    function s__Table___triggeractions__setindex takes integer this,integer key,triggeraction value returns nothing
-        call SaveTriggerActionHandle(Table___ht, this, key, value)
+    function s__Table__triggeractions__setindex takes integer this,integer key,triggeraction value returns nothing
+        call SaveTriggerActionHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerAction", "triggeraction")
 //textmacro instance: NEW_ARRAY("TriggerEvent", "event")
-    function s__Table___events__getindex takes integer this,integer key returns event
-        return LoadTriggerEventHandle(Table___ht, this, key)
+    function s__Table__events__getindex takes integer this,integer key returns event
+        return LoadTriggerEventHandle(Table__ht, this, key)
     endfunction
-    function s__Table___events__setindex takes integer this,integer key,event value returns nothing
-        call SaveTriggerEventHandle(Table___ht, this, key, value)
+    function s__Table__events__setindex takes integer this,integer key,event value returns nothing
+        call SaveTriggerEventHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerEvent", "event")
 //textmacro instance: NEW_ARRAY("Force", "force")
-    function s__Table___forces__getindex takes integer this,integer key returns force
-        return LoadForceHandle(Table___ht, this, key)
+    function s__Table__forces__getindex takes integer this,integer key returns force
+        return LoadForceHandle(Table__ht, this, key)
     endfunction
-    function s__Table___forces__setindex takes integer this,integer key,force value returns nothing
-        call SaveForceHandle(Table___ht, this, key, value)
+    function s__Table__forces__setindex takes integer this,integer key,force value returns nothing
+        call SaveForceHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Force", "force")
 //textmacro instance: NEW_ARRAY("Group", "group")
-    function s__Table___groups__getindex takes integer this,integer key returns group
-        return LoadGroupHandle(Table___ht, this, key)
+    function s__Table__groups__getindex takes integer this,integer key returns group
+        return LoadGroupHandle(Table__ht, this, key)
     endfunction
-    function s__Table___groups__setindex takes integer this,integer key,group value returns nothing
-        call SaveGroupHandle(Table___ht, this, key, value)
+    function s__Table__groups__setindex takes integer this,integer key,group value returns nothing
+        call SaveGroupHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Group", "group")
 //textmacro instance: NEW_ARRAY("Location", "location")
-    function s__Table___locations__getindex takes integer this,integer key returns location
-        return LoadLocationHandle(Table___ht, this, key)
+    function s__Table__locations__getindex takes integer this,integer key returns location
+        return LoadLocationHandle(Table__ht, this, key)
     endfunction
-    function s__Table___locations__setindex takes integer this,integer key,location value returns nothing
-        call SaveLocationHandle(Table___ht, this, key, value)
+    function s__Table__locations__setindex takes integer this,integer key,location value returns nothing
+        call SaveLocationHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Location", "location")
 //textmacro instance: NEW_ARRAY("Rect", "rect")
-    function s__Table___rects__getindex takes integer this,integer key returns rect
-        return LoadRectHandle(Table___ht, this, key)
+    function s__Table__rects__getindex takes integer this,integer key returns rect
+        return LoadRectHandle(Table__ht, this, key)
     endfunction
-    function s__Table___rects__setindex takes integer this,integer key,rect value returns nothing
-        call SaveRectHandle(Table___ht, this, key, value)
+    function s__Table__rects__setindex takes integer this,integer key,rect value returns nothing
+        call SaveRectHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Rect", "rect")
 //textmacro instance: NEW_ARRAY("BooleanExpr", "boolexpr")
-    function s__Table___boolexprs__getindex takes integer this,integer key returns boolexpr
-        return LoadBooleanExprHandle(Table___ht, this, key)
+    function s__Table__boolexprs__getindex takes integer this,integer key returns boolexpr
+        return LoadBooleanExprHandle(Table__ht, this, key)
     endfunction
-    function s__Table___boolexprs__setindex takes integer this,integer key,boolexpr value returns nothing
-        call SaveBooleanExprHandle(Table___ht, this, key, value)
+    function s__Table__boolexprs__setindex takes integer this,integer key,boolexpr value returns nothing
+        call SaveBooleanExprHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("BooleanExpr", "boolexpr")
 //textmacro instance: NEW_ARRAY("Sound", "sound")
-    function s__Table___sounds__getindex takes integer this,integer key returns sound
-        return LoadSoundHandle(Table___ht, this, key)
+    function s__Table__sounds__getindex takes integer this,integer key returns sound
+        return LoadSoundHandle(Table__ht, this, key)
     endfunction
-    function s__Table___sounds__setindex takes integer this,integer key,sound value returns nothing
-        call SaveSoundHandle(Table___ht, this, key, value)
+    function s__Table__sounds__setindex takes integer this,integer key,sound value returns nothing
+        call SaveSoundHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Sound", "sound")
 //textmacro instance: NEW_ARRAY("Effect", "effect")
-    function s__Table___effects__getindex takes integer this,integer key returns effect
-        return LoadEffectHandle(Table___ht, this, key)
+    function s__Table__effects__getindex takes integer this,integer key returns effect
+        return LoadEffectHandle(Table__ht, this, key)
     endfunction
-    function s__Table___effects__setindex takes integer this,integer key,effect value returns nothing
-        call SaveEffectHandle(Table___ht, this, key, value)
+    function s__Table__effects__setindex takes integer this,integer key,effect value returns nothing
+        call SaveEffectHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Effect", "effect")
 //textmacro instance: NEW_ARRAY("UnitPool", "unitpool")
-    function s__Table___unitpools__getindex takes integer this,integer key returns unitpool
-        return LoadUnitPoolHandle(Table___ht, this, key)
+    function s__Table__unitpools__getindex takes integer this,integer key returns unitpool
+        return LoadUnitPoolHandle(Table__ht, this, key)
     endfunction
-    function s__Table___unitpools__setindex takes integer this,integer key,unitpool value returns nothing
-        call SaveUnitPoolHandle(Table___ht, this, key, value)
+    function s__Table__unitpools__setindex takes integer this,integer key,unitpool value returns nothing
+        call SaveUnitPoolHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("UnitPool", "unitpool")
 //textmacro instance: NEW_ARRAY("ItemPool", "itempool")
-    function s__Table___itempools__getindex takes integer this,integer key returns itempool
-        return LoadItemPoolHandle(Table___ht, this, key)
+    function s__Table__itempools__getindex takes integer this,integer key returns itempool
+        return LoadItemPoolHandle(Table__ht, this, key)
     endfunction
-    function s__Table___itempools__setindex takes integer this,integer key,itempool value returns nothing
-        call SaveItemPoolHandle(Table___ht, this, key, value)
+    function s__Table__itempools__setindex takes integer this,integer key,itempool value returns nothing
+        call SaveItemPoolHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("ItemPool", "itempool")
 //textmacro instance: NEW_ARRAY("Quest", "quest")
-    function s__Table___quests__getindex takes integer this,integer key returns quest
-        return LoadQuestHandle(Table___ht, this, key)
+    function s__Table__quests__getindex takes integer this,integer key returns quest
+        return LoadQuestHandle(Table__ht, this, key)
     endfunction
-    function s__Table___quests__setindex takes integer this,integer key,quest value returns nothing
-        call SaveQuestHandle(Table___ht, this, key, value)
+    function s__Table__quests__setindex takes integer this,integer key,quest value returns nothing
+        call SaveQuestHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Quest", "quest")
 //textmacro instance: NEW_ARRAY("QuestItem", "questitem")
-    function s__Table___questitems__getindex takes integer this,integer key returns questitem
-        return LoadQuestItemHandle(Table___ht, this, key)
+    function s__Table__questitems__getindex takes integer this,integer key returns questitem
+        return LoadQuestItemHandle(Table__ht, this, key)
     endfunction
-    function s__Table___questitems__setindex takes integer this,integer key,questitem value returns nothing
-        call SaveQuestItemHandle(Table___ht, this, key, value)
+    function s__Table__questitems__setindex takes integer this,integer key,questitem value returns nothing
+        call SaveQuestItemHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("QuestItem", "questitem")
 //textmacro instance: NEW_ARRAY("DefeatCondition", "defeatcondition")
-    function s__Table___defeatconditions__getindex takes integer this,integer key returns defeatcondition
-        return LoadDefeatConditionHandle(Table___ht, this, key)
+    function s__Table__defeatconditions__getindex takes integer this,integer key returns defeatcondition
+        return LoadDefeatConditionHandle(Table__ht, this, key)
     endfunction
-    function s__Table___defeatconditions__setindex takes integer this,integer key,defeatcondition value returns nothing
-        call SaveDefeatConditionHandle(Table___ht, this, key, value)
+    function s__Table__defeatconditions__setindex takes integer this,integer key,defeatcondition value returns nothing
+        call SaveDefeatConditionHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("DefeatCondition", "defeatcondition")
 //textmacro instance: NEW_ARRAY("TimerDialog", "timerdialog")
-    function s__Table___timerdialogs__getindex takes integer this,integer key returns timerdialog
-        return LoadTimerDialogHandle(Table___ht, this, key)
+    function s__Table__timerdialogs__getindex takes integer this,integer key returns timerdialog
+        return LoadTimerDialogHandle(Table__ht, this, key)
     endfunction
-    function s__Table___timerdialogs__setindex takes integer this,integer key,timerdialog value returns nothing
-        call SaveTimerDialogHandle(Table___ht, this, key, value)
+    function s__Table__timerdialogs__setindex takes integer this,integer key,timerdialog value returns nothing
+        call SaveTimerDialogHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TimerDialog", "timerdialog")
 //textmacro instance: NEW_ARRAY("Leaderboard", "leaderboard")
-    function s__Table___leaderboards__getindex takes integer this,integer key returns leaderboard
-        return LoadLeaderboardHandle(Table___ht, this, key)
+    function s__Table__leaderboards__getindex takes integer this,integer key returns leaderboard
+        return LoadLeaderboardHandle(Table__ht, this, key)
     endfunction
-    function s__Table___leaderboards__setindex takes integer this,integer key,leaderboard value returns nothing
-        call SaveLeaderboardHandle(Table___ht, this, key, value)
+    function s__Table__leaderboards__setindex takes integer this,integer key,leaderboard value returns nothing
+        call SaveLeaderboardHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Leaderboard", "leaderboard")
 //textmacro instance: NEW_ARRAY("Multiboard", "multiboard")
-    function s__Table___multiboards__getindex takes integer this,integer key returns multiboard
-        return LoadMultiboardHandle(Table___ht, this, key)
+    function s__Table__multiboards__getindex takes integer this,integer key returns multiboard
+        return LoadMultiboardHandle(Table__ht, this, key)
     endfunction
-    function s__Table___multiboards__setindex takes integer this,integer key,multiboard value returns nothing
-        call SaveMultiboardHandle(Table___ht, this, key, value)
+    function s__Table__multiboards__setindex takes integer this,integer key,multiboard value returns nothing
+        call SaveMultiboardHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Multiboard", "multiboard")
 //textmacro instance: NEW_ARRAY("MultiboardItem", "multiboarditem")
-    function s__Table___multiboarditems__getindex takes integer this,integer key returns multiboarditem
-        return LoadMultiboardItemHandle(Table___ht, this, key)
+    function s__Table__multiboarditems__getindex takes integer this,integer key returns multiboarditem
+        return LoadMultiboardItemHandle(Table__ht, this, key)
     endfunction
-    function s__Table___multiboarditems__setindex takes integer this,integer key,multiboarditem value returns nothing
-        call SaveMultiboardItemHandle(Table___ht, this, key, value)
+    function s__Table__multiboarditems__setindex takes integer this,integer key,multiboarditem value returns nothing
+        call SaveMultiboardItemHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("MultiboardItem", "multiboarditem")
 //textmacro instance: NEW_ARRAY("Trackable", "trackable")
-    function s__Table___trackables__getindex takes integer this,integer key returns trackable
-        return LoadTrackableHandle(Table___ht, this, key)
+    function s__Table__trackables__getindex takes integer this,integer key returns trackable
+        return LoadTrackableHandle(Table__ht, this, key)
     endfunction
-    function s__Table___trackables__setindex takes integer this,integer key,trackable value returns nothing
-        call SaveTrackableHandle(Table___ht, this, key, value)
+    function s__Table__trackables__setindex takes integer this,integer key,trackable value returns nothing
+        call SaveTrackableHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Trackable", "trackable")
 //textmacro instance: NEW_ARRAY("Dialog", "dialog")
-    function s__Table___dialogs__getindex takes integer this,integer key returns dialog
-        return LoadDialogHandle(Table___ht, this, key)
+    function s__Table__dialogs__getindex takes integer this,integer key returns dialog
+        return LoadDialogHandle(Table__ht, this, key)
     endfunction
-    function s__Table___dialogs__setindex takes integer this,integer key,dialog value returns nothing
-        call SaveDialogHandle(Table___ht, this, key, value)
+    function s__Table__dialogs__setindex takes integer this,integer key,dialog value returns nothing
+        call SaveDialogHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Dialog", "dialog")
 //textmacro instance: NEW_ARRAY("Button", "button")
-    function s__Table___buttons__getindex takes integer this,integer key returns button
-        return LoadButtonHandle(Table___ht, this, key)
+    function s__Table__buttons__getindex takes integer this,integer key returns button
+        return LoadButtonHandle(Table__ht, this, key)
     endfunction
-    function s__Table___buttons__setindex takes integer this,integer key,button value returns nothing
-        call SaveButtonHandle(Table___ht, this, key, value)
+    function s__Table__buttons__setindex takes integer this,integer key,button value returns nothing
+        call SaveButtonHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Button", "button")
 //textmacro instance: NEW_ARRAY("TextTag", "texttag")
-    function s__Table___texttags__getindex takes integer this,integer key returns texttag
-        return LoadTextTagHandle(Table___ht, this, key)
+    function s__Table__texttags__getindex takes integer this,integer key returns texttag
+        return LoadTextTagHandle(Table__ht, this, key)
     endfunction
-    function s__Table___texttags__setindex takes integer this,integer key,texttag value returns nothing
-        call SaveTextTagHandle(Table___ht, this, key, value)
+    function s__Table__texttags__setindex takes integer this,integer key,texttag value returns nothing
+        call SaveTextTagHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TextTag", "texttag")
 //textmacro instance: NEW_ARRAY("Lightning", "lightning")
-    function s__Table___lightnings__getindex takes integer this,integer key returns lightning
-        return LoadLightningHandle(Table___ht, this, key)
+    function s__Table__lightnings__getindex takes integer this,integer key returns lightning
+        return LoadLightningHandle(Table__ht, this, key)
     endfunction
-    function s__Table___lightnings__setindex takes integer this,integer key,lightning value returns nothing
-        call SaveLightningHandle(Table___ht, this, key, value)
+    function s__Table__lightnings__setindex takes integer this,integer key,lightning value returns nothing
+        call SaveLightningHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Lightning", "lightning")
 //textmacro instance: NEW_ARRAY("Image", "image")
-    function s__Table___images__getindex takes integer this,integer key returns image
-        return LoadImageHandle(Table___ht, this, key)
+    function s__Table__images__getindex takes integer this,integer key returns image
+        return LoadImageHandle(Table__ht, this, key)
     endfunction
-    function s__Table___images__setindex takes integer this,integer key,image value returns nothing
-        call SaveImageHandle(Table___ht, this, key, value)
+    function s__Table__images__setindex takes integer this,integer key,image value returns nothing
+        call SaveImageHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Image", "image")
 //textmacro instance: NEW_ARRAY("Ubersplat", "ubersplat")
-    function s__Table___ubersplats__getindex takes integer this,integer key returns ubersplat
-        return LoadUbersplatHandle(Table___ht, this, key)
+    function s__Table__ubersplats__getindex takes integer this,integer key returns ubersplat
+        return LoadUbersplatHandle(Table__ht, this, key)
     endfunction
-    function s__Table___ubersplats__setindex takes integer this,integer key,ubersplat value returns nothing
-        call SaveUbersplatHandle(Table___ht, this, key, value)
+    function s__Table__ubersplats__setindex takes integer this,integer key,ubersplat value returns nothing
+        call SaveUbersplatHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Ubersplat", "ubersplat")
 //textmacro instance: NEW_ARRAY("Region", "region")
-    function s__Table___regions__getindex takes integer this,integer key returns region
-        return LoadRegionHandle(Table___ht, this, key)
+    function s__Table__regions__getindex takes integer this,integer key returns region
+        return LoadRegionHandle(Table__ht, this, key)
     endfunction
-    function s__Table___regions__setindex takes integer this,integer key,region value returns nothing
-        call SaveRegionHandle(Table___ht, this, key, value)
+    function s__Table__regions__setindex takes integer this,integer key,region value returns nothing
+        call SaveRegionHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Region", "region")
 //textmacro instance: NEW_ARRAY("FogState", "fogstate")
-    function s__Table___fogstates__getindex takes integer this,integer key returns fogstate
-        return LoadFogStateHandle(Table___ht, this, key)
+    function s__Table__fogstates__getindex takes integer this,integer key returns fogstate
+        return LoadFogStateHandle(Table__ht, this, key)
     endfunction
-    function s__Table___fogstates__setindex takes integer this,integer key,fogstate value returns nothing
-        call SaveFogStateHandle(Table___ht, this, key, value)
+    function s__Table__fogstates__setindex takes integer this,integer key,fogstate value returns nothing
+        call SaveFogStateHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("FogState", "fogstate")
 //textmacro instance: NEW_ARRAY("FogModifier", "fogmodifier")
-    function s__Table___fogmodifiers__getindex takes integer this,integer key returns fogmodifier
-        return LoadFogModifierHandle(Table___ht, this, key)
+    function s__Table__fogmodifiers__getindex takes integer this,integer key returns fogmodifier
+        return LoadFogModifierHandle(Table__ht, this, key)
     endfunction
-    function s__Table___fogmodifiers__setindex takes integer this,integer key,fogmodifier value returns nothing
-        call SaveFogModifierHandle(Table___ht, this, key, value)
+    function s__Table__fogmodifiers__setindex takes integer this,integer key,fogmodifier value returns nothing
+        call SaveFogModifierHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("FogModifier", "fogmodifier")
 //textmacro instance: NEW_ARRAY("Hashtable", "hashtable")
-    function s__Table___hashtables__getindex takes integer this,integer key returns hashtable
-        return LoadHashtableHandle(Table___ht, this, key)
+    function s__Table__hashtables__getindex takes integer this,integer key returns hashtable
+        return LoadHashtableHandle(Table__ht, this, key)
     endfunction
-    function s__Table___hashtables__setindex takes integer this,integer key,hashtable value returns nothing
-        call SaveHashtableHandle(Table___ht, this, key, value)
+    function s__Table__hashtables__setindex takes integer this,integer key,hashtable value returns nothing
+        call SaveHashtableHandle(Table__ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Hashtable", "hashtable")
     
     
     // Implement modules for intuitive type-syntax
-//Implemented from module Table___realm:
+//Implemented from module Table__realm:
     function s__Table__get_real takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___booleanm:
+//Implemented from module Table__booleanm:
     function s__Table__get_boolean takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___stringm:
+//Implemented from module Table__stringm:
     function s__Table__get_string takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___playerm:
+//Implemented from module Table__playerm:
     function s__Table__get_player takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___widgetm:
+//Implemented from module Table__widgetm:
     function s__Table__get_widget takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___destructablem:
+//Implemented from module Table__destructablem:
     function s__Table__get_destructable takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___itemm:
+//Implemented from module Table__itemm:
     function s__Table__get_item takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___unitm:
+//Implemented from module Table__unitm:
     function s__Table__get_unit takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___abilitym:
+//Implemented from module Table__abilitym:
     function s__Table__get_ability takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___timerm:
+//Implemented from module Table__timerm:
     function s__Table__get_timer takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___triggerm:
+//Implemented from module Table__triggerm:
     function s__Table__get_trigger takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___triggerconditionm:
+//Implemented from module Table__triggerconditionm:
     function s__Table__get_triggercondition takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___triggeractionm:
+//Implemented from module Table__triggeractionm:
     function s__Table__get_triggeraction takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___eventm:
+//Implemented from module Table__eventm:
     function s__Table__get_event takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___forcem:
+//Implemented from module Table__forcem:
     function s__Table__get_force takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___groupm:
+//Implemented from module Table__groupm:
     function s__Table__get_group takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___locationm:
+//Implemented from module Table__locationm:
     function s__Table__get_location takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___rectm:
+//Implemented from module Table__rectm:
     function s__Table__get_rect takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___boolexprm:
+//Implemented from module Table__boolexprm:
     function s__Table__get_boolexpr takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___soundm:
+//Implemented from module Table__soundm:
     function s__Table__get_sound takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___effectm:
+//Implemented from module Table__effectm:
     function s__Table__get_effect takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___unitpoolm:
+//Implemented from module Table__unitpoolm:
     function s__Table__get_unitpool takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___itempoolm:
+//Implemented from module Table__itempoolm:
     function s__Table__get_itempool takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___questm:
+//Implemented from module Table__questm:
     function s__Table__get_quest takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___questitemm:
+//Implemented from module Table__questitemm:
     function s__Table__get_questitem takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___defeatconditionm:
+//Implemented from module Table__defeatconditionm:
     function s__Table__get_defeatcondition takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___timerdialogm:
+//Implemented from module Table__timerdialogm:
     function s__Table__get_timerdialog takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___leaderboardm:
+//Implemented from module Table__leaderboardm:
     function s__Table__get_leaderboard takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___multiboardm:
+//Implemented from module Table__multiboardm:
     function s__Table__get_multiboard takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___multiboarditemm:
+//Implemented from module Table__multiboarditemm:
     function s__Table__get_multiboarditem takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___trackablem:
+//Implemented from module Table__trackablem:
     function s__Table__get_trackable takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___dialogm:
+//Implemented from module Table__dialogm:
     function s__Table__get_dialog takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___buttonm:
+//Implemented from module Table__buttonm:
     function s__Table__get_button takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___texttagm:
+//Implemented from module Table__texttagm:
     function s__Table__get_texttag takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___lightningm:
+//Implemented from module Table__lightningm:
     function s__Table__get_lightning takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___imagem:
+//Implemented from module Table__imagem:
     function s__Table__get_image takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___ubersplatm:
+//Implemented from module Table__ubersplatm:
     function s__Table__get_ubersplat takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___regionm:
+//Implemented from module Table__regionm:
     function s__Table__get_region takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___fogstatem:
+//Implemented from module Table__fogstatem:
     function s__Table__get_fogstate takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___fogmodifierm:
+//Implemented from module Table__fogmodifierm:
     function s__Table__get_fogmodifier takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table___hashtablem:
+//Implemented from module Table__hashtablem:
     function s__Table__get_hashtable takes integer this returns integer
         return this
     endfunction
@@ -1892,39 +1889,39 @@ function CTL___DT takes integer l__CTL___t returns nothing
     
     // set this = a[GetSpellAbilityId()]
     function s__Table__getindex takes integer this,integer key returns integer
-        return LoadInteger(Table___ht, this, key)
+        return LoadInteger(Table__ht, this, key)
     endfunction
     
     // set a[389034] = 8192
     function s__Table__setindex takes integer this,integer key,integer a returns nothing
-        call SaveInteger(Table___ht, this, key, a)
+        call SaveInteger(Table__ht, this, key, a)
     endfunction
     
     // set b = a.has(2493223)
     function s__Table_has takes integer this,integer key returns boolean
-        return HaveSavedInteger(Table___ht, this, key)
+        return HaveSavedInteger(Table__ht, this, key)
     endfunction
     
     // call a.remove(294080)
     function s__Table_remove takes integer this,integer key returns nothing
-        call RemoveSavedInteger(Table___ht, this, key)
+        call RemoveSavedInteger(Table__ht, this, key)
     endfunction
     
     // Remove all data from a Table instance
     function s__Table_flush takes integer this returns nothing
-        call FlushChildHashtable(Table___ht, this)
+        call FlushChildHashtable(Table__ht, this)
     endfunction
     
     // local Table a = Table.create()
     function s__Table_create takes nothing returns integer
-        local integer this= (LoadInteger(Table___ht, ((2)), (0))) // INLINED!!
+        local integer this= (LoadInteger(Table__ht, ((2)), (0))) // INLINED!!
         
         if this == 0 then
-            set Table___more=Table___more + 1
-            set this=Table___more
+            set Table__more=Table__more + 1
+            set this=Table__more
         else
-            call SaveInteger(Table___ht, ((2)), (0), ( (LoadInteger(Table___ht, ((2)), (this))))) // INLINED!!
-            call RemoveSavedInteger(Table___ht, ((2)), (this)) // INLINED!!
+            call SaveInteger(Table__ht, ((2)), (0), ( (LoadInteger(Table__ht, ((2)), (this))))) // INLINED!!
+            call RemoveSavedInteger(Table__ht, ((2)), (this)) // INLINED!!
         endif
         
         return this
@@ -1936,10 +1933,10 @@ function CTL___DT takes integer l__CTL___t returns nothing
     //
     function s__Table_destroy takes integer this returns nothing
         
-        call FlushChildHashtable(Table___ht, (this)) // INLINED!!
+        call FlushChildHashtable(Table__ht, (this)) // INLINED!!
         
-        call SaveInteger(Table___ht, ((2)), (this), ( (LoadInteger(Table___ht, ((2)), (0))))) // INLINED!!
-        call SaveInteger(Table___ht, ((2)), (0), ( this)) // INLINED!!
+        call SaveInteger(Table__ht, ((2)), (this), ( (LoadInteger(Table__ht, ((2)), (0))))) // INLINED!!
+        call SaveInteger(Table__ht, ((2)), (0), ( this)) // INLINED!!
     endfunction
     
     
@@ -1949,25 +1946,25 @@ function CTL___DT takes integer l__CTL___t returns nothing
     //    local TableArray ta = TableArray[array_size]
     //
     function s__TableArray__staticgetindex takes integer array_size returns integer
-        local integer a= (LoadInteger(Table___ht, ((1)), (array_size))) // INLINED!!
-        local integer this= (LoadInteger(Table___ht, (a), (0))) // INLINED!!
+        local integer a= (LoadInteger(Table__ht, ((1)), (array_size))) // INLINED!!
+        local integer this= (LoadInteger(Table__ht, (a), (0))) // INLINED!!
         
         
         if this == 0 then
-            set Table___less=Table___less - array_size
-            set this=Table___less
+            set Table__less=Table__less - array_size
+            set this=Table__less
         else
-            call SaveInteger(Table___ht, (a), (0), ( (LoadInteger(Table___ht, (a), (this))))) //Set the last destroyed to the last-last destroyed // INLINED!!
-            call RemoveSavedInteger(Table___ht, (a), (this)) //Clear hash memory // INLINED!!
+            call SaveInteger(Table__ht, (a), (0), ( (LoadInteger(Table__ht, (a), (this))))) //Set the last destroyed to the last-last destroyed // INLINED!!
+            call RemoveSavedInteger(Table__ht, (a), (this)) //Clear hash memory // INLINED!!
         endif
         
-        call SaveInteger(Table___ht, ((1)), (this), ( array_size)) //This remembers the array size // INLINED!!
+        call SaveInteger(Table__ht, ((1)), (this), ( array_size)) //This remembers the array size // INLINED!!
         return this
     endfunction
     
     //Returns the size of the TableArray
     function s__TableArray__get_size takes integer this returns integer
-        return (LoadInteger(Table___ht, ((1)), (this))) // INLINED!!
+        return (LoadInteger(Table__ht, ((1)), (this))) // INLINED!!
     endfunction
     
     //da[integer a].unit[integer b] = unit u
@@ -1995,19 +1992,19 @@ function CTL___DT takes integer l__CTL___t returns nothing
     //TableArray.
     //
     function s__TableArray_destroy takes integer this returns nothing
-        local integer a= (LoadInteger(Table___ht, ((1)), ((LoadInteger(Table___ht, ((1)), ((this))))))) // INLINED!!
+        local integer a= (LoadInteger(Table__ht, ((1)), ((LoadInteger(Table__ht, ((1)), ((this))))))) // INLINED!!
         
         
         if a == 0 then
             //Create an array to index recycled instances with their array size
             set a=s__Table_create()
-            call SaveInteger(Table___ht, ((1)), ((LoadInteger(Table___ht, ((1)), ((this))))), ( a)) // INLINED!!
+            call SaveInteger(Table__ht, ((1)), ((LoadInteger(Table__ht, ((1)), ((this))))), ( a)) // INLINED!!
         endif
         
-        call RemoveSavedInteger(Table___ht, ((1)), (this)) //Clear the array size from hash memory // INLINED!!
+        call RemoveSavedInteger(Table__ht, ((1)), (this)) //Clear the array size from hash memory // INLINED!!
         
-        call SaveInteger(Table___ht, (a), (this), ( (LoadInteger(Table___ht, (a), (0))))) // INLINED!!
-        call SaveInteger(Table___ht, (a), (0), ( this)) // INLINED!!
+        call SaveInteger(Table__ht, (a), (this), ( (LoadInteger(Table__ht, (a), (0))))) // INLINED!!
+        call SaveInteger(Table__ht, (a), (0), ( this)) // INLINED!!
     endfunction
     
     //All you need to know about this one is that it won't hit the op limit.
@@ -2018,7 +2015,7 @@ function CTL___DT takes integer l__CTL___t returns nothing
             set end=i
         endif
         loop
-            call FlushChildHashtable(Table___ht, (a)) // INLINED!!
+            call FlushChildHashtable(Table__ht, (a)) // INLINED!!
             set a=a + 1
             exitwhen a == end
         endloop
@@ -2028,7 +2025,7 @@ function CTL___DT takes integer l__CTL___t returns nothing
     //similar to the FlushParentHashtable native than this.
     //
     function s__TableArray_flush takes integer this returns nothing
-        local integer end= (LoadInteger(Table___ht, ((1)), ((this)))) + this // INLINED!!
+        local integer end= (LoadInteger(Table__ht, ((1)), ((this)))) + this // INLINED!!
         call s__TableArray_clean(this , end)
         call s__TableArray_destroy(this)
     endfunction
@@ -2041,52 +2038,52 @@ function CTL___DT takes integer l__CTL___t returns nothing
     
     
     function BonusRegister takes unit u returns nothing
-        set BonusChance___BU_Total=BonusChance___BU_Total + 1
-        set BonusChance___BonusDirect[BonusChance___BU_Total]=1.00
-        set BonusChance___BonusMultiplier[BonusChance___BU_Total]=1.00
-        call SaveInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)), ( BonusChance___BU_Total)) // INLINED!!
+        set BonusChance__BU_Total=BonusChance__BU_Total + 1
+        set BonusChance__BonusDirect[BonusChance__BU_Total]=1.00
+        set BonusChance__BonusMultiplier[BonusChance__BU_Total]=1.00
+        call SaveInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)), ( BonusChance__BU_Total)) // INLINED!!
     endfunction
     
     
     
     function BonusApplyDirect takes unit u,real bonus,boolean add returns nothing
-        local integer i= (LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)))) // INLINED!!
+        local integer i= (LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)))) // INLINED!!
         if add then
-            set BonusChance___BonusDirect[i]=BonusChance___BonusDirect[i] + bonus
+            set BonusChance__BonusDirect[i]=BonusChance__BonusDirect[i] + bonus
         else
-            set BonusChance___BonusDirect[i]=bonus
+            set BonusChance__BonusDirect[i]=bonus
         endif
     endfunction
     
     
     
     function BonusApplyMulti takes unit u,real bonus,boolean add returns nothing
-        local integer i= (LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)))) // INLINED!!
+        local integer i= (LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)))) // INLINED!!
         if add then
-            set BonusChance___BonusMultiplier[i]=BonusChance___BonusMultiplier[i] + bonus
+            set BonusChance__BonusMultiplier[i]=BonusChance__BonusMultiplier[i] + bonus
         else
-            set BonusChance___BonusMultiplier[i]=bonus
+            set BonusChance__BonusMultiplier[i]=bonus
         endif
     endfunction
     
     
     
     function BonusGetDirect takes unit u returns real
-        return BonusChance___BonusDirect[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] // INLINED!!
+        return BonusChance__BonusDirect[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] // INLINED!!
     endfunction
     
     function BonusGetMulti takes unit u returns real
-        if BonusChance___BonusMultiplier[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] == 0.0 then // INLINED!!
+        if BonusChance__BonusMultiplier[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] == 0.0 then // INLINED!!
             return 1.0
         else
-            return BonusChance___BonusMultiplier[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] // INLINED!!
+            return BonusChance__BonusMultiplier[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] // INLINED!!
         endif
     endfunction
     
     
-//Implemented from module BonusChance___mod:
+//Implemented from module BonusChance__mod:
         function s__A_onInit takes nothing returns nothing
-            set BonusChance___Hash=s__Table_create()
+            set BonusChance__Hash=s__Table_create()
         endfunction
         
         
@@ -2101,10 +2098,10 @@ function CTL___DT takes integer l__CTL___t returns nothing
     
     
         
-//Implemented from module IPool___Init:
-        function s__IPool_IPool___Init__onInit takes nothing returns nothing
-            set IPool___ITEMS=s__Table_create()
-            set IPool___WEIGHT=s__Table_create()
+//Implemented from module IPool__Init:
+        function s__IPool_IPool__Init___onInit takes nothing returns nothing
+            set IPool__ITEMS=s__Table_create()
+            set IPool__WEIGHT=s__Table_create()
         endfunction
         
         function s__IPool_create takes nothing returns integer
@@ -2132,39 +2129,39 @@ function CTL___DT takes integer l__CTL___t returns nothing
         endfunction
         
         function s__IPool_link takes integer this,integer node,integer slot returns nothing
-            call SaveInteger(Table___ht, (((((this))) + (2))), (slot), ( node)) // INLINED!!
-            call SaveInteger(Table___ht, (((((this))) + (3))), (node), ( slot)) // INLINED!!
+            call SaveInteger(Table__ht, (((((this))) + (2))), (slot), ( node)) // INLINED!!
+            call SaveInteger(Table__ht, (((((this))) + (3))), (node), ( slot)) // INLINED!!
         endfunction
         
         function s__IPool__get_weight takes integer this returns integer
-            return (LoadInteger(Table___ht, (IPool___WEIGHT), (this))) // INLINED!!
+            return (LoadInteger(Table__ht, (IPool__WEIGHT), (this))) // INLINED!!
         endfunction
         
         function s__IPool__get_itemCount takes integer this returns integer
-            return (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
+            return (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
         endfunction
         
         function s__IPool__get_item takes integer this returns integer
-            return (LoadInteger(Table___ht, (((this))), (GetRandomInt(0, (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) - 1)))) // INLINED!!
+            return (LoadInteger(Table__ht, (((this))), (GetRandomInt(0, (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) - 1)))) // INLINED!!
         endfunction
         
         function s__IPool_flush takes integer this returns nothing
-            local integer j= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
+            local integer j= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
             local integer t= ((((this))) + (2)) // INLINED!!
             loop
                 set j=j - 1
                 exitwhen 0 > j
                 
-                call s__Table_destroy((LoadInteger(Table___ht, (((((this))) + (1))), ((LoadInteger(Table___ht, (t), (j))))))) // INLINED!!
+                call s__Table_destroy((LoadInteger(Table__ht, (((((this))) + (1))), ((LoadInteger(Table__ht, (t), (j))))))) // INLINED!!
             endloop
             set t=this + 5
             loop
                 set t=t - 1
-                call FlushChildHashtable(Table___ht, (t)) // INLINED!!
+                call FlushChildHashtable(Table__ht, (t)) // INLINED!!
                 exitwhen t == this
             endloop
-            call RemoveSavedInteger(Table___ht, (IPool___ITEMS), (this)) // INLINED!!
-            call RemoveSavedInteger(Table___ht, (IPool___WEIGHT), (this)) // INLINED!!
+            call RemoveSavedInteger(Table__ht, (IPool__ITEMS), (this)) // INLINED!!
+            call RemoveSavedInteger(Table__ht, (IPool__WEIGHT), (this)) // INLINED!!
         endfunction
         
         function s__IPool_destroy takes integer this returns nothing
@@ -2173,34 +2170,34 @@ function CTL___DT takes integer l__CTL___t returns nothing
         endfunction
         
         function s__IPool_contains takes integer this,integer value returns boolean
-            return 0 != (LoadInteger(Table___ht, (((((this))) + (1))), (value))) // INLINED!!
+            return 0 != (LoadInteger(Table__ht, (((((this))) + (1))), (value))) // INLINED!!
         endfunction
         
         function s__IPool_weightOf takes integer this,integer value returns integer
-            return (LoadInteger(Table___ht, (((((this))) + (4))), (value))) // INLINED!!
+            return (LoadInteger(Table__ht, (((((this))) + (4))), (value))) // INLINED!!
         endfunction
         
         function s__IPool_chanceOf takes integer this,integer value returns real
-            return (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value)))) / ( (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) + 0. ) // INLINED!!
+            return (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value)))) / ( (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) + 0. ) // INLINED!!
         endfunction
         
         function s__IPool_shiftWeight takes integer this,integer value,integer lbs returns nothing
-            local integer nw= (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value)))) // INLINED!!
-            local integer pw= (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) // INLINED!!
-            local integer tbls= (LoadInteger(Table___ht, (((((this))) + (1))), (value))) // INLINED!!
+            local integer nw= (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value)))) // INLINED!!
+            local integer pw= (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) // INLINED!!
+            local integer tbls= (LoadInteger(Table__ht, (((((this))) + (1))), (value))) // INLINED!!
             local integer sl
             local integer tv
             
             if 0 != tbls then
                 if 0 != lbs then
                     if 0 <= lbs + nw then
-                        call SaveInteger(Table___ht, (IPool___WEIGHT), (this), ( pw + lbs)) // INLINED!!
+                        call SaveInteger(Table__ht, (IPool__WEIGHT), (this), ( pw + lbs)) // INLINED!!
                         set lbs=lbs + nw
                         if lbs > nw then
                             loop
                                 exitwhen nw == lbs
-                                call SaveInteger(Table___ht, (((this))), (pw), ( value)) //Append value to Pool table // INLINED!!
-                                call SaveInteger(Table___ht, (tbls), (nw), ( pw)) //Append slot to sub table // INLINED!!
+                                call SaveInteger(Table__ht, (((this))), (pw), ( value)) //Append value to Pool table // INLINED!!
+                                call SaveInteger(Table__ht, (tbls), (nw), ( pw)) //Append slot to sub table // INLINED!!
                                 set pw=pw + 1
                                 set nw=nw + 1
                             endloop
@@ -2209,20 +2206,20 @@ function CTL___DT takes integer l__CTL___t returns nothing
                                 exitwhen nw == lbs
                                 set nw=nw - 1
                                 set pw=pw - 1
-                                set sl=(LoadInteger(Table___ht, (tbls), (nw))) //Get next slot in sub table // INLINED!!
+                                set sl=(LoadInteger(Table__ht, (tbls), (nw))) //Get next slot in sub table // INLINED!!
                                 if sl != pw then //If not top slot in Pool
-                                    set tv=(LoadInteger(Table___ht, (((this))), (pw))) //Get top slot // INLINED!!
-                                    call SaveInteger(Table___ht, (((this))), (sl), ( tv)) //Save it to the newly-vacant slot // INLINED!!
-                                    call SaveInteger(Table___ht, (tbls), (tv), ( sl)) //Index that slot to the value // INLINED!!
+                                    set tv=(LoadInteger(Table__ht, (((this))), (pw))) //Get top slot // INLINED!!
+                                    call SaveInteger(Table__ht, (((this))), (sl), ( tv)) //Save it to the newly-vacant slot // INLINED!!
+                                    call SaveInteger(Table__ht, (tbls), (tv), ( sl)) //Index that slot to the value // INLINED!!
                                 endif
-                                call RemoveSavedInteger(Table___ht, (tbls), (nw)) // INLINED!!
-                                call RemoveSavedInteger(Table___ht, (((this))), (pw)) //Pop top slots // INLINED!!
+                                call RemoveSavedInteger(Table__ht, (tbls), (nw)) // INLINED!!
+                                call RemoveSavedInteger(Table__ht, (((this))), (pw)) //Pop top slots // INLINED!!
                             endloop
                         endif
                         if 0 != lbs then
-                            call SaveInteger(Table___ht, (((((this))) + (4))), (value), ( lbs)) //Set item weight to new weight // INLINED!!
+                            call SaveInteger(Table__ht, (((((this))) + (4))), (value), ( lbs)) //Set item weight to new weight // INLINED!!
                         else
-                            call RemoveSavedInteger(Table___ht, (((((this))) + (4))), (value)) //Clear hash memory, set item weight to 0 // INLINED!!
+                            call RemoveSavedInteger(Table__ht, (((((this))) + (4))), (value)) //Clear hash memory, set item weight to 0 // INLINED!!
                         endif
                     endif
                 endif
@@ -2230,24 +2227,24 @@ function CTL___DT takes integer l__CTL___t returns nothing
         endfunction
         
         function s__IPool_remove takes integer this,integer value returns nothing
-            local integer size= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) - 1 // INLINED!!
-            local integer slot= (LoadInteger(Table___ht, (((((this))) + (3))), (value))) // INLINED!!
-            if (0 != (LoadInteger(Table___ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
-                call SaveInteger(Table___ht, (IPool___ITEMS), (this), ( size)) // INLINED!!
+            local integer size= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) - 1 // INLINED!!
+            local integer slot= (LoadInteger(Table__ht, (((((this))) + (3))), (value))) // INLINED!!
+            if (0 != (LoadInteger(Table__ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
+                call SaveInteger(Table__ht, (IPool__ITEMS), (this), ( size)) // INLINED!!
                 if slot != size then
-                    call s__IPool_link(this,(LoadInteger(Table___ht, (((((this))) + (2))), (size))) , slot) // Assign top node to freed slot // INLINED!!
+                    call s__IPool_link(this,(LoadInteger(Table__ht, (((((this))) + (2))), (size))) , slot) // Assign top node to freed slot // INLINED!!
                 endif
-                call s__IPool_shiftWeight(this,value , - (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value))))) //Shift weight to 0 // INLINED!!
-                call RemoveSavedInteger(Table___ht, (((((this))) + (2))), (size)) //Remove top item from the stack // INLINED!!
-                call s__Table_destroy((LoadInteger(Table___ht, (((((this))) + (1))), (value)))) // INLINED!!
+                call s__IPool_shiftWeight(this,value , - (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value))))) //Shift weight to 0 // INLINED!!
+                call RemoveSavedInteger(Table__ht, (((((this))) + (2))), (size)) //Remove top item from the stack // INLINED!!
+                call s__Table_destroy((LoadInteger(Table__ht, (((((this))) + (1))), (value)))) // INLINED!!
             endif
         endfunction
         
         function s__IPool_add takes integer this,integer value,integer weight returns nothing
-            if not (0 != (LoadInteger(Table___ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
-                call SaveInteger(Table___ht, (((((this))) + (1))), (value), ( s__Table_create())) // INLINED!!
-                call s__IPool_link(this,value , (LoadInteger(Table___ht, (IPool___ITEMS), (this)))) // INLINED!!
-                call SaveInteger(Table___ht, (IPool___ITEMS), (this), ( (LoadInteger(Table___ht, (IPool___ITEMS), (this))) + 1)) //Increase item stack size // INLINED!!
+            if not (0 != (LoadInteger(Table__ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
+                call SaveInteger(Table__ht, (((((this))) + (1))), (value), ( s__Table_create())) // INLINED!!
+                call s__IPool_link(this,value , (LoadInteger(Table__ht, (IPool__ITEMS), (this)))) // INLINED!!
+                call SaveInteger(Table__ht, (IPool__ITEMS), (this), ( (LoadInteger(Table__ht, (IPool__ITEMS), (this))) + 1)) //Increase item stack size // INLINED!!
             endif
             call s__IPool_shiftWeight(this,value , weight)
         endfunction
@@ -2255,14 +2252,14 @@ function CTL___DT takes integer l__CTL___t returns nothing
         function s__IPool_copy takes integer this returns integer
             local integer new= (s__TableArray__staticgetindex(5)) // INLINED!!
             local integer i
-            local integer j= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
+            local integer j= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
             local integer t= ((((this))) + (2)) // INLINED!!
             loop
                 set j=j - 1
                 exitwhen 0 > j
                 
-                set i=(LoadInteger(Table___ht, (t), (j))) // INLINED!!
-                call s__IPool_add(new,i , (LoadInteger(Table___ht, ((((((this)))) + (4))), ((i))))) // INLINED!!
+                set i=(LoadInteger(Table__ht, (t), (j))) // INLINED!!
+                call s__IPool_add(new,i , (LoadInteger(Table__ht, ((((((this)))) + (4))), ((i))))) // INLINED!!
             endloop
             return new
         endfunction
@@ -2290,14 +2287,14 @@ function CTL___DT takes integer l__CTL___t returns nothing
 //library Jump:
     
     
-    function Jump___GetLocZ takes real x,real y returns real
-        call MoveLocation(Jump___loc, x, y)
-        return GetLocationZ(Jump___loc)
+    function Jump__GetLocZ takes real x,real y returns real
+        call MoveLocation(Jump__loc, x, y)
+        return GetLocationZ(Jump__loc)
     endfunction
     
-    function Jump___DestructableFilter takes nothing returns boolean
-        if GetDestructableLife(GetFilterDestructable()) > 0 and GetDestructableOccluderHeight(GetFilterDestructable()) > Jump___flh then
-            set Jump___b=true
+    function Jump__DestructableFilter takes nothing returns boolean
+        if GetDestructableLife(GetFilterDestructable()) > 0 and GetDestructableOccluderHeight(GetFilterDestructable()) > Jump__flh then
+            set Jump__b=true
         endif
         return false
     endfunction
@@ -2320,13 +2317,13 @@ function CTL___DT takes integer l__CTL___t returns nothing
         
 //Implemented from module CTL:
         function s__Jump_create takes nothing returns integer
-            return CTL___CT(s__Jump_rctl32)
+            return CTL__CT(s__Jump_rctl32)
         endfunction
         function s__Jump_destroy takes integer this returns nothing
-            call CTL___DT(this)
+            call CTL__DT(this)
         endfunction
         function s__Jump_ectl32 takes nothing returns boolean
-            local integer this=CTL___rf[s__Jump_rctl32]
+            local integer this=CTL__rf[s__Jump_rctl32]
             local real x
             local real y
             local real z
@@ -2337,39 +2334,39 @@ function CTL___DT takes integer l__CTL___t returns nothing
                 exitwhen 0 == this
             set x=GetUnitX(s__Jump_u[this]) + s__Jump_sx[this]
             set y=GetUnitY(s__Jump_u[this]) + s__Jump_sy[this]
-            set z=Jump___GetLocZ(x , y) - s__Jump_z0[this]
+            set z=Jump__GetLocZ(x , y) - s__Jump_z0[this]
             set s__Jump_t[this]=s__Jump_t[this] + s__Jump_dt[this]
             set fh=s__Jump_sinZ[this] * s__Jump_t[this] - s__Jump_g[this] * s__Jump_t[this] * s__Jump_t[this] / 2. - z + s__Jump_dfh[this]
             if s__Jump_t[this] < s__Jump_tEnd[this] then
-                set Jump___b=false
+                set Jump__b=false
                 if s__Jump_colDD[this] > 0 then
-                    call SetRect(Jump___rct, x - s__Jump_colDD[this], y - s__Jump_colDD[this], x + s__Jump_colDD[this], y + s__Jump_colDD[this])
-                    call EnumDestructablesInRect(Jump___rct, Condition(function Jump___DestructableFilter), null)
+                    call SetRect(Jump__rct, x - s__Jump_colDD[this], y - s__Jump_colDD[this], x + s__Jump_colDD[this], y + s__Jump_colDD[this])
+                    call EnumDestructablesInRect(Jump__rct, Condition(function Jump__DestructableFilter), null)
                 endif
-                if fh < s__Jump_colUZ[this] and not Jump___b then
-                    set Jump___flh=fh
-                    call GroupEnumUnitsInRange(Jump___enu, x, y, Jump___MAX_RAD, null)
-                    call GroupRemoveUnit(Jump___enu, s__Jump_u[this])
+                if fh < s__Jump_colUZ[this] and not Jump__b then
+                    set Jump__flh=fh
+                    call GroupEnumUnitsInRange(Jump__enu, x, y, Jump__MAX_RAD, null)
+                    call GroupRemoveUnit(Jump__enu, s__Jump_u[this])
                     loop
-                        set un=FirstOfGroup(Jump___enu)
-                        exitwhen un == null or Jump___b
+                        set un=FirstOfGroup(Jump__enu)
+                        exitwhen un == null or Jump__b
                         if IsUnitInRange(un, s__Jump_u[this], s__Jump_col[this] + 1) and not IsUnitType(un, UNIT_TYPE_DEAD) and not IsUnitType(un, UNIT_TYPE_FLYING) then
-                            set Jump___b=true
+                            set Jump__b=true
                             set un=null
                             set s__Jump_sx[this]=0
                             set s__Jump_sy[this]=0
                             set s__Jump_endX[this]=GetUnitX(s__Jump_u[this])
                             set s__Jump_endY[this]=GetUnitY(s__Jump_u[this])
-                            call GroupClear(Jump___enu)
+                            call GroupClear(Jump__enu)
                         else
-                            call GroupRemoveUnit(Jump___enu, un)
+                            call GroupRemoveUnit(Jump__enu, un)
                         endif
                     endloop
-                    if not Jump___b then
+                    if not Jump__b then
                         call SetUnitX(s__Jump_u[this], x)
                         call SetUnitY(s__Jump_u[this], y)
                     endif
-                elseif not Jump___b then
+                elseif not Jump__b then
                     call SetUnitX(s__Jump_u[this], x)
                     call SetUnitY(s__Jump_u[this], y)
                 else
@@ -2396,33 +2393,33 @@ function CTL___DT takes integer l__CTL___t returns nothing
                 set EVENT_JUMP_FINISH=1
                 set EVENT_JUMP_UNIT=null
                 set s__Jump_u[this]=null
-                call CTL___DT((this)) // INLINED!!
+                call CTL__DT((this)) // INLINED!!
             endif
 //Implemented from module CTLNull:
-                set this=CTL___n[this]
+                set this=CTL__n[this]
             endloop
 //Implemented from module CTLEnd:
             return false
         endfunction
-        function s__Jump_CTLEnd__onInit takes nothing returns nothing
-            set s__Jump_rctl32=CTL___A(function s__Jump_ectl32)
+        function s__Jump_CTLEnd___onInit takes nothing returns nothing
+            set s__Jump_rctl32=CTL__A(function s__Jump_ectl32)
         endfunction
     
         function s__Jump_start takes unit un,real x1,real y1,real maxZ,real time,real gravity returns integer
-            local integer this= (CTL___CT(s__Jump_rctl32)) // INLINED!!
+            local integer this= (CTL__CT(s__Jump_rctl32)) // INLINED!!
             local real x0= GetUnitX(un)
             local real y0= GetUnitY(un)
             local real angle= Atan2(y1 - y0, x1 - x0)
             local real dist= SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 ))
             local real speed= dist / time * 0.031250000
-            local real z1= Jump___GetLocZ(x1 , y1)
+            local real z1= Jump__GetLocZ(x1 , y1)
             
             set s__Jump_u[this]=un
             set s__Jump_t[this]=0
             set s__Jump_endX[this]=x1
             set s__Jump_endY[this]=y1
             set s__Jump_g[this]=gravity
-            set s__Jump_z0[this]=Jump___GetLocZ(x0 , y0)
+            set s__Jump_z0[this]=Jump__GetLocZ(x0 , y0)
             set s__Jump_sx[this]=Cos(angle) * speed
             set s__Jump_sy[this]=Sin(angle) * speed
             set s__Jump_dfh[this]=GetUnitDefaultFlyHeight(un)
@@ -2430,10 +2427,10 @@ function CTL___DT takes integer l__CTL___t returns nothing
 
 
 
-                set s__Jump_col[this]=Jump___U_COL_D
+                set s__Jump_col[this]=Jump__U_COL_D
 
-            set s__Jump_colDD[this]=Jump___D_COL_D
-            set s__Jump_colUZ[this]=Jump___U_COL_Z
+            set s__Jump_colDD[this]=Jump__D_COL_D
+            set s__Jump_colUZ[this]=Jump__U_COL_Z
             
             if s__Jump_z0[this] < z1 then
                 set maxZ=maxZ + z1 - s__Jump_z0[this]
@@ -2460,35 +2457,35 @@ function CTL___DT takes integer l__CTL___t returns nothing
 //============================================================================
  
 //============================================================================
-//Implemented from module SpellEffectEvent___M:
+//Implemented from module SpellEffectEvent__M:
    
 
 
 
 
    
-    function s__SpellEffectEvent___S_onCast takes nothing returns nothing
+    function s__SpellEffectEvent__S_onCast takes nothing returns nothing
 
-            call TriggerEvaluate((LoadTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (GetSpellAbilityId())))) // INLINED!!
+            call TriggerEvaluate((LoadTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (GetSpellAbilityId())))) // INLINED!!
 
 
 
     endfunction
  
-    function s__SpellEffectEvent___S_SpellEffectEvent___M__onInit takes nothing returns nothing
+    function s__SpellEffectEvent__S_SpellEffectEvent__M___onInit takes nothing returns nothing
 
-            set s__SpellEffectEvent___S_tb=s__Table_create()
+            set s__SpellEffectEvent__S_tb=s__Table_create()
 
-        call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT , function s__SpellEffectEvent___S_onCast)
+        call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT , function s__SpellEffectEvent__S_onCast)
     endfunction
  
 //============================================================================
 function RegisterSpellEffectEvent takes integer abil,code onCast returns nothing
 
-        if not (HaveSavedHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil))) then // INLINED!!
-            call SaveTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil), ( CreateTrigger())) // INLINED!!
+        if not (HaveSavedHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil))) then // INLINED!!
+            call SaveTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil), ( CreateTrigger())) // INLINED!!
         endif
-        call TriggerAddCondition((LoadTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil))), Filter(onCast)) // INLINED!!
+        call TriggerAddCondition((LoadTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil))), Filter(onCast)) // INLINED!!
 
 
 
@@ -2544,20 +2541,20 @@ endfunction
         
         function s__ItemDrop_FilterDrop takes nothing returns boolean
             local unit u= GetTriggerUnit()
-            local integer dat= (LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (GetUnitTypeId(u)))) // INLINED!!
+            local integer dat= (LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (GetUnitTypeId(u)))) // INLINED!!
             
             local integer Handle= GetHandleId(u)
             
-            if (LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (Handle))) != 0 then // INLINED!!
+            if (LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (Handle))) != 0 then // INLINED!!
                 
-                if (LoadInteger(Table___ht, (ItemDropSystem___DropBoth), (Handle))) == 1 then // INLINED!!
+                if (LoadInteger(Table__ht, (ItemDropSystem__DropBoth), (Handle))) == 1 then // INLINED!!
                     
                     if dat != 0 then
                     
                         call s__ItemDrop_ProcessDrop(dat,u , false , GetKillingUnit())
                     endif
                 endif
-                set dat=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (Handle))) // INLINED!!
+                set dat=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (Handle))) // INLINED!!
                 call s__ItemDrop_ProcessDrop(dat,u , true , GetKillingUnit())
                 
                 call s__ItemDrop_deallocate(dat)
@@ -2584,9 +2581,9 @@ endfunction
             local real x= GetUnitX(dying)
             local real y= GetUnitY(dying)
             local boolean array IsLooped
-            local integer this= (LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (GetUnitTypeId(dying)))) // INLINED!!
+            local integer this= (LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (GetUnitTypeId(dying)))) // INLINED!!
             if IsSpecific then
-                set this=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(dying)))) // INLINED!!
+                set this=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(dying)))) // INLINED!!
                 set dropmax=s__ItemDrop_DropItemsMaxS[this]
             else
                 set dropmax=s__ItemDrop_DropItemsMax[this]
@@ -2594,7 +2591,7 @@ endfunction
             loop
                 set i=GetRandomInt(0, s__ItemDrop_ItemsMax[this] - 1)
                 if not IsLooped[i] then
-                    if random <= ( ( ( s___ItemDrop_Chance[s__ItemDrop_Chance[this]+i] ) * BonusGetMulti(killer) ) + (BonusChance___BonusDirect[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId((killer)))))]) ) then // INLINED!!
+                    if random <= ( ( ( s___ItemDrop_Chance[s__ItemDrop_Chance[this]+i] ) * BonusGetMulti(killer) ) + (BonusChance__BonusDirect[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId((killer)))))]) ) then // INLINED!!
                         set dropped=dropped + 1
                         call CreateItem(s___ItemDrop_ItemList[s__ItemDrop_ItemList[this]+i], x, y)
                     endif
@@ -2609,7 +2606,7 @@ endfunction
         
         function s__ItemDrop_InitUnit takes integer UnitRawCode,integer DropItemsMax returns nothing
             set s__ItemDrop_data=s__ItemDrop__allocate()
-            call SaveInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode), ( s__ItemDrop_data)) // INLINED!!
+            call SaveInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode), ( s__ItemDrop_data)) // INLINED!!
             set s__ItemDrop_DropItemsMax[s__ItemDrop_data]=DropItemsMax
         endfunction
         
@@ -2618,11 +2615,11 @@ endfunction
         function s__ItemDrop_InitUnitSpecific takes unit u,integer DropItemsMax,boolean ProcessBoth returns nothing
             local integer UnitCode= GetHandleId(u)
             set s__ItemDrop_data=s__ItemDrop__allocate()
-            call SaveInteger(Table___ht, (ItemDropSystem___SpecDrop), (UnitCode), ( s__ItemDrop_data)) // INLINED!!
+            call SaveInteger(Table__ht, (ItemDropSystem__SpecDrop), (UnitCode), ( s__ItemDrop_data)) // INLINED!!
             if ProcessBoth then
-                call SaveInteger(Table___ht, (ItemDropSystem___DropBoth), (UnitCode), ( 1)) // INLINED!!
+                call SaveInteger(Table__ht, (ItemDropSystem__DropBoth), (UnitCode), ( 1)) // INLINED!!
             else
-                call SaveInteger(Table___ht, (ItemDropSystem___DropBoth), (UnitCode), ( 0)) // INLINED!!
+                call SaveInteger(Table__ht, (ItemDropSystem__DropBoth), (UnitCode), ( 0)) // INLINED!!
             endif
             set s__ItemDrop_DropItemsMaxS[s__ItemDrop_data]=DropItemsMax
         endfunction
@@ -2630,9 +2627,9 @@ endfunction
         
         
         function s__ItemDrop_AddItem takes integer UnitRawCode,integer ItemRawCode,real Chance returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
             
-            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem___ITEMS_MAX then
+            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem__ITEMS_MAX then
                 set s___ItemDrop_ItemList[s__ItemDrop_ItemList[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=ItemRawCode
                 set s___ItemDrop_Chance[s__ItemDrop_Chance[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=Chance
                 set s__ItemDrop_ItemsMax[s__ItemDrop_data]=s__ItemDrop_ItemsMax[s__ItemDrop_data] + 1
@@ -2646,9 +2643,9 @@ endfunction
         
         
         function s__ItemDrop_AddItemSpecific takes unit u,integer ItemRawCode,real Chance returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
             
-            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem___ITEMS_MAX then
+            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem__ITEMS_MAX then
                 set s___ItemDrop_ItemList[s__ItemDrop_ItemList[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=ItemRawCode
                 set s___ItemDrop_Chance[s__ItemDrop_Chance[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=Chance
                 set s__ItemDrop_ItemsMax[s__ItemDrop_data]=s__ItemDrop_ItemsMax[s__ItemDrop_data] + 1
@@ -2664,7 +2661,7 @@ endfunction
         function s__ItemDrop_RemoveItems takes integer UnitRawCode,integer ItemRawCode returns nothing
             local integer i= 0
             local boolean end= false
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
             loop
                 exitwhen end
                 
@@ -2690,7 +2687,7 @@ endfunction
         function s__ItemDrop_RemoveItemSpecific takes unit u,integer ItemRawCode returns nothing
             local integer i= 0
             local boolean end= false
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
             loop
                 exitwhen end
                 
@@ -2714,37 +2711,37 @@ endfunction
         
         
         function s__ItemDrop_ChangeDropMax takes integer UnitRawCode,integer Max returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
             set s__ItemDrop_DropItemsMax[s__ItemDrop_data]=Max
         endfunction
         
         
         
         function s__ItemDrop_ChangeDropMaxSpecific takes unit u,integer Max returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
             set s__ItemDrop_DropItemsMaxS[s__ItemDrop_data]=Max
         endfunction
         
         
         function s__ItemDrop_Unregister takes integer rawcode returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (rawcode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (rawcode))) // INLINED!!
             call s__ItemDrop_deallocate(s__ItemDrop_data)
         endfunction
         
         function s__ItemDrop_UnregisterSpecific takes unit u returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
             call s__ItemDrop_deallocate(s__ItemDrop_data)
         endfunction
         
-//Implemented from module ItemDropSystem___IDS_initsystem:
+//Implemented from module ItemDropSystem__IDS_initsystem:
         
         
         
         function s__ItemDrop_onInit takes nothing returns nothing
             call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_DEATH , function s__ItemDrop_FilterDrop)
-            set ItemDropSystem___GenDrop=s__Table_create()
-            set ItemDropSystem___SpecDrop=s__Table_create()
-            set ItemDropSystem___DropBoth=s__Table_create()
+            set ItemDropSystem__GenDrop=s__Table_create()
+            set ItemDropSystem__SpecDrop=s__Table_create()
+            set ItemDropSystem__DropBoth=s__Table_create()
         endfunction
         
         
@@ -2753,11 +2750,11 @@ endfunction
 //library ItemDropSystem ends
 //===========================================================================
 // 
-// MCFC 7.2
+// MCFC 7.3
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Thu Feb 13 18:33:43 2020
+//   Date: Tue Mar  3 00:42:26 2020
 //   Map Author: SomeWhiteGuy & Psytox & Eejin
 // 
 //===========================================================================
@@ -3331,259 +3328,259 @@ endfunction
 //*
 //***************************************************************************
 
+function Doodad007097_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007100_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007101_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007102_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007105_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007106_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Doodad007107_DropItems takes nothing returns nothing
+    local widget trigWidget= null
+    local unit trigUnit= null
+    local integer itemID= 0
+    local boolean canDrop= true
+
+    set trigWidget=bj_lastDyingWidget
+    if ( trigWidget == null ) then
+        set trigUnit=GetTriggerUnit()
+    endif
+
+    if ( trigUnit != null ) then
+        set canDrop=not IsUnitHidden(trigUnit)
+        if ( canDrop and GetChangingUnit() != null ) then
+            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+        endif
+    endif
+
+    if ( canDrop ) then
+        // Item set 0
+        call RandomDistReset()
+        call RandomDistAddItem('I041', 12)
+        call RandomDistAddItem(- 1, 88)
+        set itemID=RandomDistChoose()
+        if ( trigUnit != null ) then
+            call UnitDropItem(trigUnit, itemID)
+        else
+            call WidgetDropItem(trigWidget, itemID)
+        endif
+
+    endif
+
+    set bj_lastDyingWidget=null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
 function Doodad008889_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015637_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015638_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015639_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015640_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015641_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015642_DropItems takes nothing returns nothing
-    local widget trigWidget= null
-    local unit trigUnit= null
-    local integer itemID= 0
-    local boolean canDrop= true
-
-    set trigWidget=bj_lastDyingWidget
-    if ( trigWidget == null ) then
-        set trigUnit=GetTriggerUnit()
-    endif
-
-    if ( trigUnit != null ) then
-        set canDrop=not IsUnitHidden(trigUnit)
-        if ( canDrop and GetChangingUnit() != null ) then
-            set canDrop=( GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE) )
-        endif
-    endif
-
-    if ( canDrop ) then
-        // Item set 0
-        call RandomDistReset()
-        call RandomDistAddItem('I041', 12)
-        call RandomDistAddItem(- 1, 88)
-        set itemID=RandomDistChoose()
-        if ( trigUnit != null ) then
-            call UnitDropItem(trigUnit, itemID)
-        else
-            call WidgetDropItem(trigWidget, itemID)
-        endif
-
-    endif
-
-    set bj_lastDyingWidget=null
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function Doodad015643_DropItems takes nothing returns nothing
     local widget trigWidget= null
     local unit trigUnit= null
     local integer itemID= 0
@@ -3654,8 +3651,6 @@ function CreateAllDestructables takes nothing returns nothing
     local trigger t
     local real life
     set gg_dest_B000_1013=BlzCreateDestructableWithSkin('B000', 13248.0, - 11456.0, 45.000, 1.000, 0, 'B000')
-    set gg_dest_B000_9927=BlzCreateDestructableWithSkin('B000', 13248.0, - 9536.0, 45.000, 0.900, 0, 'B000')
-    set gg_dest_B002_6417=BlzCreateDestructableWithSkin('B002', 15360.0, - 13632.0, 135.000, 1.000, 0, 'B002')
     set gg_dest_B004_13629=BlzCreateDestructableWithSkin('B004', - 10752.0, - 22208.0, 0.000, 1.500, 0, 'B004')
     set gg_dest_DTlv_1278=BlzCreateDestructableWithSkin('DTlv', 24288.0, - 9248.0, 59.000, 0.977, 0, 'DTlv')
     set d=BlzCreateDestructableWithSkin('LOcg', 11328.0, 320.0, 359.700, 0.933, 0, 'LOcg')
@@ -3668,7 +3663,7 @@ function CreateAllDestructables takes nothing returns nothing
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
     call TriggerAddAction(t, function ItemTable000000_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbs', 11680.0, 992.0, 249.000, 1.133, 0, 'LTbs')
+    set d=BlzCreateDestructableWithSkin('LTbs', 11744.0, 992.0, 193.000, 1.331, 0, 'LTbs')
     set t=CreateTrigger()
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
@@ -3678,51 +3673,51 @@ function CreateAllDestructables takes nothing returns nothing
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
     call TriggerAddAction(t, function ItemTable000000_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbs', 11744.0, 992.0, 193.000, 1.331, 0, 'LTbs')
+    set d=BlzCreateDestructableWithSkin('LTbs', 11680.0, 992.0, 249.000, 1.133, 0, 'LTbs')
     set t=CreateTrigger()
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
     call TriggerAddAction(t, function ItemTable000000_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 4128.0, 14560.0, 244.000, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015643_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 5280.0, 14688.0, 345.792, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015637_DropItems)
     set d=BlzCreateDestructableWithSkin('LTbx', - 5152.0, 14560.0, 271.291, 1.347, 0, 'LTbx')
     set t=CreateTrigger()
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015638_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 4960.0, 14560.0, 91.807, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015639_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 3808.0, 14688.0, 111.649, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015640_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 3936.0, 14688.0, 40.082, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015641_DropItems)
-    set d=BlzCreateDestructableWithSkin('LTbx', - 3744.0, 14560.0, 202.591, 1.347, 0, 'LTbx')
-    set t=CreateTrigger()
-    call TriggerRegisterDeathEvent(t, d)
-    call TriggerAddAction(t, function SaveDyingWidget)
-    call TriggerAddAction(t, function Doodad015642_DropItems)
+    call TriggerAddAction(t, function Doodad007106_DropItems)
     set d=BlzCreateDestructableWithSkin('LTbx', - 3936.0, 14752.0, 244.000, 1.347, 0, 'LTbx')
     set t=CreateTrigger()
     call TriggerRegisterDeathEvent(t, d)
     call TriggerAddAction(t, function SaveDyingWidget)
     call TriggerAddAction(t, function Doodad008889_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 4960.0, 14560.0, 91.807, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007105_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 3808.0, 14688.0, 111.649, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007102_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 3936.0, 14688.0, 40.082, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007101_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 3744.0, 14560.0, 202.591, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007100_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 4128.0, 14560.0, 244.000, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007097_DropItems)
+    set d=BlzCreateDestructableWithSkin('LTbx', - 5280.0, 14688.0, 345.792, 1.347, 0, 'LTbx')
+    set t=CreateTrigger()
+    call TriggerRegisterDeathEvent(t, d)
+    call TriggerAddAction(t, function SaveDyingWidget)
+    call TriggerAddAction(t, function Doodad007107_DropItems)
     set d=BlzCreateDestructableWithSkin('LTcr', 11136.0, 2432.0, 207.000, 0.994, 0, 'LTcr')
     set t=CreateTrigger()
     call TriggerRegisterDeathEvent(t, d)
@@ -3739,20 +3734,20 @@ endfunction
 function CreateAllItems takes nothing returns nothing
     local integer itemID
 
-    call BlzCreateItemWithSkin('I000', 13506.0, - 14561.7, 'I000')
-    call BlzCreateItemWithSkin('I006', 13639.8, - 14547.7, 'I006')
+    call BlzCreateItemWithSkin('I02I', 13697.7, - 14764.4, 'I02I')
     call BlzCreateItemWithSkin('I03M', - 2006.2, - 13248.9, 'I03M')
     call BlzCreateItemWithSkin('I03M', - 1683.9, - 13528.0, 'I03M')
     call BlzCreateItemWithSkin('I03M', - 1946.4, - 12659.0, 'I03M')
-    call BlzCreateItemWithSkin('I04D', 13858.2, - 15243.8, 'I04D')
-    call BlzCreateItemWithSkin('I04F', 14436.3, - 14995.8, 'I04F')
-    call BlzCreateItemWithSkin('I06G', 14727.7, - 14852.9, 'I06G')
-    call BlzCreateItemWithSkin('I08W', 14585.6, - 14984.5, 'I08W')
-    call BlzCreateItemWithSkin('I09H', 14714.5, - 14976.1, 'I09H')
-    call BlzCreateItemWithSkin('I0A2', 13854.9, - 15031.2, 'I0A2')
-    call BlzCreateItemWithSkin('I0A3', 14434.3, - 14845.6, 'I0A3')
-    call BlzCreateItemWithSkin('I0A5', 13866.6, - 14848.8, 'I0A5')
-    call BlzCreateItemWithSkin('I0A8', 14585.8, - 14851.9, 'I0A8')
+    call BlzCreateItemWithSkin('I069', 13595.4, - 14895.5, 'I069')
+    call BlzCreateItemWithSkin('I06T', 13572.2, - 14619.7, 'I06T')
+    call BlzCreateItemWithSkin('I06Y', 13693.9, - 14621.5, 'I06Y')
+    call BlzCreateItemWithSkin('I08H', 14266.8, - 15218.5, 'I08H')
+    call BlzCreateItemWithSkin('I08N', 14266.0, - 14906.1, 'I08N')
+    call BlzCreateItemWithSkin('I099', 13577.5, - 14761.0, 'I099')
+    call BlzCreateItemWithSkin('I0A2', 14256.7, - 14795.3, 'I0A2')
+    call BlzCreateItemWithSkin('I0A3', 14265.8, - 15040.1, 'I0A3')
+    call BlzCreateItemWithSkin('I0A8', 14378.1, - 14911.5, 'I0A8')
+    call BlzCreateItemWithSkin('I0A9', 14375.0, - 14803.5, 'I0A9')
 endfunction
 
 //***************************************************************************
@@ -3769,7 +3764,7 @@ function CreateUnitsForPlayer10 takes nothing returns nothing
     local trigger t
     local real life
 
-    set gg_unit_h00U_0050=BlzCreateUnitWithSkin(p, 'h00U', 13195.9, - 10624.0, 150.000, 'h00U')
+    set gg_unit_h00U_0050=BlzCreateUnitWithSkin(p, 'h00U', 13183.6, - 10664.7, 150.000, 'h00U')
     call UnitAddItemToSlotById(gg_unit_h00U_0050, 'I01M', 0)
     call UnitAddItemToSlotById(gg_unit_h00U_0050, 'I081', 1)
     set u=BlzCreateUnitWithSkin(p, 'h02M', 11230.4, - 15765.1, 42.380, 'h02M')
@@ -3786,7 +3781,7 @@ function CreateUnitsForPlayer10 takes nothing returns nothing
     set gg_unit_h011_0238=BlzCreateUnitWithSkin(p, 'h011', 11436.3, - 15409.2, 218.920, 'h011')
     call UnitAddItemToSlotById(gg_unit_h011_0238, 'I00F', 0)
     call UnitAddItemToSlotById(gg_unit_h011_0238, 'I003', 1)
-    set gg_unit_h013_0241=BlzCreateUnitWithSkin(p, 'h013', 13124.1, - 10719.0, 125.000, 'h013')
+    set gg_unit_h013_0241=BlzCreateUnitWithSkin(p, 'h013', 13114.3, - 10752.9, 125.000, 'h013')
     call UnitAddItemToSlotById(gg_unit_h013_0241, 'I02G', 0)
     set gg_unit_h010_0257=BlzCreateUnitWithSkin(p, 'h010', 15957.4, - 12944.2, 275.000, 'h010')
     set u=BlzCreateUnitWithSkin(p, 'h015', 15877.3, - 10546.7, 182.329, 'h015')
@@ -4411,6 +4406,11 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n04B', 7732.8, - 779.5, 71.787, 'n04B')
     set u=BlzCreateUnitWithSkin(p, 'n04B', 5729.3, 756.8, 26.463, 'n04B')
     set u=BlzCreateUnitWithSkin(p, 'e002', 6834.3, - 1362.6, 317.088, 'e002')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', - 909.5, - 20265.9, 187.470, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', - 651.9, - 20270.9, 283.716, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'u000', 242.9, - 20266.0, 191.500, 'u000')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', - 426.0, - 20267.1, 277.986, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', - 94.2, - 20275.0, 277.252, 'n04N')
     set u=BlzCreateUnitWithSkin(p, 'n047', 9862.7, 7420.7, 215.420, 'n047')
     set u=BlzCreateUnitWithSkin(p, 'n00S', - 14076.6, - 18369.7, 338.214, 'n00S')
     set u=BlzCreateUnitWithSkin(p, 'n00S', - 15194.8, - 19802.8, 82.881, 'n00S')
@@ -4425,9 +4425,6 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n003', 14709.6, - 1064.4, 283.338, 'n003')
     set u=BlzCreateUnitWithSkin(p, 'n04B', 3853.7, 1656.5, 143.627, 'n04B')
     set u=BlzCreateUnitWithSkin(p, 'n04B', 3201.4, 182.3, 199.130, 'n04B')
-    set u=BlzCreateUnitWithSkin(p, 'n000', 12581.9, - 15038.1, 276.941, 'n000')
-    set u=BlzCreateUnitWithSkin(p, 'n000', 12582.3, - 15176.3, 216.888, 'n000')
-    set u=BlzCreateUnitWithSkin(p, 'n000', 12742.5, - 15130.9, 239.465, 'n000')
 endfunction
 
 //===========================================================================
@@ -4444,7 +4441,6 @@ function CreateNeutralHostile takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n00T', - 197.6, 9854.7, 3.054, 'n00T')
     set u=BlzCreateUnitWithSkin(p, 'n00T', - 971.0, 8625.5, 230.160, 'n00T')
     set u=BlzCreateUnitWithSkin(p, 'n00T', - 2859.9, 10074.6, 270.722, 'n00T')
-    set u=BlzCreateUnitWithSkin(p, 'n04J', 24324.4, - 9484.5, 289.641, 'n04J')
 endfunction
 
 //===========================================================================
@@ -4480,8 +4476,8 @@ function CreateNeutralPassive takes nothing returns nothing
     set gg_unit_h00W_0243=BlzCreateUnitWithSkin(p, 'h00W', 1933.8, - 5785.2, 300.000, 'h00W')
     set gg_unit_h00Z_0256=BlzCreateUnitWithSkin(p, 'h00Z', 9429.5, - 1829.3, 250.000, 'h00Z')
     call UnitAddItemToSlotById(gg_unit_h00Z_0256, 'I03Y', 0)
-    set u=BlzCreateUnitWithSkin(p, 'n01O', 15461.6, - 11986.7, 273.030, 'n01O')
-    set u=BlzCreateUnitWithSkin(p, 'n01O', 15632.1, - 12028.0, 237.806, 'n01O')
+    set u=BlzCreateUnitWithSkin(p, 'n01O', 15935.1, - 12127.7, 273.030, 'n01O')
+    set u=BlzCreateUnitWithSkin(p, 'n01O', 16105.5, - 12169.0, 237.806, 'n01O')
     set u=BlzCreateUnitWithSkin(p, 'n01O', 15830.4, - 12127.8, 8.647, 'n01O')
     set u=BlzCreateUnitWithSkin(p, 'n01O', 15445.5, - 12329.1, 350.442, 'n01O')
     set u=BlzCreateUnitWithSkin(p, 'n01O', 15653.2, - 12266.6, 36.388, 'n01O')
@@ -4503,7 +4499,7 @@ function CreateNeutralPassive takes nothing returns nothing
     call UnitAddItemToSlotById(u, 'I049', 0)
     call UnitAddItemToSlotById(u, 'I048', 1)
     set u=BlzCreateUnitWithSkin(p, 'n01O', 15775.8, - 12354.6, 8.647, 'n01O')
-    set u=BlzCreateUnitWithSkin(p, 'n01O', 15532.5, - 11822.6, 8.647, 'n01O')
+    set u=BlzCreateUnitWithSkin(p, 'n01O', 16005.9, - 11963.6, 8.647, 'n01O')
     set u=BlzCreateUnitWithSkin(p, 'n01O', 15731.6, - 12731.0, 8.647, 'n01O')
     set u=BlzCreateUnitWithSkin(p, 'h01Z', 161.5, - 1842.3, 246.870, 'h01Z')
     set u=BlzCreateUnitWithSkin(p, 'h01Z', 748.9, - 5170.5, 246.870, 'h01Z')
@@ -4579,8 +4575,8 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_Town=Rect(10624.0, - 16480.0, 15360.0, - 9728.0)
     set gg_rct_Diffusional=Rect(- 4000.0, - 32.0, - 3648.0, 416.0)
     set gg_rct_Rift_region=Rect(9312.0, - 1952.0, 9568.0, - 1696.0)
-    set gg_rct_chicken_return=Rect(15648.0, - 12928.0, 15936.0, - 12864.0)
-    set gg_rct_chicken_zone=Rect(15520.0, - 12416.0, 16224.0, - 11680.0)
+    set gg_rct_chicken_return=Rect(15648.0, - 12928.0, 15808.0, - 12864.0)
+    set gg_rct_chicken_zone=Rect(15552.0, - 12832.0, 16160.0, - 11936.0)
     set gg_rct_wing_guy_2=Rect(11712.0, - 14976.0, 11840.0, - 14848.0)
     set gg_rct_Secret_Sam=Rect(15680.0, - 10688.0, 15968.0, - 10400.0)
     set gg_rct_Sage=Rect(2336.0, - 10880.0, 2688.0, - 10528.0)
@@ -4594,15 +4590,15 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_koronas_grave=Rect(- 8128.0, 13696.0, - 7808.0, 14112.0)
     set gg_rct_arena_1=Rect(13024.0, - 12256.0, 13120.0, - 12160.0)
     set gg_rct_arena_2=Rect(12928.0, - 12384.0, 13024.0, - 12288.0)
-    set gg_rct_arena_3=Rect(12928.0, - 12544.0, 13024.0, - 12448.0)
-    set gg_rct_arena_4=Rect(12992.0, - 12704.0, 13088.0, - 12608.0)
-    set gg_rct_arena_5=Rect(13184.0, - 12768.0, 13280.0, - 12672.0)
-    set gg_rct_arena_6=Rect(13376.0, - 12704.0, 13472.0, - 12608.0)
-    set gg_rct_arena_7=Rect(13408.0, - 12544.0, 13504.0, - 12448.0)
-    set gg_rct_arena_8=Rect(13408.0, - 12384.0, 13504.0, - 12288.0)
-    set gg_rct_arena_9=Rect(13344.0, - 12256.0, 13440.0, - 12160.0)
-    set gg_rct_arena_10=Rect(13184.0, - 12192.0, 13280.0, - 12096.0)
-    set gg_rct_arena_brawler=Rect(13184.0, - 12480.0, 13280.0, - 12384.0)
+    set gg_rct_arena_3=Rect(12960.0, - 12544.0, 13056.0, - 12448.0)
+    set gg_rct_arena_4=Rect(13024.0, - 12704.0, 13120.0, - 12608.0)
+    set gg_rct_arena_5=Rect(13216.0, - 12768.0, 13312.0, - 12672.0)
+    set gg_rct_arena_6=Rect(13408.0, - 12704.0, 13504.0, - 12608.0)
+    set gg_rct_arena_7=Rect(13504.0, - 12544.0, 13600.0, - 12448.0)
+    set gg_rct_arena_8=Rect(13472.0, - 12384.0, 13568.0, - 12288.0)
+    set gg_rct_arena_9=Rect(13408.0, - 12256.0, 13504.0, - 12160.0)
+    set gg_rct_arena_10=Rect(13216.0, - 12192.0, 13312.0, - 12096.0)
+    set gg_rct_arena_brawler=Rect(13216.0, - 12480.0, 13312.0, - 12384.0)
     set gg_rct_inventory_1=Rect(3200.0, 14656.0, 3712.0, 15360.0)
     set gg_rct_inventory_2=Rect(3872.0, 14656.0, 4320.0, 15360.0)
     set gg_rct_inventory_3=Rect(4512.0, 14656.0, 4960.0, 15360.0)
@@ -4631,7 +4627,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_Dark_Summoner=Rect(8864.0, - 2944.0, 9152.0, - 2560.0)
     set gg_rct_lord_of_the_pit=Rect(9024.0, - 2240.0, 9408.0, - 1952.0)
     set gg_rct_Dragon_Slayer=Rect(13504.0, - 9888.0, 13792.0, - 9600.0)
-    set gg_rct_Arena_monster=Rect(13184.0, - 13120.0, 13312.0, - 12960.0)
+    set gg_rct_Arena_monster=Rect(13184.0, - 13120.0, 13376.0, - 12960.0)
     set gg_rct_inventories=Rect(3200.0, 14656.0, 9728.0, 15360.0)
     set gg_rct_battleseal1=Rect(- 7520.0, 4160.0, - 7360.0, 4352.0)
     set gg_rct_battleseal2=Rect(- 7296.0, 4128.0, - 7136.0, 4320.0)
@@ -4700,7 +4696,8 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_Volcano_Lava_4=Rect(- 14688.0, - 23456.0, - 14400.0, - 23168.0)
     set gg_rct_Volcano_Lava_5=Rect(- 14848.0, - 21472.0, - 13664.0, - 20832.0)
     set gg_rct_Arena_Entry=Rect(12864.0, - 11616.0, 13632.0, - 11488.0)
-    set gg_rct_Arena=Rect(12320.0, - 13312.0, 14176.0, - 11488.0)
+    set gg_rct_Arena=Rect(12416.0, - 13248.0, 14080.0, - 11488.0)
+    set gg_rct_Volcano_PotTok_Spawn1=Rect(- 13408.0, - 21120.0, - 11456.0, - 20384.0)
 endfunction
 
 //***************************************************************************
@@ -5120,8 +5117,6 @@ function Trig_Initialization_Actions takes nothing returns nothing
     call SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, true, Player(11))
     call SetDestructableInvulnerableBJ(gg_dest_B000_1013, true)
     call ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B000_1013)
-    call ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B000_9927)
-    call ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B002_6417)
     call ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B004_13629)
     call ForForce(GetPlayersAll(), function Trig_Initialization_Func025002)
     call ForGroupBJ(GetUnitsInRectAll(GetPlayableMapRect()), function Trig_Initialization_Func026002)
@@ -7428,180 +7423,6 @@ function InitTrig_arrows takes nothing returns nothing
 endfunction
 
 //===========================================================================
-// Trigger: My Black hole
-//===========================================================================
-function Trig_My_Black_hole_Conditions takes nothing returns boolean
-    if ( not ( UnitHasItemOfTypeBJ(GetAttacker(), 'I01M') == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_Func002Func004002001003 takes nothing returns boolean
-    return ( UnitHasBuffBJ(GetFilterUnit(), 'B00V') == true )
-endfunction
-
-function Trig_My_Black_hole_Func002Func012002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_Func002Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_Func002C takes nothing returns boolean
-    if ( not ( GetRandomInt(1, 100) == 1 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_Actions takes nothing returns nothing
-    if ( Trig_My_Black_hole_Func002C() ) then
-        set udg_RealVar=100.00
-        set udg_RealVar2=360.00
-        set udg_BlackHolePoint=GetUnitLoc(GetAttackedUnitBJ())
-        set udg_BlackHoleSuckUnits=GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(function Trig_My_Black_hole_Func002Func004002001003)))
-        call UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        call CreateNUnitsAtLoc(1, 'h02U', GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
-        set udg_BlackHole=GetLastCreatedUnit()
-        call EnableTrigger(gg_trg_Black_Hole_suck)
-        call DisableTrigger(GetTriggeringTrigger())
-        call PolledWait(6.00)
-        call AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h02U'), function Trig_My_Black_hole_Func002Func012002)
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h00A'), function Trig_My_Black_hole_Func002Func013002)
-        call DisableTrigger(gg_trg_Black_Hole_suck)
-        call EnableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_My_Black_hole takes nothing returns nothing
-    set gg_trg_My_Black_hole=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_My_Black_hole, EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(gg_trg_My_Black_hole, Condition(function Trig_My_Black_hole_Conditions))
-    call TriggerAddAction(gg_trg_My_Black_hole, function Trig_My_Black_hole_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: My Black hole L
-//===========================================================================
-function Trig_My_Black_hole_L_Conditions takes nothing returns boolean
-    if ( not ( UnitHasItemOfTypeBJ(GetAttacker(), 'I09H') == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_L_Func002Func004002001003 takes nothing returns boolean
-    return ( UnitHasBuffBJ(GetFilterUnit(), 'B00V') == true )
-endfunction
-
-function Trig_My_Black_hole_L_Func002Func012002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_L_Func002Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_L_Func002C takes nothing returns boolean
-    if ( not ( GetRandomInt(1, 100) == 1 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_L_Actions takes nothing returns nothing
-    if ( Trig_My_Black_hole_L_Func002C() ) then
-        set udg_RealVar=100.00
-        set udg_RealVar2=360.00
-        set udg_BlackHolePoint=GetUnitLoc(GetAttackedUnitBJ())
-        set udg_BlackHoleSuckUnits=GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(function Trig_My_Black_hole_L_Func002Func004002001003)))
-        call UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        call CreateNUnitsAtLoc(1, 'h02U', GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
-        set udg_BlackHole=GetLastCreatedUnit()
-        call EnableTrigger(gg_trg_Black_Hole_suck)
-        call DisableTrigger(GetTriggeringTrigger())
-        call PolledWait(6.00)
-        call AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h02U'), function Trig_My_Black_hole_L_Func002Func012002)
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h00A'), function Trig_My_Black_hole_L_Func002Func013002)
-        call DisableTrigger(gg_trg_Black_Hole_suck)
-        call EnableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_My_Black_hole_L takes nothing returns nothing
-    set gg_trg_My_Black_hole_L=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_My_Black_hole_L, EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(gg_trg_My_Black_hole_L, Condition(function Trig_My_Black_hole_L_Conditions))
-    call TriggerAddAction(gg_trg_My_Black_hole_L, function Trig_My_Black_hole_L_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: My Black hole bow
-//===========================================================================
-function Trig_My_Black_hole_bow_Conditions takes nothing returns boolean
-    if ( not ( UnitHasItemOfTypeBJ(GetAttacker(), 'I09B') == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_bow_Func002Func004002001003 takes nothing returns boolean
-    return ( UnitHasBuffBJ(GetFilterUnit(), 'B00V') == true )
-endfunction
-
-function Trig_My_Black_hole_bow_Func002Func012002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_bow_Func002Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_My_Black_hole_bow_Func002C takes nothing returns boolean
-    if ( not ( GetRandomInt(1, 100) == 1 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_My_Black_hole_bow_Actions takes nothing returns nothing
-    if ( Trig_My_Black_hole_bow_Func002C() ) then
-        set udg_RealVar=100.00
-        set udg_RealVar2=360.00
-        set udg_BlackHolePoint=GetUnitLoc(GetAttackedUnitBJ())
-        set udg_BlackHoleSuckUnits=GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(function Trig_My_Black_hole_bow_Func002Func004002001003)))
-        call UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        call CreateNUnitsAtLoc(1, 'h02U', GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
-        set udg_BlackHole=GetLastCreatedUnit()
-        call EnableTrigger(gg_trg_Black_Hole_suck)
-        call DisableTrigger(GetTriggeringTrigger())
-        call PolledWait(6.00)
-        call AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h02U'), function Trig_My_Black_hole_bow_Func002Func012002)
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h00A'), function Trig_My_Black_hole_bow_Func002Func013002)
-        call DisableTrigger(gg_trg_Black_Hole_suck)
-        call EnableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_My_Black_hole_bow takes nothing returns nothing
-    set gg_trg_My_Black_hole_bow=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_My_Black_hole_bow, EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(gg_trg_My_Black_hole_bow, Condition(function Trig_My_Black_hole_bow_Conditions))
-    call TriggerAddAction(gg_trg_My_Black_hole_bow, function Trig_My_Black_hole_bow_Actions)
-endfunction
-
-//===========================================================================
 // Trigger: turtle 1
 //===========================================================================
 function Trig_turtle_1_Conditions takes nothing returns boolean
@@ -8163,122 +7984,6 @@ function InitTrig_Freeze takes nothing returns nothing
 endfunction
 
 //===========================================================================
-// Trigger: Black Hole
-//===========================================================================
-function Trig_Black_Hole_Conditions takes nothing returns boolean
-    if ( not ( UnitHasItemOfTypeBJ(GetAttacker(), 'I08M') == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Black_Hole_Func002Func004002001003 takes nothing returns boolean
-    return ( UnitHasBuffBJ(GetFilterUnit(), 'B00V') == true )
-endfunction
-
-function Trig_Black_Hole_Func002Func012002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Black_Hole_Func002Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Black_Hole_Func002C takes nothing returns boolean
-    if ( not ( GetRandomInt(1, 150) == 1 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Black_Hole_Actions takes nothing returns nothing
-    if ( Trig_Black_Hole_Func002C() ) then
-        set udg_RealVar=150.00
-        set udg_RealVar2=360.00
-        set udg_BlackHolePoint=GetUnitLoc(GetAttackedUnitBJ())
-        set udg_BlackHoleSuckUnits=GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(function Trig_Black_Hole_Func002Func004002001003)))
-        call UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        call CreateNUnitsAtLoc(1, 'h02U', GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
-        set udg_BlackHole=GetLastCreatedUnit()
-        call EnableTrigger(gg_trg_Black_Hole_suck)
-        call DisableTrigger(GetTriggeringTrigger())
-        call PolledWait(5.00)
-        call AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h02U'), function Trig_Black_Hole_Func002Func012002)
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h00A'), function Trig_Black_Hole_Func002Func013002)
-        call DisableTrigger(gg_trg_Black_Hole_suck)
-        call EnableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_Black_Hole takes nothing returns nothing
-    set gg_trg_Black_Hole=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_Black_Hole, EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(gg_trg_Black_Hole, Condition(function Trig_Black_Hole_Conditions))
-    call TriggerAddAction(gg_trg_Black_Hole, function Trig_Black_Hole_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: Black Hole 2
-//===========================================================================
-function Trig_Black_Hole_2_Conditions takes nothing returns boolean
-    if ( not ( UnitHasItemOfTypeBJ(GetAttacker(), 'I08N') == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Black_Hole_2_Func002Func004002001003 takes nothing returns boolean
-    return ( UnitHasBuffBJ(GetFilterUnit(), 'B00V') == true )
-endfunction
-
-function Trig_Black_Hole_2_Func002Func012002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Black_Hole_2_Func002Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Black_Hole_2_Func002C takes nothing returns boolean
-    if ( not ( GetRandomInt(1, 150) == 1 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Black_Hole_2_Actions takes nothing returns nothing
-    if ( Trig_Black_Hole_2_Func002C() ) then
-        set udg_RealVar=150.00
-        set udg_RealVar2=360.00
-        set udg_BlackHolePoint=GetUnitLoc(GetAttackedUnitBJ())
-        set udg_BlackHoleSuckUnits=GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(function Trig_Black_Hole_2_Func002Func004002001003)))
-        call UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        call CreateNUnitsAtLoc(1, 'h02U', GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
-        set udg_BlackHole=GetLastCreatedUnit()
-        call EnableTrigger(gg_trg_Black_Hole_suck)
-        call DisableTrigger(GetTriggeringTrigger())
-        call PolledWait(5.00)
-        call AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h02U'), function Trig_Black_Hole_2_Func002Func012002)
-        call ForGroupBJ(GetUnitsOfTypeIdAll('h00A'), function Trig_Black_Hole_2_Func002Func013002)
-        call DisableTrigger(gg_trg_Black_Hole_suck)
-        call EnableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_Black_Hole_2 takes nothing returns nothing
-    set gg_trg_Black_Hole_2=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_Black_Hole_2, EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(gg_trg_Black_Hole_2, Condition(function Trig_Black_Hole_2_Conditions))
-    call TriggerAddAction(gg_trg_Black_Hole_2, function Trig_Black_Hole_2_Actions)
-endfunction
-
-//===========================================================================
 // Trigger: Black Hole suck
 //===========================================================================
 function Trig_Black_Hole_suck_Actions takes nothing returns nothing
@@ -8300,163 +8005,163 @@ endfunction
 // Trigger: AddEnchantables
 //===========================================================================
 // scope AddEnchantables begins
-    function AddEnchantables___AddEnchantables takes nothing returns nothing
+    function AddEnchantables__AddEnchantables takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 	set weapon_to_struct=s__Table_create()
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I0AI'), ( 'I0AK')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I06C'), ( 'I06M')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I024'), ( 'I06O')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I001'), ( 'I06P')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00J'), ( 'I06Q')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I003'), ( 'I06R')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I06B'), ( 'I06S')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I006'), ( 'I06T')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00C'), ( 'I06U')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I025'), ( 'I070')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I06H'), ( 'I06V')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I028'), ( 'I06W')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03E'), ( 'I06X')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I008'), ( 'I06Y')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I049'), ( 'I06Z')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I009'), ( 'I071')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I017'), ( 'I072')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I06K'), ( 'I073')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00B'), ( 'I074')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03G'), ( 'I075')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I027'), ( 'I076')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00D'), ( 'I077')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00H'), ( 'I078')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I05G'), ( 'I079')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03D'), ( 'I07A')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I026'), ( 'I07B')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00O'), ( 'I07C')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I018'), ( 'I07D')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00P'), ( 'I07E')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00K'), ( 'I07F')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03A'), ( 'I07G')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00V'), ( 'I07H')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00Y'), ( 'I07I')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00Z'), ( 'I07J')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03B'), ( 'I07K')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I011'), ( 'I07L')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I002'), ( 'I07M')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03S'), ( 'I07N')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I02E'), ( 'I07O')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I015'), ( 'I07P')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I05I'), ( 'I07Q')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I000'), ( 'I07R')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00T'), ( 'I07S')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I01B'), ( 'I07T')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03L'), ( 'I07U')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I00A'), ( 'I07V')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03C'), ( 'I07W')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I03K'), ( 'I07X')) // INLINED!!
-	call SaveInteger(Table___ht, (weapon_to_struct), ('I082'), ( 'I083')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I0AI'), ( 'I0AK')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I06C'), ( 'I06M')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I024'), ( 'I06O')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I001'), ( 'I06P')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00J'), ( 'I06Q')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I003'), ( 'I06R')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I06B'), ( 'I06S')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I006'), ( 'I06T')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00C'), ( 'I06U')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I025'), ( 'I070')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I06H'), ( 'I06V')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I028'), ( 'I06W')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03E'), ( 'I06X')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I008'), ( 'I06Y')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I049'), ( 'I06Z')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I009'), ( 'I071')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I017'), ( 'I072')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I06K'), ( 'I073')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00B'), ( 'I074')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03G'), ( 'I075')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I027'), ( 'I076')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00D'), ( 'I077')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00H'), ( 'I078')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I05G'), ( 'I079')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03D'), ( 'I07A')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I026'), ( 'I07B')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00O'), ( 'I07C')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I018'), ( 'I07D')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00P'), ( 'I07E')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00K'), ( 'I07F')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03A'), ( 'I07G')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00V'), ( 'I07H')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00Y'), ( 'I07I')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00Z'), ( 'I07J')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03B'), ( 'I07K')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I011'), ( 'I07L')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I002'), ( 'I07M')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03S'), ( 'I07N')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I02E'), ( 'I07O')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I015'), ( 'I07P')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I05I'), ( 'I07Q')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I000'), ( 'I07R')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00T'), ( 'I07S')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I01B'), ( 'I07T')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03L'), ( 'I07U')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I00A'), ( 'I07V')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03C'), ( 'I07W')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I03K'), ( 'I07X')) // INLINED!!
+	call SaveInteger(Table__ht, (weapon_to_struct), ('I082'), ( 'I083')) // INLINED!!
 	
     endfunction
 
-    function AddEnchantables___Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables)
+    function AddEnchantables__Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables)
     endfunction
 // scope AddEnchantables ends
 //===========================================================================
 // Trigger: AddTypeFamilies
 //===========================================================================
 // scope AddTypeFamilies begins
-    function AddTypeFamilies___ApplyTypeFamilies takes nothing returns nothing
+    function AddTypeFamilies__ApplyTypeFamilies takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 		set type_family=s__Table_create()
 	   
 	// Archer
-		call SaveInteger(Table___ht, (type_family), ('H01S'), ( 1)) // Flying Archer // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H003'), ( 1)) // Archer Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01G'), ( 1)) // Archer Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01P'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01S'), ( 1)) // Flying Archer // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H003'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01G'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01P'), ( 1)) // Archer Type // INLINED!!
 		
 	// Bacon
-		call SaveInteger(Table___ht, (type_family), ('H027'), ( 2)) // Bacon Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H02B'), ( 2)) // Flying Bacon // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H027'), ( 2)) // Bacon Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H02B'), ( 2)) // Flying Bacon // INLINED!!
 
 	// Chaos
-		call SaveInteger(Table___ht, (type_family), ('H005'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01C'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01K'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01J'), ( 3)) // Chaotic Flyer // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H005'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01C'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01K'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01J'), ( 3)) // Chaotic Flyer // INLINED!!
 
 	// Dragon
-		call SaveInteger(Table___ht, (type_family), ('H02X'), ( 4)) // Dragon // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H02X'), ( 4)) // Dragon // INLINED!!
 
 	// Furbolg Mage Type
-		call SaveInteger(Table___ht, (type_family), ('H031'), ( 5)) // Furbolg Mage // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H033'), ( 5)) // Flying Furbolg Mage // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H031'), ( 5)) // Furbolg Mage // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H033'), ( 5)) // Flying Furbolg Mage // INLINED!!
 		
 	// Furbolg Warrior Type
-		call SaveInteger(Table___ht, (type_family), ('H032'), ( 6)) // Furbolg Warrior // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H035'), ( 6)) // Flying Furbolg Warrior // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H032'), ( 6)) // Furbolg Warrior // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H035'), ( 6)) // Flying Furbolg Warrior // INLINED!!
 
 	// Furbolg Tracker Type
-		call SaveInteger(Table___ht, (type_family), ('H030'), ( 7)) // Furbolg Tracker // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H034'), ( 7)) // Flying Furbolg Tracker // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H030'), ( 7)) // Furbolg Tracker // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H034'), ( 7)) // Flying Furbolg Tracker // INLINED!!
 
 	// Heroic Type
-		call SaveInteger(Table___ht, (type_family), ('H008'), ( 8)) // Heroic Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01B'), ( 8)) // Heroic Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01L'), ( 8)) // Legendary Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01T'), ( 8)) // Flying Hero // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H008'), ( 8)) // Heroic Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01B'), ( 8)) // Heroic Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01L'), ( 8)) // Legendary Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01T'), ( 8)) // Flying Hero // INLINED!!
 
 	// Killer Chicken
-		call SaveInteger(Table___ht, (type_family), ('H02W'), ( 9)) // Killer Chicken // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H02W'), ( 9)) // Killer Chicken // INLINED!!
 
 	// Mage Type
-		call SaveInteger(Table___ht, (type_family), ('H006'), ( 10)) // Mage Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01D'), ( 10)) // MageType // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01M'), ( 10)) // Mage Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01U'), ( 10)) // Flying Magician // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H006'), ( 10)) // Mage Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01D'), ( 10)) // MageType // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01M'), ( 10)) // Mage Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01U'), ( 10)) // Flying Magician // INLINED!!
 
 	// Normal Type
-		call SaveInteger(Table___ht, (type_family), ('H002'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01E'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01N'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01V'), ( 11)) // Flying Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H002'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01E'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01N'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01V'), ( 11)) // Flying Type // INLINED!!
 
 	// Ownage Type
-		call SaveInteger(Table___ht, (type_family), ('H007'), ( 12)) // Ownage Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01F'), ( 12)) // Ownage Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01O'), ( 12)) // Godly Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01W'), ( 12)) // Flying Ownage // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H007'), ( 12)) // Ownage Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01F'), ( 12)) // Ownage Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01O'), ( 12)) // Godly Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01W'), ( 12)) // Flying Ownage // INLINED!!
 		
 	// Panda Type
-		call SaveInteger(Table___ht, (type_family), ('H02Y'), ( 13)) // Panda // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H02Z'), ( 13)) // Flying Panda // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H02Y'), ( 13)) // Panda // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H02Z'), ( 13)) // Flying Panda // INLINED!!
 
 	// Penguin Type
-		call SaveInteger(Table___ht, (type_family), ('H026'), ( 14)) // Killer Penguin // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H026'), ( 14)) // Killer Penguin // INLINED!!
 
 	// Satanic Type
-		call SaveInteger(Table___ht, (type_family), ('H028'), ( 15)) // Satanic Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H028'), ( 15)) // Satanic Type // INLINED!!
 
 	//  Siege Type
-		call SaveInteger(Table___ht, (type_family), ('H004'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01H'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01Q'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01X'), ( 16)) // Flying Sniper // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H004'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01H'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01Q'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01X'), ( 16)) // Flying Sniper // INLINED!!
 
 	// Sniper Type
-		call SaveInteger(Table___ht, (type_family), ('H009'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01I'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01R'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H01Y'), ( 17)) // Flying Sniper // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H009'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01I'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01R'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H01Y'), ( 17)) // Flying Sniper // INLINED!!
 
     	// Unarmed
-        	call SaveInteger(Table___ht, (type_family), ('H001'), ( 18)) // Unarmed Type // INLINED!!
+        	call SaveInteger(Table__ht, (type_family), ('H001'), ( 18)) // Unarmed Type // INLINED!!
 
 	// Claw Type
-		call SaveInteger(Table___ht, (type_family), ('H03H'), ( 19)) // Claw Type (Normal) // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H03I'), ( 19)) // Claw Type (Divine) // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H03J'), ( 19)) // Claw Type (Fortified) // INLINED!!
-		call SaveInteger(Table___ht, (type_family), ('H03K'), ( 19)) // Flying Claw Type (Flying) // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H03H'), ( 19)) // Claw Type (Normal) // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H03I'), ( 19)) // Claw Type (Divine) // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H03J'), ( 19)) // Claw Type (Fortified) // INLINED!!
+		call SaveInteger(Table__ht, (type_family), ('H03K'), ( 19)) // Flying Claw Type (Flying) // INLINED!!
 
         
 		set typeToFortified[1]='H01G' // Archer
@@ -8535,206 +8240,206 @@ endfunction
 		set typeToFlying[19]='H03K' // Claw
     endfunction
 
-    function AddTypeFamilies___Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies)
+    function AddTypeFamilies__Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies)
     endfunction
 // scope AddTypeFamilies ends
 //===========================================================================
 // Trigger: AddItemTypes
 //===========================================================================
 // scope AddItemTypes begins
-    function AddItemTypes___ApplyItemTypes takes nothing returns nothing
+    function AddItemTypes__ApplyItemTypes takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 		
 		set item_to_unit_type=s__Table_create()
 	
 	// Archer	
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I006'), ( 'H003')) // Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06T'), ( 'H003')) // Enchanced Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I008'), ( 'H003')) // Cross Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Y'), ( 'H003')) // Enchanced Cross Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03S'), ( 'H003')) // Pheonix Feather Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07N'), ( 'H003')) // Enchanced Pheonix Feather Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03C'), ( 'H003')) // Wind Force // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07W'), ( 'H003')) // Enchanced Wind Force // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09A'), ( 'H003')) // Bow of Arctic Wrath // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09B'), ( 'H003')) // Creator Ownage Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09I'), ( 'H003')) // Volcanic Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I0A8'), ( 'H003')) // Ghostly Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I006'), ( 'H003')) // Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06T'), ( 'H003')) // Enchanced Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I008'), ( 'H003')) // Cross Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Y'), ( 'H003')) // Enchanced Cross Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03S'), ( 'H003')) // Pheonix Feather Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07N'), ( 'H003')) // Enchanced Pheonix Feather Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03C'), ( 'H003')) // Wind Force // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07W'), ( 'H003')) // Enchanced Wind Force // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09A'), ( 'H003')) // Bow of Arctic Wrath // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09B'), ( 'H003')) // Creator Ownage Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09I'), ( 'H003')) // Volcanic Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I0A8'), ( 'H003')) // Ghostly Bow // INLINED!!
 		
 	// Bacon
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I052'), ( 'H027')) // Swine Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I052'), ( 'H027')) // Swine Suit // INLINED!!
 	
 	// Chaos
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00M'), ( 'H005')) // Soul Caliber // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00L'), ( 'H005')) // Glass Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I049'), ( 'H005')) // Crystal Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Z'), ( 'H005')) // Enchanced Crystal Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I01E'), ( 'H005')) // Sword of Lava // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00A'), ( 'H005')) // Toxic Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07V'), ( 'H005')) // Enchanced Toxic Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I082'), ( 'H005')) // Gold Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I083'), ( 'H005')) // Enchanced Gold Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00O'), ( 'H005')) // Gold Spear // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07C'), ( 'H005')) // Enchanced Gold Spear // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03L'), ( 'H005')) // Sword of Time // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07U'), ( 'H005')) // Enchanced Sword of Time // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I04E'), ( 'H005')) // Eternal Weapon // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I05Y'), ( 'H005')) // Envenomed Dagger // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06B'), ( 'H005')) // Blood Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06S'), ( 'H005')) // Enchanced Blood Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08T'), ( 'H005')) // Living Weapon // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08U'), ( 'H005')) // Arctic Wrath Bringer // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I090'), ( 'H005')) // Forbidden Malefaction // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00M'), ( 'H005')) // Soul Caliber // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00L'), ( 'H005')) // Glass Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I049'), ( 'H005')) // Crystal Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Z'), ( 'H005')) // Enchanced Crystal Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I01E'), ( 'H005')) // Sword of Lava // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00A'), ( 'H005')) // Toxic Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07V'), ( 'H005')) // Enchanced Toxic Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I082'), ( 'H005')) // Gold Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I083'), ( 'H005')) // Enchanced Gold Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00O'), ( 'H005')) // Gold Spear // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07C'), ( 'H005')) // Enchanced Gold Spear // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03L'), ( 'H005')) // Sword of Time // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07U'), ( 'H005')) // Enchanced Sword of Time // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I04E'), ( 'H005')) // Eternal Weapon // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I05Y'), ( 'H005')) // Envenomed Dagger // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06B'), ( 'H005')) // Blood Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06S'), ( 'H005')) // Enchanced Blood Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08T'), ( 'H005')) // Living Weapon // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08U'), ( 'H005')) // Arctic Wrath Bringer // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I090'), ( 'H005')) // Forbidden Malefaction // INLINED!!
 		
 	// Dragon
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I097'), ( 'H02X')) // Dragon Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I097'), ( 'H02X')) // Dragon Suit // INLINED!!
 
 	// Furbolg Mage Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09K'), ( 'H031')) // Furbolg Mage Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09K'), ( 'H031')) // Furbolg Mage Suit // INLINED!!
 		
 	// Furbolg Warrior Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09L'), ( 'H032')) // Furbolg Warrior Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09L'), ( 'H032')) // Furbolg Warrior Suit // INLINED!!
 		
 	// Furbolg Tracker Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09M'), ( 'H030')) // Furbolg Tracker Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09M'), ( 'H030')) // Furbolg Tracker Suit // INLINED!!
 		
 	// Heroic Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00C'), ( 'H008')) // Champion Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06U'), ( 'H008')) // Enchanced Champion Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06H'), ( 'H008')) // Champion Dagger // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06V'), ( 'H008')) // Enchanced Champion Dagger // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I024'), ( 'H008')) // Arena Masters Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06O'), ( 'H008')) // Enchanced Arena Masters Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03K'), ( 'H008')) // X-Caliber // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07X'), ( 'H008')) // Enchanced X-Caliber // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I053'), ( 'H008')) // Legendary Weapon // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06K'), ( 'H008')) // Dragon Slayer Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I073'), ( 'H008')) // Enchanced Dragon Slayer Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08X'), ( 'H008')) // Ubiquitous Profligate // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00C'), ( 'H008')) // Champion Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06U'), ( 'H008')) // Enchanced Champion Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06H'), ( 'H008')) // Champion Dagger // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06V'), ( 'H008')) // Enchanced Champion Dagger // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I024'), ( 'H008')) // Arena Masters Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06O'), ( 'H008')) // Enchanced Arena Masters Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03K'), ( 'H008')) // X-Caliber // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07X'), ( 'H008')) // Enchanced X-Caliber // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I053'), ( 'H008')) // Legendary Weapon // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06K'), ( 'H008')) // Dragon Slayer Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I073'), ( 'H008')) // Enchanced Dragon Slayer Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08X'), ( 'H008')) // Ubiquitous Profligate // INLINED!!
 		
 	// Killer Chicken
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08J'), ( 'H02W')) // Chicken Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08J'), ( 'H02W')) // Chicken Suit // INLINED!!
 		
 	// Mage Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06C'), ( 'H006')) // Arcane Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06M'), ( 'H006')) // Enchanced Arcane Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06D'), ( 'H006')) // Summoners Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00Y'), ( 'H006')) // Magic Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07I'), ( 'H006')) // Enchanced Magic Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I05G'), ( 'H006')) // Get-o Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I079'), ( 'H006')) // Enchanced Get-o Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I002'), ( 'H006')) // Nature Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07M'), ( 'H006')) // Enchanced Nature Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00Z'), ( 'H006')) // Magicians Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07J'), ( 'H006')) // Enchanced Magicians Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I02E'), ( 'H006')) // Power Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07O'), ( 'H006')) // Enchanced Power Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03Y'), ( 'H006')) // Rift Wand // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I05I'), ( 'H006')) // Sea Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07Q'), ( 'H006')) // Enchanced Sea Staff // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I05T'), ( 'H006')) // Water Scythe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I094'), ( 'H006')) // Elusive Zebra Cane // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I092'), ( 'H006')) // Pristine Beast Crest // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08Z'), ( 'H006')) // Presanctified Celestial Malinger // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I0AB'), ( 'H006')) // Ownage Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06C'), ( 'H006')) // Arcane Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06M'), ( 'H006')) // Enchanced Arcane Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06D'), ( 'H006')) // Summoners Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00Y'), ( 'H006')) // Magic Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07I'), ( 'H006')) // Enchanced Magic Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I05G'), ( 'H006')) // Get-o Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I079'), ( 'H006')) // Enchanced Get-o Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I002'), ( 'H006')) // Nature Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07M'), ( 'H006')) // Enchanced Nature Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00Z'), ( 'H006')) // Magicians Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07J'), ( 'H006')) // Enchanced Magicians Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I02E'), ( 'H006')) // Power Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07O'), ( 'H006')) // Enchanced Power Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03Y'), ( 'H006')) // Rift Wand // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I05I'), ( 'H006')) // Sea Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07Q'), ( 'H006')) // Enchanced Sea Staff // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I05T'), ( 'H006')) // Water Scythe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I094'), ( 'H006')) // Elusive Zebra Cane // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I092'), ( 'H006')) // Pristine Beast Crest // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08Z'), ( 'H006')) // Presanctified Celestial Malinger // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I0AB'), ( 'H006')) // Ownage Wand // INLINED!!
 		
 	// Normal Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I001'), ( 'H002')) // Arm Scythes // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08O'), ( 'H002')) // A Tale of old beggining // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00J'), ( 'H002')) // Axe of Smartassness // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I003'), ( 'H002')) // Badass Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I070'), ( 'H002')) // Blessed Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09X'), ( 'H002')) // Bronze Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I025'), ( 'H002')) // Cursed Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I028'), ( 'H002')) // Cobalt Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I017'), ( 'H002')) // Double Edged Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00B'), ( 'H002')) // Dual Bladed Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I027'), ( 'H002')) // Electric Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08Y'), ( 'H002')) // get-o sord // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I018'), ( 'H002')) // Heavy Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00K'), ( 'H002')) // Katana // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00V'), ( 'H002')) // Long Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I011'), ( 'H002')) // Meat Cleaver // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03J'), ( 'H002')) // Ragnarok // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00T'), ( 'H002')) // Small Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I015'), ( 'H002')) // Scythe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I000'), ( 'H002')) // Short Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I01B'), ( 'H002')) // Striped Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I093'), ( 'H002')) // Treasure Finding Shoval // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08W'), ( 'H002')) // Yataghan // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06P'), ( 'H002')) // Enchanced Arm Scythes // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I009'), ( 'H002')) // Death Sickle // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06R'), ( 'H002')) // Enchanced Badass Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I071'), ( 'H002')) // Enchanced Death Sickle // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I072'), ( 'H002')) // Enchanced Double Edged Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I074'), ( 'H002')) // Enchanced Dual Bladed Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Q'), ( 'H002')) // Enchanced Axe of Smartassness // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07L'), ( 'H002')) // Enchanced Meat Cleaver // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06W'), ( 'H002')) // Enchanced Cobalt Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07T'), ( 'H002')) // Enchanced Striped Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I076'), ( 'H002')) // Enchanced Electric Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07H'), ( 'H002')) // Enchanced Long Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07S'), ( 'H002')) // Enchanced Small Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07R'), ( 'H002')) // Enchanced Short Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07P'), ( 'H002')) // Enchanced Scythe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07D'), ( 'H002')) // Enchanced Heavy Axe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07F'), ( 'H002')) // Enchanced Katana // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I001'), ( 'H002')) // Arm Scythes // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08O'), ( 'H002')) // A Tale of old beggining // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00J'), ( 'H002')) // Axe of Smartassness // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I003'), ( 'H002')) // Badass Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I070'), ( 'H002')) // Blessed Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09X'), ( 'H002')) // Bronze Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I025'), ( 'H002')) // Cursed Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I028'), ( 'H002')) // Cobalt Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I017'), ( 'H002')) // Double Edged Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00B'), ( 'H002')) // Dual Bladed Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I027'), ( 'H002')) // Electric Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08Y'), ( 'H002')) // get-o sord // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I018'), ( 'H002')) // Heavy Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00K'), ( 'H002')) // Katana // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00V'), ( 'H002')) // Long Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I011'), ( 'H002')) // Meat Cleaver // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03J'), ( 'H002')) // Ragnarok // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00T'), ( 'H002')) // Small Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I015'), ( 'H002')) // Scythe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I000'), ( 'H002')) // Short Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I01B'), ( 'H002')) // Striped Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I093'), ( 'H002')) // Treasure Finding Shoval // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08W'), ( 'H002')) // Yataghan // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06P'), ( 'H002')) // Enchanced Arm Scythes // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I009'), ( 'H002')) // Death Sickle // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06R'), ( 'H002')) // Enchanced Badass Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I071'), ( 'H002')) // Enchanced Death Sickle // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I072'), ( 'H002')) // Enchanced Double Edged Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I074'), ( 'H002')) // Enchanced Dual Bladed Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Q'), ( 'H002')) // Enchanced Axe of Smartassness // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07L'), ( 'H002')) // Enchanced Meat Cleaver // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06W'), ( 'H002')) // Enchanced Cobalt Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07T'), ( 'H002')) // Enchanced Striped Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I076'), ( 'H002')) // Enchanced Electric Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07H'), ( 'H002')) // Enchanced Long Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07S'), ( 'H002')) // Enchanced Small Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07R'), ( 'H002')) // Enchanced Short Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07P'), ( 'H002')) // Enchanced Scythe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07D'), ( 'H002')) // Enchanced Heavy Axe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07F'), ( 'H002')) // Enchanced Katana // INLINED!!
 		
 	// Ownage Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09R'), ( 'H007')) // Dagger of Ba'al // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I01M'), ( 'H007')) // Creators Ownage // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I04N'), ( 'H007')) // Turtle Tooth Sword // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I04Z'), ( 'H007')) // Guardian Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08A'), ( 'H007')) // Ghostly Edge // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I087'), ( 'H007')) // Brolys Book // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08L'), ( 'H007')) // Absolute Zero // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08M'), ( 'H007')) // Condensed Anti-Matter Blade // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I0A6'), ( 'H007')) // Planet Destroyer // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09R'), ( 'H007')) // Dagger of Ba'al // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I01M'), ( 'H007')) // Creators Ownage // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I04N'), ( 'H007')) // Turtle Tooth Sword // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I04Z'), ( 'H007')) // Guardian Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08A'), ( 'H007')) // Ghostly Edge // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I087'), ( 'H007')) // Brolys Book // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08L'), ( 'H007')) // Absolute Zero // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08M'), ( 'H007')) // Condensed Anti-Matter Blade // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I0A6'), ( 'H007')) // Planet Destroyer // INLINED!!
 	
 	// Panda Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I09J'), ( 'H02Y')) // Panda Suit // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I09J'), ( 'H02Y')) // Panda Suit // INLINED!!
 		
 	// Penguin Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I051'), ( 'H026')) // Penguin Battle Gear // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I051'), ( 'H026')) // Penguin Battle Gear // INLINED!!
 		
 	// Satanic Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I05U'), ( 'H028')) // Satanic Sickle // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I085'), ( 'H028')) // Diabolic Scythe // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08V'), ( 'H028')) // Maleficent Knive // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I05U'), ( 'H028')) // Satanic Sickle // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I085'), ( 'H028')) // Diabolic Scythe // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08V'), ( 'H028')) // Maleficent Knive // INLINED!!
 		
 	//  Siege Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00P'), ( 'H004')) // Heavy Hammer // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07E'), ( 'H004')) // Enchanced heavy Hammer // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00H'), ( 'H004')) // Frost Club // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I078'), ( 'H004')) // Enchanced Frost Club // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03D'), ( 'H004')) // Ginormous Dual Axes // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07A'), ( 'H004')) // Enchanced Ginormous Dual Axes // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03E'), ( 'H004')) // Cranium Crackers // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I06X'), ( 'H004')) // Enchanced Cranium Crackers // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I091'), ( 'H004')) // Kinematic Viscosity // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00P'), ( 'H004')) // Heavy Hammer // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07E'), ( 'H004')) // Enchanced heavy Hammer // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00H'), ( 'H004')) // Frost Club // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I078'), ( 'H004')) // Enchanced Frost Club // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03D'), ( 'H004')) // Ginormous Dual Axes // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07A'), ( 'H004')) // Enchanced Ginormous Dual Axes // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03E'), ( 'H004')) // Cranium Crackers // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I06X'), ( 'H004')) // Enchanced Cranium Crackers // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I091'), ( 'H004')) // Kinematic Viscosity // INLINED!!
 		
 	// Sniper Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03A'), ( 'H009')) // Long Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07G'), ( 'H009')) // Enchanced Long Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I00D'), ( 'H009')) // Elvish Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I077'), ( 'H009')) // Enchanced Elvish Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03B'), ( 'H009')) // Marksman Bow // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07K'), ( 'H009')) // Enchanced Marksman Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03A'), ( 'H009')) // Long Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07G'), ( 'H009')) // Enchanced Long Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I00D'), ( 'H009')) // Elvish Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I077'), ( 'H009')) // Enchanced Elvish Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03B'), ( 'H009')) // Marksman Bow // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07K'), ( 'H009')) // Enchanced Marksman Bow // INLINED!!
 
 	// Claw Type
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I026'), ( 'H03H')) // Gold Claw // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I07B'), ( 'H03H')) // Enchanced Gold Claw // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03G'), ( 'H03H')) // Dual Claws // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I075'), ( 'H03H')) // Enchanced Dual Claws // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I054'), ( 'H03H')) // Devil Dual Claws // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I03F'), ( 'H03H')) // Wrapters Claws // INLINED!!
-		call SaveInteger(Table___ht, (item_to_unit_type), ('I08B'), ( 'H03H')) // Kitten Claws // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I026'), ( 'H03H')) // Gold Claw // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I07B'), ( 'H03H')) // Enchanced Gold Claw // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03G'), ( 'H03H')) // Dual Claws // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I075'), ( 'H03H')) // Enchanced Dual Claws // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I054'), ( 'H03H')) // Devil Dual Claws // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I03F'), ( 'H03H')) // Wrapters Claws // INLINED!!
+		call SaveInteger(Table__ht, (item_to_unit_type), ('I08B'), ( 'H03H')) // Kitten Claws // INLINED!!
 
     endfunction
 
-    function AddItemTypes___Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes)
+    function AddItemTypes__Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes)
     endfunction
 // scope AddItemTypes ends
 //===========================================================================
@@ -8763,17 +8468,17 @@ function Trig_ChangeTypeByItem_Actions takes nothing returns nothing
 	endif
 	
 	// If the unit type the item represents is unknown do nothing
-	if ( not (HaveSavedInteger(Table___ht, (item_to_unit_type), (item_type))) ) then // INLINED!!
+	if ( not (HaveSavedInteger(Table__ht, (item_to_unit_type), (item_type))) ) then // INLINED!!
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 50.00, "Uknown type. Report this to eejin")
 		return
 	endif
 	
 	// If of same type family then do nothing (eg. Normal type and Normal Flyer
-	if ( (LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit())))) == (LoadInteger(Table___ht, (type_family), ((LoadInteger(Table___ht, (item_to_unit_type), (item_type)))))) ) then // INLINED!!
+	if ( (LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit())))) == (LoadInteger(Table__ht, (type_family), ((LoadInteger(Table__ht, (item_to_unit_type), (item_type)))))) ) then // INLINED!!
 		return
 	endif
-	call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 50, "Changing type by item")
-	set bj_lastCreatedUnit=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), (LoadInteger(Table___ht, (item_to_unit_type), (item_type))), GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit())) // INLINED!!
+
+	set bj_lastCreatedUnit=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), (LoadInteger(Table__ht, (item_to_unit_type), (item_type))), GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit())) // INLINED!!
 	
 	set hp=GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE)
 	set mp=GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA)
@@ -8840,11 +8545,11 @@ function Trig_ChangeTypeBySpell_Actions takes nothing returns nothing
  local real hp
  local real mp
 	if ( GetSpellAbilityId() == 'A08V' ) then
-		set newType=typeToFortified[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToFortified[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	elseif ( GetSpellAbilityId() == 'A08W' ) then // Divine Essence
-		set newType=typeToDivine[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToDivine[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	elseif ( GetSpellAbilityId() == 'A08X' ) then // Flight
-		set newType=typeToFlying[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToFlying[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	endif
 	
 	if ( newType == - 1 ) then
@@ -11039,7 +10744,7 @@ endfunction
 // All this fuckingwork I had to do to create this list. Was seperated into 43 different triggers
 //===========================================================================
 // scope AddSpellTypes begins
-    function AddSpellTypes___ApplySpellTypes takes nothing returns nothing
+    function AddSpellTypes__ApplySpellTypes takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 		
 		// Initialise playerAbilities
@@ -11125,83 +10830,83 @@ endfunction
 
 		// Map spell items to matching ability
 		set spellToAbility=s__Table_create()
-		call SaveInteger(Table___ht, (spellToAbility), ('I01J'), ( 0)) // Ultima // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01N'), ( 1)) // Twilight // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01O'), ( 2)) // Soul Drain // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01P'), ( 3)) // Circle of Death // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01Q'), ( 4)) // Wake of Fire // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01R'), ( 5)) // Metallic Erruption // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01S'), ( 6)) // Concentrated Energy // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01U'), ( 7)) // THC Cloud // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01V'), ( 8)) // Deathblow // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01W'), ( 9)) // Siesmic Assualt // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01X'), ( 10)) // Rip Tide // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01Y'), ( 11)) // Mega Flare // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01Z'), ( 12)) // Mega Magic // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I020'), ( 13)) // Super Hex // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I021'), ( 14)) // Psychic Sightnings // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I022'), ( 15)) // Lit Fury // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I023'), ( 16)) // Auto Heal // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I029'), ( 17)) // Hyper Heal // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02C'), ( 18)) // Ice Quake // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02G'), ( 19)) // Sun Storm // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02F'), ( 20)) // Summon - Basic Elemental  // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02P'), ( 21)) // Summon - Lightning Lizard // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02T'), ( 22)) // Summon - Steam Being 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02S'), ( 23)) // Summon - Evil Tree 		 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02X'), ( 24)) // Summon - Gold Lizard 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02U'), ( 25)) // Summon - Ground Charger 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02R'), ( 26)) // Summon - Hippy 			 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02Y'), ( 27)) // Summon - Lava Runner 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I032'), ( 28)) // Summon - Lesser Alien 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02Z'), ( 29)) // Summon - Molten Machine 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02W'), ( 30)) // Summon - Mud Monster 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I034'), ( 31)) // Summon - Overgrown Hedge  // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I038'), ( 32)) // Summon - Savage Shrub 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I035'), ( 33)) // Summon - Seige Engine 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I037'), ( 34)) // Summon - Critical Charger // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I036'), ( 35)) // Summon - Toxic Spider 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I031'), ( 36)) // Summon - Tri Elemental 	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I039'), ( 37)) // Summon - Vampire			 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I02V'), ( 38)) // Summon - Wet Current		 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I030'), ( 39)) // Summon - Wild Murlock	 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I033'), ( 40)) // Summon - Wraith			 // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I03H'), ( 41)) // Hyper Burn // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I03I'), ( 42)) // Mental Bitch Slap // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I03O'), ( 43)) // Eternal Life // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I01T'), ( 44)) // EXP Booster // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I03P'), ( 45)) // Echo Blast // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I03T'), ( 46)) // Bloody Tornado // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I048'), ( 47)) // Adamant Armor // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04U'), ( 48)) // Fire // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04V'), ( 49)) // Lightning // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04W'), ( 50)) // Minor Heal // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04B'), ( 51)) // Rock Skin // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04C'), ( 52)) // Divine Essence // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04D'), ( 53)) // Flight // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I04M'), ( 54)) // Master Summoning // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I05L'), ( 55)) // Advanced Summoning // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I05M'), ( 56)) // Electric Skin // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I05N'), ( 57)) // Fire Skin // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I05O'), ( 58)) // Combust // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I06L'), ( 59)) // Turbo Heal // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I07Y'), ( 60)) // Critical // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I080'), ( 61)) // Stone Gaze // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I088'), ( 62)) // Presure Release // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I055'), ( 63)) // Devil Booster // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I08D'), ( 64)) // ChronoSphere // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I08H'), ( 65)) // Full Heal // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I0AA'), ( 66)) // Mega Shard // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I0AH'), ( 67)) // Critical Strike // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I0AG'), ( 68)) // Evasion // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I0AJ'), ( 69)) // Dhorak's Rage // INLINED!!
-		call SaveInteger(Table___ht, (spellToAbility), ('I0AE'), ( 70)) // Godly summoning // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01J'), ( 0)) // Ultima // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01N'), ( 1)) // Twilight // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01O'), ( 2)) // Soul Drain // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01P'), ( 3)) // Circle of Death // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01Q'), ( 4)) // Wake of Fire // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01R'), ( 5)) // Metallic Erruption // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01S'), ( 6)) // Concentrated Energy // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01U'), ( 7)) // THC Cloud // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01V'), ( 8)) // Deathblow // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01W'), ( 9)) // Siesmic Assualt // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01X'), ( 10)) // Rip Tide // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01Y'), ( 11)) // Mega Flare // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01Z'), ( 12)) // Mega Magic // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I020'), ( 13)) // Super Hex // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I021'), ( 14)) // Psychic Sightnings // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I022'), ( 15)) // Lit Fury // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I023'), ( 16)) // Auto Heal // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I029'), ( 17)) // Hyper Heal // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02C'), ( 18)) // Ice Quake // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02G'), ( 19)) // Sun Storm // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02F'), ( 20)) // Summon - Basic Elemental  // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02P'), ( 21)) // Summon - Lightning Lizard // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02T'), ( 22)) // Summon - Steam Being 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02S'), ( 23)) // Summon - Evil Tree 		 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02X'), ( 24)) // Summon - Gold Lizard 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02U'), ( 25)) // Summon - Ground Charger 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02R'), ( 26)) // Summon - Hippy 			 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02Y'), ( 27)) // Summon - Lava Runner 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I032'), ( 28)) // Summon - Lesser Alien 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02Z'), ( 29)) // Summon - Molten Machine 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02W'), ( 30)) // Summon - Mud Monster 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I034'), ( 31)) // Summon - Overgrown Hedge  // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I038'), ( 32)) // Summon - Savage Shrub 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I035'), ( 33)) // Summon - Seige Engine 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I037'), ( 34)) // Summon - Critical Charger // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I036'), ( 35)) // Summon - Toxic Spider 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I031'), ( 36)) // Summon - Tri Elemental 	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I039'), ( 37)) // Summon - Vampire			 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I02V'), ( 38)) // Summon - Wet Current		 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I030'), ( 39)) // Summon - Wild Murlock	 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I033'), ( 40)) // Summon - Wraith			 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I03H'), ( 41)) // Hyper Burn // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I03I'), ( 42)) // Mental Bitch Slap // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I03O'), ( 43)) // Eternal Life // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I01T'), ( 44)) // EXP Booster // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I03P'), ( 45)) // Echo Blast // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I03T'), ( 46)) // Bloody Tornado // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I048'), ( 47)) // Adamant Armor // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04U'), ( 48)) // Fire // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04V'), ( 49)) // Lightning // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04W'), ( 50)) // Minor Heal // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04B'), ( 51)) // Rock Skin // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04C'), ( 52)) // Divine Essence // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04D'), ( 53)) // Flight // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I04M'), ( 54)) // Master Summoning // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I05L'), ( 55)) // Advanced Summoning // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I05M'), ( 56)) // Electric Skin // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I05N'), ( 57)) // Fire Skin // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I05O'), ( 58)) // Combust // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I06L'), ( 59)) // Turbo Heal // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I07Y'), ( 60)) // Critical // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I080'), ( 61)) // Stone Gaze // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I088'), ( 62)) // Presure Release // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I055'), ( 63)) // Devil Booster // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I08D'), ( 64)) // ChronoSphere // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I08H'), ( 65)) // Full Heal // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I0AA'), ( 66)) // Mega Shard // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I0AH'), ( 67)) // Critical Strike // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I0AG'), ( 68)) // Evasion // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I0AJ'), ( 69)) // Dhorak's Rage // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbility), ('I0AE'), ( 70)) // Godly summoning // INLINED!!
 		
 		set spellToAbilityLevel=s__Table_create()
-		call SaveInteger(Table___ht, (spellToAbilityLevel), ('I0AF'), ( 2)) // Lightning 2 // INLINED!!
+		call SaveInteger(Table__ht, (spellToAbilityLevel), ('I0AF'), ( 2)) // Lightning 2 // INLINED!!
 		
 		set spellUpgradeToAbility=s__Table_create()
-		call SaveInteger(Table___ht, (spellUpgradeToAbility), ('I0AF'), ( 'A0EN')) // Lightning 2 // INLINED!!
+		call SaveInteger(Table__ht, (spellUpgradeToAbility), ('I0AF'), ( 'A0EN')) // Lightning 2 // INLINED!!
 		
 		set summoningAbilities[0]=20 // Summon - Basic Elemental 
 		set summoningAbilities[1]=21 // Summon - Lightning Lizard
@@ -11229,8 +10934,8 @@ endfunction
 		set summoningAbilities[23]=70 // Godly Summoning
     endfunction
 
-    function AddSpellTypes___Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes___ApplySpellTypes)
+    function AddSpellTypes__Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes__ApplySpellTypes)
     endfunction
 // scope AddSpellTypes ends
 //===========================================================================
@@ -11240,9 +10945,9 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
     local integer i= 0
  local integer j= 0
  local boolean isSummoningAbility= false
-	if ( (HaveSavedInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+	if ( (HaveSavedInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 		// Check if spell is already learned
-		if ( PlayerHasSpell(GetOwningPlayer(GetTriggerUnit()) , (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))) ) then // INLINED!!
+		if ( PlayerHasSpell(GetOwningPlayer(GetTriggerUnit()) , (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))) ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You already have this spell.")
 			call CreateItem(GetItemTypeId(GetManipulatedItem()), GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
@@ -11252,7 +10957,7 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
 		set i=0
 		loop
 			exitwhen i > summoningAbilitiesCount - 1
-			if ( summoningAbilities[i] == (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+			if ( summoningAbilities[i] == (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 				set isSummoningAbility=true
 				call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Found summoning ability")
 				set i=summoningAbilitiesCount
@@ -11284,8 +10989,8 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
 		loop
 			exitwhen i > 6
 			if ( s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i] == - 1 ) then
-				call UnitAddAbility(GetTriggerUnit(), abilities[(LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))]) // INLINED!!
-				set s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i]= (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) // INLINED!!
+				call UnitAddAbility(GetTriggerUnit(), abilities[(LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))]) // INLINED!!
+				set s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i]= (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) // INLINED!!
 				return
 			endif
 			set i=i + 1
@@ -11309,22 +11014,22 @@ endfunction
 function Trig_Upgrade_Spell_Actions takes nothing returns nothing
  local integer spellID= GetItemTypeId(GetManipulatedItem())
 
-	if ( (HaveSavedInteger(Table___ht, (spellUpgradeToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+	if ( (HaveSavedInteger(Table__ht, (spellUpgradeToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 		// Check if unit has spell or too low a level
-		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID)))) < ( (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID))) ) - 1 ) then // INLINED!!
+		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID)))) < ( (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID))) ) - 1 ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You have not learned the base spell or the previous spell level.")
 			call CreateItem(spellID, GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
 		endif
 		
 		// Check if unit has this level already or higher
-		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID)))) >= (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID))) ) then // INLINED!!
+		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID)))) >= (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID))) ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You have already mastered this level.")
 			call CreateItem(spellID, GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
 		endif
 		
-		call SetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID))), (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID)))) // INLINED!!
+		call SetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID))), (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID)))) // INLINED!!
 	endif
 endfunction
 
@@ -11582,11 +11287,11 @@ endfunction
     
         function s__JumpingStomp_DestructableFilter takes nothing returns boolean
             if GetDestructableLife(GetFilterDestructable()) > 0 then
-                call IssueTargetOrder(JumpSpellvJASS___HARVESTER, "harvest", GetFilterDestructable())
-                if GetUnitCurrentOrder(JumpSpellvJASS___HARVESTER) == OrderId("harvest") then
+                call IssueTargetOrder(JumpSpellvJASS__HARVESTER, "harvest", GetFilterDestructable())
+                if GetUnitCurrentOrder(JumpSpellvJASS__HARVESTER) == OrderId("harvest") then
                     call KillDestructable(GetFilterDestructable())
                 endif
-                call IssueImmediateOrder(JumpSpellvJASS___HARVESTER, "stop")
+                call IssueImmediateOrder(JumpSpellvJASS__HARVESTER, "stop")
             endif
         return false
     endfunction
@@ -11597,9 +11302,9 @@ endfunction
             if not IsUnitType(EVENT_JUMP_UNIT, UNIT_TYPE_DEAD) then
                 set x=GetUnitX(EVENT_JUMP_UNIT)
                 set y=GetUnitY(EVENT_JUMP_UNIT)
-                call DestroyEffect(AddSpecialEffect(JumpSpellvJASS___EFF, x, y))
-                call SetRect(JumpSpellvJASS___REC, x - JumpSpellvJASS___AOE, y - JumpSpellvJASS___AOE, x + JumpSpellvJASS___AOE, y + JumpSpellvJASS___AOE)
-                call EnumDestructablesInRect(JumpSpellvJASS___REC, Condition(function s__JumpingStomp_DestructableFilter), null)
+                call DestroyEffect(AddSpecialEffect(JumpSpellvJASS__EFF, x, y))
+                call SetRect(JumpSpellvJASS__REC, x - JumpSpellvJASS__AOE, y - JumpSpellvJASS__AOE, x + JumpSpellvJASS__AOE, y + JumpSpellvJASS__AOE)
+                call EnumDestructablesInRect(JumpSpellvJASS__REC, Condition(function s__JumpingStomp_DestructableFilter), null)
             endif
             return false
         endfunction
@@ -11611,8 +11316,8 @@ endfunction
             local real x1= GetSpellTargetX()
             local real y1= GetSpellTargetY()
             // Here I make each jump take at least 0.5 seconds. The distance add to the jump time with 0.5 factor.
-            local real time= 0.5 + 0.5 * SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 )) / JumpSpellvJASS___SPEED
-            call s__Jump_start(GetTriggerUnit() , GetSpellTargetX() , GetSpellTargetY() , JumpSpellvJASS___MAX_HEIGHT , time , JumpSpellvJASS___GRAVITY)
+            local real time= 0.5 + 0.5 * SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 )) / JumpSpellvJASS__SPEED
+            call s__Jump_start(GetTriggerUnit() , GetSpellTargetX() , GetSpellTargetY() , JumpSpellvJASS__MAX_HEIGHT , time , JumpSpellvJASS__GRAVITY)
             
             
             
@@ -11626,7 +11331,7 @@ endfunction
         endfunction
         
         function s__JumpingStomp_onOrder takes nothing returns boolean
-            if GetIssuedOrderId() == JumpSpellvJASS___OID and not IsPointJumpable(GetOrderPointX() , GetOrderPointY()) then
+            if GetIssuedOrderId() == JumpSpellvJASS__OID and not IsPointJumpable(GetOrderPointX() , GetOrderPointY()) then
                 call PauseUnit(GetTriggerUnit(), true)
                 call IssueImmediateOrder(GetTriggerUnit(), "stop")
                 call PauseUnit(GetTriggerUnit(), false)
@@ -11643,13 +11348,13 @@ endfunction
             call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER)
             call TriggerAddCondition(t, Condition(function s__JumpingStomp_onOrder))
             
-            call RegisterSpellEffectEvent(JumpSpellvJASS___AID , function s__JumpingStomp_onCast)
+            call RegisterSpellEffectEvent(JumpSpellvJASS__AID , function s__JumpingStomp_onCast)
             
-            set JumpSpellvJASS___HARVESTER=CreateUnit(Player(15), 'hpea', 0, 0, 0)
-            call UnitAddAbility(JumpSpellvJASS___HARVESTER, 'Aloc')
-            call ShowUnit(JumpSpellvJASS___HARVESTER, false)
+            set JumpSpellvJASS__HARVESTER=CreateUnit(Player(15), 'hpea', 0, 0, 0)
+            call UnitAddAbility(JumpSpellvJASS__HARVESTER, 'Aloc')
+            call ShowUnit(JumpSpellvJASS__HARVESTER, false)
             
-            set JumpSpellvJASS___TAB=s__Table_create()
+            set JumpSpellvJASS__TAB=s__Table_create()
         endfunction
 // scope JumpSpellvJASS ends
 
@@ -17039,1469 +16744,75 @@ function InitTrig_S_Vampire takes nothing returns nothing
 endfunction
 
 //===========================================================================
-// Trigger: S Vampire Copy
+// Trigger: Advanced Summoning
 //===========================================================================
-function Trig_S_Vampire_Copy_Conditions takes nothing returns boolean
-    if ( not ( GetSpellAbilityId() == 'A07G' ) ) then
-        return false
-    endif
-    return true
+function Trig_Advanced_Summoning_Conditions takes nothing returns boolean
+	return GetSpellAbilityId() == 'A0A1'
 endfunction
 
-function Trig_S_Vampire_Copy_Func001C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(0) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func002C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(1) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func003C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(2) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func004C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(3) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func005C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(4) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func006C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(5) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func007C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(6) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func008C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(7) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func009C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(8) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Func010C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(9) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_Vampire_Copy_Actions takes nothing returns nothing
-    if ( Trig_S_Vampire_Copy_Func001C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon1=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func002C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon2=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func003C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon3=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func004C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon4=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func005C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon5=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func006C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon6=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func007C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon7=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func008C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon8=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func009C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon9=GetLastCreatedUnit()
-    else
-    endif
-    if ( Trig_S_Vampire_Copy_Func010C() ) then
-        call CreateNUnitsAtLoc(1, 'n00M', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-        set udg_Summon10=GetLastCreatedUnit()
-    else
-    endif
+function Trig_Advanced_Summoning_Actions takes nothing returns nothing
+ local integer int= GetHeroInt(GetTriggerUnit(), false)
+ local unit summon= udg_Summoned_Unit[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]
+	
+	if ( not ( summon == null ) ) then
+		call KillUnit(summon)
+	endif
+	
+	if ( int < 200 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00P', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	elseif ( int < 300 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00R', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	elseif ( int < 400 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n025', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	else
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00Z', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	endif
+	
+	set udg_Summoned_Unit[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]=summon
 endfunction
 
 //===========================================================================
-function InitTrig_S_Vampire_Copy takes nothing returns nothing
-    set gg_trg_S_Vampire_Copy=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_S_Vampire_Copy, EVENT_PLAYER_UNIT_SPELL_FINISH)
-    call TriggerAddCondition(gg_trg_S_Vampire_Copy, Condition(function Trig_S_Vampire_Copy_Conditions))
-    call TriggerAddAction(gg_trg_S_Vampire_Copy, function Trig_S_Vampire_Copy_Actions)
+function InitTrig_Advanced_Summoning takes nothing returns nothing
+    set gg_trg_Advanced_Summoning=CreateTrigger()
+    call TriggerRegisterAnyUnitEventBJ(gg_trg_Advanced_Summoning, EVENT_PLAYER_UNIT_SPELL_FINISH)
+    call TriggerAddCondition(gg_trg_Advanced_Summoning, Condition(function Trig_Advanced_Summoning_Conditions))
+    call TriggerAddAction(gg_trg_Advanced_Summoning, function Trig_Advanced_Summoning_Actions)
 endfunction
-
-
 //===========================================================================
-// Trigger: S master summoner
+// Trigger: Master Summoning
 //===========================================================================
-function Trig_S_master_summoner_Conditions takes nothing returns boolean
-    if ( not ( GetSpellAbilityId() == 'A092' ) ) then
-        return false
-    endif
-    return true
+function Trig_Master_Summoning_Conditions takes nothing returns boolean
+	return GetSpellAbilityId() == 'A092'
 endfunction
 
-function Trig_S_master_summoner_Func001Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func001Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func001Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func001Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func001C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(0) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func002Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func002Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func002Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func002Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func002C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(1) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func003Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func003Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func003Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func003Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func003C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(2) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func004Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func004Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func004Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func004Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func004C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(3) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func005Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func005Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func005Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func005Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func005C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(4) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func006Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func006Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func006Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func006Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func006C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(5) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func007Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func007Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func007Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func007Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func007C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(6) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func008Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func008Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func008Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func008Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func008C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(7) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func009Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func009Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func009Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func009Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func009C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(8) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func010Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func010Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func010Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func010Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Func010C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(9) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_master_summoner_Actions takes nothing returns nothing
-    if ( Trig_S_master_summoner_Func001C() ) then
-        if ( Trig_S_master_summoner_Func001Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func001Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func001Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func001Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func002C() ) then
-        if ( Trig_S_master_summoner_Func002Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func002Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func002Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func002Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func003C() ) then
-        if ( Trig_S_master_summoner_Func003Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func003Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func003Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func003Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func004C() ) then
-        if ( Trig_S_master_summoner_Func004Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func004Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func004Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func004Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func005C() ) then
-        if ( Trig_S_master_summoner_Func005Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func005Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func005Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func005Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func006C() ) then
-        if ( Trig_S_master_summoner_Func006Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func006Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func006Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func006Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func007C() ) then
-        if ( Trig_S_master_summoner_Func007Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func007Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func007Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func007Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func008C() ) then
-        if ( Trig_S_master_summoner_Func008Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func008Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func008Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func008Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func009C() ) then
-        if ( Trig_S_master_summoner_Func009Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func009Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func009Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func009Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_master_summoner_Func010C() ) then
-        if ( Trig_S_master_summoner_Func010Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00S', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func010Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Y', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func010Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n010', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_master_summoner_Func010Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00C', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
+function Trig_Master_Summoning_Actions takes nothing returns nothing
+ local integer int= GetHeroInt(GetTriggerUnit(), false)
+ local unit summon= udg_Summoned_Unit[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]
+	
+	if ( not ( summon == null ) ) then
+		call KillUnit(summon)
+	endif
+	
+	if ( int < 200 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00S', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	elseif ( int < 300 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00Y', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	elseif ( int < 400 ) then
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n010', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	else
+		set summon=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), 'n00C', GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+	endif
+	
+	set udg_Summoned_Unit[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]=summon
 endfunction
 
 //===========================================================================
-function InitTrig_S_master_summoner takes nothing returns nothing
-    set gg_trg_S_master_summoner=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_S_master_summoner, EVENT_PLAYER_UNIT_SPELL_FINISH)
-    call TriggerAddCondition(gg_trg_S_master_summoner, Condition(function Trig_S_master_summoner_Conditions))
-    call TriggerAddAction(gg_trg_S_master_summoner, function Trig_S_master_summoner_Actions)
+function InitTrig_Master_Summoning takes nothing returns nothing
+    set gg_trg_Master_Summoning=CreateTrigger()
+    call TriggerRegisterAnyUnitEventBJ(gg_trg_Master_Summoning, EVENT_PLAYER_UNIT_SPELL_FINISH)
+    call TriggerAddCondition(gg_trg_Master_Summoning, Condition(function Trig_Master_Summoning_Conditions))
+    call TriggerAddAction(gg_trg_Master_Summoning, function Trig_Master_Summoning_Actions)
 endfunction
-
-//===========================================================================
-// Trigger: S advanced summon
-//===========================================================================
-function Trig_S_advanced_summon_Conditions takes nothing returns boolean
-    if ( not ( GetSpellAbilityId() == 'A0A1' ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func001Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func001Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func001Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func001Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func001C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(0) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func002Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func002Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func002Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func002Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func002C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(1) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func003Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func003Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func003Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func003Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func003C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(2) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func004Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func004Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func004Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func004Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func004C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(3) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func005Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func005Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func005Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func005Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func005C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(4) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func006Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func006Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func006Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func006Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func006C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(5) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func007Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func007Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func007Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func007Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func007C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(6) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func008Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func008Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func008Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func008Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func008C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(7) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func009Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func009Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func009Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func009Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func009C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(8) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func010Func001C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 200 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func010Func002C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 200 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 300 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func010Func003C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 300 ) ) then
-        return false
-    endif
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) < 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func010Func004C takes nothing returns boolean
-    if ( not ( GetHeroStatBJ(bj_HEROSTAT_INT, GetTriggerUnit(), true) >= 400 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Func010C takes nothing returns boolean
-    if ( not ( GetOwningPlayer(GetTriggerUnit()) == Player(9) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_S_advanced_summon_Actions takes nothing returns nothing
-    if ( Trig_S_advanced_summon_Func001C() ) then
-        if ( Trig_S_advanced_summon_Func001Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func001Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func001Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func001Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon1=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func002C() ) then
-        if ( Trig_S_advanced_summon_Func002Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func002Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func002Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func002Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon2=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func003C() ) then
-        if ( Trig_S_advanced_summon_Func003Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func003Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func003Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func003Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon3=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func004C() ) then
-        if ( Trig_S_advanced_summon_Func004Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func004Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func004Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func004Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon4=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func005C() ) then
-        if ( Trig_S_advanced_summon_Func005Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func005Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func005Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func005Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon5=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func006C() ) then
-        if ( Trig_S_advanced_summon_Func006Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func006Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func006Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func006Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon6=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func007C() ) then
-        if ( Trig_S_advanced_summon_Func007Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func007Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func007Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func007Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon7=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func008C() ) then
-        if ( Trig_S_advanced_summon_Func008Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func008Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func008Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func008Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon8=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func009C() ) then
-        if ( Trig_S_advanced_summon_Func009Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func009Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func009Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func009Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon9=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-    if ( Trig_S_advanced_summon_Func010C() ) then
-        if ( Trig_S_advanced_summon_Func010Func001C() ) then
-            call CreateNUnitsAtLoc(1, 'n00P', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func010Func002C() ) then
-            call CreateNUnitsAtLoc(1, 'n00R', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func010Func003C() ) then
-            call CreateNUnitsAtLoc(1, 'n025', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-        if ( Trig_S_advanced_summon_Func010Func004C() ) then
-            call CreateNUnitsAtLoc(1, 'n00Z', GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
-            set udg_Summon10=GetLastCreatedUnit()
-        else
-        endif
-    else
-    endif
-endfunction
-
-//===========================================================================
-function InitTrig_S_advanced_summon takes nothing returns nothing
-    set gg_trg_S_advanced_summon=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_S_advanced_summon, EVENT_PLAYER_UNIT_SPELL_FINISH)
-    call TriggerAddCondition(gg_trg_S_advanced_summon, Condition(function Trig_S_advanced_summon_Conditions))
-    call TriggerAddAction(gg_trg_S_advanced_summon, function Trig_S_advanced_summon_Actions)
-endfunction
-
 //===========================================================================
 // Trigger: Godly Summoning
 //===========================================================================
@@ -18510,7 +16821,7 @@ function Trig_Godly_Summoning_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Godly_Summoning_Actions takes nothing returns nothing
- local integer int= GetHeroInt(GetTriggerUnit(), true)
+ local integer int= GetHeroInt(GetTriggerUnit(), false)
  local unit summon= udg_Summoned_Unit[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]
 	
 	if ( not ( summon == null ) ) then
@@ -19158,7 +17469,7 @@ function Trig_Enhancementability_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Enhancementability_Funcboi takes nothing returns nothing
-    if ( (HaveSavedInteger(Table___ht, (weapon_to_struct), (GetItemTypeId(GetEnumItem())))) ) then // INLINED!!
+    if ( (HaveSavedInteger(Table__ht, (weapon_to_struct), (GetItemTypeId(GetEnumItem())))) ) then // INLINED!!
 	call AddSpecialEffectLocBJ(GetItemLoc(GetEnumItem()), "Abilities\\Spells\\Human\\Heal\\HealTarget.mdl")
     endif
 endfunction
@@ -24288,7 +22599,7 @@ endfunction
 // Trigger: AddItems
 //===========================================================================
 // scope AddItems begins
- function AddItems__ApplyIDS takes nothing returns nothing
+ function AddItems___ApplyIDS takes nothing returns nothing
 		call DestroyTimer(GetExpiredTimer())
 
 	// Basic Elemental
@@ -24358,23 +22669,47 @@ endfunction
 		
 	// Dhorak
 		call s__ItemDrop_InitUnit('n04G' , 99)
-		call s__ItemDrop_AddItem('n04G' , 'I041' , 12.5) // Power book
+		call s__ItemDrop_AddItem('n04G' , 'I041' , 12.5) // Power Book
 		call s__ItemDrop_AddItem('n04G' , 'I0AJ' , 20) // Dhorak's Rage
 		call s__ItemDrop_AddItem('n04G' , 'I0AE' , 15) // Godly Summoning
 
 	// Elven Pointy Shooter
 		call s__ItemDrop_InitUnit('e002' , 99)
-		call s__ItemDrop_AddItem('e002' , 'I03B' , 3) // Marksman bow
-		call s__ItemDrop_AddItem('e002' , 'I069' , 3) // Marksmen arrows
+		call s__ItemDrop_AddItem('e002' , 'I03B' , 3) // Marksman Bow
+		call s__ItemDrop_AddItem('e002' , 'I069' , 3) // Marksmen Arrows
 
 	// Pebble
 		call s__ItemDrop_InitUnit('n047' , 99)
 		call s__ItemDrop_AddItem('n047' , 'I0AL' , 5) // Pebble Tipped Arrows
+
+	// Sand Crawler
+		call s__ItemDrop_InitUnit('n04K' , 99)
+		call s__ItemDrop_AddItem('n04K' , 'I0AO' , 4) // Stringer Arrows
+
+	// Sandy Chunks
+		call s__ItemDrop_InitUnit('n04L' , 99)
+		call s__ItemDrop_AddItem('n04L' , 'I0AL' , 4) // Pebble Tipped Arrows
+		call s__ItemDrop_AddItem('n04L' , 'I08I' , 2.5) // Bronze Hat
+
+	// Sandy Clumps
+		call s__ItemDrop_InitUnit('n04M' , 99)
+		call s__ItemDrop_AddItem('n04M' , 'I01A' , 4) // Steel Helm
+		call s__ItemDrop_AddItem('n04M' , 'I02H' , 2) // Crystalline Gloves
+
+	// Sandy Rocks
+		call s__ItemDrop_InitUnit('n04N' , 99)
+		call s__ItemDrop_AddItem('n04N' , 'I0AN' , 3) // Titanium Helm
+		call s__ItemDrop_AddItem('n04N' , 'I041' , 7.5) // Power book
+
+	// Pharaoh
+		call s__ItemDrop_InitUnit('u000' , 99)
+		call s__ItemDrop_AddItem('u000' , 'I0AM' , 17.5) // Benign Molder
+		call s__ItemDrop_AddItem('u000' , 'I041' , 7.5) // Power book
 		
 	endfunction
 
- function AddItems__Init takes nothing returns nothing
-		call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS)
+ function AddItems___Init takes nothing returns nothing
+		call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS)
 	endfunction
 	
 // scope AddItems ends
@@ -32458,7 +30793,7 @@ function Trig_newsave_Actions takes nothing returns nothing
  local integer items= 0
  local string spell_code= ""
  local integer spells= 0
- local string alphabet= "XOkAxFtTYD1268CScUghyBfJ7sP0HlnWQVjaZme4KGozRiwM9vupIbqrNEd53L-"
+ local string alphabet= "XOkAxFtTYD1268CScUghyBfJ7sP0HlnWQVjaZme4KGozRiwM9vupIbqrNEd53L#-"
  local integer alphabet_length= StringLength(alphabet)
  local integer i
 	
@@ -32532,7 +30867,6 @@ function Trig_newsave_Actions takes nothing returns nothing
 	
 	set udg_saveTemp=save_code
 	call CreateTextFileForPlayer(GetTriggerPlayer())
-	
 	call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Your save code is saved in a text file.\nSave code: " + save_code)
 endfunction
 
@@ -32559,7 +30893,7 @@ endfunction
 function Trig_load_Actions takes nothing returns nothing
  local string data_code= SubString(GetEventPlayerChatString(), 3, StringLength(GetEventPlayerChatString()))
  local string load_code= ""
- local string alphabet= "XOkAxFtTYD1268CScUghyBfJ7sP0HlnWQVjaZme4KGozRiwM9vupIbqrNEd53L-"
+ local string alphabet= "XOkAxFtTYD1268CScUghyBfJ7sP0HlnWQVjaZme4KGozRiwM9vupIbqrNEd53L#-"
  local integer alphabet_length= StringLength(alphabet)
  local string sub_string= ""
  local integer i= 0
@@ -34445,7 +32779,7 @@ endfunction
 // Trigger: AddKillQuests
 //===========================================================================
 // scope AddKillQuests begins
-    function AddKillQuests__AddKillQuests takes nothing returns nothing
+    function AddKillQuests___AddKillQuests takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 	set s__kill_quests[0]= s__KillQuest__allocate()
@@ -34496,8 +32830,8 @@ endfunction
 	call AddSpecialEffectTargetUnitBJ("overhead", gg_unit_h01A_0408, "Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
     endfunction
 
-    function AddKillQuests__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests__AddKillQuests)
+    function AddKillQuests___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests)
     endfunction
 // scope AddKillQuests ends
 //===========================================================================
@@ -35369,12 +33703,12 @@ endfunction
 //===========================================================================
 // Trigger: Volcano Players Alive
 //===========================================================================
-function Trig_Volcano_Players_Alive_Func018001001002 takes nothing returns boolean
+function Trig_Volcano_Players_Alive_Func015001001002 takes nothing returns boolean
     return ( GetOwningPlayer(GetFilterUnit()) != Player(11) )
 endfunction
 
 function Trig_Volcano_Players_Alive_Conditions takes nothing returns boolean
-    if ( not ( CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, Condition(function Trig_Volcano_Players_Alive_Func018001001002))) == 0 ) ) then
+    if ( not ( CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, Condition(function Trig_Volcano_Players_Alive_Func015001001002))) == 0 ) ) then
         return false
     endif
     return true
@@ -35395,9 +33729,6 @@ function Trig_Volcano_Players_Alive_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Volcano_Wave_5)
     call DisableTrigger(gg_trg_Volcano_Wave_6)
     call DisableTrigger(gg_trg_Volcano_Wave_7)
-    call DisableTrigger(gg_trg_Volcano_Wave_8)
-    call DisableTrigger(gg_trg_Volcano_Wave_9)
-    call DisableTrigger(gg_trg_Volcano_Wave_10)
     call DisableTrigger(gg_trg_Volcano_Final_Wave)
     call DisableTrigger(gg_trg_Volcano_Dhorak_Healers)
     call PauseTimerBJ(true, udg_VolcanoTimer)
@@ -35463,6 +33794,18 @@ function Trig_Volcano_Wave_2_Actions takes nothing returns nothing
         call TriggerSleepAction(0.20)
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
+    set bj_forLoopAIndex=1
+    set bj_forLoopAIndexEnd=2
+    loop
+        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
+        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
+        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
+        call CreateNUnitsAtLoc(1, 'n04D', Player(11), GetRandomLocInRect(gg_rct_Volcano_Spawn), bj_UNIT_FACING)
+        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
+        call TriggerSleepAction(0.20)
+        set bj_forLoopAIndex=bj_forLoopAIndex + 1
+    endloop
     call EnableTrigger(gg_trg_Volcano_Wave_3)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
@@ -35487,102 +33830,6 @@ function Trig_Volcano_Wave_3_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Volcano_Wave_3_Actions takes nothing returns nothing
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04C', Player(11), udg_VolcanoPoint, bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=2
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04D', Player(11), GetRandomLocInRect(gg_rct_Volcano_Spawn), bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_4)
-    call DisableTrigger(GetTriggeringTrigger())
-endfunction
-
-//===========================================================================
-function InitTrig_Volcano_Wave_3 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_3=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_3)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_3, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_3, Condition(function Trig_Volcano_Wave_3_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_3, function Trig_Volcano_Wave_3_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: Volcano Wave 4
-//===========================================================================
-function Trig_Volcano_Wave_4_Conditions takes nothing returns boolean
-    if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Volcano_Wave_4_Actions takes nothing returns nothing
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=6
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04C', Player(11), udg_VolcanoPoint, bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=3
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04D', Player(11), GetRandomLocInRect(gg_rct_Volcano_Spawn), bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_5)
-    call DisableTrigger(GetTriggeringTrigger())
-endfunction
-
-//===========================================================================
-function InitTrig_Volcano_Wave_4 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_4=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_4)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_4, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_4, Condition(function Trig_Volcano_Wave_4_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_4, function Trig_Volcano_Wave_4_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: Volcano Wave 5
-//===========================================================================
-function Trig_Volcano_Wave_5_Conditions takes nothing returns boolean
-    if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Volcano_Wave_5_Actions takes nothing returns nothing
     call DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5462")
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=8
@@ -35620,90 +33867,30 @@ function Trig_Volcano_Wave_5_Actions takes nothing returns nothing
         call TriggerSleepAction(0.20)
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_6)
+    call EnableTrigger(gg_trg_Volcano_Wave_4)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 
 //===========================================================================
-function InitTrig_Volcano_Wave_5 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_5=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_5)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_5, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_5, Condition(function Trig_Volcano_Wave_5_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_5, function Trig_Volcano_Wave_5_Actions)
+function InitTrig_Volcano_Wave_3 takes nothing returns nothing
+    set gg_trg_Volcano_Wave_3=CreateTrigger()
+    call DisableTrigger(gg_trg_Volcano_Wave_3)
+    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_3, 10.00)
+    call TriggerAddCondition(gg_trg_Volcano_Wave_3, Condition(function Trig_Volcano_Wave_3_Conditions))
+    call TriggerAddAction(gg_trg_Volcano_Wave_3, function Trig_Volcano_Wave_3_Actions)
 endfunction
 
 //===========================================================================
-// Trigger: Volcano Wave 6
+// Trigger: Volcano Wave 4
 //===========================================================================
-function Trig_Volcano_Wave_6_Conditions takes nothing returns boolean
+function Trig_Volcano_Wave_4_Conditions takes nothing returns boolean
     if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
         return false
     endif
     return true
 endfunction
 
-function Trig_Volcano_Wave_6_Actions takes nothing returns nothing
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=10
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04C', Player(11), udg_VolcanoPoint, bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=7
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04D', Player(11), GetRandomLocInRect(gg_rct_Volcano_Spawn), bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex=1
-    set bj_forLoopAIndexEnd=2
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
-        call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
-        call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
-        call CreateNUnitsAtLoc(1, 'n04H', Player(11), GetRandomLocInRect(gg_rct_Volcano_Spawn), bj_UNIT_FACING)
-        call IssuePointOrderLocBJ(GetLastCreatedUnit(), "attack", GetRandomLocInRect(gg_rct_Volcano_Spawn))
-        call TriggerSleepAction(0.20)
-        set bj_forLoopAIndex=bj_forLoopAIndex + 1
-    endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_7)
-    call DisableTrigger(GetTriggeringTrigger())
-endfunction
-
-//===========================================================================
-function InitTrig_Volcano_Wave_6 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_6=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_6)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_6, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_6, Condition(function Trig_Volcano_Wave_6_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_6, function Trig_Volcano_Wave_6_Actions)
-endfunction
-
-//===========================================================================
-// Trigger: Volcano Wave 7
-//===========================================================================
-function Trig_Volcano_Wave_7_Conditions takes nothing returns boolean
-    if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Volcano_Wave_7_Actions takes nothing returns nothing
+function Trig_Volcano_Wave_4_Actions takes nothing returns nothing
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=10
     loop
@@ -35752,30 +33939,30 @@ function Trig_Volcano_Wave_7_Actions takes nothing returns nothing
         call TriggerSleepAction(0.20)
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_8)
+    call EnableTrigger(gg_trg_Volcano_Wave_5)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 
 //===========================================================================
-function InitTrig_Volcano_Wave_7 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_7=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_7)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_7, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_7, Condition(function Trig_Volcano_Wave_7_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_7, function Trig_Volcano_Wave_7_Actions)
+function InitTrig_Volcano_Wave_4 takes nothing returns nothing
+    set gg_trg_Volcano_Wave_4=CreateTrigger()
+    call DisableTrigger(gg_trg_Volcano_Wave_4)
+    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_4, 10.00)
+    call TriggerAddCondition(gg_trg_Volcano_Wave_4, Condition(function Trig_Volcano_Wave_4_Conditions))
+    call TriggerAddAction(gg_trg_Volcano_Wave_4, function Trig_Volcano_Wave_4_Actions)
 endfunction
 
 //===========================================================================
-// Trigger: Volcano Wave 8
+// Trigger: Volcano Wave 5
 //===========================================================================
-function Trig_Volcano_Wave_8_Conditions takes nothing returns boolean
+function Trig_Volcano_Wave_5_Conditions takes nothing returns boolean
     if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
         return false
     endif
     return true
 endfunction
 
-function Trig_Volcano_Wave_8_Actions takes nothing returns nothing
+function Trig_Volcano_Wave_5_Actions takes nothing returns nothing
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=12
     loop
@@ -35824,30 +34011,30 @@ function Trig_Volcano_Wave_8_Actions takes nothing returns nothing
         call TriggerSleepAction(0.20)
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_9)
+    call EnableTrigger(gg_trg_Volcano_Wave_6)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 
 //===========================================================================
-function InitTrig_Volcano_Wave_8 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_8=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_8)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_8, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_8, Condition(function Trig_Volcano_Wave_8_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_8, function Trig_Volcano_Wave_8_Actions)
+function InitTrig_Volcano_Wave_5 takes nothing returns nothing
+    set gg_trg_Volcano_Wave_5=CreateTrigger()
+    call DisableTrigger(gg_trg_Volcano_Wave_5)
+    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_5, 10.00)
+    call TriggerAddCondition(gg_trg_Volcano_Wave_5, Condition(function Trig_Volcano_Wave_5_Conditions))
+    call TriggerAddAction(gg_trg_Volcano_Wave_5, function Trig_Volcano_Wave_5_Actions)
 endfunction
 
 //===========================================================================
-// Trigger: Volcano Wave 9
+// Trigger: Volcano Wave 6
 //===========================================================================
-function Trig_Volcano_Wave_9_Conditions takes nothing returns boolean
+function Trig_Volcano_Wave_6_Conditions takes nothing returns boolean
     if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
         return false
     endif
     return true
 endfunction
 
-function Trig_Volcano_Wave_9_Actions takes nothing returns nothing
+function Trig_Volcano_Wave_6_Actions takes nothing returns nothing
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=12
     loop
@@ -35896,30 +34083,30 @@ function Trig_Volcano_Wave_9_Actions takes nothing returns nothing
         call TriggerSleepAction(0.20)
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
-    call EnableTrigger(gg_trg_Volcano_Wave_10)
+    call EnableTrigger(gg_trg_Volcano_Wave_7)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 
 //===========================================================================
-function InitTrig_Volcano_Wave_9 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_9=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_9)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_9, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_9, Condition(function Trig_Volcano_Wave_9_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_9, function Trig_Volcano_Wave_9_Actions)
+function InitTrig_Volcano_Wave_6 takes nothing returns nothing
+    set gg_trg_Volcano_Wave_6=CreateTrigger()
+    call DisableTrigger(gg_trg_Volcano_Wave_6)
+    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_6, 10.00)
+    call TriggerAddCondition(gg_trg_Volcano_Wave_6, Condition(function Trig_Volcano_Wave_6_Conditions))
+    call TriggerAddAction(gg_trg_Volcano_Wave_6, function Trig_Volcano_Wave_6_Actions)
 endfunction
 
 //===========================================================================
-// Trigger: Volcano Wave 10
+// Trigger: Volcano Wave 7
 //===========================================================================
-function Trig_Volcano_Wave_10_Conditions takes nothing returns boolean
+function Trig_Volcano_Wave_7_Conditions takes nothing returns boolean
     if ( not ( CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) == 0 ) ) then
         return false
     endif
     return true
 endfunction
 
-function Trig_Volcano_Wave_10_Actions takes nothing returns nothing
+function Trig_Volcano_Wave_7_Actions takes nothing returns nothing
     call DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5460")
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=12
@@ -35974,12 +34161,12 @@ function Trig_Volcano_Wave_10_Actions takes nothing returns nothing
 endfunction
 
 //===========================================================================
-function InitTrig_Volcano_Wave_10 takes nothing returns nothing
-    set gg_trg_Volcano_Wave_10=CreateTrigger()
-    call DisableTrigger(gg_trg_Volcano_Wave_10)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_10, 10.00)
-    call TriggerAddCondition(gg_trg_Volcano_Wave_10, Condition(function Trig_Volcano_Wave_10_Conditions))
-    call TriggerAddAction(gg_trg_Volcano_Wave_10, function Trig_Volcano_Wave_10_Actions)
+function InitTrig_Volcano_Wave_7 takes nothing returns nothing
+    set gg_trg_Volcano_Wave_7=CreateTrigger()
+    call DisableTrigger(gg_trg_Volcano_Wave_7)
+    call TriggerRegisterTimerEventPeriodic(gg_trg_Volcano_Wave_7, 10.00)
+    call TriggerAddCondition(gg_trg_Volcano_Wave_7, Condition(function Trig_Volcano_Wave_7_Conditions))
+    call TriggerAddAction(gg_trg_Volcano_Wave_7, function Trig_Volcano_Wave_7_Actions)
 endfunction
 
 //===========================================================================
@@ -36070,19 +34257,31 @@ endfunction
 //===========================================================================
 // Trigger: Volcano Dhorak Healers
 //===========================================================================
-function Trig_Volcano_Dhorak_Healers_Func001001001002 takes nothing returns boolean
+function Trig_Volcano_Dhorak_Healers_Func002001001002 takes nothing returns boolean
     return ( GetUnitTypeId(GetFilterUnit()) == 'n04G' )
 endfunction
 
 function Trig_Volcano_Dhorak_Healers_Conditions takes nothing returns boolean
-    if ( not ( CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, Condition(function Trig_Volcano_Dhorak_Healers_Func001001001002))) == 1 ) ) then
+    if ( not ( CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, Condition(function Trig_Volcano_Dhorak_Healers_Func002001001002))) == 1 ) ) then
         return false
     endif
     return true
 endfunction
 
 function Trig_Volcano_Dhorak_Healers_Actions takes nothing returns nothing
-    set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
+    set bj_forLoopAIndex=1
+    set bj_forLoopAIndexEnd=10
+    loop
+        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+        set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
+        if ( DistanceBetweenPoints(udg_VolcanoPoint, GetUnitLoc(udg_dhorak)) < 1024.0 ) then
+            set udg_VolcanoPoint=GetRandomLocInRect(gg_rct_Volcano_Spawn)
+        else
+	    set bj_forLoopAIndex=10
+        endif
+        set bj_forLoopAIndex=bj_forLoopAIndex + 1
+    endloop
+    
     call AddSpecialEffectLocBJ(udg_VolcanoPoint, "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl")
     call PlaySoundAtPointBJ(gg_snd_Incinerate1, 100.00, udg_VolcanoPoint, 0)
     call CreateNUnitsAtLoc(1, 'n04I', Player(11), udg_VolcanoPoint, bj_UNIT_FACING)
@@ -36098,7 +34297,6 @@ function InitTrig_Volcano_Dhorak_Healers takes nothing returns nothing
     call TriggerAddCondition(gg_trg_Volcano_Dhorak_Healers, Condition(function Trig_Volcano_Dhorak_Healers_Conditions))
     call TriggerAddAction(gg_trg_Volcano_Dhorak_Healers, function Trig_Volcano_Dhorak_Healers_Actions)
 endfunction
-
 //===========================================================================
 // Trigger: Volcano Done
 //===========================================================================
@@ -36205,9 +34403,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_two_hand_weapons()
     call InitTrig_two_hand_weapons_2()
     call InitTrig_arrows()
-    call InitTrig_My_Black_hole()
-    call InitTrig_My_Black_hole_L()
-    call InitTrig_My_Black_hole_bow()
     call InitTrig_turtle_1()
     call InitTrig_turtle_2()
     call InitTrig_turtle_3()
@@ -36225,8 +34420,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_Blue_Kat()
     call InitTrig_Frost_effect()
     call InitTrig_Freeze()
-    call InitTrig_Black_Hole()
-    call InitTrig_Black_Hole_2()
     call InitTrig_Black_Hole_suck()
     //Function not found: call InitTrig_AddEnchantables()
     //Function not found: call InitTrig_AddTypeFamilies()
@@ -36348,9 +34541,8 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_S_Critical_Charger()
     call InitTrig_S_Savage_Shrub()
     call InitTrig_S_Vampire()
-    call InitTrig_S_Vampire_Copy()
-    call InitTrig_S_master_summoner()
-    call InitTrig_S_advanced_summon()
+    call InitTrig_Advanced_Summoning()
+    call InitTrig_Master_Summoning()
     call InitTrig_Godly_Summoning()
     call InitTrig_Weapon_enchance()
     call InitTrig_Enhancementability()
@@ -36607,9 +34799,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_Volcano_Wave_5()
     call InitTrig_Volcano_Wave_6()
     call InitTrig_Volcano_Wave_7()
-    call InitTrig_Volcano_Wave_8()
-    call InitTrig_Volcano_Wave_9()
-    call InitTrig_Volcano_Wave_10()
     call InitTrig_Volcano_Dhorak_Enrage()
     call InitTrig_Volcano_Final_Wave()
     call InitTrig_Volcano_Dhorak_Healers()
@@ -37020,7 +35209,7 @@ endfunction
 
 //===========================================================================
 function main takes nothing returns nothing
-    call SetCameraBounds(- 16256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), - 25088.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 28672.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), - 16256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 28672.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), - 25088.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
+    call SetCameraBounds(- 32256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), - 29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), - 32256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), - 29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
     call SetDayNightModels("Environment\\DNC\\DNCAshenvale\\DNCAshenvaleTerrain\\DNCAshenvaleTerrain.mdl", "Environment\\DNC\\DNCAshenvale\\DNCAshenvaleUnit\\DNCAshenvaleUnit.mdl")
     call NewSoundEnvironment("Default")
     call SetAmbientDaySound("AshenvaleDay")
@@ -37034,14 +35223,14 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs28095343")
-call ExecuteFunc("IsTerrainWalkable___Init")
-call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes___ApplySpellTypes) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests__AddKillQuests) // INLINED!!
+call ExecuteFunc("jasshelper__initstructs893491046")
+call ExecuteFunc("IsTerrainWalkable__Init")
+call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes__ApplySpellTypes) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests) // INLINED!!
 
     call InitGlobals()
     call InitCustomTriggers()
@@ -37097,14 +35286,14 @@ function sa___prototype21_s__TableArray_clean takes nothing returns boolean
             set end=i
         endif
         loop
-            call FlushChildHashtable(Table___ht, (a)) // INLINED!!
+            call FlushChildHashtable(Table__ht, (a)) // INLINED!!
             set a=a + 1
             exitwhen a == end
         endloop
     return true
 endfunction
 
-function jasshelper__initstructs28095343 takes nothing returns nothing
+function jasshelper__initstructs893491046 takes nothing returns nothing
     set st___prototype21[1]=CreateTrigger()
     call TriggerAddAction(st___prototype21[1],function sa___prototype21_s__TableArray_clean)
     call TriggerAddCondition(st___prototype21[1],Condition(function sa___prototype21_s__TableArray_clean))
@@ -37157,11 +35346,11 @@ function jasshelper__initstructs28095343 takes nothing returns nothing
 
 
 
-call ExecuteFunc("s__IPool_IPool___Init__onInit")
+call ExecuteFunc("s__IPool_IPool__Init___onInit")
 
-call ExecuteFunc("s__Jump_CTLEnd__onInit")
+call ExecuteFunc("s__Jump_CTLEnd___onInit")
 
-call ExecuteFunc("s__SpellEffectEvent___S_SpellEffectEvent___M__onInit")
+call ExecuteFunc("s__SpellEffectEvent__S_SpellEffectEvent__M___onInit")
 
 
 
