@@ -1,4 +1,7 @@
 globals
+//globals from BigNum:
+constant boolean LIBRARY_BigNum=true
+//endglobals from BigNum
 //globals from CTL:
 constant boolean LIBRARY_CTL=true
 integer CTL__tgc= 0
@@ -82,6 +85,9 @@ unit EVENT_JUMP_UNIT= null
 real Jump__flh= 0
 boolean Jump__b= false
 //endglobals from Jump
+//globals from Savecode:
+constant boolean LIBRARY_Savecode=true
+//endglobals from Savecode
 //globals from SpellEffectEvent:
 constant boolean LIBRARY_SpellEffectEvent=true
 //endglobals from SpellEffectEvent
@@ -809,7 +815,6 @@ trigger gg_trg_battle_seal= null
 trigger gg_trg_arena_monsters= null
 trigger gg_trg_save= null
 trigger gg_trg_load= null
-trigger gg_trg_loadold= null
 trigger gg_trg_Arena_empty= null
 trigger gg_trg_Enters_Arena= null
 trigger gg_trg_Leaves_Arena= null
@@ -954,56 +959,68 @@ integer JumpSpellvJASS__TAB
 trigger l__library_init
 
 //JASSHelper struct globals:
-constant integer si__TimerGroup32=1
-constant integer si__Table__dex=2
-constant integer si__Table__handles=3
-constant integer si__Table__agents=4
-constant integer si__Table__reals=5
-constant integer si__Table__booleans=6
-constant integer si__Table__strings=7
-constant integer si__Table__players=8
-constant integer si__Table__widgets=9
-constant integer si__Table__destructables=10
-constant integer si__Table__items=11
-constant integer si__Table__units=12
-constant integer si__Table__abilitys=13
-constant integer si__Table__timers=14
-constant integer si__Table__triggers=15
-constant integer si__Table__triggerconditions=16
-constant integer si__Table__triggeractions=17
-constant integer si__Table__events=18
-constant integer si__Table__forces=19
-constant integer si__Table__groups=20
-constant integer si__Table__locations=21
-constant integer si__Table__rects=22
-constant integer si__Table__boolexprs=23
-constant integer si__Table__sounds=24
-constant integer si__Table__effects=25
-constant integer si__Table__unitpools=26
-constant integer si__Table__itempools=27
-constant integer si__Table__quests=28
-constant integer si__Table__questitems=29
-constant integer si__Table__defeatconditions=30
-constant integer si__Table__timerdialogs=31
-constant integer si__Table__leaderboards=32
-constant integer si__Table__multiboards=33
-constant integer si__Table__multiboarditems=34
-constant integer si__Table__trackables=35
-constant integer si__Table__dialogs=36
-constant integer si__Table__buttons=37
-constant integer si__Table__texttags=38
-constant integer si__Table__lightnings=39
-constant integer si__Table__images=40
-constant integer si__Table__ubersplats=41
-constant integer si__Table__regions=42
-constant integer si__Table__fogstates=43
-constant integer si__Table__fogmodifiers=44
-constant integer si__Table__hashtables=45
-constant integer si__Table=46
-constant integer si__TableArray=47
-constant integer si__A=48
-constant integer si__IPool=49
-constant integer si__Jump=50
+constant integer si__BigNum_l=1
+integer si__BigNum_l_F=0
+integer si__BigNum_l_I=0
+integer array si__BigNum_l_V
+integer array s__BigNum_l_leaf
+integer array s__BigNum_l_next
+constant integer si__BigNum=2
+integer si__BigNum_F=0
+integer si__BigNum_I=0
+integer array si__BigNum_V
+integer array s__BigNum_list
+integer array s__BigNum_base
+constant integer si__TimerGroup32=3
+constant integer si__Table__dex=4
+constant integer si__Table__handles=5
+constant integer si__Table__agents=6
+constant integer si__Table__reals=7
+constant integer si__Table__booleans=8
+constant integer si__Table__strings=9
+constant integer si__Table__players=10
+constant integer si__Table__widgets=11
+constant integer si__Table__destructables=12
+constant integer si__Table__items=13
+constant integer si__Table__units=14
+constant integer si__Table__abilitys=15
+constant integer si__Table__timers=16
+constant integer si__Table__triggers=17
+constant integer si__Table__triggerconditions=18
+constant integer si__Table__triggeractions=19
+constant integer si__Table__events=20
+constant integer si__Table__forces=21
+constant integer si__Table__groups=22
+constant integer si__Table__locations=23
+constant integer si__Table__rects=24
+constant integer si__Table__boolexprs=25
+constant integer si__Table__sounds=26
+constant integer si__Table__effects=27
+constant integer si__Table__unitpools=28
+constant integer si__Table__itempools=29
+constant integer si__Table__quests=30
+constant integer si__Table__questitems=31
+constant integer si__Table__defeatconditions=32
+constant integer si__Table__timerdialogs=33
+constant integer si__Table__leaderboards=34
+constant integer si__Table__multiboards=35
+constant integer si__Table__multiboarditems=36
+constant integer si__Table__trackables=37
+constant integer si__Table__dialogs=38
+constant integer si__Table__buttons=39
+constant integer si__Table__texttags=40
+constant integer si__Table__lightnings=41
+constant integer si__Table__images=42
+constant integer si__Table__ubersplats=43
+constant integer si__Table__regions=44
+constant integer si__Table__fogstates=45
+constant integer si__Table__fogmodifiers=46
+constant integer si__Table__hashtables=47
+constant integer si__Table=48
+constant integer si__TableArray=49
+constant integer si__A=50
+constant integer si__IPool=51
+constant integer si__Jump=52
 unit array s__Jump_u
 real array s__Jump_z0
 real array s__Jump_sx
@@ -1022,9 +1039,15 @@ real array s__Jump_colDD
 real array s__Jump_pw
 real array s__Jump_ts
 integer s__Jump_rctl32
-constant integer si__SpellEffectEvent__S=51
+constant integer si__Savecode=53
+integer si__Savecode_F=0
+integer si__Savecode_I=0
+integer array si__Savecode_V
+real array s__Savecode_digits
+integer array s__Savecode_bignum
+constant integer si__SpellEffectEvent__S=54
 integer s__SpellEffectEvent__S_tb
-constant integer si__ItemDrop=52
+constant integer si__ItemDrop=55
 integer si__ItemDrop_F=0
 integer si__ItemDrop_I=0
 integer array si__ItemDrop_V
@@ -1038,7 +1061,7 @@ integer array s__ItemDrop_ItemList
 real array s___ItemDrop_Chance
 constant integer s___ItemDrop_Chance_size=10
 integer array s__ItemDrop_Chance
-constant integer si__KillQuest=55
+constant integer si__KillQuest=58
 integer si__KillQuest_F=0
 integer si__KillQuest_I=0
 integer array si__KillQuest_V
@@ -1049,15 +1072,53 @@ integer array s__KillQuest_xp_steps
 integer array s__KillQuest_item
 string array s__KillQuest_start_text
 string array s__KillQuest_end_text
-constant integer si__JumpingStomp=56
+constant integer si__JumpingStomp=59
 integer array s__playerAbilities
 integer array s__kill_quests
-trigger array st___prototype21
+trigger st__BigNum_l_onDestroy
+trigger st__BigNum_onDestroy
+trigger st__Savecode_onDestroy
+trigger array st___prototype28
 integer f__arg_integer1
 integer f__arg_integer2
+integer f__arg_this
 
 endglobals
 
+
+//Generated method caller for BigNum_l.onDestroy
+function sc__BigNum_l_onDestroy takes integer this returns nothing
+endfunction
+
+//Generated allocator of BigNum_l
+function s__BigNum_l__allocate takes nothing returns integer
+ local integer this=si__BigNum_l_F
+    if (this!=0) then
+        set si__BigNum_l_F=si__BigNum_l_V[this]
+    else
+        set si__BigNum_l_I=si__BigNum_l_I+1
+        set this=si__BigNum_l_I
+    endif
+    if (this>8190) then
+        return 0
+    endif
+
+    set si__BigNum_l_V[this]=-1
+ return this
+endfunction
+
+//Generated destructor of BigNum_l
+function sc__BigNum_l_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__BigNum_l_V[this]!=-1) then
+        return
+    endif
+    set f__arg_this=this
+    call TriggerEvaluate(st__BigNum_l_onDestroy)
+    set si__BigNum_l_V[this]=si__BigNum_l_F
+    set si__BigNum_l_F=this
+endfunction
 
 //Generated allocator of KillQuest
 function s__KillQuest__allocate takes nothing returns integer
@@ -1116,20 +1177,337 @@ function s__ItemDrop_deallocate takes integer this returns nothing
     set si__ItemDrop_V[this]=si__ItemDrop_F
     set si__ItemDrop_F=this
 endfunction
-function sc___prototype21_execute takes integer i,integer a1,integer a2 returns nothing
+
+//Generated method caller for Savecode.onDestroy
+function sc__Savecode_onDestroy takes integer this returns nothing
+    set f__arg_this=this
+    call TriggerEvaluate(st__Savecode_onDestroy)
+endfunction
+
+//Generated allocator of Savecode
+function s__Savecode__allocate takes nothing returns integer
+ local integer this=si__Savecode_F
+    if (this!=0) then
+        set si__Savecode_F=si__Savecode_V[this]
+    else
+        set si__Savecode_I=si__Savecode_I+1
+        set this=si__Savecode_I
+    endif
+    if (this>8190) then
+        return 0
+    endif
+
+    set si__Savecode_V[this]=-1
+ return this
+endfunction
+
+//Generated destructor of Savecode
+function sc__Savecode_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__Savecode_V[this]!=-1) then
+        return
+    endif
+    set f__arg_this=this
+    call TriggerEvaluate(st__Savecode_onDestroy)
+    set si__Savecode_V[this]=si__Savecode_F
+    set si__Savecode_F=this
+endfunction
+
+//Generated method caller for BigNum.onDestroy
+function sc__BigNum_onDestroy takes integer this returns nothing
+    set f__arg_this=this
+    call TriggerEvaluate(st__BigNum_onDestroy)
+endfunction
+
+//Generated allocator of BigNum
+function s__BigNum__allocate takes nothing returns integer
+ local integer this=si__BigNum_F
+    if (this!=0) then
+        set si__BigNum_F=si__BigNum_V[this]
+    else
+        set si__BigNum_I=si__BigNum_I+1
+        set this=si__BigNum_I
+    endif
+    if (this>8190) then
+        return 0
+    endif
+
+    set si__BigNum_V[this]=-1
+ return this
+endfunction
+
+//Generated destructor of BigNum
+function sc__BigNum_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__BigNum_V[this]!=-1) then
+        return
+    endif
+    set f__arg_this=this
+    call TriggerEvaluate(st__BigNum_onDestroy)
+    set si__BigNum_V[this]=si__BigNum_F
+    set si__BigNum_F=this
+endfunction
+function sc___prototype28_execute takes integer i,integer a1,integer a2 returns nothing
     set f__arg_integer1=a1
     set f__arg_integer2=a2
 
-    call TriggerExecute(st___prototype21[i])
+    call TriggerExecute(st___prototype28[i])
 endfunction
-function sc___prototype21_evaluate takes integer i,integer a1,integer a2 returns nothing
+function sc___prototype28_evaluate takes integer i,integer a1,integer a2 returns nothing
     set f__arg_integer1=a1
     set f__arg_integer2=a2
 
-    call TriggerEvaluate(st___prototype21[i])
+    call TriggerEvaluate(st___prototype28[i])
 
 endfunction
 
+//library BigNum:
+
+//prefer algebraic approach because of real subtraction issues
+function log takes real y,real base returns real
+    local real x
+    local real factor= 1.0
+    local real logy= 0.0
+    local real sign= 1.0
+    if ( y < 0. ) then
+        return 0.0
+    endif
+    if ( y < 1. ) then
+        set y=1.0 / y
+        set sign=- 1.0
+    endif
+    //Chop out powers of the base
+    loop
+        exitwhen y < 1.0001 //decrease this ( bounded below by 1) to improve precision
+        if ( y > base ) then
+            set y=y / base
+            set logy=logy + factor
+        else
+            set base=SquareRoot(base) //If you use just one base a lot, precompute its squareroots
+            set factor=factor / 2.
+        endif
+    endloop
+    return sign * logy
+endfunction
+
+    
+    function s__BigNum_l_create takes nothing returns integer
+        local integer bl= s__BigNum_l__allocate()
+        set s__BigNum_l_next[bl]=0
+        set s__BigNum_l_leaf[bl]=0
+        return bl
+    endfunction
+    function s__BigNum_l_onDestroy takes integer this returns nothing
+    endfunction
+
+//Generated destructor of BigNum_l
+function s__BigNum_l_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__BigNum_l_V[this]!=-1) then
+        return
+    endif
+    call s__BigNum_l_onDestroy(this)
+    set si__BigNum_l_V[this]=si__BigNum_l_F
+    set si__BigNum_l_F=this
+endfunction
+	
+	//true:  want destroy
+ function s__BigNum_l_Clean takes integer this returns boolean
+		if s__BigNum_l_next[this] == 0 and s__BigNum_l_leaf[this] == 0 then
+			return true
+		elseif s__BigNum_l_next[this] != 0 and s__BigNum_l_Clean(s__BigNum_l_next[this]) then
+			call s__BigNum_l_deallocate(s__BigNum_l_next[this])
+			set s__BigNum_l_next[this]=0
+			return s__BigNum_l_leaf[this] == 0
+		else
+			return false
+		endif
+ endfunction
+	
+ function s__BigNum_l_DivSmall takes integer this,integer base,integer denom returns integer
+  local integer quotient
+  local integer remainder= 0
+  local integer num
+		
+		if s__BigNum_l_next[this] != 0 then
+			set remainder=s__BigNum_l_DivSmall(s__BigNum_l_next[this],base , denom)
+		endif
+		
+        set num=s__BigNum_l_leaf[this] + remainder * base
+		set quotient=num / denom
+		set remainder=num - quotient * denom
+		set s__BigNum_l_leaf[this]=quotient
+		return remainder
+ endfunction
+
+    
+    function s__BigNum_create takes integer base returns integer
+        local integer b= s__BigNum__allocate()
+        set s__BigNum_list[b]=0
+        set s__BigNum_base[b]=base
+        return b
+    endfunction
+
+ function s__BigNum_onDestroy takes integer this returns nothing
+  local integer cur= s__BigNum_list[this]
+  local integer next
+		loop
+			exitwhen cur == 0
+			set next=s__BigNum_l_next[cur]
+			call s__BigNum_l_deallocate(cur)
+			set cur=next
+		endloop
+ endfunction
+
+//Generated destructor of BigNum
+function s__BigNum_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__BigNum_V[this]!=-1) then
+        return
+    endif
+    call s__BigNum_onDestroy(this)
+    set si__BigNum_V[this]=si__BigNum_F
+    set si__BigNum_F=this
+endfunction
+	
+ function s__BigNum_IsZero takes integer this returns boolean
+  local integer cur= s__BigNum_list[this]
+		loop
+			exitwhen cur == 0
+			if s__BigNum_l_leaf[cur] != 0 then
+				return false
+			endif
+			set cur=s__BigNum_l_next[cur]
+		endloop
+		return true
+ endfunction
+	
+ function s__BigNum_Dump takes integer this returns nothing
+  local integer cur= s__BigNum_list[this]
+  local string s= ""
+		loop
+			exitwhen cur == 0
+			set s=I2S(s__BigNum_l_leaf[cur]) + " " + s
+			set cur=s__BigNum_l_next[cur]
+		endloop
+		call BJDebugMsg(s)
+ endfunction
+	
+ function s__BigNum_Clean takes integer this returns nothing
+  local integer cur= s__BigNum_list[this]
+		call s__BigNum_l_Clean(cur)
+ endfunction
+	
+	//fails if bignum is null
+	//BASE() + carry must be less than MAXINT()
+ function s__BigNum_AddSmall takes integer this,integer carry returns nothing
+  local integer next
+  local integer cur= s__BigNum_list[this]
+  local integer sum
+		
+		if cur == 0 then
+			set cur=s__BigNum_l_create()
+			set s__BigNum_list[this]=cur
+		endif
+		
+		loop
+			exitwhen carry == 0
+			set sum=s__BigNum_l_leaf[cur] + carry
+			set carry=sum / s__BigNum_base[this]
+			set sum=sum - carry * s__BigNum_base[this]
+			set s__BigNum_l_leaf[cur]=sum
+			
+			if s__BigNum_l_next[cur] == 0 then
+				set s__BigNum_l_next[cur]=s__BigNum_l_create()
+			endif
+			set cur=s__BigNum_l_next[cur]
+		endloop
+ endfunction
+	
+	//x*BASE() must be less than MAXINT()
+ function s__BigNum_MulSmall takes integer this,integer x returns nothing
+  local integer cur= s__BigNum_list[this]
+  local integer product
+  local integer remainder
+  local integer carry= 0
+		loop
+			exitwhen cur == 0 and carry == 0
+			set product=x * s__BigNum_l_leaf[cur] + carry
+			set carry=product / s__BigNum_base[this]
+			set remainder=product - carry * s__BigNum_base[this]
+			set s__BigNum_l_leaf[cur]=remainder
+			if s__BigNum_l_next[cur] == 0 and carry != 0 then
+				set s__BigNum_l_next[cur]=s__BigNum_l_create()
+			endif
+			set cur=s__BigNum_l_next[cur]
+		endloop
+ endfunction
+	
+	//Returns remainder
+ function s__BigNum_DivSmall takes integer this,integer denom returns integer
+		return s__BigNum_l_DivSmall(s__BigNum_list[this],s__BigNum_base[this] , denom)
+ endfunction
+	
+ function s__BigNum_LastDigit takes integer this returns integer
+  local integer cur= s__BigNum_list[this]
+  local integer next
+		loop
+			set next=s__BigNum_l_next[cur]
+			exitwhen next == 0
+			set cur=next
+		endloop
+		return s__BigNum_l_leaf[cur]
+ endfunction
+
+function BigNum___prop_Allocator1 takes nothing returns boolean
+    local integer b1
+    local integer b2
+    set b1=s__BigNum_create(37)
+    call s__BigNum_deallocate(b1)
+    set b2=s__BigNum_create(37)
+    call s__BigNum_deallocate(b2)
+    return b1 == b2
+endfunction
+
+function BigNum___prop_Allocator2 takes nothing returns boolean
+    local integer b1
+    local boolean b= false
+    set b1=s__BigNum_create(37)
+    call s__BigNum_AddSmall(b1,17)
+    call s__BigNum_MulSmall(b1,19)
+    call s__BigNum_deallocate(b1)
+    return b
+endfunction
+
+function BigNum___prop_Arith takes nothing returns boolean
+    local integer b1
+    set b1=s__BigNum_create(37)
+    call s__BigNum_AddSmall(b1,73)
+    call s__BigNum_MulSmall(b1,39)
+    call s__BigNum_AddSmall(b1,17)
+    //n = 2864
+    if s__BigNum_DivSmall(b1,100) != 64 then
+        return false
+    elseif s__BigNum_DivSmall(b1,7) != 0 then
+        return false
+    elseif s__BigNum_IsZero(b1) then
+        return false
+    elseif s__BigNum_DivSmall(b1,3) != 1 then
+        return false
+    elseif s__BigNum_DivSmall(b1,3) != 1 then
+        return false
+    elseif not s__BigNum_IsZero(b1) then
+        return false
+    endif
+    return true
+endfunction
+
+
+//library BigNum ends
 //library CTL:
     function CTL__E takes nothing returns nothing
         local integer i=CTL__ns[0]
@@ -2099,7 +2477,7 @@ function CTL__DT takes integer l__CTL__t returns nothing
     
         
 //Implemented from module IPool__Init:
-        function s__IPool_IPool__Init___onInit takes nothing returns nothing
+        function s__IPool_IPool__Init__onInit takes nothing returns nothing
             set IPool__ITEMS=s__Table_create()
             set IPool__WEIGHT=s__Table_create()
         endfunction
@@ -2401,7 +2779,7 @@ function CTL__DT takes integer l__CTL__t returns nothing
 //Implemented from module CTLEnd:
             return false
         endfunction
-        function s__Jump_CTLEnd___onInit takes nothing returns nothing
+        function s__Jump_CTLEnd__onInit takes nothing returns nothing
             set s__Jump_rctl32=CTL__A(function s__Jump_ectl32)
         endfunction
     
@@ -2452,6 +2830,408 @@ function CTL__DT takes integer l__CTL__t returns nothing
         endfunction
 
 //library Jump ends
+//library Savecode:
+
+    constant function Savecode___uppercolor takes nothing returns string
+        return "|cffff0000"
+    endfunction
+
+    constant function Savecode___lowercolor takes nothing returns string
+        return "|cff00ff00"
+    endfunction
+
+    constant function Savecode___numcolor takes nothing returns string
+        return "|cff0000ff"
+    endfunction
+
+    function Savecode___player_charset takes nothing returns string
+        return "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    endfunction
+
+    function Savecode___player_charsetlen takes nothing returns integer
+        return StringLength(("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")) // INLINED!!
+    endfunction
+
+    function Savecode___charset takes nothing returns string
+        return "!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"
+    endfunction
+
+    function Savecode___charsetlen takes nothing returns integer
+        return StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`")) // INLINED!!
+    endfunction
+
+    function Savecode___BASE takes nothing returns integer
+        return (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
+    endfunction
+
+    constant function Savecode___HASHN takes nothing returns integer
+        return 5000 //1./HASHN() is the probability of a random code being valid
+    endfunction
+
+    constant function Savecode___MAXINT takes nothing returns integer
+        return 2147483647
+    endfunction
+
+    function Savecode___player_chartoi takes string c returns integer
+        local integer i= 0
+        local string cs= ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") // INLINED!!
+        local integer len= (StringLength(("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"))) // INLINED!!
+        loop
+            exitwhen i >= len or c == SubString(cs, i, i + 1)
+            set i=i + 1
+        endloop
+        return i
+    endfunction
+
+    function Savecode___chartoi takes string c returns integer
+        local integer i= 0
+        local string cs= ("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`") // INLINED!!
+        local integer len= (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
+        loop
+            exitwhen i >= len or c == SubString(cs, i, i + 1)
+            set i=i + 1
+        endloop
+        return i
+    endfunction
+
+    function Savecode___itochar takes integer i returns string
+        return SubString(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"), i, i + 1) // INLINED!!
+    endfunction
+
+    //You probably want to use a different char set for this
+    //Also, use a hash that doesn't suck so much
+    function Savecode___scommhash takes string s returns integer
+        local integer array count
+        local integer i= 0
+        local integer len= StringLength(s)
+        local integer x
+        set s=StringCase(s, true)
+        loop
+            exitwhen i >= len
+            set x=Savecode___player_chartoi(SubString(s, i, i + 1))
+            set count[x]=count[x] + 1
+            set i=i + 1
+        endloop
+        set i=0
+        set len=(StringLength(("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"))) // INLINED!!
+        set x=0
+        loop
+            exitwhen i >= len
+            set x=count[i] * count[i] * i + count[i] * x + x + 199
+    //      call BJDebugMsg(I2S(x)+" "+I2S(count[i]))
+    //      call TriggerSleepAction(0.)
+            set i=i + 1
+        endloop
+        if x < 0 then
+            set x=- x
+        endif
+        return x
+    endfunction
+
+    function Savecode___modb takes integer x returns integer
+        if x >= (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) then // INLINED!!
+            return x - (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
+        elseif x < 0 then
+            return x + (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
+        else
+            return x
+        endif
+    endfunction
+
+        
+        function s__Savecode_create takes nothing returns integer
+            local integer sc= s__Savecode__allocate()
+            set s__Savecode_digits[sc]=0.
+            set s__Savecode_bignum[sc]=s__BigNum_create((StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`")))) // INLINED!!
+            return sc
+        endfunction
+        
+        function s__Savecode_onDestroy takes integer this returns nothing
+            call s__BigNum_deallocate(s__Savecode_bignum[this])
+        endfunction
+
+//Generated destructor of Savecode
+function s__Savecode_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__Savecode_V[this]!=-1) then
+        return
+    endif
+    call s__BigNum_deallocate(s__Savecode_bignum[(this)]) // INLINED!!
+    set si__Savecode_V[this]=si__Savecode_F
+    set si__Savecode_F=this
+endfunction
+
+        function s__Savecode_Encode takes integer this,integer val,integer max returns nothing
+            set s__Savecode_digits[this]=s__Savecode_digits[this] + log(max + 1 , (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`")))) // INLINED!!
+            call s__BigNum_MulSmall(s__Savecode_bignum[this],max + 1)
+            call s__BigNum_AddSmall(s__Savecode_bignum[this],val)
+        endfunction
+        
+        function s__Savecode_Decode takes integer this,integer max returns integer
+            return s__BigNum_DivSmall(s__Savecode_bignum[this],max + 1)
+        endfunction
+        
+        function s__Savecode_IsEmpty takes integer this returns boolean
+            return s__BigNum_IsZero(s__Savecode_bignum[this])
+        endfunction
+        
+        function s__Savecode_Length takes integer this returns real
+            return s__Savecode_digits[this]
+        endfunction
+        
+        function s__Savecode_Clean takes integer this returns nothing
+            call s__BigNum_Clean(s__Savecode_bignum[this])
+        endfunction
+        
+            //These functions get too intimate with BigNum_l
+        function s__Savecode_Pad takes integer this returns nothing
+            local integer cur= s__BigNum_list[s__Savecode_bignum[this]]
+            local integer prev
+            local integer maxlen= R2I(1.0 + (s__Savecode_digits[(this)])) // INLINED!!
+            
+            loop
+                exitwhen cur == 0
+                set prev=cur
+                set cur=s__BigNum_l_next[cur]
+                set maxlen=maxlen - 1
+            endloop
+            loop
+                exitwhen maxlen <= 0
+                set s__BigNum_l_next[prev]=s__BigNum_l_create()
+                set prev=s__BigNum_l_next[prev]
+                set maxlen=maxlen - 1
+            endloop
+        endfunction
+        
+        function s__Savecode_ToString takes integer this returns string
+            local integer cur= s__BigNum_list[s__Savecode_bignum[this]]
+            local string s= ""
+            loop
+                exitwhen cur == 0
+                set s=Savecode___itochar(s__BigNum_l_leaf[cur]) + s
+                set cur=s__BigNum_l_next[cur]
+            endloop
+            return s
+        endfunction
+        
+        function s__Savecode_FromString takes integer this,string s returns nothing
+            local integer i= StringLength(s) - 1
+            local integer cur= s__BigNum_l_create()
+            set s__BigNum_list[s__Savecode_bignum[this]]=cur
+            loop
+                set s__BigNum_l_leaf[cur]=Savecode___chartoi(SubString(s, i, i + 1))
+                exitwhen i <= 0
+                set s__BigNum_l_next[cur]=s__BigNum_l_create()
+                set cur=s__BigNum_l_next[cur]
+                set i=i - 1
+            endloop
+        endfunction
+        
+        function s__Savecode_Hash takes integer this returns integer
+            local integer hash= 0
+            local integer x
+            local integer cur= s__BigNum_list[s__Savecode_bignum[this]]
+            loop
+                exitwhen cur == 0
+                set x=s__BigNum_l_leaf[cur]
+                set hash=ModuloInteger(hash + 79 * hash / ( x + 1 ) + 293 * x / ( 1 + hash - ( hash / (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) ) * (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) ) + 479, (5000)) // INLINED!!
+                set cur=s__BigNum_l_next[cur]
+            endloop
+            return hash
+        endfunction
+
+        //this is not cryptographic which is fine for this application
+        //sign = 1 is forward
+        //sign = -1 is backward
+        function s__Savecode_Obfuscate takes integer this,integer key,integer sign returns nothing
+            local integer seed= GetRandomInt(0, (2147483647)) // INLINED!!
+            local integer advance
+            local integer x
+            local integer cur= s__BigNum_list[s__Savecode_bignum[this]]
+        
+        
+            if sign == - 1 then
+                call SetRandomSeed(s__BigNum_LastDigit(s__Savecode_bignum[this]))
+                set s__BigNum_l_leaf[cur]=Savecode___modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+                set x=s__BigNum_l_leaf[cur]
+            endif
+            
+            call SetRandomSeed(key)
+            loop
+                exitwhen cur == 0
+                
+                if sign == - 1 then
+                    set advance=s__BigNum_l_leaf[cur]
+                endif
+                set s__BigNum_l_leaf[cur]=Savecode___modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+                if sign == 1 then
+                    set advance=s__BigNum_l_leaf[cur]
+                endif
+                set advance=advance + GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1) // INLINED!!
+                call SetRandomSeed(advance)
+                
+                set x=s__BigNum_l_leaf[cur]
+                set cur=s__BigNum_l_next[cur]
+            endloop
+            
+            if sign == 1 then
+                call SetRandomSeed(x)
+                set s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]]=Savecode___modb(s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+            endif
+            
+            call SetRandomSeed(seed)
+        endfunction
+        
+        function s__Savecode_Dump takes integer this returns nothing
+            local integer cur= s__BigNum_list[s__Savecode_bignum[this]]
+            local string s= ""
+            set s="max: " + R2S(s__Savecode_digits[this])
+            
+            loop
+                exitwhen cur == 0
+                set s=I2S(s__BigNum_l_leaf[cur]) + " " + s
+                set cur=s__BigNum_l_next[cur]
+            endloop
+            call BJDebugMsg(s)
+        endfunction
+        
+        function s__Savecode_Save takes integer this,player p,integer loadtype returns string
+            local integer key= Savecode___scommhash(GetPlayerName(p)) + loadtype * 73
+            local string s
+            local integer hash
+            call s__BigNum_Clean(s__Savecode_bignum[(this)]) // INLINED!!
+            set hash=s__Savecode_Hash(this)
+            call s__Savecode_Encode(this,hash , (5000)) // INLINED!!
+            call s__BigNum_Clean(s__Savecode_bignum[(this)]) // INLINED!!
+            
+            /////////////////////// Save code information.  Comment out next two lines in implementation
+            //call BJDebugMsg("Expected length: " +I2S(R2I(1.0+.Length())))
+            //call BJDebugMsg("Room left in last char: "+R2S(1.-ModuloReal((.Length()),1)))
+            ///////////////////////
+            
+            call s__Savecode_Pad(this)
+            call s__Savecode_Obfuscate(this,key , 1)
+            return s__Savecode_ToString(this)
+        endfunction
+        
+        function s__Savecode_Load takes integer this,player p,string s,integer loadtype returns boolean
+            local integer ikey= Savecode___scommhash(GetPlayerName(p)) + loadtype * 73
+            local integer inputhash
+            
+            call s__Savecode_FromString(this,s)
+            call s__Savecode_Obfuscate(this,ikey , - 1)
+            set inputhash=(s__BigNum_DivSmall(s__Savecode_bignum[(this)],((5000)) + 1)) // INLINED!!
+            
+            call s__BigNum_Clean(s__Savecode_bignum[(this)]) // INLINED!!
+            
+            return inputhash == s__Savecode_Hash(this)
+        endfunction
+    function Savecode___isupper takes string c returns boolean
+        return c == StringCase(c, true)
+    endfunction
+
+    function Savecode___ischar takes string c returns boolean
+        return S2I(c) == 0 and c != "0"
+    endfunction
+
+    function Savecode___chartype takes string c returns integer
+        if ( Savecode___ischar(c) ) then
+            if Savecode___isupper(c) then
+                return 0
+            else
+                return 1
+            endif
+        else
+            return 2
+        endif
+    endfunction
+
+    function Savecode___testchar takes string c returns nothing
+        if ( Savecode___ischar(c) ) then
+            if Savecode___isupper(c) then
+                call BJDebugMsg(c + " isupper")
+            else
+                call BJDebugMsg(c + " islower")
+            endif
+        else
+            call BJDebugMsg(c + " isnumber")
+        endif
+    endfunction
+
+    function Savecode_colorize takes string s returns string
+        local string out= ""
+        local integer i= 0
+        local integer len= StringLength(s)
+        local integer ctype
+        local string c
+        loop
+            exitwhen i >= len
+            set c=SubString(s, i, i + 1)
+            set ctype=Savecode___chartype(c)
+            if ctype == 0 then
+                set out=out + ("|cffff0000") + c + "|r" // INLINED!!
+            elseif ctype == 1 then
+                set out=out + ("|cff00ff00") + c + "|r" // INLINED!!
+            else
+                set out=out + ("|cff0000ff") + c + "|r" // INLINED!!
+            endif
+            set i=i + 1
+        endloop
+        return out
+    endfunction
+
+    function Savecode___prop_Savecode takes nothing returns boolean
+        local string s
+        local integer loadcode
+
+    //--- Data you want to save ---
+        local integer medal1= 10
+        local integer medal2= 3
+        local integer medalmax= 13
+        local integer XP= 1337
+        local integer XPmax= 1000000
+
+        local integer savecode= s__Savecode_create()
+
+        call SetPlayerName(Player(0), "yomp")
+        call SetPlayerName(Player(1), "fruitcup")
+
+        call s__Savecode_Encode(savecode,medal1 , medalmax)
+        call s__Savecode_Encode(savecode,medal2 , medalmax)
+        call s__Savecode_Encode(savecode,XP , XPmax)
+
+    //--- Savecode_save generates the savecode for a specific player ---
+        set s=s__Savecode_Save(savecode,Player(0) , 1)
+        call s__Savecode_deallocate(savecode)
+    //  call BJDebugMsg("Savecode: " + Savecode_colorize(s))
+
+    //--- User writes down code, inputs again ---
+
+        set loadcode=s__Savecode_create()
+        if s__Savecode_Load(loadcode,Player(0) , s , 1) then
+    //      call BJDebugMsg("load ok")
+        else
+            call BJDebugMsg("load failed")
+            return false
+        endif
+
+    //Must decode in reverse order of encodes
+
+    //               load object : max value that data can take
+        if XP != (s__BigNum_DivSmall(s__Savecode_bignum[(loadcode)],(XPmax) + 1)) then // INLINED!!
+            return false
+        elseif medal2 != (s__BigNum_DivSmall(s__Savecode_bignum[(loadcode)],(medalmax) + 1)) then // INLINED!!
+            return false
+        elseif medal1 != (s__BigNum_DivSmall(s__Savecode_bignum[(loadcode)],(medalmax) + 1)) then // INLINED!!
+            return false
+        endif
+        call s__Savecode_deallocate(loadcode)
+        return true
+    endfunction
+
+
+//library Savecode ends
 //library SpellEffectEvent:
  
 //============================================================================
@@ -2472,7 +3252,7 @@ function CTL__DT takes integer l__CTL__t returns nothing
 
     endfunction
  
-    function s__SpellEffectEvent__S_SpellEffectEvent__M___onInit takes nothing returns nothing
+    function s__SpellEffectEvent__S_SpellEffectEvent__M__onInit takes nothing returns nothing
 
             set s__SpellEffectEvent__S_tb=s__Table_create()
 
@@ -2754,7 +3534,6 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Mar  3 00:42:26 2020
 //   Map Author: SomeWhiteGuy & Psytox & Eejin
 // 
 //===========================================================================
@@ -3051,6 +3830,20 @@ endfunction
 //*  Custom Script Code
 //*
 //***************************************************************************
+//***************************************************************************
+//*  Savecode
+
+//===========================================================================
+function InitTrig_save_system takes nothing returns nothing
+endfunction
+//***************************************************************************
+//*  BigNum
+
+//===========================================================================
+function InitTrig_bignum_lib takes nothing returns nothing
+endfunction
+
+
 
 //***************************************************************************
 //*
@@ -3778,7 +4571,7 @@ function CreateUnitsForPlayer10 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'h00T', 13797.7, - 11145.9, 150.000, 'h00T')
     call UnitAddItemToSlotById(u, 'I00X', 0)
     set gg_unit_h00V_0237=BlzCreateUnitWithSkin(p, 'h00V', 11083.5, - 14050.5, 20.000, 'h00V')
-    set gg_unit_h011_0238=BlzCreateUnitWithSkin(p, 'h011', 11436.3, - 15409.2, 218.920, 'h011')
+    set gg_unit_h011_0238=BlzCreateUnitWithSkin(p, 'h011', 11436.4, - 15409.2, 218.920, 'h011')
     call UnitAddItemToSlotById(gg_unit_h011_0238, 'I00F', 0)
     call UnitAddItemToSlotById(gg_unit_h011_0238, 'I003', 1)
     set gg_unit_h013_0241=BlzCreateUnitWithSkin(p, 'h013', 13114.3, - 10752.9, 125.000, 'h013')
@@ -3928,7 +4721,7 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n008', - 292.3, 2555.1, 215.350, 'n008')
     set u=BlzCreateUnitWithSkin(p, 'n008', - 2748.3, 3935.2, 120.084, 'n008')
     set u=BlzCreateUnitWithSkin(p, 'n008', 780.5, 131.4, 351.149, 'n008')
-    set u=BlzCreateUnitWithSkin(p, 'n008', 1816.7, - 1269.4, 201.627, 'n008')
+    set u=BlzCreateUnitWithSkin(p, 'n008', 1816.8, - 1269.4, 201.627, 'n008')
     set u=BlzCreateUnitWithSkin(p, 'n008', 978.5, 6081.9, 271.151, 'n008')
     set u=BlzCreateUnitWithSkin(p, 'n008', - 273.7, 5628.8, 40.837, 'n008')
     set u=BlzCreateUnitWithSkin(p, 'n009', - 1573.0, - 13107.9, 0.000, 'n009')
@@ -3939,7 +4732,7 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n009', - 259.7, - 13470.9, 0.000, 'n009')
     set u=BlzCreateUnitWithSkin(p, 'n00A', - 9242.2, - 10539.5, 329.820, 'n00A')
     set u=BlzCreateUnitWithSkin(p, 'n00A', - 9907.0, - 9282.0, 337.568, 'n00A')
-    set u=BlzCreateUnitWithSkin(p, 'n00A', - 11060.5, - 9188.7, 237.992, 'n00A')
+    set u=BlzCreateUnitWithSkin(p, 'n00A', - 11060.6, - 9188.7, 237.992, 'n00A')
     set u=BlzCreateUnitWithSkin(p, 'n00A', - 11065.3, - 10569.7, 270.000, 'n00A')
     set u=BlzCreateUnitWithSkin(p, 'n00A', - 9717.2, - 11695.2, 12.917, 'n00A')
     set u=BlzCreateUnitWithSkin(p, 'n00A', - 12844.2, - 12468.3, 357.939, 'n00A')
@@ -4220,7 +5013,7 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n03V', 10686.3, 2003.8, 321.335, 'n03V')
     set u=BlzCreateUnitWithSkin(p, 'n004', 15887.5, - 3014.0, 10.045, 'n004')
     set u=BlzCreateUnitWithSkin(p, 'n00L', 6343.2, - 10930.3, 6.845, 'n00L')
-    set u=BlzCreateUnitWithSkin(p, 'n00L', 6148.2, - 11251.0, 31.675, 'n00L')
+    set u=BlzCreateUnitWithSkin(p, 'n00L', 6148.2, - 11250.9, 31.675, 'n00L')
     set u=BlzCreateUnitWithSkin(p, 'n00L', 7791.5, - 11016.1, 173.161, 'n00L')
     set u=BlzCreateUnitWithSkin(p, 'n00L', 5747.9, - 12101.6, 354.792, 'n00L')
     set u=BlzCreateUnitWithSkin(p, 'n00L', 6608.1, - 11959.4, 80.411, 'n00L')
@@ -4285,13 +5078,13 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n030', - 2308.1, - 17686.9, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', - 6854.0, - 17211.4, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', - 5418.9, - 19068.7, 273.095, 'n030')
-    set u=BlzCreateUnitWithSkin(p, 'n030', - 3961.2, - 18242.1, 273.095, 'n030')
+    set u=BlzCreateUnitWithSkin(p, 'n030', - 3961.2, - 18242.1, 306.026, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', - 920.4, - 19416.4, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', 97.6, - 18032.4, 273.095, 'n030')
-    set u=BlzCreateUnitWithSkin(p, 'n030', 1989.6, - 17875.6, 273.095, 'n030')
+    set u=BlzCreateUnitWithSkin(p, 'n030', 1669.6, - 17555.6, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', 2314.4, - 19474.8, 273.095, 'n030')
-    set u=BlzCreateUnitWithSkin(p, 'n030', 4080.7, - 17808.4, 273.095, 'n030')
-    set u=BlzCreateUnitWithSkin(p, 'n030', 5517.3, - 19193.7, 273.095, 'n030')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 1355.6, - 17830.4, 120.142, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', - 947.6, - 17469.4, 307.447, 'n04K')
     set u=BlzCreateUnitWithSkin(p, 'n030', 6184.4, - 17782.2, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n030', 7422.1, - 19395.9, 273.095, 'n030')
     set u=BlzCreateUnitWithSkin(p, 'n009', 1922.1, - 16755.9, 210.845, 'n009')
@@ -4408,7 +5201,7 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'e002', 6834.3, - 1362.6, 317.088, 'e002')
     set u=BlzCreateUnitWithSkin(p, 'n04K', - 909.5, - 20265.9, 187.470, 'n04K')
     set u=BlzCreateUnitWithSkin(p, 'n04L', - 651.9, - 20270.9, 283.716, 'n04L')
-    set u=BlzCreateUnitWithSkin(p, 'u000', 242.9, - 20266.0, 191.500, 'u000')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', - 859.3, - 18036.1, 22.899, 'n04K')
     set u=BlzCreateUnitWithSkin(p, 'n04M', - 426.0, - 20267.1, 277.986, 'n04M')
     set u=BlzCreateUnitWithSkin(p, 'n04N', - 94.2, - 20275.0, 277.252, 'n04N')
     set u=BlzCreateUnitWithSkin(p, 'n047', 9862.7, 7420.7, 215.420, 'n047')
@@ -4425,6 +5218,35 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n003', 14709.6, - 1064.4, 283.338, 'n003')
     set u=BlzCreateUnitWithSkin(p, 'n04B', 3853.7, 1656.5, 143.627, 'n04B')
     set u=BlzCreateUnitWithSkin(p, 'n04B', 3201.4, 182.3, 199.130, 'n04B')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 3034.5, - 17735.4, 187.470, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 2193.2, - 18165.1, 11.635, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 3264.0, - 18749.5, 123.941, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', - 4835.9, - 18696.5, 332.990, 'n04N')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', - 4013.5, - 18586.5, 324.787, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', - 4218.4, - 19332.8, 359.110, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 266.2, - 15952.2, 335.101, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 1446.4, - 16980.1, 145.025, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 168.8, - 17531.3, 32.557, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 2401.0, - 17037.5, 187.470, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 4782.9, - 19081.8, 347.766, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 5707.7, - 19615.4, 11.980, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04K', 5524.8, - 20628.1, 145.025, 'n04K')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', 4474.9, - 21359.8, 4.919, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', 4303.7, - 20467.3, 326.291, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', 3963.4, - 19787.2, 252.621, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', 3660.5, - 19943.2, 343.475, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n030', 4819.0, - 18169.9, 273.095, 'n030')
+    set u=BlzCreateUnitWithSkin(p, 'n030', 4490.4, - 17638.0, 273.095, 'n030')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', 2230.0, - 17520.3, 128.072, 'n04N')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', 1843.2, - 20655.8, 144.974, 'n04N')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', 1504.3, - 20753.2, 149.935, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'n04L', 2046.0, - 20278.6, 109.315, 'n04L')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', - 2134.2, - 19228.5, 277.986, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', 4709.1, - 22454.8, 71.009, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', 2274.5, - 23291.9, 77.383, 'n04N')
+    set u=BlzCreateUnitWithSkin(p, 'n04N', 2413.1, - 22149.1, 218.038, 'n04N')
+    set u=BlzCreateUnitWithSkin(p, 'n04M', 3142.4, - 23037.8, 172.047, 'n04M')
+    set u=BlzCreateUnitWithSkin(p, 'u000', - 177.9, - 21275.5, 76.300, 'u000')
 endfunction
 
 //===========================================================================
@@ -8005,7 +8827,7 @@ endfunction
 // Trigger: AddEnchantables
 //===========================================================================
 // scope AddEnchantables begins
-    function AddEnchantables__AddEnchantables takes nothing returns nothing
+    function AddEnchantables___AddEnchantables takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 	set weapon_to_struct=s__Table_create()
@@ -8061,15 +8883,15 @@ endfunction
 	
     endfunction
 
-    function AddEnchantables__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables)
+    function AddEnchantables___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables)
     endfunction
 // scope AddEnchantables ends
 //===========================================================================
 // Trigger: AddTypeFamilies
 //===========================================================================
 // scope AddTypeFamilies begins
-    function AddTypeFamilies__ApplyTypeFamilies takes nothing returns nothing
+    function AddTypeFamilies___ApplyTypeFamilies takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 		set type_family=s__Table_create()
@@ -8240,15 +9062,15 @@ endfunction
 		set typeToFlying[19]='H03K' // Claw
     endfunction
 
-    function AddTypeFamilies__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies)
+    function AddTypeFamilies___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies)
     endfunction
 // scope AddTypeFamilies ends
 //===========================================================================
 // Trigger: AddItemTypes
 //===========================================================================
 // scope AddItemTypes begins
-    function AddItemTypes__ApplyItemTypes takes nothing returns nothing
+    function AddItemTypes___ApplyItemTypes takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 		
 		set item_to_unit_type=s__Table_create()
@@ -8438,8 +9260,8 @@ endfunction
 
     endfunction
 
-    function AddItemTypes__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes)
+    function AddItemTypes___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes)
     endfunction
 // scope AddItemTypes ends
 //===========================================================================
@@ -22599,7 +23421,7 @@ endfunction
 // Trigger: AddItems
 //===========================================================================
 // scope AddItems begins
- function AddItems___ApplyIDS takes nothing returns nothing
+ function AddItems__ApplyIDS takes nothing returns nothing
 		call DestroyTimer(GetExpiredTimer())
 
 	// Basic Elemental
@@ -22708,8 +23530,8 @@ endfunction
 		
 	endfunction
 
- function AddItems___Init takes nothing returns nothing
-		call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS)
+ function AddItems__Init takes nothing returns nothing
+		call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS)
 	endfunction
 	
 // scope AddItems ends
@@ -30802,6 +31624,9 @@ function Trig_newsave_Actions takes nothing returns nothing
 	
 	// Obfuscation variables
  local integer search_result= - 1
+     local integer savies= s__Savecode_create()
+
+
 	
 	// Get Hero from the units owned by the player
 	call GroupEnumUnitsOfPlayer(hero_group, GetTriggerPlayer(), filter)
@@ -30831,6 +31656,7 @@ function Trig_newsave_Actions takes nothing returns nothing
 		if ( UnitItemInSlot(hero, i) != null ) then
 			set item_code=item_code + SubString(I2S(GetItemTypeId(UnitItemInSlot(hero, i))), 2, 10) + "-"
 			set items=items + 1
+            		call s__Savecode_Encode(savies,GetItemTypeId(UnitItemInSlot(hero, i)) , 9999999999)
 		endif
 		set i=i + 1
 	endloop
@@ -30848,7 +31674,6 @@ function Trig_newsave_Actions takes nothing returns nothing
 		set i=i + 1
 	endloop
 	set data_code=data_code + I2S(spells) + "-" + spell_code
-	
 	
 	// Obfuscate save code	
 	set i=0
@@ -30868,6 +31693,15 @@ function Trig_newsave_Actions takes nothing returns nothing
 	set udg_saveTemp=save_code
 	call CreateTextFileForPlayer(GetTriggerPlayer())
 	call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Your save code is saved in a text file.\nSave code: " + save_code)
+	call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, s__Savecode_ToString(savies))
+
+set i=0
+	loop
+		exitwhen i > 4
+		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, I2S((s__BigNum_DivSmall(s__Savecode_bignum[(savies)],(9999999999) + 1)))) // INLINED!!
+		set i=i + 1
+	endloop
+
 endfunction
 
 //===========================================================================
@@ -31037,164 +31871,6 @@ function InitTrig_load takes nothing returns nothing
 	call TriggerRegisterPlayerChatEvent(l__gg_trg_load, Player(8), "-l", false)
 	call TriggerRegisterPlayerChatEvent(l__gg_trg_load, Player(9), "-l", false)
 	call TriggerAddAction(l__gg_trg_load, function Trig_load_Actions)
-endfunction
-//===========================================================================
-// Trigger: loadold
-//===========================================================================
-function Trig_loadold_Actions takes nothing returns nothing
- local string data_code= SubString(GetEventPlayerChatString(), 9, StringLength(GetEventPlayerChatString()))
- local string load_code= ""
- local string alphabet= "TJly/1x%DB=aPK^A9O}_]7hjX[o)Cq*nZsQk:5I+if2&@`zMr<g.eVuwR(3N?8,-LSd!WF0;Y#tc4UGEbv>${6|~pHm"
- local integer alphabet_length= StringLength(alphabet)
- local string sub_string= ""
- local integer i= 0
-	
- local integer gold= 0
- local string name= ""
- local integer wood= 0
- local integer lvl= 0
- local integer str= 0
- local integer agi= 0
- local integer int= 0
- local integer items= 0
- local integer spells= 0
-	
- local group hero_group= CreateGroup()
- local boolexpr filter= Filter(function Trig_newsave_is_hero)
-	
-	// Obfuscation variables
- local integer search_result= - 1
-
-	if ( not udg_loading_enabled ) then
-		return
-	endif
-
-	if ( SubString(GetEventPlayerChatString(), 0, 9) != "-loadold " ) then
-		return
-	endif
-	
-	if ( udg_playerLoaded[GetPlayerId(GetTriggerPlayer())] == true ) then
-		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You have already loaded")
-		return
-	endif
-	
-	// Unobfuscate save code
-	set i=0
-	loop
-		exitwhen i > StringLength(data_code) - 1
-		set search_result=search_in_string(alphabet , at(data_code , i)) - 5 - i
-		if ( search_result < 0 ) then
-			set search_result=alphabet_length + search_result
-			if ( search_result < 0 ) then
-				set search_result=alphabet_length + search_result
-			endif
-		endif
-		set load_code=load_code + at(alphabet , search_result)
-		set i=i + 1
-	endloop
-	
-	call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Load code: " + load_code)
-	
-	call split(load_code , "|")
-	
-	// set bj_forLoopAIndex = 0
-    // loop
-    //     exitwhen bj_forLoopAIndex > udg_stringPartsCount - 1
-	// 	call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, udg_stringParts[bj_forLoopAIndex] )
-    //     set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    // endloop
-	
-	if ( udg_stringPartsCount < 7 ) then
-		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Invalid Load Code")
-		return
-	endif
-
-	set gold=S2I(udg_stringParts[0])
-	set name=udg_stringParts[1]
-	set lvl=S2I(udg_stringParts[2])
-	set str=S2I(udg_stringParts[3])
-	set agi=S2I(udg_stringParts[4])
-	set int=S2I(udg_stringParts[5])
-	set items=S2I(udg_stringParts[6])
-	
-	// Check if name is correct
-	if ( name != GetPlayerName(GetTriggerPlayer()) ) then
-		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Invalid Name. Another name is attached to this code")
-		return
-	endif
-	
-	// Get the hero, remove it and make a new one
-	call GroupEnumUnitsOfPlayer(hero_group, GetTriggerPlayer(), filter)
-    call RemoveUnit(FirstOfGroup(hero_group))
-	call DestroyBoolExpr(filter)
-	set hero_group=null
-	set filter=null
-	set bj_lastCreatedUnit=CreateUnitAtLoc(GetTriggerPlayer(), 'H001', GetRandomLocInRect(gg_rct_revive), bj_UNIT_FACING)
-	
-	call SetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD, gold)
-	call SetHeroLevel(bj_lastCreatedUnit, lvl, false)
-	
-	// Check if attributes are incorrect
-	if ( lvl + 2 < str + agi + int ) then
-		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Invalid Stat points have been reset")
-		call SetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_LUMBER, GetHeroLevel(bj_lastCreatedUnit) - 1)
-	else
-		call SetHeroStr(bj_lastCreatedUnit, str, true)
-		call SetHeroAgi(bj_lastCreatedUnit, agi, true)
-		call SetHeroInt(bj_lastCreatedUnit, int, true)
-		call SetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_LUMBER, lvl + 2 - str - agi - int)
-	endif
-	
-	// call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Items: " + I2S(items) )
-	// Add items
-	set i=0
-	loop
-		exitwhen i > items - 1
-		//call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Item: " + udg_stringParts[7 + i])
-		call UnitAddItemById(bj_lastCreatedUnit, S2I("12" + udg_stringParts[7 + i]))
-		set i=i + 1
-	endloop
-	
-	if ( udg_stringPartsCount < 7 + items ) then
-		call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Invalid Spells, resetting")
-		return
-	endif
-	
-	set spells=S2I(udg_stringParts[7 + items])
-
-	// call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Spells: " + I2S(spells) )
-	// Add spells
-	set i=0
-	loop
-		exitwhen i > spells - 1
-        // call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Spell: " + udg_stringParts[8 + items + i])
-		set sub_string=udg_stringParts[8 + items + i]
-		set lvl=S2I(SubString(sub_string, 0, 1))
-		set sub_string=SubString(sub_string, 1, StringLength(sub_string))
-		
-		set s__playerAbilities[GetPlayerId(GetTriggerPlayer()) * 7 + i]= S2I(sub_string)
-		call UnitAddAbility(bj_lastCreatedUnit, abilities[S2I(sub_string)])
-		call SetUnitAbilityLevel(bj_lastCreatedUnit, abilities[S2I(sub_string)], lvl)
-		set i=i + 1
-	endloop
-	
-	set udg_playerLoaded[GetPlayerId(GetTriggerPlayer())]=true
-endfunction
-
-//===========================================================================
-function InitTrig_loadold takes nothing returns nothing
- local trigger l__gg_trg_loadold= CreateTrigger()
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(0), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(1), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(2), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(3), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(4), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(5), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(6), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(7), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(8), "-loadold", false)
-	call TriggerRegisterPlayerChatEvent(l__gg_trg_loadold, Player(9), "-loadold", false)
-	call TriggerAddAction(l__gg_trg_loadold, function Trig_loadold_Actions)
 endfunction
 //===========================================================================
 // Trigger: Arena Challenge
@@ -34745,7 +35421,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_arena_monsters()
     call InitTrig_save()
     call InitTrig_load()
-    call InitTrig_loadold()
     call InitTrig_Arena_Challenge()
     call InitTrig_Arena_Accept()
     call InitTrig_Arena_Check()
@@ -35043,118 +35718,6 @@ function InitCustomTeams takes nothing returns nothing
     call SetPlayerAllianceStateAllyBJ(Player(10), Player(8), true)
     call SetPlayerAllianceStateAllyBJ(Player(10), Player(9), true)
 
-    //   Shared Vision
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(0), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(1), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(2), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(3), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(4), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(5), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(6), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(7), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(9), true)
-    call SetPlayerAllianceStateVisionBJ(Player(8), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(9), Player(10), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(0), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(1), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(2), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(3), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(4), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(5), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(6), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(7), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(8), true)
-    call SetPlayerAllianceStateVisionBJ(Player(10), Player(9), true)
-
     // Force: TRIGSTR_659
     call SetPlayerTeam(Player(11), 1)
 
@@ -35223,13 +35786,13 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs893491046")
+call ExecuteFunc("jasshelper__initstructs367892500")
 call ExecuteFunc("IsTerrainWalkable__Init")
-call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes__ApplySpellTypes) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests) // INLINED!!
 
     call InitGlobals()
@@ -35276,7 +35839,28 @@ endfunction
 //Struct method generated initializers/callers:
 
 //Functions for BigArrays:
-function sa___prototype21_s__TableArray_clean takes nothing returns boolean
+function sa__BigNum_l_onDestroy takes nothing returns boolean
+local integer this=f__arg_this
+   return true
+endfunction
+function sa__Savecode_onDestroy takes nothing returns boolean
+local integer this=f__arg_this
+            call s__BigNum_deallocate(s__Savecode_bignum[this])
+   return true
+endfunction
+function sa__BigNum_onDestroy takes nothing returns boolean
+local integer this=f__arg_this
+  local integer cur= s__BigNum_list[this]
+  local integer next
+		loop
+			exitwhen cur == 0
+			set next=s__BigNum_l_next[cur]
+			call s__BigNum_l_deallocate(cur)
+			set cur=next
+		endloop
+   return true
+endfunction
+function sa___prototype28_s__TableArray_clean takes nothing returns boolean
  local integer a=f__arg_integer1
  local integer end=f__arg_integer2
 
@@ -35293,10 +35877,16 @@ function sa___prototype21_s__TableArray_clean takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs893491046 takes nothing returns nothing
-    set st___prototype21[1]=CreateTrigger()
-    call TriggerAddAction(st___prototype21[1],function sa___prototype21_s__TableArray_clean)
-    call TriggerAddCondition(st___prototype21[1],Condition(function sa___prototype21_s__TableArray_clean))
+function jasshelper__initstructs367892500 takes nothing returns nothing
+    set st__BigNum_l_onDestroy=CreateTrigger()
+    call TriggerAddCondition(st__BigNum_l_onDestroy,Condition( function sa__BigNum_l_onDestroy))
+    set st__Savecode_onDestroy=CreateTrigger()
+    call TriggerAddCondition(st__Savecode_onDestroy,Condition( function sa__Savecode_onDestroy))
+    set st__BigNum_onDestroy=CreateTrigger()
+    call TriggerAddCondition(st__BigNum_onDestroy,Condition( function sa__BigNum_onDestroy))
+    set st___prototype28[1]=CreateTrigger()
+    call TriggerAddAction(st___prototype28[1],function sa___prototype28_s__TableArray_clean)
+    call TriggerAddCondition(st___prototype28[1],Condition(function sa___prototype28_s__TableArray_clean))
 
 
 
@@ -35346,11 +35936,14 @@ function jasshelper__initstructs893491046 takes nothing returns nothing
 
 
 
-call ExecuteFunc("s__IPool_IPool__Init___onInit")
 
-call ExecuteFunc("s__Jump_CTLEnd___onInit")
 
-call ExecuteFunc("s__SpellEffectEvent__S_SpellEffectEvent__M___onInit")
+call ExecuteFunc("s__IPool_IPool__Init__onInit")
+
+call ExecuteFunc("s__Jump_CTLEnd__onInit")
+
+
+call ExecuteFunc("s__SpellEffectEvent__S_SpellEffectEvent__M__onInit")
 
 
 

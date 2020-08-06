@@ -1674,13 +1674,13 @@ Siesmic Assualt earthquake
 }
 
 STRING 497
-// Buffs/Effects: B002 (Deathblow), EditorName (Name (Editor Only))
+// Buffs/Effects: B002 (Deathblow), Bufftip (Tooltip)
 {
 Deathblow
 }
 
 STRING 498
-// Buffs/Effects: B002 (Deathblow), Bufftip (Tooltip)
+// Buffs/Effects: B002 (Deathblow), EditorName (Name (Editor Only))
 {
 Deathblow
 }
@@ -3192,13 +3192,13 @@ Burning shield immo
 }
 
 STRING 997
-// Buffs/Effects: B006 (burning shield), EditorName (Name (Editor Only))
+// Buffs/Effects: B006 (burning shield), Bufftip (Tooltip)
 {
 burning shield
 }
 
 STRING 998
-// Buffs/Effects: B006 (burning shield), Bufftip (Tooltip)
+// Buffs/Effects: B006 (burning shield), EditorName (Name (Editor Only))
 {
 burning shield
 }
@@ -3786,13 +3786,13 @@ Grants 100% life leech
 }
 
 STRING 1127
-// Buffs/Effects: B008 (Vampric Bite), EditorName (Name (Editor Only))
+// Buffs/Effects: B008 (Vampric Bite), Bufftip (Tooltip)
 {
 Vampric Bite
 }
 
 STRING 1128
-// Buffs/Effects: B008 (Vampric Bite), Bufftip (Tooltip)
+// Buffs/Effects: B008 (Vampric Bite), EditorName (Name (Editor Only))
 {
 Vampric Bite
 }
@@ -3954,13 +3954,13 @@ Burns nearby enemies for 35 dmg/sec
 }
 
 STRING 1156
-// Buffs/Effects: B009 (Spikey Shell), EditorName (Name (Editor Only))
+// Buffs/Effects: B009 (Spikey Shell), Bufftip (Tooltip)
 {
 Spikey Shell
 }
 
 STRING 1157
-// Buffs/Effects: B009 (Spikey Shell), Bufftip (Tooltip)
+// Buffs/Effects: B009 (Spikey Shell), EditorName (Name (Editor Only))
 {
 Spikey Shell
 }
@@ -5005,13 +5005,13 @@ Your mind has reached its limits you can feel magical energy flowing and forming
 }
 
 STRING 1416
-// Buffs/Effects: B00C (Masters Strength), EditorName (Name (Editor Only))
+// Buffs/Effects: B00C (Masters Strength), Bufftip (Tooltip)
 {
 Masters Strength
 }
 
 STRING 1417
-// Buffs/Effects: B00C (Masters Strength), Bufftip (Tooltip)
+// Buffs/Effects: B00C (Masters Strength), EditorName (Name (Editor Only))
 {
 Masters Strength
 }
@@ -5389,13 +5389,13 @@ Hero Aura
 }
 
 STRING 1609
-// Buffs/Effects: B00D (Ragnarok), EditorName (Name (Editor Only))
+// Buffs/Effects: B00D (Ragnarok), Bufftip (Tooltip)
 {
 Ragnarok
 }
 
 STRING 1610
-// Buffs/Effects: B00D (Ragnarok), Bufftip (Tooltip)
+// Buffs/Effects: B00D (Ragnarok), EditorName (Name (Editor Only))
 {
 Ragnarok
 }
@@ -7166,13 +7166,13 @@ Grants 12% life leech
 }
 
 STRING 2085
-// Buffs/Effects: B00F (Eternal Ownage), EditorName (Name (Editor Only))
+// Buffs/Effects: B00F (Eternal Ownage), Bufftip (Tooltip)
 {
 Eternal Ownage
 }
 
 STRING 2086
-// Buffs/Effects: B00F (Eternal Ownage), Bufftip (Tooltip)
+// Buffs/Effects: B00F (Eternal Ownage), EditorName (Name (Editor Only))
 {
 Eternal Ownage
 }
@@ -7966,13 +7966,13 @@ Through the power of the sword Ragnarok this unit gains 15% life leech
 }
 
 STRING 2426
-// Buffs/Effects: B00J (Riths Ownage), EditorName (Name (Editor Only))
+// Buffs/Effects: B00J (Riths Ownage), Bufftip (Tooltip)
 {
 Riths Ownage
 }
 
 STRING 2427
-// Buffs/Effects: B00J (Riths Ownage), Bufftip (Tooltip)
+// Buffs/Effects: B00J (Riths Ownage), EditorName (Name (Editor Only))
 {
 Riths Ownage
 }
@@ -8211,13 +8211,13 @@ This satanic boost grants this unit an extra 666 exp per kill
 }
 
 STRING 2487
-// Buffs/Effects: B00L (Devil Booster), EditorName (Name (Editor Only))
+// Buffs/Effects: B00L (Devil Booster), Bufftip (Tooltip)
 {
 Devil Booster
 }
 
 STRING 2488
-// Buffs/Effects: B00L (Devil Booster), Bufftip (Tooltip)
+// Buffs/Effects: B00L (Devil Booster), EditorName (Name (Editor Only))
 {
 Devil Booster
 }
@@ -9281,13 +9281,13 @@ These vampire claws grant the wearer 12% life leech
 }
 
 STRING 2837
-// Buffs/Effects: B00N (Vamp Fangs), EditorName (Name (Editor Only))
+// Buffs/Effects: B00N (Vamp Fangs), Bufftip (Tooltip)
 {
 Vamp Fangs
 }
 
 STRING 2838
-// Buffs/Effects: B00N (Vamp Fangs), Bufftip (Tooltip)
+// Buffs/Effects: B00N (Vamp Fangs), EditorName (Name (Editor Only))
 {
 Vamp Fangs
 }
@@ -9447,13 +9447,13 @@ Summoners Aura 2
 }
 
 STRING 2905
-// Buffs/Effects: B00O (Blood Sword), EditorName (Name (Editor Only))
+// Buffs/Effects: B00O (Blood Sword), Bufftip (Tooltip)
 {
 Blood Sword
 }
 
 STRING 2906
-// Buffs/Effects: B00O (Blood Sword), Bufftip (Tooltip)
+// Buffs/Effects: B00O (Blood Sword), EditorName (Name (Editor Only))
 {
 Blood Sword
 }
@@ -9465,13 +9465,13 @@ Blood sword grants 20% life leech
 }
 
 STRING 2908
-// Buffs/Effects: B00P (Summoners Aura), EditorName (Name (Editor Only))
+// Buffs/Effects: B00P (Summoners Aura), Bufftip (Tooltip)
 {
 Summoners Aura
 }
 
 STRING 2909
-// Buffs/Effects: B00P (Summoners Aura), Bufftip (Tooltip)
+// Buffs/Effects: B00P (Summoners Aura), EditorName (Name (Editor Only))
 {
 Summoners Aura
 }
@@ -10736,13 +10736,13 @@ STRING 3292
 }
 
 STRING 3296
-// Buffs/Effects: B00S (Sunder), EditorName (Name (Editor Only))
+// Buffs/Effects: B00S (Sunder), Bufftip (Tooltip)
 {
 Sunder
 }
 
 STRING 3297
-// Buffs/Effects: B00S (Sunder), Bufftip (Tooltip)
+// Buffs/Effects: B00S (Sunder), EditorName (Name (Editor Only))
 {
 Sunder
 }
@@ -10814,13 +10814,13 @@ Diabloe Scythe L
 }
 
 STRING 3323
-// Buffs/Effects: B00R (Diabolic Scythe), EditorName (Name (Editor Only))
+// Buffs/Effects: B00R (Diabolic Scythe), Bufftip (Tooltip)
 {
 Diabolic Scythe
 }
 
 STRING 3324
-// Buffs/Effects: B00R (Diabolic Scythe), Bufftip (Tooltip)
+// Buffs/Effects: B00R (Diabolic Scythe), EditorName (Name (Editor Only))
 {
 Diabolic Scythe
 }
@@ -11050,13 +11050,13 @@ False Security
 }
 
 STRING 3399
-// Buffs/Effects: B00U (False Security), EditorName (Name (Editor Only))
+// Buffs/Effects: B00U (False Security), Bufftip (Tooltip)
 {
 False Security
 }
 
 STRING 3400
-// Buffs/Effects: B00U (False Security), Bufftip (Tooltip)
+// Buffs/Effects: B00U (False Security), EditorName (Name (Editor Only))
 {
 False Security
 }
@@ -11279,13 +11279,13 @@ Unstable Anti-Matter Shield
 }
 
 STRING 3484
-// Buffs/Effects: B00W (Unstable Anti-Matter Shield), EditorName (Name (Editor Only))
+// Buffs/Effects: B00W (Unstable Anti-Matter Shield), Bufftip (Tooltip)
 {
 Unstable Anti-Matter Shield
 }
 
 STRING 3485
-// Buffs/Effects: B00W (Unstable Anti-Matter Shield), Bufftip (Tooltip)
+// Buffs/Effects: B00W (Unstable Anti-Matter Shield), EditorName (Name (Editor Only))
 {
 Unstable Anti-Matter Shield
 }
@@ -11919,25 +11919,25 @@ dmg +35
 }
 
 STRING 3749
-// Buffs/Effects: B00X (CAN YOU LARGE IT?), EditorName (Name (Editor Only))
-{
-CAN YOU LARGE IT?
-}
-
-STRING 3750
 // Buffs/Effects: B00X (CAN YOU LARGE IT?), Buffubertip (Tooltip - Extended)
 {
 CAN YOU LARGE IT?
 }
 
+STRING 3750
+// Buffs/Effects: B00X (CAN YOU LARGE IT?), EditorName (Name (Editor Only))
+{
+CAN YOU LARGE IT?
+}
+
 STRING 3752
-// Buffs/Effects: B00Y (FIRE IS HOT!), EditorName (Name (Editor Only))
+// Buffs/Effects: B00Y (FIRE IS HOT!), Buffubertip (Tooltip - Extended)
 {
 FIRE IS HOT!
 }
 
 STRING 3753
-// Buffs/Effects: B00Y (FIRE IS HOT!), Buffubertip (Tooltip - Extended)
+// Buffs/Effects: B00Y (FIRE IS HOT!), EditorName (Name (Editor Only))
 {
 FIRE IS HOT!
 }
@@ -11955,7 +11955,7 @@ STRING 3758
 }
 
 STRING 3759
-// Buffs/Effects: B00X (CAN YOU LARGE IT?), Bufftip (Tooltip)
+// Buffs/Effects: B00Z (IMPENETRABLE), Bufftip (Tooltip)
 {
 Rare Monster
 }
@@ -12021,25 +12021,25 @@ DEATH!
 }
 
 STRING 3772
-// Buffs/Effects: B00Z (IMPENETRABLE), EditorName (Name (Editor Only))
-{
-IMPENETRABLE
-}
-
-STRING 3773
-// Buffs/Effects: B00Z (IMPENETRABLE), Bufftip (Tooltip)
-{
-Rare Monster
-}
-
-STRING 3774
 // Buffs/Effects: B00Z (IMPENETRABLE), Buffubertip (Tooltip - Extended)
 {
 IMPENETRABLE
 }
 
+STRING 3773
+// Buffs/Effects: B00X (CAN YOU LARGE IT?), Bufftip (Tooltip)
+{
+Rare Monster
+}
+
+STRING 3774
+// Buffs/Effects: B00Z (IMPENETRABLE), EditorName (Name (Editor Only))
+{
+IMPENETRABLE
+}
+
 STRING 3775
-// Buffs/Effects: B010 (DEATH!), EditorName (Name (Editor Only))
+// Buffs/Effects: B010 (DEATH!), Buffubertip (Tooltip - Extended)
 {
 DEATH!
 }
@@ -12051,7 +12051,7 @@ Rare Monster
 }
 
 STRING 3777
-// Buffs/Effects: B010 (DEATH!), Buffubertip (Tooltip - Extended)
+// Buffs/Effects: B010 (DEATH!), EditorName (Name (Editor Only))
 {
 DEATH!
 }
@@ -12102,7 +12102,7 @@ REGENERATION
 }
 
 STRING 3785
-// Buffs/Effects: B011 (REGENERATION), Bufftip (Tooltip)
+// Buffs/Effects: B013 (CRAZY FAST SPEED), Bufftip (Tooltip)
 {
 Rare Monster
 }
@@ -12595,25 +12595,25 @@ WIZARD
 }
 
 STRING 3920
-// Buffs/Effects: B013 (CRAZY FAST SPEED), EditorName (Name (Editor Only))
-{
-CRAZY FAST SPEED
-}
-
-STRING 3921
 // Buffs/Effects: B013 (CRAZY FAST SPEED), Buffubertip (Tooltip - Extended)
 {
 CRAZY FAST SPEED
 }
 
+STRING 3921
+// Buffs/Effects: B013 (CRAZY FAST SPEED), EditorName (Name (Editor Only))
+{
+CRAZY FAST SPEED
+}
+
 STRING 3922
-// Buffs/Effects: B013 (CRAZY FAST SPEED), Bufftip (Tooltip)
+// Buffs/Effects: B011 (REGENERATION), Bufftip (Tooltip)
 {
 Rare Monster
 }
 
 STRING 3923
-// Buffs/Effects: B014 (HIGH TECH SORCERY), EditorName (Name (Editor Only))
+// Buffs/Effects: B014 (HIGH TECH SORCERY), Buffubertip (Tooltip - Extended)
 {
 HIGH TECH SORCERY
 }
@@ -12625,7 +12625,7 @@ Rare Monster
 }
 
 STRING 3925
-// Buffs/Effects: B014 (HIGH TECH SORCERY), Buffubertip (Tooltip - Extended)
+// Buffs/Effects: B014 (HIGH TECH SORCERY), EditorName (Name (Editor Only))
 {
 HIGH TECH SORCERY
 }
@@ -12779,13 +12779,13 @@ Bow of Arctic Wrath
 }
 
 STRING 4081
-// Buffs/Effects: B015 (Arctic Slow), EditorName (Name (Editor Only))
+// Buffs/Effects: B015 (Arctic Slow), Bufftip (Tooltip)
 {
 Arctic Slow
 }
 
 STRING 4082
-// Buffs/Effects: B015 (Arctic Slow), Bufftip (Tooltip)
+// Buffs/Effects: B015 (Arctic Slow), EditorName (Name (Editor Only))
 {
 Arctic Slow
 }
@@ -20153,5 +20153,41 @@ STRING 5591
 // Abilities: A0F2 (poison 20/sec), Name (Name)
 {
 poison 20/sec
+}
+
+STRING 5592
+// Doodads: D025 (Sandy Rock), Name (Name)
+{
+Sandy Rock
+}
+
+STRING 5593
+// Doodads: D026 (Sandy Rock v2), Name (Name)
+{
+Sandy Rock v2
+}
+
+STRING 5594
+// Doodads: D027 (Sandy Rock Pillar), Name (Name)
+{
+Sandy Rock Pillar
+}
+
+STRING 5595
+// Doodads: D028 (Sandy Rocky Archway), Name (Name)
+{
+Sandy Rocky Archway
+}
+
+STRING 5596
+// Doodads: D029 (Stairs), Name (Name)
+{
+Stairs
+}
+
+STRING 5597
+// Doodads: D02A (Sandy Rock Pillar Laying), Name (Name)
+{
+Sandy Rock Pillar Laying
 }
 
