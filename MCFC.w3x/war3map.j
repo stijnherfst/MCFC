@@ -386,6 +386,7 @@ rect gg_rct_Arena= null
 rect gg_rct_Volcano_PotTok_Spawn1= null
 rect gg_rct_Dungeons= null
 rect gg_rct_Rock_Avalanche= null
+rect gg_rct_Chapel= null
 camerasetup gg_cam_Arena= null
 camerasetup gg_cam_Air_Fortress= null
 camerasetup gg_cam_Shroom_Cam= null
@@ -890,6 +891,9 @@ trigger gg_trg_Volcano_Dhorak_Enrage= null
 trigger gg_trg_Volcano_Final_Wave= null
 trigger gg_trg_Volcano_Dhorak_Healers= null
 trigger gg_trg_Volcano_Done= null
+trigger gg_trg_Untitled_Trigger_002= null
+trigger gg_trg_Chapel_Enter= null
+trigger gg_trg_Chapel_Leave= null
 trigger gg_trg_Untitled_Trigger_001= null
 unit gg_unit_h00U_0050= null
 unit gg_unit_h00V_0237= null
@@ -921,6 +925,7 @@ unit gg_unit_h03D_0534= null
 unit gg_unit_h03E_0533= null
 unit gg_unit_h03G_0556= null
 unit gg_unit_h03G_0557= null
+unit gg_unit_h03L_0679= null
 destructable gg_dest_B000_1013= null
 destructable gg_dest_B004_13629= null
 destructable gg_dest_DTlv_1278= null
@@ -1464,7 +1469,7 @@ endfunction
 		return s__BigNum_l_leaf[cur]
  endfunction
 
-function BigNum___prop_Allocator1 takes nothing returns boolean
+function BigNum__prop_Allocator1 takes nothing returns boolean
     local integer b1
     local integer b2
     set b1=s__BigNum_create(37)
@@ -1474,7 +1479,7 @@ function BigNum___prop_Allocator1 takes nothing returns boolean
     return b1 == b2
 endfunction
 
-function BigNum___prop_Allocator2 takes nothing returns boolean
+function BigNum__prop_Allocator2 takes nothing returns boolean
     local integer b1
     local boolean b= false
     set b1=s__BigNum_create(37)
@@ -1484,7 +1489,7 @@ function BigNum___prop_Allocator2 takes nothing returns boolean
     return b
 endfunction
 
-function BigNum___prop_Arith takes nothing returns boolean
+function BigNum__prop_Arith takes nothing returns boolean
     local integer b1
     set b1=s__BigNum_create(37)
     call s__BigNum_AddSmall(b1,73)
@@ -2833,47 +2838,47 @@ function CTL___DT takes integer l__CTL___t returns nothing
 //library Jump ends
 //library Savecode:
 
-    constant function Savecode___uppercolor takes nothing returns string
+    constant function Savecode__uppercolor takes nothing returns string
         return "|cffff0000"
     endfunction
 
-    constant function Savecode___lowercolor takes nothing returns string
+    constant function Savecode__lowercolor takes nothing returns string
         return "|cff00ff00"
     endfunction
 
-    constant function Savecode___numcolor takes nothing returns string
+    constant function Savecode__numcolor takes nothing returns string
         return "|cff0000ff"
     endfunction
 
-    function Savecode___player_charset takes nothing returns string
+    function Savecode__player_charset takes nothing returns string
         return "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     endfunction
 
-    function Savecode___player_charsetlen takes nothing returns integer
+    function Savecode__player_charsetlen takes nothing returns integer
         return StringLength(("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")) // INLINED!!
     endfunction
 
-    function Savecode___charset takes nothing returns string
+    function Savecode__charset takes nothing returns string
         return "!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"
     endfunction
 
-    function Savecode___charsetlen takes nothing returns integer
+    function Savecode__charsetlen takes nothing returns integer
         return StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`")) // INLINED!!
     endfunction
 
-    function Savecode___BASE takes nothing returns integer
+    function Savecode__BASE takes nothing returns integer
         return (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
     endfunction
 
-    constant function Savecode___HASHN takes nothing returns integer
+    constant function Savecode__HASHN takes nothing returns integer
         return 5000 //1./HASHN() is the probability of a random code being valid
     endfunction
 
-    constant function Savecode___MAXINT takes nothing returns integer
+    constant function Savecode__MAXINT takes nothing returns integer
         return 2147483647
     endfunction
 
-    function Savecode___player_chartoi takes string c returns integer
+    function Savecode__player_chartoi takes string c returns integer
         local integer i= 0
         local string cs= ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") // INLINED!!
         local integer len= (StringLength(("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"))) // INLINED!!
@@ -2884,7 +2889,7 @@ function CTL___DT takes integer l__CTL___t returns nothing
         return i
     endfunction
 
-    function Savecode___chartoi takes string c returns integer
+    function Savecode__chartoi takes string c returns integer
         local integer i= 0
         local string cs= ("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`") // INLINED!!
         local integer len= (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
@@ -2895,13 +2900,13 @@ function CTL___DT takes integer l__CTL___t returns nothing
         return i
     endfunction
 
-    function Savecode___itochar takes integer i returns string
+    function Savecode__itochar takes integer i returns string
         return SubString(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"), i, i + 1) // INLINED!!
     endfunction
 
     //You probably want to use a different char set for this
     //Also, use a hash that doesn't suck so much
-    function Savecode___scommhash takes string s returns integer
+    function Savecode__scommhash takes string s returns integer
         local integer array count
         local integer i= 0
         local integer len= StringLength(s)
@@ -2909,7 +2914,7 @@ function CTL___DT takes integer l__CTL___t returns nothing
         set s=StringCase(s, true)
         loop
             exitwhen i >= len
-            set x=Savecode___player_chartoi(SubString(s, i, i + 1))
+            set x=Savecode__player_chartoi(SubString(s, i, i + 1))
             set count[x]=count[x] + 1
             set i=i + 1
         endloop
@@ -2929,7 +2934,7 @@ function CTL___DT takes integer l__CTL___t returns nothing
         return x
     endfunction
 
-    function Savecode___modb takes integer x returns integer
+    function Savecode__modb takes integer x returns integer
         if x >= (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) then // INLINED!!
             return x - (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) // INLINED!!
         elseif x < 0 then
@@ -3010,7 +3015,7 @@ endfunction
             local string s= ""
             loop
                 exitwhen cur == 0
-                set s=Savecode___itochar(s__BigNum_l_leaf[cur]) + s
+                set s=Savecode__itochar(s__BigNum_l_leaf[cur]) + s
                 set cur=s__BigNum_l_next[cur]
             endloop
             return s
@@ -3021,7 +3026,7 @@ endfunction
             local integer cur= s__BigNum_l_create()
             set s__BigNum_list[s__Savecode_bignum[this]]=cur
             loop
-                set s__BigNum_l_leaf[cur]=Savecode___chartoi(SubString(s, i, i + 1))
+                set s__BigNum_l_leaf[cur]=Savecode__chartoi(SubString(s, i, i + 1))
                 exitwhen i <= 0
                 set s__BigNum_l_next[cur]=s__BigNum_l_create()
                 set cur=s__BigNum_l_next[cur]
@@ -3054,7 +3059,7 @@ endfunction
         
             if sign == - 1 then
                 call SetRandomSeed(s__BigNum_LastDigit(s__Savecode_bignum[this]))
-                set s__BigNum_l_leaf[cur]=Savecode___modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+                set s__BigNum_l_leaf[cur]=Savecode__modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
                 set x=s__BigNum_l_leaf[cur]
             endif
             
@@ -3065,7 +3070,7 @@ endfunction
                 if sign == - 1 then
                     set advance=s__BigNum_l_leaf[cur]
                 endif
-                set s__BigNum_l_leaf[cur]=Savecode___modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+                set s__BigNum_l_leaf[cur]=Savecode__modb(s__BigNum_l_leaf[cur] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
                 if sign == 1 then
                     set advance=s__BigNum_l_leaf[cur]
                 endif
@@ -3078,7 +3083,7 @@ endfunction
             
             if sign == 1 then
                 call SetRandomSeed(x)
-                set s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]]=Savecode___modb(s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
+                set s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]]=Savecode__modb(s__BigNum_l_leaf[s__BigNum_list[s__Savecode_bignum[this]]] + sign * GetRandomInt(0, (StringLength(("!#$&'()*+,-.0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}`"))) - 1)) // INLINED!!
             endif
             
             call SetRandomSeed(seed)
@@ -3098,7 +3103,7 @@ endfunction
         endfunction
         
         function s__Savecode_Save takes integer this,player p,integer loadtype returns string
-            local integer key= Savecode___scommhash(GetPlayerName(p)) + loadtype * 73
+            local integer key= Savecode__scommhash(GetPlayerName(p)) + loadtype * 73
             local string s
             local integer hash
             call s__BigNum_Clean(s__Savecode_bignum[(this)]) // INLINED!!
@@ -3117,7 +3122,7 @@ endfunction
         endfunction
         
         function s__Savecode_Load takes integer this,player p,string s,integer loadtype returns boolean
-            local integer ikey= Savecode___scommhash(GetPlayerName(p)) + loadtype * 73
+            local integer ikey= Savecode__scommhash(GetPlayerName(p)) + loadtype * 73
             local integer inputhash
             
             call s__Savecode_FromString(this,s)
@@ -3128,17 +3133,17 @@ endfunction
             
             return inputhash == s__Savecode_Hash(this)
         endfunction
-    function Savecode___isupper takes string c returns boolean
+    function Savecode__isupper takes string c returns boolean
         return c == StringCase(c, true)
     endfunction
 
-    function Savecode___ischar takes string c returns boolean
+    function Savecode__ischar takes string c returns boolean
         return S2I(c) == 0 and c != "0"
     endfunction
 
-    function Savecode___chartype takes string c returns integer
-        if ( Savecode___ischar(c) ) then
-            if Savecode___isupper(c) then
+    function Savecode__chartype takes string c returns integer
+        if ( Savecode__ischar(c) ) then
+            if Savecode__isupper(c) then
                 return 0
             else
                 return 1
@@ -3148,9 +3153,9 @@ endfunction
         endif
     endfunction
 
-    function Savecode___testchar takes string c returns nothing
-        if ( Savecode___ischar(c) ) then
-            if Savecode___isupper(c) then
+    function Savecode__testchar takes string c returns nothing
+        if ( Savecode__ischar(c) ) then
+            if Savecode__isupper(c) then
                 call BJDebugMsg(c + " isupper")
             else
                 call BJDebugMsg(c + " islower")
@@ -3169,7 +3174,7 @@ endfunction
         loop
             exitwhen i >= len
             set c=SubString(s, i, i + 1)
-            set ctype=Savecode___chartype(c)
+            set ctype=Savecode__chartype(c)
             if ctype == 0 then
                 set out=out + ("|cffff0000") + c + "|r" // INLINED!!
             elseif ctype == 1 then
@@ -3182,7 +3187,7 @@ endfunction
         return out
     endfunction
 
-    function Savecode___prop_Savecode takes nothing returns boolean
+    function Savecode__prop_Savecode takes nothing returns boolean
         local string s
         local integer loadcode
 
@@ -4560,7 +4565,9 @@ function CreateUnitsForPlayer0 takes nothing returns nothing
 
     set u=BlzCreateUnitWithSkin(p, 'hfoo', - 28160.5, - 27508.1, 261.274, 'hfoo')
     set u=BlzCreateUnitWithSkin(p, 'hfoo', - 27918.4, - 28299.2, 261.274, 'hfoo')
-    set u=BlzCreateUnitWithSkin(p, 'H003', 16826.0, 16034.9, 283.159, 'H003')
+    set u=BlzCreateUnitWithSkin(p, 'hpea', - 17514.6, - 27914.4, 163.218, 'hpea')
+    set u=BlzCreateUnitWithSkin(p, 'hpea', - 18511.7, - 24689.5, 201.023, 'hpea')
+    set u=BlzCreateUnitWithSkin(p, 'hpea', - 19105.5, - 28239.5, 201.023, 'hpea')
 endfunction
 
 //===========================================================================
@@ -5373,6 +5380,7 @@ function CreateNeutralPassive takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'nder', 18095.8, 25099.2, 339.675, 'nder')
     set u=BlzCreateUnitWithSkin(p, 'nrac', 16572.8, 23978.8, 18.941, 'nrac')
     set u=BlzCreateUnitWithSkin(p, 'nrac', 17743.3, 25233.0, 127.973, 'nrac')
+    set gg_unit_h03L_0679=BlzCreateUnitWithSkin(p, 'h03L', 16960.7, 15634.2, 180.000, 'h03L')
 endfunction
 
 //===========================================================================
@@ -5543,6 +5551,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_Volcano_PotTok_Spawn1=Rect(- 13408.0, - 21120.0, - 11456.0, - 20384.0)
     set gg_rct_Dungeons=Rect(- 32256.0, - 29184.0, - 16416.0, 31104.0)
     set gg_rct_Rock_Avalanche=Rect(14944.0, 9440.0, 15328.0, 9824.0)
+    set gg_rct_Chapel=Rect(16544.0, 14912.0, 17376.0, 16192.0)
 endfunction
 
 //***************************************************************************
@@ -23449,7 +23458,7 @@ endfunction
 // Trigger: AddItems
 //===========================================================================
 // scope AddItems begins
- function AddItems__ApplyIDS takes nothing returns nothing
+ function AddItems___ApplyIDS takes nothing returns nothing
 		call DestroyTimer(GetExpiredTimer())
 
 	// Basic Elemental
@@ -23558,8 +23567,8 @@ endfunction
 		
 	endfunction
 
- function AddItems__Init takes nothing returns nothing
-		call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS)
+ function AddItems___Init takes nothing returns nothing
+		call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS)
 	endfunction
 	
 // scope AddItems ends
@@ -33483,7 +33492,7 @@ endfunction
 // Trigger: AddKillQuests
 //===========================================================================
 // scope AddKillQuests begins
-    function AddKillQuests___AddKillQuests takes nothing returns nothing
+    function AddKillQuests__AddKillQuests takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 	set s__kill_quests[0]= s__KillQuest__allocate()
@@ -33534,8 +33543,8 @@ endfunction
 	call AddSpecialEffectTargetUnitBJ("overhead", gg_unit_h01A_0408, "Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
     endfunction
 
-    function AddKillQuests___Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests)
+    function AddKillQuests__Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests__AddKillQuests)
     endfunction
 // scope AddKillQuests ends
 //===========================================================================
@@ -35030,6 +35039,69 @@ function InitTrig_Volcano_Done takes nothing returns nothing
 endfunction
 
 //===========================================================================
+// Trigger: Untitled Trigger 002
+//===========================================================================
+function Trig_Untitled_Trigger_002_Conditions takes nothing returns boolean
+    if ( not ( IsUnitType(GetTriggerUnit(), UNIT_TYPE_HERO) == true ) ) then
+        return false
+    endif
+    return true
+endfunction
+
+function Trig_Untitled_Trigger_002_Actions takes nothing returns nothing
+endfunction
+
+//===========================================================================
+function InitTrig_Untitled_Trigger_002 takes nothing returns nothing
+    set gg_trg_Untitled_Trigger_002=CreateTrigger()
+    call TriggerAddCondition(gg_trg_Untitled_Trigger_002, Condition(function Trig_Untitled_Trigger_002_Conditions))
+    call TriggerAddAction(gg_trg_Untitled_Trigger_002, function Trig_Untitled_Trigger_002_Actions)
+endfunction
+
+
+//===========================================================================
+// Trigger: Chapel Enter
+//===========================================================================
+function Trig_Chapel_Enter_Actions takes nothing returns nothing
+    call SetDayNightModels("Environment/DNC/DNCashenVale/DNCashenValeTerrain/DNCAshenValeTerrain.mdx", "Environment/DNC/DNCAshenVale/DNCashenValeUnit/DNCAshenValeUnit.mdx")
+    call SetUnitVertexColor(gg_unit_h03L_0679, 120, 120, 120, 20)
+endfunction
+
+function Trig_Chapel_Enter_Conditions takes nothing returns boolean
+    return IsUnitType(GetTriggerUnit(), UNIT_TYPE_HERO)
+endfunction
+
+//===========================================================================
+function InitTrig_Chapel_Enter takes nothing returns nothing
+    set gg_trg_Chapel_Enter=CreateTrigger()
+    call TriggerRegisterEnterRectSimple(gg_trg_Chapel_Enter, gg_rct_Chapel)
+    call TriggerAddCondition(gg_trg_Untitled_Trigger_002, Condition(function Trig_Chapel_Enter_Conditions))
+    call TriggerAddAction(gg_trg_Chapel_Enter, function Trig_Chapel_Enter_Actions)
+endfunction
+
+
+//===========================================================================
+// Trigger: Chapel Leave
+//===========================================================================
+function Trig_Chapel_Leave_Actions takes nothing returns nothing
+    call SetDayNightModels("Environment/DNC/DNCDalaran/DNCDalaranTerrain/DNCDalaranTerrain.mdx", "Environment/DNC/DNCDalaran/DNCDalaranUnit/DNCDalaranUnit.mdx")
+    call SetUnitVertexColor(gg_unit_h03L_0679, 120, 120, 120, 255)
+endfunction
+
+function Trig_Chapel_Leave_Conditions takes nothing returns boolean
+    return IsUnitType(GetTriggerUnit(), UNIT_TYPE_HERO)
+endfunction
+
+//===========================================================================
+function InitTrig_Chapel_Leave takes nothing returns nothing
+    set gg_trg_Chapel_Leave=CreateTrigger()
+    call TriggerRegisterLeaveRectSimple(gg_trg_Chapel_Leave, gg_rct_Chapel)
+    call TriggerAddCondition(gg_trg_Untitled_Trigger_002, Condition(function Trig_Chapel_Leave_Conditions))
+    call TriggerAddAction(gg_trg_Chapel_Leave, function Trig_Chapel_Leave_Actions)
+endfunction
+
+
+//===========================================================================
 // Trigger: Untitled Trigger 001
 //===========================================================================
 function Trig_Untitled_Trigger_001_Actions takes nothing returns nothing
@@ -35506,6 +35578,9 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_Volcano_Final_Wave()
     call InitTrig_Volcano_Dhorak_Healers()
     call InitTrig_Volcano_Done()
+    call InitTrig_Untitled_Trigger_002()
+    call InitTrig_Chapel_Enter()
+    call InitTrig_Chapel_Leave()
     call InitTrig_Untitled_Trigger_001()
 endfunction
 
@@ -35815,14 +35890,14 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs534491328")
+call ExecuteFunc("jasshelper__initstructs562331062")
 call ExecuteFunc("IsTerrainWalkable___Init")
 call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes___ApplySpellTypes) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItems___ApplyIDS) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests__AddKillQuests) // INLINED!!
 
     call InitGlobals()
     call InitCustomTriggers()
@@ -35906,7 +35981,7 @@ function sa___prototype28_s__TableArray_clean takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs534491328 takes nothing returns nothing
+function jasshelper__initstructs562331062 takes nothing returns nothing
     set st__BigNum_l_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__BigNum_l_onDestroy,Condition( function sa__BigNum_l_onDestroy))
     set st__Savecode_onDestroy=CreateTrigger()

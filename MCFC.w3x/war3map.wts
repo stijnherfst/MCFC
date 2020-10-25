@@ -40,7 +40,7 @@ MCFC 7.3
 
 STRING 9
 {
-All
+1 to 10
 }
 
 STRING 10
@@ -19873,12 +19873,6 @@ STRING 5563
 Metal Man
 }
 
-STRING 5564
-// Doodads: D023 (Floor), Name (Name)
-{
-Floor
-}
-
 STRING 5565
 // Doodads: D024 (Floor pathing), Name (Name)
 {
@@ -20089,12 +20083,6 @@ STRING 5602
 Brazier Skull Free
 }
 
-STRING 5603
-// Doodads: D02I (Dungeon Column), Name (Name)
-{
-Dungeon Column
-}
-
 STRING 5604
 // Doodads: D02J (Light White), Name (Name)
 {
@@ -20129,12 +20117,6 @@ STRING 5611
 // Doodads: D02N (Big Floor), Name (Name)
 {
 Big Floor
-}
-
-STRING 5612
-// Doodads: D02O (Floor Bricks), Name (Name)
-{
-Floor Bricks
 }
 
 STRING 5613
@@ -20269,15 +20251,63 @@ STRING 5634
 Clouds White
 }
 
-STRING 5636
-// Doodads: D00V (chapel), Name (Name)
-{
-chapel
-}
-
 STRING 5637
 // Doodads: D00W (Floor Bricks Dark), Name (Name)
 {
 Floor Bricks Dark
+}
+
+STRING 5638
+// Doodads: D00V (Chapel Base), Name (Name)
+{
+Chapel Base
+}
+
+STRING 5639
+// Units: h03L (Chapel Roof), Name (Name)
+{
+Chapel Roof
+}
+
+STRING 5640
+// Doodads: D00X (Chapel Roof), Name (Name)
+{
+Chapel Roof
+}
+
+STRING 5641
+// Doodads: D00Y (Casket Stone Open), Name (Name)
+{
+Casket Stone Open
+}
+
+STRING 5642
+// Destructibles: B007 (Boss Gate), Name (Name)
+{
+Boss Gate
+}
+
+STRING 5643
+// Doodads: D02I (Column), Name (Name)
+{
+Column
+}
+
+STRING 5644
+// Doodads: D02O (Floor Bricks Dirt Gradient), Name (Name)
+{
+Floor Bricks Dirt Gradient
+}
+
+STRING 5645
+// Doodads: D023 (Arch Bricks), Name (Name)
+{
+Arch Bricks
+}
+
+STRING 5646
+// Doodads: D02Q (Casket Gold), Name (Name)
+{
+Casket Gold
 }
 
