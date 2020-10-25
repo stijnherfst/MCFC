@@ -4,86 +4,86 @@ constant boolean LIBRARY_BigNum=true
 //endglobals from BigNum
 //globals from CTL:
 constant boolean LIBRARY_CTL=true
-integer CTL__tgc= 0
-integer array CTL__tgr
+integer CTL___tgc= 0
+integer array CTL___tgr
        
-integer CTL__ic=0
-integer CTL__tc=0
-integer array CTL__rf
-integer array CTL__n
-integer array CTL__p
-integer array CTL__th
-integer array CTL__ns
-trigger CTL__t=CreateTrigger()
-timer CTL__m=CreateTimer()
-triggercondition array CTL__ct
-conditionfunc array CTL__rc
+integer CTL___ic=0
+integer CTL___tc=0
+integer array CTL___rf
+integer array CTL___n
+integer array CTL___p
+integer array CTL___th
+integer array CTL___ns
+trigger CTL___t=CreateTrigger()
+timer CTL___m=CreateTimer()
+triggercondition array CTL___ct
+conditionfunc array CTL___rc
        
-boolean array CTL__e32
-integer array CTL__i32r
-integer CTL__i32cr= 0
-boolean array CTL__ir32
-boolean array CTL__id32
+boolean array CTL___e32
+integer array CTL___i32r
+integer CTL___i32cr= 0
+boolean array CTL___ir32
+boolean array CTL___id32
 //endglobals from CTL
 //globals from IsTerrainWalkable:
 constant boolean LIBRARY_IsTerrainWalkable=true
         // this value is how far from a point the item may end up for the point to be considered pathable
-constant real IsTerrainWalkable__MAX_RANGE=1.
+constant real IsTerrainWalkable___MAX_RANGE=1.
         // the following two variables are set to the position of the item after each pathing check
         // that way, if a point isn't pathable, these will be the coordinates of the nearest point that is
 real IsTerrainWalkable_X=0.
 real IsTerrainWalkable_Y=0.
-rect IsTerrainWalkable__r
-item IsTerrainWalkable__check
-item array IsTerrainWalkable__hidden
-integer IsTerrainWalkable__hiddenMax=0
+rect IsTerrainWalkable___r
+item IsTerrainWalkable___check
+item array IsTerrainWalkable___hidden
+integer IsTerrainWalkable___hiddenMax=0
 //endglobals from IsTerrainWalkable
 //globals from RegisterPlayerUnitEvent:
 constant boolean LIBRARY_RegisterPlayerUnitEvent=true
-trigger array RegisterPlayerUnitEvent__t
+trigger array RegisterPlayerUnitEvent___t
 //endglobals from RegisterPlayerUnitEvent
 //globals from Table:
 constant boolean LIBRARY_Table=true
-hashtable Table__ht= InitHashtable()
-integer Table__more= 2
-integer Table__less= 0
+hashtable Table___ht= InitHashtable()
+integer Table___more= 2
+integer Table___less= 0
 //endglobals from Table
 //globals from BonusChance:
 constant boolean LIBRARY_BonusChance=true
-integer BonusChance__Hash
-real array BonusChance__BonusDirect
-real array BonusChance__BonusMultiplier
-integer BonusChance__BU_Total= 0
+integer BonusChance___Hash
+real array BonusChance___BonusDirect
+real array BonusChance___BonusMultiplier
+integer BonusChance___BU_Total= 0
 //endglobals from BonusChance
 //globals from IPool:
 constant boolean LIBRARY_IPool=true
-integer IPool__ITEMS= 0
-integer IPool__WEIGHT= 0
+integer IPool___ITEMS= 0
+integer IPool___WEIGHT= 0
 //endglobals from IPool
 //globals from Jump:
 constant boolean LIBRARY_Jump=true
         // Tolerance distance for pathability
-constant real Jump__TOL= 1
+constant real Jump___TOL= 1
         // Minimum flying heigh for colliding with units. If set to 0 then won't collide with units.
-constant real Jump__U_COL_Z= 0
+constant real Jump___U_COL_Z= 0
         // Collision distance with units. Uses this if GetUnitCollision library is not used
-constant real Jump__U_COL_D= 96
+constant real Jump___U_COL_D= 96
         // Collision distance with destructables. If set to 0 then won't collide with destructables.
-constant real Jump__D_COL_D= 0
+constant real Jump___D_COL_D= 0
         // Maximum collision radius of units in the map. 196 for tier 3 Town Halls etc.
-constant real Jump__MAX_RAD= 196
+constant real Jump___MAX_RAD= 196
         // Moves the unit to nearest pathable point when landing
-constant boolean Jump__PATHING_LAND= false
+constant boolean Jump___PATHING_LAND= false
         // Is the turn speed locked when jumping
-constant boolean Jump__LOCK_FACING= false
+constant boolean Jump___LOCK_FACING= false
         
-rect Jump__rct= Rect(0, 0, 0, 0)
-group Jump__enu= CreateGroup()
-location Jump__loc= Location(0, 0)
+rect Jump___rct= Rect(0, 0, 0, 0)
+group Jump___enu= CreateGroup()
+location Jump___loc= Location(0, 0)
 real EVENT_JUMP_FINISH= 0
 unit EVENT_JUMP_UNIT= null
-real Jump__flh= 0
-boolean Jump__b= false
+real Jump___flh= 0
+boolean Jump___b= false
 //endglobals from Jump
 //globals from Savecode:
 constant boolean LIBRARY_Savecode=true
@@ -96,14 +96,14 @@ constant boolean LIBRARY_ItemDropSystem=true
         
         
             
-constant integer ItemDropSystem__ITEMS_MAX= 10
+constant integer ItemDropSystem___ITEMS_MAX= 10
             
         
         
-constant string ItemDropSystem__ERROR_COLOR= "|cffff0000"
-integer ItemDropSystem__GenDrop
-integer ItemDropSystem__SpecDrop
-integer ItemDropSystem__DropBoth
+constant string ItemDropSystem___ERROR_COLOR= "|cffff0000"
+integer ItemDropSystem___GenDrop
+integer ItemDropSystem___SpecDrop
+integer ItemDropSystem___DropBoth
 //endglobals from ItemDropSystem
     // User-defined
 itemtype array udg_itemclass
@@ -944,18 +944,18 @@ integer kill_quests_count= 5
 integer array typeToFortified
 integer array typeToDivine
 integer array typeToFlying
-string JumpSpellvJASS__EFF= "Abilities\\Spells\\Human\\ThunderClap\\ThunderClapCaster.mdl"
-constant integer JumpSpellvJASS__AID= 'A0ER'
-constant integer JumpSpellvJASS__DID= 'e000'
-constant integer JumpSpellvJASS__OID= 852121
-unit JumpSpellvJASS__HARVESTER
-group JumpSpellvJASS__ENU= CreateGroup()
-constant real JumpSpellvJASS__GRAVITY= 100
-constant real JumpSpellvJASS__SPEED= 500
-constant real JumpSpellvJASS__MAX_HEIGHT= 250
-constant real JumpSpellvJASS__AOE= 200
-rect JumpSpellvJASS__REC= Rect(0, 0, 0, 0)
-integer JumpSpellvJASS__TAB
+string JumpSpellvJASS___EFF= "Abilities\\Spells\\Human\\ThunderClap\\ThunderClapCaster.mdl"
+constant integer JumpSpellvJASS___AID= 'A0ER'
+constant integer JumpSpellvJASS___DID= 'e000'
+constant integer JumpSpellvJASS___OID= 852121
+unit JumpSpellvJASS___HARVESTER
+group JumpSpellvJASS___ENU= CreateGroup()
+constant real JumpSpellvJASS___GRAVITY= 100
+constant real JumpSpellvJASS___SPEED= 500
+constant real JumpSpellvJASS___MAX_HEIGHT= 250
+constant real JumpSpellvJASS___AOE= 200
+rect JumpSpellvJASS___REC= Rect(0, 0, 0, 0)
+integer JumpSpellvJASS___TAB
 
 trigger l__library_init
 
@@ -973,50 +973,50 @@ integer array si__BigNum_V
 integer array s__BigNum_list
 integer array s__BigNum_base
 constant integer si__TimerGroup32=3
-constant integer si__Table__dex=4
-constant integer si__Table__handles=5
-constant integer si__Table__agents=6
-constant integer si__Table__reals=7
-constant integer si__Table__booleans=8
-constant integer si__Table__strings=9
-constant integer si__Table__players=10
-constant integer si__Table__widgets=11
-constant integer si__Table__destructables=12
-constant integer si__Table__items=13
-constant integer si__Table__units=14
-constant integer si__Table__abilitys=15
-constant integer si__Table__timers=16
-constant integer si__Table__triggers=17
-constant integer si__Table__triggerconditions=18
-constant integer si__Table__triggeractions=19
-constant integer si__Table__events=20
-constant integer si__Table__forces=21
-constant integer si__Table__groups=22
-constant integer si__Table__locations=23
-constant integer si__Table__rects=24
-constant integer si__Table__boolexprs=25
-constant integer si__Table__sounds=26
-constant integer si__Table__effects=27
-constant integer si__Table__unitpools=28
-constant integer si__Table__itempools=29
-constant integer si__Table__quests=30
-constant integer si__Table__questitems=31
-constant integer si__Table__defeatconditions=32
-constant integer si__Table__timerdialogs=33
-constant integer si__Table__leaderboards=34
-constant integer si__Table__multiboards=35
-constant integer si__Table__multiboarditems=36
-constant integer si__Table__trackables=37
-constant integer si__Table__dialogs=38
-constant integer si__Table__buttons=39
-constant integer si__Table__texttags=40
-constant integer si__Table__lightnings=41
-constant integer si__Table__images=42
-constant integer si__Table__ubersplats=43
-constant integer si__Table__regions=44
-constant integer si__Table__fogstates=45
-constant integer si__Table__fogmodifiers=46
-constant integer si__Table__hashtables=47
+constant integer si__Table___dex=4
+constant integer si__Table___handles=5
+constant integer si__Table___agents=6
+constant integer si__Table___reals=7
+constant integer si__Table___booleans=8
+constant integer si__Table___strings=9
+constant integer si__Table___players=10
+constant integer si__Table___widgets=11
+constant integer si__Table___destructables=12
+constant integer si__Table___items=13
+constant integer si__Table___units=14
+constant integer si__Table___abilitys=15
+constant integer si__Table___timers=16
+constant integer si__Table___triggers=17
+constant integer si__Table___triggerconditions=18
+constant integer si__Table___triggeractions=19
+constant integer si__Table___events=20
+constant integer si__Table___forces=21
+constant integer si__Table___groups=22
+constant integer si__Table___locations=23
+constant integer si__Table___rects=24
+constant integer si__Table___boolexprs=25
+constant integer si__Table___sounds=26
+constant integer si__Table___effects=27
+constant integer si__Table___unitpools=28
+constant integer si__Table___itempools=29
+constant integer si__Table___quests=30
+constant integer si__Table___questitems=31
+constant integer si__Table___defeatconditions=32
+constant integer si__Table___timerdialogs=33
+constant integer si__Table___leaderboards=34
+constant integer si__Table___multiboards=35
+constant integer si__Table___multiboarditems=36
+constant integer si__Table___trackables=37
+constant integer si__Table___dialogs=38
+constant integer si__Table___buttons=39
+constant integer si__Table___texttags=40
+constant integer si__Table___lightnings=41
+constant integer si__Table___images=42
+constant integer si__Table___ubersplats=43
+constant integer si__Table___regions=44
+constant integer si__Table___fogstates=45
+constant integer si__Table___fogmodifiers=46
+constant integer si__Table___hashtables=47
 constant integer si__Table=48
 constant integer si__TableArray=49
 constant integer si__A=50
@@ -1046,8 +1046,8 @@ integer si__Savecode_I=0
 integer array si__Savecode_V
 real array s__Savecode_digits
 integer array s__Savecode_bignum
-constant integer si__SpellEffectEvent__S=54
-integer s__SpellEffectEvent__S_tb
+constant integer si__SpellEffectEvent___S=54
+integer s__SpellEffectEvent___S_tb
 constant integer si__ItemDrop=55
 integer si__ItemDrop_F=0
 integer si__ItemDrop_I=0
@@ -1510,182 +1510,182 @@ endfunction
 
 //library BigNum ends
 //library CTL:
-    function CTL__E takes nothing returns nothing
-        local integer i=CTL__ns[0]
-        set CTL__ns[0]=0
+    function CTL___E takes nothing returns nothing
+        local integer i=CTL___ns[0]
+        set CTL___ns[0]=0
         loop
             exitwhen 0 == i
-            if ( 0 == CTL__p[i] ) then
-                if ( 0 == CTL__n[i] ) then
-                    call TriggerRemoveCondition(CTL__t, CTL__ct[CTL__th[i]])
-                    set CTL__ct[CTL__th[i]]=null
-                    set CTL__tc=CTL__tc - 1
-                    set CTL__rf[CTL__th[i]]=0
+            if ( 0 == CTL___p[i] ) then
+                if ( 0 == CTL___n[i] ) then
+                    call TriggerRemoveCondition(CTL___t, CTL___ct[CTL___th[i]])
+                    set CTL___ct[CTL___th[i]]=null
+                    set CTL___tc=CTL___tc - 1
+                    set CTL___rf[CTL___th[i]]=0
                 else
-                    set CTL__rf[CTL__th[i]]=CTL__n[i]
-                    set CTL__p[CTL__n[i]]=0
+                    set CTL___rf[CTL___th[i]]=CTL___n[i]
+                    set CTL___p[CTL___n[i]]=0
                 endif
             else
-                set CTL__p[CTL__n[i]]=CTL__p[i]
-                set CTL__n[CTL__p[i]]=CTL__n[i]
+                set CTL___p[CTL___n[i]]=CTL___p[i]
+                set CTL___n[CTL___p[i]]=CTL___n[i]
             endif
-            set CTL__n[i]=CTL__n[0]
-            set CTL__n[0]=i
-            set i=CTL__ns[i]
+            set CTL___n[i]=CTL___n[0]
+            set CTL___n[0]=i
+            set i=CTL___ns[i]
         endloop
         loop
-            exitwhen 0 == CTL__i32cr
-            set CTL__i32cr=CTL__i32cr - 1
-            set i=CTL__i32r[CTL__i32cr]
-            if ( not CTL__e32[i] ) then
-                call TriggerRemoveCondition(CTL__t, CTL__ct[i])
-                set CTL__ct[i]=null
+            exitwhen 0 == CTL___i32cr
+            set CTL___i32cr=CTL___i32cr - 1
+            set i=CTL___i32r[CTL___i32cr]
+            if ( not CTL___e32[i] ) then
+                call TriggerRemoveCondition(CTL___t, CTL___ct[i])
+                set CTL___ct[i]=null
                
-                if ( CTL__id32[i] ) then
-                    set CTL__tgr[i]=CTL__tgr[0]
-                    set CTL__tgr[0]=i
-                    set CTL__id32[i]=false
-                    set CTL__e32[i]=false
-                    set CTL__ir32[i]=false
+                if ( CTL___id32[i] ) then
+                    set CTL___tgr[i]=CTL___tgr[0]
+                    set CTL___tgr[0]=i
+                    set CTL___id32[i]=false
+                    set CTL___e32[i]=false
+                    set CTL___ir32[i]=false
                 endif
             endif
         endloop
-        if ( 0 == CTL__tc ) then
-            call PauseTimer(CTL__m)
+        if ( 0 == CTL___tc ) then
+            call PauseTimer(CTL___m)
         else
-            call TriggerEvaluate(CTL__t)
+            call TriggerEvaluate(CTL___t)
         endif
     endfunction
-    function CTL__CT takes integer r returns integer
+    function CTL___CT takes integer r returns integer
         local integer i
         local integer f
-        if ( 0 == CTL__n[0] ) then
-            set i=CTL__ic + 1
-            set CTL__ic=i
+        if ( 0 == CTL___n[0] ) then
+            set i=CTL___ic + 1
+            set CTL___ic=i
         else
-            set i=CTL__n[0]
-            set CTL__n[0]=CTL__n[i]
+            set i=CTL___n[0]
+            set CTL___n[0]=CTL___n[i]
         endif
-        set CTL__th[i]=r
-        set CTL__ns[i]=- 1
-        set f=CTL__rf[r]
+        set CTL___th[i]=r
+        set CTL___ns[i]=- 1
+        set f=CTL___rf[r]
         if ( 0 == f ) then
-            set CTL__n[i]=0
-            set CTL__p[i]=0
-            set CTL__rf[r]=i
-            set CTL__ct[r]=TriggerAddCondition(CTL__t, CTL__rc[r])
+            set CTL___n[i]=0
+            set CTL___p[i]=0
+            set CTL___rf[r]=i
+            set CTL___ct[r]=TriggerAddCondition(CTL___t, CTL___rc[r])
             //set ct[r] = null
-            if ( 0 == CTL__tc ) then
-                call TimerStart(CTL__m, .031250000, true, function CTL__E)
+            if ( 0 == CTL___tc ) then
+                call TimerStart(CTL___m, .031250000, true, function CTL___E)
             endif
-            set CTL__tc=CTL__tc + 1
+            set CTL___tc=CTL___tc + 1
         else
-            set CTL__n[i]=f
-            set CTL__p[i]=0
-            set CTL__p[f]=i
-            set CTL__rf[r]=i
+            set CTL___n[i]=f
+            set CTL___p[i]=0
+            set CTL___p[f]=i
+            set CTL___rf[r]=i
         endif
         return i
     endfunction
-function CTL__DT takes integer l__CTL__t returns nothing
-            set CTL__ns[l__CTL__t]=CTL__ns[0]
-            set CTL__ns[0]=l__CTL__t
+function CTL___DT takes integer l__CTL___t returns nothing
+            set CTL___ns[l__CTL___t]=CTL___ns[0]
+            set CTL___ns[0]=l__CTL___t
     endfunction
-    function CTL__A takes code c returns integer
-        local integer i= CTL__tgr[0]
+    function CTL___A takes code c returns integer
+        local integer i= CTL___tgr[0]
         if ( 0 == i ) then
-            set i=CTL__tgc + 1
-            set CTL__tgc=i
+            set i=CTL___tgc + 1
+            set CTL___tgc=i
         else
-            set CTL__tgr[0]=CTL__tgr[i]
+            set CTL___tgr[0]=CTL___tgr[i]
         endif
-        set CTL__rc[i]=Condition(c)
+        set CTL___rc[i]=Condition(c)
         return i
     endfunction
-    function CTL__A32 takes integer i returns nothing
-        if ( not CTL__e32[i] ) then
-            if ( not CTL__ir32[i] and not CTL__id32[i] ) then
-                set CTL__ct[i]=TriggerAddCondition(CTL__t, CTL__rc[i])
+    function CTL___A32 takes integer i returns nothing
+        if ( not CTL___e32[i] ) then
+            if ( not CTL___ir32[i] and not CTL___id32[i] ) then
+                set CTL___ct[i]=TriggerAddCondition(CTL___t, CTL___rc[i])
             endif
-            if ( 0 == CTL__tc ) then
-                call TimerStart(CTL__m, .031250000, true, function CTL__E)
+            if ( 0 == CTL___tc ) then
+                call TimerStart(CTL___m, .031250000, true, function CTL___E)
             endif
-            set CTL__tc=CTL__tc + 1
-            set CTL__e32[i]=true
+            set CTL___tc=CTL___tc + 1
+            set CTL___e32[i]=true
         endif
     endfunction
-    function CTL__SR32 takes integer i returns nothing
-        if ( CTL__e32[i] ) then
-            if ( not CTL__ir32[i] and not CTL__id32[i] ) then
-                set CTL__i32r[CTL__i32cr]=i
-                set CTL__i32cr=CTL__i32cr + 1
-                set CTL__ir32[i]=true
+    function CTL___SR32 takes integer i returns nothing
+        if ( CTL___e32[i] ) then
+            if ( not CTL___ir32[i] and not CTL___id32[i] ) then
+                set CTL___i32r[CTL___i32cr]=i
+                set CTL___i32cr=CTL___i32cr + 1
+                set CTL___ir32[i]=true
             endif
-            set CTL__e32[i]=false
-            set CTL__tc=CTL__tc - 1
+            set CTL___e32[i]=false
+            set CTL___tc=CTL___tc - 1
         endif
     endfunction
-    function CTL__DT32 takes integer i returns nothing
-        if ( not CTL__id32[i] ) then
-            if ( not CTL__ir32[i] ) then
-                set CTL__ir32[i]=true
-                set CTL__tc=CTL__tc - 1
-                set CTL__i32r[CTL__i32cr]=i
-                set CTL__i32cr=CTL__i32cr + 1
-                set CTL__e32[i]=false
+    function CTL___DT32 takes integer i returns nothing
+        if ( not CTL___id32[i] ) then
+            if ( not CTL___ir32[i] ) then
+                set CTL___ir32[i]=true
+                set CTL___tc=CTL___tc - 1
+                set CTL___i32r[CTL___i32cr]=i
+                set CTL___i32cr=CTL___i32cr + 1
+                set CTL___e32[i]=false
             endif
-            set CTL__id32[i]=true
+            set CTL___id32[i]=true
         endif
     endfunction
    
         function s__TimerGroup32_create takes code c returns integer
-            return CTL__A(c)
+            return CTL___A(c)
         endfunction
         function s__TimerGroup32_destroy takes integer this returns nothing
-            call CTL__DT32(this)
+            call CTL___DT32(this)
         endfunction
         function s__TimerGroup32_start takes integer this returns nothing
-            call CTL__A32(this)
+            call CTL___A32(this)
         endfunction
         function s__TimerGroup32_stop takes integer this returns nothing
-            call CTL__SR32(this)
+            call CTL___SR32(this)
         endfunction
 
 //library CTL ends
 //library IsTerrainWalkable:
  
-    function IsTerrainWalkable__Init takes nothing returns nothing
-        set IsTerrainWalkable__check=CreateItem('ciri', 0, 0)
-        call SetItemVisible(IsTerrainWalkable__check, false)
-        set IsTerrainWalkable__r=Rect(0.0, 0.0, 128.0, 128.0)
+    function IsTerrainWalkable___Init takes nothing returns nothing
+        set IsTerrainWalkable___check=CreateItem('ciri', 0, 0)
+        call SetItemVisible(IsTerrainWalkable___check, false)
+        set IsTerrainWalkable___r=Rect(0.0, 0.0, 128.0, 128.0)
     endfunction
  
-    function IsTerrainWalkable__HideBothersomeItem takes nothing returns nothing
+    function IsTerrainWalkable___HideBothersomeItem takes nothing returns nothing
         if IsItemVisible(GetEnumItem()) then
-            set IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax]=GetEnumItem()
-            call SetItemVisible(IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax], false)
-            set IsTerrainWalkable__hiddenMax=IsTerrainWalkable__hiddenMax + 1
+            set IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax]=GetEnumItem()
+            call SetItemVisible(IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax], false)
+            set IsTerrainWalkable___hiddenMax=IsTerrainWalkable___hiddenMax + 1
         endif
     endfunction
  
     function IsTerrainWalkable takes real x,real y returns boolean
         // first, hide any items in the area so they don't get in the way of our item
-        call MoveRectTo(IsTerrainWalkable__r, x, y)
-        call EnumItemsInRect(IsTerrainWalkable__r, null, function IsTerrainWalkable__HideBothersomeItem)
+        call MoveRectTo(IsTerrainWalkable___r, x, y)
+        call EnumItemsInRect(IsTerrainWalkable___r, null, function IsTerrainWalkable___HideBothersomeItem)
         // try to move the check item and get it's coordinates
-        call SetItemPosition(IsTerrainWalkable__check, x, y) //this unhides the item...
-        set IsTerrainWalkable_X=GetItemX(IsTerrainWalkable__check) - x
-        set IsTerrainWalkable_Y=GetItemY(IsTerrainWalkable__check) - y
-        call SetItemVisible(IsTerrainWalkable__check, false) //...so we must hide it again
+        call SetItemPosition(IsTerrainWalkable___check, x, y) //this unhides the item...
+        set IsTerrainWalkable_X=GetItemX(IsTerrainWalkable___check) - x
+        set IsTerrainWalkable_Y=GetItemY(IsTerrainWalkable___check) - y
+        call SetItemVisible(IsTerrainWalkable___check, false) //...so we must hide it again
         // before returning, unhide any items that got hidden at the start
         loop
-            exitwhen IsTerrainWalkable__hiddenMax <= 0
-            set IsTerrainWalkable__hiddenMax=IsTerrainWalkable__hiddenMax - 1
-            call SetItemVisible(IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax], true)
-            set IsTerrainWalkable__hidden[IsTerrainWalkable__hiddenMax]=null
+            exitwhen IsTerrainWalkable___hiddenMax <= 0
+            set IsTerrainWalkable___hiddenMax=IsTerrainWalkable___hiddenMax - 1
+            call SetItemVisible(IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax], true)
+            set IsTerrainWalkable___hidden[IsTerrainWalkable___hiddenMax]=null
         endloop
         // return pathability status
-        return IsTerrainWalkable_X * IsTerrainWalkable_X + IsTerrainWalkable_Y * IsTerrainWalkable_Y < IsTerrainWalkable__MAX_RANGE
+        return IsTerrainWalkable_X * IsTerrainWalkable_X + IsTerrainWalkable_Y * IsTerrainWalkable_Y < IsTerrainWalkable___MAX_RANGE
     endfunction
 
 //library IsTerrainWalkable ends
@@ -1694,28 +1694,28 @@ function CTL__DT takes integer l__CTL__t returns nothing
     function RegisterPlayerUnitEvent takes playerunitevent p,code c returns nothing
         local integer i= GetHandleId(p)
         local integer k= 15
-        if RegisterPlayerUnitEvent__t[i] == null then
-            set RegisterPlayerUnitEvent__t[i]=CreateTrigger()
+        if RegisterPlayerUnitEvent___t[i] == null then
+            set RegisterPlayerUnitEvent___t[i]=CreateTrigger()
             loop
-                call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent__t[i], Player(k), p, null)
+                call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent___t[i], Player(k), p, null)
                 exitwhen k == 0
                 set k=k - 1
             endloop
         endif
-        call TriggerAddCondition(RegisterPlayerUnitEvent__t[i], Filter(c))
+        call TriggerAddCondition(RegisterPlayerUnitEvent___t[i], Filter(c))
     endfunction
    
     function RegisterPlayerUnitEventForPlayer takes playerunitevent p,code c,player pl returns nothing
         local integer i= 16 * GetHandleId(p) + GetPlayerId(pl)
-        if RegisterPlayerUnitEvent__t[i] == null then
-            set RegisterPlayerUnitEvent__t[i]=CreateTrigger()
-            call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent__t[i], pl, p, null)
+        if RegisterPlayerUnitEvent___t[i] == null then
+            set RegisterPlayerUnitEvent___t[i]=CreateTrigger()
+            call TriggerRegisterPlayerUnitEvent(RegisterPlayerUnitEvent___t[i], pl, p, null)
         endif
-        call TriggerAddCondition(RegisterPlayerUnitEvent__t[i], Filter(c))
+        call TriggerAddCondition(RegisterPlayerUnitEvent___t[i], Filter(c))
     endfunction
    
     function GetPlayerUnitEventTrigger takes playerunitevent p returns trigger
-        return RegisterPlayerUnitEvent__t[GetHandleId(p)]
+        return RegisterPlayerUnitEvent___t[GetHandleId(p)]
     endfunction
 
 //library RegisterPlayerUnitEvent ends
@@ -1723,537 +1723,537 @@ function CTL__DT takes integer l__CTL__t returns nothing
 
     
     
-    function s__Table__dex__get_size takes nothing returns integer
+    function s__Table___dex__get_size takes nothing returns integer
         return 1
     endfunction
-    function s__Table__dex__get_list takes nothing returns integer
+    function s__Table___dex__get_list takes nothing returns integer
         return 2
     endfunction
     
-    function s__Table__handles_has takes integer this,integer key returns boolean
-        return HaveSavedHandle(Table__ht, this, key)
+    function s__Table___handles_has takes integer this,integer key returns boolean
+        return HaveSavedHandle(Table___ht, this, key)
     endfunction
-    function s__Table__handles_remove takes integer this,integer key returns nothing
-        call RemoveSavedHandle(Table__ht, this, key)
+    function s__Table___handles_remove takes integer this,integer key returns nothing
+        call RemoveSavedHandle(Table___ht, this, key)
     endfunction
     
-    function s__Table__agents__setindex takes integer this,integer key,agent value returns nothing
-        call SaveAgentHandle(Table__ht, this, key, value)
+    function s__Table___agents__setindex takes integer this,integer key,agent value returns nothing
+        call SaveAgentHandle(Table___ht, this, key, value)
     endfunction
     
     
     
 //textmacro instance: NEW_ARRAY_BASIC("Real", "Real", "real")
-    function s__Table__reals__getindex takes integer this,integer key returns real
-        return LoadReal(Table__ht, this, key)
+    function s__Table___reals__getindex takes integer this,integer key returns real
+        return LoadReal(Table___ht, this, key)
     endfunction
-    function s__Table__reals__setindex takes integer this,integer key,real value returns nothing
-        call SaveReal(Table__ht, this, key, value)
+    function s__Table___reals__setindex takes integer this,integer key,real value returns nothing
+        call SaveReal(Table___ht, this, key, value)
     endfunction
-    function s__Table__reals_has takes integer this,integer key returns boolean
-        return HaveSavedReal(Table__ht, this, key)
+    function s__Table___reals_has takes integer this,integer key returns boolean
+        return HaveSavedReal(Table___ht, this, key)
     endfunction
-    function s__Table__reals_remove takes integer this,integer key returns nothing
-        call RemoveSavedReal(Table__ht, this, key)
+    function s__Table___reals_remove takes integer this,integer key returns nothing
+        call RemoveSavedReal(Table___ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("Real", "Real", "real")
 //textmacro instance: NEW_ARRAY_BASIC("Boolean", "Boolean", "boolean")
-    function s__Table__booleans__getindex takes integer this,integer key returns boolean
-        return LoadBoolean(Table__ht, this, key)
+    function s__Table___booleans__getindex takes integer this,integer key returns boolean
+        return LoadBoolean(Table___ht, this, key)
     endfunction
-    function s__Table__booleans__setindex takes integer this,integer key,boolean value returns nothing
-        call SaveBoolean(Table__ht, this, key, value)
+    function s__Table___booleans__setindex takes integer this,integer key,boolean value returns nothing
+        call SaveBoolean(Table___ht, this, key, value)
     endfunction
-    function s__Table__booleans_has takes integer this,integer key returns boolean
-        return HaveSavedBoolean(Table__ht, this, key)
+    function s__Table___booleans_has takes integer this,integer key returns boolean
+        return HaveSavedBoolean(Table___ht, this, key)
     endfunction
-    function s__Table__booleans_remove takes integer this,integer key returns nothing
-        call RemoveSavedBoolean(Table__ht, this, key)
+    function s__Table___booleans_remove takes integer this,integer key returns nothing
+        call RemoveSavedBoolean(Table___ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("Boolean", "Boolean", "boolean")
 //textmacro instance: NEW_ARRAY_BASIC("String", "Str", "string")
-    function s__Table__strings__getindex takes integer this,integer key returns string
-        return LoadStr(Table__ht, this, key)
+    function s__Table___strings__getindex takes integer this,integer key returns string
+        return LoadStr(Table___ht, this, key)
     endfunction
-    function s__Table__strings__setindex takes integer this,integer key,string value returns nothing
-        call SaveStr(Table__ht, this, key, value)
+    function s__Table___strings__setindex takes integer this,integer key,string value returns nothing
+        call SaveStr(Table___ht, this, key, value)
     endfunction
-    function s__Table__strings_has takes integer this,integer key returns boolean
-        return HaveSavedString(Table__ht, this, key)
+    function s__Table___strings_has takes integer this,integer key returns boolean
+        return HaveSavedString(Table___ht, this, key)
     endfunction
-    function s__Table__strings_remove takes integer this,integer key returns nothing
-        call RemoveSavedString(Table__ht, this, key)
+    function s__Table___strings_remove takes integer this,integer key returns nothing
+        call RemoveSavedString(Table___ht, this, key)
     endfunction
 //end of: NEW_ARRAY_BASIC("String", "Str", "string")
     
 //textmacro instance: NEW_ARRAY("Player", "player")
-    function s__Table__players__getindex takes integer this,integer key returns player
-        return LoadPlayerHandle(Table__ht, this, key)
+    function s__Table___players__getindex takes integer this,integer key returns player
+        return LoadPlayerHandle(Table___ht, this, key)
     endfunction
-    function s__Table__players__setindex takes integer this,integer key,player value returns nothing
-        call SavePlayerHandle(Table__ht, this, key, value)
+    function s__Table___players__setindex takes integer this,integer key,player value returns nothing
+        call SavePlayerHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Player", "player")
 //textmacro instance: NEW_ARRAY("Widget", "widget")
-    function s__Table__widgets__getindex takes integer this,integer key returns widget
-        return LoadWidgetHandle(Table__ht, this, key)
+    function s__Table___widgets__getindex takes integer this,integer key returns widget
+        return LoadWidgetHandle(Table___ht, this, key)
     endfunction
-    function s__Table__widgets__setindex takes integer this,integer key,widget value returns nothing
-        call SaveWidgetHandle(Table__ht, this, key, value)
+    function s__Table___widgets__setindex takes integer this,integer key,widget value returns nothing
+        call SaveWidgetHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Widget", "widget")
 //textmacro instance: NEW_ARRAY("Destructable", "destructable")
-    function s__Table__destructables__getindex takes integer this,integer key returns destructable
-        return LoadDestructableHandle(Table__ht, this, key)
+    function s__Table___destructables__getindex takes integer this,integer key returns destructable
+        return LoadDestructableHandle(Table___ht, this, key)
     endfunction
-    function s__Table__destructables__setindex takes integer this,integer key,destructable value returns nothing
-        call SaveDestructableHandle(Table__ht, this, key, value)
+    function s__Table___destructables__setindex takes integer this,integer key,destructable value returns nothing
+        call SaveDestructableHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Destructable", "destructable")
 //textmacro instance: NEW_ARRAY("Item", "item")
-    function s__Table__items__getindex takes integer this,integer key returns item
-        return LoadItemHandle(Table__ht, this, key)
+    function s__Table___items__getindex takes integer this,integer key returns item
+        return LoadItemHandle(Table___ht, this, key)
     endfunction
-    function s__Table__items__setindex takes integer this,integer key,item value returns nothing
-        call SaveItemHandle(Table__ht, this, key, value)
+    function s__Table___items__setindex takes integer this,integer key,item value returns nothing
+        call SaveItemHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Item", "item")
 //textmacro instance: NEW_ARRAY("Unit", "unit")
-    function s__Table__units__getindex takes integer this,integer key returns unit
-        return LoadUnitHandle(Table__ht, this, key)
+    function s__Table___units__getindex takes integer this,integer key returns unit
+        return LoadUnitHandle(Table___ht, this, key)
     endfunction
-    function s__Table__units__setindex takes integer this,integer key,unit value returns nothing
-        call SaveUnitHandle(Table__ht, this, key, value)
+    function s__Table___units__setindex takes integer this,integer key,unit value returns nothing
+        call SaveUnitHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Unit", "unit")
 //textmacro instance: NEW_ARRAY("Ability", "ability")
-    function s__Table__abilitys__getindex takes integer this,integer key returns ability
-        return LoadAbilityHandle(Table__ht, this, key)
+    function s__Table___abilitys__getindex takes integer this,integer key returns ability
+        return LoadAbilityHandle(Table___ht, this, key)
     endfunction
-    function s__Table__abilitys__setindex takes integer this,integer key,ability value returns nothing
-        call SaveAbilityHandle(Table__ht, this, key, value)
+    function s__Table___abilitys__setindex takes integer this,integer key,ability value returns nothing
+        call SaveAbilityHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Ability", "ability")
 //textmacro instance: NEW_ARRAY("Timer", "timer")
-    function s__Table__timers__getindex takes integer this,integer key returns timer
-        return LoadTimerHandle(Table__ht, this, key)
+    function s__Table___timers__getindex takes integer this,integer key returns timer
+        return LoadTimerHandle(Table___ht, this, key)
     endfunction
-    function s__Table__timers__setindex takes integer this,integer key,timer value returns nothing
-        call SaveTimerHandle(Table__ht, this, key, value)
+    function s__Table___timers__setindex takes integer this,integer key,timer value returns nothing
+        call SaveTimerHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Timer", "timer")
 //textmacro instance: NEW_ARRAY("Trigger", "trigger")
-    function s__Table__triggers__getindex takes integer this,integer key returns trigger
-        return LoadTriggerHandle(Table__ht, this, key)
+    function s__Table___triggers__getindex takes integer this,integer key returns trigger
+        return LoadTriggerHandle(Table___ht, this, key)
     endfunction
-    function s__Table__triggers__setindex takes integer this,integer key,trigger value returns nothing
-        call SaveTriggerHandle(Table__ht, this, key, value)
+    function s__Table___triggers__setindex takes integer this,integer key,trigger value returns nothing
+        call SaveTriggerHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Trigger", "trigger")
 //textmacro instance: NEW_ARRAY("TriggerCondition", "triggercondition")
-    function s__Table__triggerconditions__getindex takes integer this,integer key returns triggercondition
-        return LoadTriggerConditionHandle(Table__ht, this, key)
+    function s__Table___triggerconditions__getindex takes integer this,integer key returns triggercondition
+        return LoadTriggerConditionHandle(Table___ht, this, key)
     endfunction
-    function s__Table__triggerconditions__setindex takes integer this,integer key,triggercondition value returns nothing
-        call SaveTriggerConditionHandle(Table__ht, this, key, value)
+    function s__Table___triggerconditions__setindex takes integer this,integer key,triggercondition value returns nothing
+        call SaveTriggerConditionHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerCondition", "triggercondition")
 //textmacro instance: NEW_ARRAY("TriggerAction", "triggeraction")
-    function s__Table__triggeractions__getindex takes integer this,integer key returns triggeraction
-        return LoadTriggerActionHandle(Table__ht, this, key)
+    function s__Table___triggeractions__getindex takes integer this,integer key returns triggeraction
+        return LoadTriggerActionHandle(Table___ht, this, key)
     endfunction
-    function s__Table__triggeractions__setindex takes integer this,integer key,triggeraction value returns nothing
-        call SaveTriggerActionHandle(Table__ht, this, key, value)
+    function s__Table___triggeractions__setindex takes integer this,integer key,triggeraction value returns nothing
+        call SaveTriggerActionHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerAction", "triggeraction")
 //textmacro instance: NEW_ARRAY("TriggerEvent", "event")
-    function s__Table__events__getindex takes integer this,integer key returns event
-        return LoadTriggerEventHandle(Table__ht, this, key)
+    function s__Table___events__getindex takes integer this,integer key returns event
+        return LoadTriggerEventHandle(Table___ht, this, key)
     endfunction
-    function s__Table__events__setindex takes integer this,integer key,event value returns nothing
-        call SaveTriggerEventHandle(Table__ht, this, key, value)
+    function s__Table___events__setindex takes integer this,integer key,event value returns nothing
+        call SaveTriggerEventHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TriggerEvent", "event")
 //textmacro instance: NEW_ARRAY("Force", "force")
-    function s__Table__forces__getindex takes integer this,integer key returns force
-        return LoadForceHandle(Table__ht, this, key)
+    function s__Table___forces__getindex takes integer this,integer key returns force
+        return LoadForceHandle(Table___ht, this, key)
     endfunction
-    function s__Table__forces__setindex takes integer this,integer key,force value returns nothing
-        call SaveForceHandle(Table__ht, this, key, value)
+    function s__Table___forces__setindex takes integer this,integer key,force value returns nothing
+        call SaveForceHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Force", "force")
 //textmacro instance: NEW_ARRAY("Group", "group")
-    function s__Table__groups__getindex takes integer this,integer key returns group
-        return LoadGroupHandle(Table__ht, this, key)
+    function s__Table___groups__getindex takes integer this,integer key returns group
+        return LoadGroupHandle(Table___ht, this, key)
     endfunction
-    function s__Table__groups__setindex takes integer this,integer key,group value returns nothing
-        call SaveGroupHandle(Table__ht, this, key, value)
+    function s__Table___groups__setindex takes integer this,integer key,group value returns nothing
+        call SaveGroupHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Group", "group")
 //textmacro instance: NEW_ARRAY("Location", "location")
-    function s__Table__locations__getindex takes integer this,integer key returns location
-        return LoadLocationHandle(Table__ht, this, key)
+    function s__Table___locations__getindex takes integer this,integer key returns location
+        return LoadLocationHandle(Table___ht, this, key)
     endfunction
-    function s__Table__locations__setindex takes integer this,integer key,location value returns nothing
-        call SaveLocationHandle(Table__ht, this, key, value)
+    function s__Table___locations__setindex takes integer this,integer key,location value returns nothing
+        call SaveLocationHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Location", "location")
 //textmacro instance: NEW_ARRAY("Rect", "rect")
-    function s__Table__rects__getindex takes integer this,integer key returns rect
-        return LoadRectHandle(Table__ht, this, key)
+    function s__Table___rects__getindex takes integer this,integer key returns rect
+        return LoadRectHandle(Table___ht, this, key)
     endfunction
-    function s__Table__rects__setindex takes integer this,integer key,rect value returns nothing
-        call SaveRectHandle(Table__ht, this, key, value)
+    function s__Table___rects__setindex takes integer this,integer key,rect value returns nothing
+        call SaveRectHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Rect", "rect")
 //textmacro instance: NEW_ARRAY("BooleanExpr", "boolexpr")
-    function s__Table__boolexprs__getindex takes integer this,integer key returns boolexpr
-        return LoadBooleanExprHandle(Table__ht, this, key)
+    function s__Table___boolexprs__getindex takes integer this,integer key returns boolexpr
+        return LoadBooleanExprHandle(Table___ht, this, key)
     endfunction
-    function s__Table__boolexprs__setindex takes integer this,integer key,boolexpr value returns nothing
-        call SaveBooleanExprHandle(Table__ht, this, key, value)
+    function s__Table___boolexprs__setindex takes integer this,integer key,boolexpr value returns nothing
+        call SaveBooleanExprHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("BooleanExpr", "boolexpr")
 //textmacro instance: NEW_ARRAY("Sound", "sound")
-    function s__Table__sounds__getindex takes integer this,integer key returns sound
-        return LoadSoundHandle(Table__ht, this, key)
+    function s__Table___sounds__getindex takes integer this,integer key returns sound
+        return LoadSoundHandle(Table___ht, this, key)
     endfunction
-    function s__Table__sounds__setindex takes integer this,integer key,sound value returns nothing
-        call SaveSoundHandle(Table__ht, this, key, value)
+    function s__Table___sounds__setindex takes integer this,integer key,sound value returns nothing
+        call SaveSoundHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Sound", "sound")
 //textmacro instance: NEW_ARRAY("Effect", "effect")
-    function s__Table__effects__getindex takes integer this,integer key returns effect
-        return LoadEffectHandle(Table__ht, this, key)
+    function s__Table___effects__getindex takes integer this,integer key returns effect
+        return LoadEffectHandle(Table___ht, this, key)
     endfunction
-    function s__Table__effects__setindex takes integer this,integer key,effect value returns nothing
-        call SaveEffectHandle(Table__ht, this, key, value)
+    function s__Table___effects__setindex takes integer this,integer key,effect value returns nothing
+        call SaveEffectHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Effect", "effect")
 //textmacro instance: NEW_ARRAY("UnitPool", "unitpool")
-    function s__Table__unitpools__getindex takes integer this,integer key returns unitpool
-        return LoadUnitPoolHandle(Table__ht, this, key)
+    function s__Table___unitpools__getindex takes integer this,integer key returns unitpool
+        return LoadUnitPoolHandle(Table___ht, this, key)
     endfunction
-    function s__Table__unitpools__setindex takes integer this,integer key,unitpool value returns nothing
-        call SaveUnitPoolHandle(Table__ht, this, key, value)
+    function s__Table___unitpools__setindex takes integer this,integer key,unitpool value returns nothing
+        call SaveUnitPoolHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("UnitPool", "unitpool")
 //textmacro instance: NEW_ARRAY("ItemPool", "itempool")
-    function s__Table__itempools__getindex takes integer this,integer key returns itempool
-        return LoadItemPoolHandle(Table__ht, this, key)
+    function s__Table___itempools__getindex takes integer this,integer key returns itempool
+        return LoadItemPoolHandle(Table___ht, this, key)
     endfunction
-    function s__Table__itempools__setindex takes integer this,integer key,itempool value returns nothing
-        call SaveItemPoolHandle(Table__ht, this, key, value)
+    function s__Table___itempools__setindex takes integer this,integer key,itempool value returns nothing
+        call SaveItemPoolHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("ItemPool", "itempool")
 //textmacro instance: NEW_ARRAY("Quest", "quest")
-    function s__Table__quests__getindex takes integer this,integer key returns quest
-        return LoadQuestHandle(Table__ht, this, key)
+    function s__Table___quests__getindex takes integer this,integer key returns quest
+        return LoadQuestHandle(Table___ht, this, key)
     endfunction
-    function s__Table__quests__setindex takes integer this,integer key,quest value returns nothing
-        call SaveQuestHandle(Table__ht, this, key, value)
+    function s__Table___quests__setindex takes integer this,integer key,quest value returns nothing
+        call SaveQuestHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Quest", "quest")
 //textmacro instance: NEW_ARRAY("QuestItem", "questitem")
-    function s__Table__questitems__getindex takes integer this,integer key returns questitem
-        return LoadQuestItemHandle(Table__ht, this, key)
+    function s__Table___questitems__getindex takes integer this,integer key returns questitem
+        return LoadQuestItemHandle(Table___ht, this, key)
     endfunction
-    function s__Table__questitems__setindex takes integer this,integer key,questitem value returns nothing
-        call SaveQuestItemHandle(Table__ht, this, key, value)
+    function s__Table___questitems__setindex takes integer this,integer key,questitem value returns nothing
+        call SaveQuestItemHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("QuestItem", "questitem")
 //textmacro instance: NEW_ARRAY("DefeatCondition", "defeatcondition")
-    function s__Table__defeatconditions__getindex takes integer this,integer key returns defeatcondition
-        return LoadDefeatConditionHandle(Table__ht, this, key)
+    function s__Table___defeatconditions__getindex takes integer this,integer key returns defeatcondition
+        return LoadDefeatConditionHandle(Table___ht, this, key)
     endfunction
-    function s__Table__defeatconditions__setindex takes integer this,integer key,defeatcondition value returns nothing
-        call SaveDefeatConditionHandle(Table__ht, this, key, value)
+    function s__Table___defeatconditions__setindex takes integer this,integer key,defeatcondition value returns nothing
+        call SaveDefeatConditionHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("DefeatCondition", "defeatcondition")
 //textmacro instance: NEW_ARRAY("TimerDialog", "timerdialog")
-    function s__Table__timerdialogs__getindex takes integer this,integer key returns timerdialog
-        return LoadTimerDialogHandle(Table__ht, this, key)
+    function s__Table___timerdialogs__getindex takes integer this,integer key returns timerdialog
+        return LoadTimerDialogHandle(Table___ht, this, key)
     endfunction
-    function s__Table__timerdialogs__setindex takes integer this,integer key,timerdialog value returns nothing
-        call SaveTimerDialogHandle(Table__ht, this, key, value)
+    function s__Table___timerdialogs__setindex takes integer this,integer key,timerdialog value returns nothing
+        call SaveTimerDialogHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TimerDialog", "timerdialog")
 //textmacro instance: NEW_ARRAY("Leaderboard", "leaderboard")
-    function s__Table__leaderboards__getindex takes integer this,integer key returns leaderboard
-        return LoadLeaderboardHandle(Table__ht, this, key)
+    function s__Table___leaderboards__getindex takes integer this,integer key returns leaderboard
+        return LoadLeaderboardHandle(Table___ht, this, key)
     endfunction
-    function s__Table__leaderboards__setindex takes integer this,integer key,leaderboard value returns nothing
-        call SaveLeaderboardHandle(Table__ht, this, key, value)
+    function s__Table___leaderboards__setindex takes integer this,integer key,leaderboard value returns nothing
+        call SaveLeaderboardHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Leaderboard", "leaderboard")
 //textmacro instance: NEW_ARRAY("Multiboard", "multiboard")
-    function s__Table__multiboards__getindex takes integer this,integer key returns multiboard
-        return LoadMultiboardHandle(Table__ht, this, key)
+    function s__Table___multiboards__getindex takes integer this,integer key returns multiboard
+        return LoadMultiboardHandle(Table___ht, this, key)
     endfunction
-    function s__Table__multiboards__setindex takes integer this,integer key,multiboard value returns nothing
-        call SaveMultiboardHandle(Table__ht, this, key, value)
+    function s__Table___multiboards__setindex takes integer this,integer key,multiboard value returns nothing
+        call SaveMultiboardHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Multiboard", "multiboard")
 //textmacro instance: NEW_ARRAY("MultiboardItem", "multiboarditem")
-    function s__Table__multiboarditems__getindex takes integer this,integer key returns multiboarditem
-        return LoadMultiboardItemHandle(Table__ht, this, key)
+    function s__Table___multiboarditems__getindex takes integer this,integer key returns multiboarditem
+        return LoadMultiboardItemHandle(Table___ht, this, key)
     endfunction
-    function s__Table__multiboarditems__setindex takes integer this,integer key,multiboarditem value returns nothing
-        call SaveMultiboardItemHandle(Table__ht, this, key, value)
+    function s__Table___multiboarditems__setindex takes integer this,integer key,multiboarditem value returns nothing
+        call SaveMultiboardItemHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("MultiboardItem", "multiboarditem")
 //textmacro instance: NEW_ARRAY("Trackable", "trackable")
-    function s__Table__trackables__getindex takes integer this,integer key returns trackable
-        return LoadTrackableHandle(Table__ht, this, key)
+    function s__Table___trackables__getindex takes integer this,integer key returns trackable
+        return LoadTrackableHandle(Table___ht, this, key)
     endfunction
-    function s__Table__trackables__setindex takes integer this,integer key,trackable value returns nothing
-        call SaveTrackableHandle(Table__ht, this, key, value)
+    function s__Table___trackables__setindex takes integer this,integer key,trackable value returns nothing
+        call SaveTrackableHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Trackable", "trackable")
 //textmacro instance: NEW_ARRAY("Dialog", "dialog")
-    function s__Table__dialogs__getindex takes integer this,integer key returns dialog
-        return LoadDialogHandle(Table__ht, this, key)
+    function s__Table___dialogs__getindex takes integer this,integer key returns dialog
+        return LoadDialogHandle(Table___ht, this, key)
     endfunction
-    function s__Table__dialogs__setindex takes integer this,integer key,dialog value returns nothing
-        call SaveDialogHandle(Table__ht, this, key, value)
+    function s__Table___dialogs__setindex takes integer this,integer key,dialog value returns nothing
+        call SaveDialogHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Dialog", "dialog")
 //textmacro instance: NEW_ARRAY("Button", "button")
-    function s__Table__buttons__getindex takes integer this,integer key returns button
-        return LoadButtonHandle(Table__ht, this, key)
+    function s__Table___buttons__getindex takes integer this,integer key returns button
+        return LoadButtonHandle(Table___ht, this, key)
     endfunction
-    function s__Table__buttons__setindex takes integer this,integer key,button value returns nothing
-        call SaveButtonHandle(Table__ht, this, key, value)
+    function s__Table___buttons__setindex takes integer this,integer key,button value returns nothing
+        call SaveButtonHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Button", "button")
 //textmacro instance: NEW_ARRAY("TextTag", "texttag")
-    function s__Table__texttags__getindex takes integer this,integer key returns texttag
-        return LoadTextTagHandle(Table__ht, this, key)
+    function s__Table___texttags__getindex takes integer this,integer key returns texttag
+        return LoadTextTagHandle(Table___ht, this, key)
     endfunction
-    function s__Table__texttags__setindex takes integer this,integer key,texttag value returns nothing
-        call SaveTextTagHandle(Table__ht, this, key, value)
+    function s__Table___texttags__setindex takes integer this,integer key,texttag value returns nothing
+        call SaveTextTagHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("TextTag", "texttag")
 //textmacro instance: NEW_ARRAY("Lightning", "lightning")
-    function s__Table__lightnings__getindex takes integer this,integer key returns lightning
-        return LoadLightningHandle(Table__ht, this, key)
+    function s__Table___lightnings__getindex takes integer this,integer key returns lightning
+        return LoadLightningHandle(Table___ht, this, key)
     endfunction
-    function s__Table__lightnings__setindex takes integer this,integer key,lightning value returns nothing
-        call SaveLightningHandle(Table__ht, this, key, value)
+    function s__Table___lightnings__setindex takes integer this,integer key,lightning value returns nothing
+        call SaveLightningHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Lightning", "lightning")
 //textmacro instance: NEW_ARRAY("Image", "image")
-    function s__Table__images__getindex takes integer this,integer key returns image
-        return LoadImageHandle(Table__ht, this, key)
+    function s__Table___images__getindex takes integer this,integer key returns image
+        return LoadImageHandle(Table___ht, this, key)
     endfunction
-    function s__Table__images__setindex takes integer this,integer key,image value returns nothing
-        call SaveImageHandle(Table__ht, this, key, value)
+    function s__Table___images__setindex takes integer this,integer key,image value returns nothing
+        call SaveImageHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Image", "image")
 //textmacro instance: NEW_ARRAY("Ubersplat", "ubersplat")
-    function s__Table__ubersplats__getindex takes integer this,integer key returns ubersplat
-        return LoadUbersplatHandle(Table__ht, this, key)
+    function s__Table___ubersplats__getindex takes integer this,integer key returns ubersplat
+        return LoadUbersplatHandle(Table___ht, this, key)
     endfunction
-    function s__Table__ubersplats__setindex takes integer this,integer key,ubersplat value returns nothing
-        call SaveUbersplatHandle(Table__ht, this, key, value)
+    function s__Table___ubersplats__setindex takes integer this,integer key,ubersplat value returns nothing
+        call SaveUbersplatHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Ubersplat", "ubersplat")
 //textmacro instance: NEW_ARRAY("Region", "region")
-    function s__Table__regions__getindex takes integer this,integer key returns region
-        return LoadRegionHandle(Table__ht, this, key)
+    function s__Table___regions__getindex takes integer this,integer key returns region
+        return LoadRegionHandle(Table___ht, this, key)
     endfunction
-    function s__Table__regions__setindex takes integer this,integer key,region value returns nothing
-        call SaveRegionHandle(Table__ht, this, key, value)
+    function s__Table___regions__setindex takes integer this,integer key,region value returns nothing
+        call SaveRegionHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Region", "region")
 //textmacro instance: NEW_ARRAY("FogState", "fogstate")
-    function s__Table__fogstates__getindex takes integer this,integer key returns fogstate
-        return LoadFogStateHandle(Table__ht, this, key)
+    function s__Table___fogstates__getindex takes integer this,integer key returns fogstate
+        return LoadFogStateHandle(Table___ht, this, key)
     endfunction
-    function s__Table__fogstates__setindex takes integer this,integer key,fogstate value returns nothing
-        call SaveFogStateHandle(Table__ht, this, key, value)
+    function s__Table___fogstates__setindex takes integer this,integer key,fogstate value returns nothing
+        call SaveFogStateHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("FogState", "fogstate")
 //textmacro instance: NEW_ARRAY("FogModifier", "fogmodifier")
-    function s__Table__fogmodifiers__getindex takes integer this,integer key returns fogmodifier
-        return LoadFogModifierHandle(Table__ht, this, key)
+    function s__Table___fogmodifiers__getindex takes integer this,integer key returns fogmodifier
+        return LoadFogModifierHandle(Table___ht, this, key)
     endfunction
-    function s__Table__fogmodifiers__setindex takes integer this,integer key,fogmodifier value returns nothing
-        call SaveFogModifierHandle(Table__ht, this, key, value)
+    function s__Table___fogmodifiers__setindex takes integer this,integer key,fogmodifier value returns nothing
+        call SaveFogModifierHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("FogModifier", "fogmodifier")
 //textmacro instance: NEW_ARRAY("Hashtable", "hashtable")
-    function s__Table__hashtables__getindex takes integer this,integer key returns hashtable
-        return LoadHashtableHandle(Table__ht, this, key)
+    function s__Table___hashtables__getindex takes integer this,integer key returns hashtable
+        return LoadHashtableHandle(Table___ht, this, key)
     endfunction
-    function s__Table__hashtables__setindex takes integer this,integer key,hashtable value returns nothing
-        call SaveHashtableHandle(Table__ht, this, key, value)
+    function s__Table___hashtables__setindex takes integer this,integer key,hashtable value returns nothing
+        call SaveHashtableHandle(Table___ht, this, key, value)
     endfunction
 //end of: NEW_ARRAY("Hashtable", "hashtable")
     
     
     // Implement modules for intuitive type-syntax
-//Implemented from module Table__realm:
+//Implemented from module Table___realm:
     function s__Table__get_real takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__booleanm:
+//Implemented from module Table___booleanm:
     function s__Table__get_boolean takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__stringm:
+//Implemented from module Table___stringm:
     function s__Table__get_string takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__playerm:
+//Implemented from module Table___playerm:
     function s__Table__get_player takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__widgetm:
+//Implemented from module Table___widgetm:
     function s__Table__get_widget takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__destructablem:
+//Implemented from module Table___destructablem:
     function s__Table__get_destructable takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__itemm:
+//Implemented from module Table___itemm:
     function s__Table__get_item takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__unitm:
+//Implemented from module Table___unitm:
     function s__Table__get_unit takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__abilitym:
+//Implemented from module Table___abilitym:
     function s__Table__get_ability takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__timerm:
+//Implemented from module Table___timerm:
     function s__Table__get_timer takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__triggerm:
+//Implemented from module Table___triggerm:
     function s__Table__get_trigger takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__triggerconditionm:
+//Implemented from module Table___triggerconditionm:
     function s__Table__get_triggercondition takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__triggeractionm:
+//Implemented from module Table___triggeractionm:
     function s__Table__get_triggeraction takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__eventm:
+//Implemented from module Table___eventm:
     function s__Table__get_event takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__forcem:
+//Implemented from module Table___forcem:
     function s__Table__get_force takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__groupm:
+//Implemented from module Table___groupm:
     function s__Table__get_group takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__locationm:
+//Implemented from module Table___locationm:
     function s__Table__get_location takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__rectm:
+//Implemented from module Table___rectm:
     function s__Table__get_rect takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__boolexprm:
+//Implemented from module Table___boolexprm:
     function s__Table__get_boolexpr takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__soundm:
+//Implemented from module Table___soundm:
     function s__Table__get_sound takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__effectm:
+//Implemented from module Table___effectm:
     function s__Table__get_effect takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__unitpoolm:
+//Implemented from module Table___unitpoolm:
     function s__Table__get_unitpool takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__itempoolm:
+//Implemented from module Table___itempoolm:
     function s__Table__get_itempool takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__questm:
+//Implemented from module Table___questm:
     function s__Table__get_quest takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__questitemm:
+//Implemented from module Table___questitemm:
     function s__Table__get_questitem takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__defeatconditionm:
+//Implemented from module Table___defeatconditionm:
     function s__Table__get_defeatcondition takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__timerdialogm:
+//Implemented from module Table___timerdialogm:
     function s__Table__get_timerdialog takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__leaderboardm:
+//Implemented from module Table___leaderboardm:
     function s__Table__get_leaderboard takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__multiboardm:
+//Implemented from module Table___multiboardm:
     function s__Table__get_multiboard takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__multiboarditemm:
+//Implemented from module Table___multiboarditemm:
     function s__Table__get_multiboarditem takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__trackablem:
+//Implemented from module Table___trackablem:
     function s__Table__get_trackable takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__dialogm:
+//Implemented from module Table___dialogm:
     function s__Table__get_dialog takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__buttonm:
+//Implemented from module Table___buttonm:
     function s__Table__get_button takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__texttagm:
+//Implemented from module Table___texttagm:
     function s__Table__get_texttag takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__lightningm:
+//Implemented from module Table___lightningm:
     function s__Table__get_lightning takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__imagem:
+//Implemented from module Table___imagem:
     function s__Table__get_image takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__ubersplatm:
+//Implemented from module Table___ubersplatm:
     function s__Table__get_ubersplat takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__regionm:
+//Implemented from module Table___regionm:
     function s__Table__get_region takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__fogstatem:
+//Implemented from module Table___fogstatem:
     function s__Table__get_fogstate takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__fogmodifierm:
+//Implemented from module Table___fogmodifierm:
     function s__Table__get_fogmodifier takes integer this returns integer
         return this
     endfunction
-//Implemented from module Table__hashtablem:
+//Implemented from module Table___hashtablem:
     function s__Table__get_hashtable takes integer this returns integer
         return this
     endfunction
@@ -2268,39 +2268,39 @@ function CTL__DT takes integer l__CTL__t returns nothing
     
     // set this = a[GetSpellAbilityId()]
     function s__Table__getindex takes integer this,integer key returns integer
-        return LoadInteger(Table__ht, this, key)
+        return LoadInteger(Table___ht, this, key)
     endfunction
     
     // set a[389034] = 8192
     function s__Table__setindex takes integer this,integer key,integer a returns nothing
-        call SaveInteger(Table__ht, this, key, a)
+        call SaveInteger(Table___ht, this, key, a)
     endfunction
     
     // set b = a.has(2493223)
     function s__Table_has takes integer this,integer key returns boolean
-        return HaveSavedInteger(Table__ht, this, key)
+        return HaveSavedInteger(Table___ht, this, key)
     endfunction
     
     // call a.remove(294080)
     function s__Table_remove takes integer this,integer key returns nothing
-        call RemoveSavedInteger(Table__ht, this, key)
+        call RemoveSavedInteger(Table___ht, this, key)
     endfunction
     
     // Remove all data from a Table instance
     function s__Table_flush takes integer this returns nothing
-        call FlushChildHashtable(Table__ht, this)
+        call FlushChildHashtable(Table___ht, this)
     endfunction
     
     // local Table a = Table.create()
     function s__Table_create takes nothing returns integer
-        local integer this= (LoadInteger(Table__ht, ((2)), (0))) // INLINED!!
+        local integer this= (LoadInteger(Table___ht, ((2)), (0))) // INLINED!!
         
         if this == 0 then
-            set Table__more=Table__more + 1
-            set this=Table__more
+            set Table___more=Table___more + 1
+            set this=Table___more
         else
-            call SaveInteger(Table__ht, ((2)), (0), ( (LoadInteger(Table__ht, ((2)), (this))))) // INLINED!!
-            call RemoveSavedInteger(Table__ht, ((2)), (this)) // INLINED!!
+            call SaveInteger(Table___ht, ((2)), (0), ( (LoadInteger(Table___ht, ((2)), (this))))) // INLINED!!
+            call RemoveSavedInteger(Table___ht, ((2)), (this)) // INLINED!!
         endif
         
         return this
@@ -2312,10 +2312,10 @@ function CTL__DT takes integer l__CTL__t returns nothing
     //
     function s__Table_destroy takes integer this returns nothing
         
-        call FlushChildHashtable(Table__ht, (this)) // INLINED!!
+        call FlushChildHashtable(Table___ht, (this)) // INLINED!!
         
-        call SaveInteger(Table__ht, ((2)), (this), ( (LoadInteger(Table__ht, ((2)), (0))))) // INLINED!!
-        call SaveInteger(Table__ht, ((2)), (0), ( this)) // INLINED!!
+        call SaveInteger(Table___ht, ((2)), (this), ( (LoadInteger(Table___ht, ((2)), (0))))) // INLINED!!
+        call SaveInteger(Table___ht, ((2)), (0), ( this)) // INLINED!!
     endfunction
     
     
@@ -2325,25 +2325,25 @@ function CTL__DT takes integer l__CTL__t returns nothing
     //    local TableArray ta = TableArray[array_size]
     //
     function s__TableArray__staticgetindex takes integer array_size returns integer
-        local integer a= (LoadInteger(Table__ht, ((1)), (array_size))) // INLINED!!
-        local integer this= (LoadInteger(Table__ht, (a), (0))) // INLINED!!
+        local integer a= (LoadInteger(Table___ht, ((1)), (array_size))) // INLINED!!
+        local integer this= (LoadInteger(Table___ht, (a), (0))) // INLINED!!
         
         
         if this == 0 then
-            set Table__less=Table__less - array_size
-            set this=Table__less
+            set Table___less=Table___less - array_size
+            set this=Table___less
         else
-            call SaveInteger(Table__ht, (a), (0), ( (LoadInteger(Table__ht, (a), (this))))) //Set the last destroyed to the last-last destroyed // INLINED!!
-            call RemoveSavedInteger(Table__ht, (a), (this)) //Clear hash memory // INLINED!!
+            call SaveInteger(Table___ht, (a), (0), ( (LoadInteger(Table___ht, (a), (this))))) //Set the last destroyed to the last-last destroyed // INLINED!!
+            call RemoveSavedInteger(Table___ht, (a), (this)) //Clear hash memory // INLINED!!
         endif
         
-        call SaveInteger(Table__ht, ((1)), (this), ( array_size)) //This remembers the array size // INLINED!!
+        call SaveInteger(Table___ht, ((1)), (this), ( array_size)) //This remembers the array size // INLINED!!
         return this
     endfunction
     
     //Returns the size of the TableArray
     function s__TableArray__get_size takes integer this returns integer
-        return (LoadInteger(Table__ht, ((1)), (this))) // INLINED!!
+        return (LoadInteger(Table___ht, ((1)), (this))) // INLINED!!
     endfunction
     
     //da[integer a].unit[integer b] = unit u
@@ -2371,19 +2371,19 @@ function CTL__DT takes integer l__CTL__t returns nothing
     //TableArray.
     //
     function s__TableArray_destroy takes integer this returns nothing
-        local integer a= (LoadInteger(Table__ht, ((1)), ((LoadInteger(Table__ht, ((1)), ((this))))))) // INLINED!!
+        local integer a= (LoadInteger(Table___ht, ((1)), ((LoadInteger(Table___ht, ((1)), ((this))))))) // INLINED!!
         
         
         if a == 0 then
             //Create an array to index recycled instances with their array size
             set a=s__Table_create()
-            call SaveInteger(Table__ht, ((1)), ((LoadInteger(Table__ht, ((1)), ((this))))), ( a)) // INLINED!!
+            call SaveInteger(Table___ht, ((1)), ((LoadInteger(Table___ht, ((1)), ((this))))), ( a)) // INLINED!!
         endif
         
-        call RemoveSavedInteger(Table__ht, ((1)), (this)) //Clear the array size from hash memory // INLINED!!
+        call RemoveSavedInteger(Table___ht, ((1)), (this)) //Clear the array size from hash memory // INLINED!!
         
-        call SaveInteger(Table__ht, (a), (this), ( (LoadInteger(Table__ht, (a), (0))))) // INLINED!!
-        call SaveInteger(Table__ht, (a), (0), ( this)) // INLINED!!
+        call SaveInteger(Table___ht, (a), (this), ( (LoadInteger(Table___ht, (a), (0))))) // INLINED!!
+        call SaveInteger(Table___ht, (a), (0), ( this)) // INLINED!!
     endfunction
     
     //All you need to know about this one is that it won't hit the op limit.
@@ -2394,7 +2394,7 @@ function CTL__DT takes integer l__CTL__t returns nothing
             set end=i
         endif
         loop
-            call FlushChildHashtable(Table__ht, (a)) // INLINED!!
+            call FlushChildHashtable(Table___ht, (a)) // INLINED!!
             set a=a + 1
             exitwhen a == end
         endloop
@@ -2404,7 +2404,7 @@ function CTL__DT takes integer l__CTL__t returns nothing
     //similar to the FlushParentHashtable native than this.
     //
     function s__TableArray_flush takes integer this returns nothing
-        local integer end= (LoadInteger(Table__ht, ((1)), ((this)))) + this // INLINED!!
+        local integer end= (LoadInteger(Table___ht, ((1)), ((this)))) + this // INLINED!!
         call s__TableArray_clean(this , end)
         call s__TableArray_destroy(this)
     endfunction
@@ -2417,52 +2417,52 @@ function CTL__DT takes integer l__CTL__t returns nothing
     
     
     function BonusRegister takes unit u returns nothing
-        set BonusChance__BU_Total=BonusChance__BU_Total + 1
-        set BonusChance__BonusDirect[BonusChance__BU_Total]=1.00
-        set BonusChance__BonusMultiplier[BonusChance__BU_Total]=1.00
-        call SaveInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)), ( BonusChance__BU_Total)) // INLINED!!
+        set BonusChance___BU_Total=BonusChance___BU_Total + 1
+        set BonusChance___BonusDirect[BonusChance___BU_Total]=1.00
+        set BonusChance___BonusMultiplier[BonusChance___BU_Total]=1.00
+        call SaveInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)), ( BonusChance___BU_Total)) // INLINED!!
     endfunction
     
     
     
     function BonusApplyDirect takes unit u,real bonus,boolean add returns nothing
-        local integer i= (LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)))) // INLINED!!
+        local integer i= (LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)))) // INLINED!!
         if add then
-            set BonusChance__BonusDirect[i]=BonusChance__BonusDirect[i] + bonus
+            set BonusChance___BonusDirect[i]=BonusChance___BonusDirect[i] + bonus
         else
-            set BonusChance__BonusDirect[i]=bonus
+            set BonusChance___BonusDirect[i]=bonus
         endif
     endfunction
     
     
     
     function BonusApplyMulti takes unit u,real bonus,boolean add returns nothing
-        local integer i= (LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u)))) // INLINED!!
+        local integer i= (LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u)))) // INLINED!!
         if add then
-            set BonusChance__BonusMultiplier[i]=BonusChance__BonusMultiplier[i] + bonus
+            set BonusChance___BonusMultiplier[i]=BonusChance___BonusMultiplier[i] + bonus
         else
-            set BonusChance__BonusMultiplier[i]=bonus
+            set BonusChance___BonusMultiplier[i]=bonus
         endif
     endfunction
     
     
     
     function BonusGetDirect takes unit u returns real
-        return BonusChance__BonusDirect[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] // INLINED!!
+        return BonusChance___BonusDirect[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] // INLINED!!
     endfunction
     
     function BonusGetMulti takes unit u returns real
-        if BonusChance__BonusMultiplier[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] == 0.0 then // INLINED!!
+        if BonusChance___BonusMultiplier[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] == 0.0 then // INLINED!!
             return 1.0
         else
-            return BonusChance__BonusMultiplier[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId(u))))] // INLINED!!
+            return BonusChance___BonusMultiplier[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId(u))))] // INLINED!!
         endif
     endfunction
     
     
-//Implemented from module BonusChance__mod:
+//Implemented from module BonusChance___mod:
         function s__A_onInit takes nothing returns nothing
-            set BonusChance__Hash=s__Table_create()
+            set BonusChance___Hash=s__Table_create()
         endfunction
         
         
@@ -2477,10 +2477,10 @@ function CTL__DT takes integer l__CTL__t returns nothing
     
     
         
-//Implemented from module IPool__Init:
-        function s__IPool_IPool__Init___onInit takes nothing returns nothing
-            set IPool__ITEMS=s__Table_create()
-            set IPool__WEIGHT=s__Table_create()
+//Implemented from module IPool___Init:
+        function s__IPool_IPool___Init___onInit takes nothing returns nothing
+            set IPool___ITEMS=s__Table_create()
+            set IPool___WEIGHT=s__Table_create()
         endfunction
         
         function s__IPool_create takes nothing returns integer
@@ -2508,39 +2508,39 @@ function CTL__DT takes integer l__CTL__t returns nothing
         endfunction
         
         function s__IPool_link takes integer this,integer node,integer slot returns nothing
-            call SaveInteger(Table__ht, (((((this))) + (2))), (slot), ( node)) // INLINED!!
-            call SaveInteger(Table__ht, (((((this))) + (3))), (node), ( slot)) // INLINED!!
+            call SaveInteger(Table___ht, (((((this))) + (2))), (slot), ( node)) // INLINED!!
+            call SaveInteger(Table___ht, (((((this))) + (3))), (node), ( slot)) // INLINED!!
         endfunction
         
         function s__IPool__get_weight takes integer this returns integer
-            return (LoadInteger(Table__ht, (IPool__WEIGHT), (this))) // INLINED!!
+            return (LoadInteger(Table___ht, (IPool___WEIGHT), (this))) // INLINED!!
         endfunction
         
         function s__IPool__get_itemCount takes integer this returns integer
-            return (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
+            return (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
         endfunction
         
         function s__IPool__get_item takes integer this returns integer
-            return (LoadInteger(Table__ht, (((this))), (GetRandomInt(0, (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) - 1)))) // INLINED!!
+            return (LoadInteger(Table___ht, (((this))), (GetRandomInt(0, (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) - 1)))) // INLINED!!
         endfunction
         
         function s__IPool_flush takes integer this returns nothing
-            local integer j= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
+            local integer j= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
             local integer t= ((((this))) + (2)) // INLINED!!
             loop
                 set j=j - 1
                 exitwhen 0 > j
                 
-                call s__Table_destroy((LoadInteger(Table__ht, (((((this))) + (1))), ((LoadInteger(Table__ht, (t), (j))))))) // INLINED!!
+                call s__Table_destroy((LoadInteger(Table___ht, (((((this))) + (1))), ((LoadInteger(Table___ht, (t), (j))))))) // INLINED!!
             endloop
             set t=this + 5
             loop
                 set t=t - 1
-                call FlushChildHashtable(Table__ht, (t)) // INLINED!!
+                call FlushChildHashtable(Table___ht, (t)) // INLINED!!
                 exitwhen t == this
             endloop
-            call RemoveSavedInteger(Table__ht, (IPool__ITEMS), (this)) // INLINED!!
-            call RemoveSavedInteger(Table__ht, (IPool__WEIGHT), (this)) // INLINED!!
+            call RemoveSavedInteger(Table___ht, (IPool___ITEMS), (this)) // INLINED!!
+            call RemoveSavedInteger(Table___ht, (IPool___WEIGHT), (this)) // INLINED!!
         endfunction
         
         function s__IPool_destroy takes integer this returns nothing
@@ -2549,34 +2549,34 @@ function CTL__DT takes integer l__CTL__t returns nothing
         endfunction
         
         function s__IPool_contains takes integer this,integer value returns boolean
-            return 0 != (LoadInteger(Table__ht, (((((this))) + (1))), (value))) // INLINED!!
+            return 0 != (LoadInteger(Table___ht, (((((this))) + (1))), (value))) // INLINED!!
         endfunction
         
         function s__IPool_weightOf takes integer this,integer value returns integer
-            return (LoadInteger(Table__ht, (((((this))) + (4))), (value))) // INLINED!!
+            return (LoadInteger(Table___ht, (((((this))) + (4))), (value))) // INLINED!!
         endfunction
         
         function s__IPool_chanceOf takes integer this,integer value returns real
-            return (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value)))) / ( (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) + 0. ) // INLINED!!
+            return (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value)))) / ( (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) + 0. ) // INLINED!!
         endfunction
         
         function s__IPool_shiftWeight takes integer this,integer value,integer lbs returns nothing
-            local integer nw= (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value)))) // INLINED!!
-            local integer pw= (LoadInteger(Table__ht, (IPool__WEIGHT), ((this)))) // INLINED!!
-            local integer tbls= (LoadInteger(Table__ht, (((((this))) + (1))), (value))) // INLINED!!
+            local integer nw= (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value)))) // INLINED!!
+            local integer pw= (LoadInteger(Table___ht, (IPool___WEIGHT), ((this)))) // INLINED!!
+            local integer tbls= (LoadInteger(Table___ht, (((((this))) + (1))), (value))) // INLINED!!
             local integer sl
             local integer tv
             
             if 0 != tbls then
                 if 0 != lbs then
                     if 0 <= lbs + nw then
-                        call SaveInteger(Table__ht, (IPool__WEIGHT), (this), ( pw + lbs)) // INLINED!!
+                        call SaveInteger(Table___ht, (IPool___WEIGHT), (this), ( pw + lbs)) // INLINED!!
                         set lbs=lbs + nw
                         if lbs > nw then
                             loop
                                 exitwhen nw == lbs
-                                call SaveInteger(Table__ht, (((this))), (pw), ( value)) //Append value to Pool table // INLINED!!
-                                call SaveInteger(Table__ht, (tbls), (nw), ( pw)) //Append slot to sub table // INLINED!!
+                                call SaveInteger(Table___ht, (((this))), (pw), ( value)) //Append value to Pool table // INLINED!!
+                                call SaveInteger(Table___ht, (tbls), (nw), ( pw)) //Append slot to sub table // INLINED!!
                                 set pw=pw + 1
                                 set nw=nw + 1
                             endloop
@@ -2585,20 +2585,20 @@ function CTL__DT takes integer l__CTL__t returns nothing
                                 exitwhen nw == lbs
                                 set nw=nw - 1
                                 set pw=pw - 1
-                                set sl=(LoadInteger(Table__ht, (tbls), (nw))) //Get next slot in sub table // INLINED!!
+                                set sl=(LoadInteger(Table___ht, (tbls), (nw))) //Get next slot in sub table // INLINED!!
                                 if sl != pw then //If not top slot in Pool
-                                    set tv=(LoadInteger(Table__ht, (((this))), (pw))) //Get top slot // INLINED!!
-                                    call SaveInteger(Table__ht, (((this))), (sl), ( tv)) //Save it to the newly-vacant slot // INLINED!!
-                                    call SaveInteger(Table__ht, (tbls), (tv), ( sl)) //Index that slot to the value // INLINED!!
+                                    set tv=(LoadInteger(Table___ht, (((this))), (pw))) //Get top slot // INLINED!!
+                                    call SaveInteger(Table___ht, (((this))), (sl), ( tv)) //Save it to the newly-vacant slot // INLINED!!
+                                    call SaveInteger(Table___ht, (tbls), (tv), ( sl)) //Index that slot to the value // INLINED!!
                                 endif
-                                call RemoveSavedInteger(Table__ht, (tbls), (nw)) // INLINED!!
-                                call RemoveSavedInteger(Table__ht, (((this))), (pw)) //Pop top slots // INLINED!!
+                                call RemoveSavedInteger(Table___ht, (tbls), (nw)) // INLINED!!
+                                call RemoveSavedInteger(Table___ht, (((this))), (pw)) //Pop top slots // INLINED!!
                             endloop
                         endif
                         if 0 != lbs then
-                            call SaveInteger(Table__ht, (((((this))) + (4))), (value), ( lbs)) //Set item weight to new weight // INLINED!!
+                            call SaveInteger(Table___ht, (((((this))) + (4))), (value), ( lbs)) //Set item weight to new weight // INLINED!!
                         else
-                            call RemoveSavedInteger(Table__ht, (((((this))) + (4))), (value)) //Clear hash memory, set item weight to 0 // INLINED!!
+                            call RemoveSavedInteger(Table___ht, (((((this))) + (4))), (value)) //Clear hash memory, set item weight to 0 // INLINED!!
                         endif
                     endif
                 endif
@@ -2606,24 +2606,24 @@ function CTL__DT takes integer l__CTL__t returns nothing
         endfunction
         
         function s__IPool_remove takes integer this,integer value returns nothing
-            local integer size= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) - 1 // INLINED!!
-            local integer slot= (LoadInteger(Table__ht, (((((this))) + (3))), (value))) // INLINED!!
-            if (0 != (LoadInteger(Table__ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
-                call SaveInteger(Table__ht, (IPool__ITEMS), (this), ( size)) // INLINED!!
+            local integer size= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) - 1 // INLINED!!
+            local integer slot= (LoadInteger(Table___ht, (((((this))) + (3))), (value))) // INLINED!!
+            if (0 != (LoadInteger(Table___ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
+                call SaveInteger(Table___ht, (IPool___ITEMS), (this), ( size)) // INLINED!!
                 if slot != size then
-                    call s__IPool_link(this,(LoadInteger(Table__ht, (((((this))) + (2))), (size))) , slot) // Assign top node to freed slot // INLINED!!
+                    call s__IPool_link(this,(LoadInteger(Table___ht, (((((this))) + (2))), (size))) , slot) // Assign top node to freed slot // INLINED!!
                 endif
-                call s__IPool_shiftWeight(this,value , - (LoadInteger(Table__ht, ((((((this)))) + (4))), ((value))))) //Shift weight to 0 // INLINED!!
-                call RemoveSavedInteger(Table__ht, (((((this))) + (2))), (size)) //Remove top item from the stack // INLINED!!
-                call s__Table_destroy((LoadInteger(Table__ht, (((((this))) + (1))), (value)))) // INLINED!!
+                call s__IPool_shiftWeight(this,value , - (LoadInteger(Table___ht, ((((((this)))) + (4))), ((value))))) //Shift weight to 0 // INLINED!!
+                call RemoveSavedInteger(Table___ht, (((((this))) + (2))), (size)) //Remove top item from the stack // INLINED!!
+                call s__Table_destroy((LoadInteger(Table___ht, (((((this))) + (1))), (value)))) // INLINED!!
             endif
         endfunction
         
         function s__IPool_add takes integer this,integer value,integer weight returns nothing
-            if not (0 != (LoadInteger(Table__ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
-                call SaveInteger(Table__ht, (((((this))) + (1))), (value), ( s__Table_create())) // INLINED!!
-                call s__IPool_link(this,value , (LoadInteger(Table__ht, (IPool__ITEMS), (this)))) // INLINED!!
-                call SaveInteger(Table__ht, (IPool__ITEMS), (this), ( (LoadInteger(Table__ht, (IPool__ITEMS), (this))) + 1)) //Increase item stack size // INLINED!!
+            if not (0 != (LoadInteger(Table___ht, ((((((this)))) + (1))), ((value))))) then // INLINED!!
+                call SaveInteger(Table___ht, (((((this))) + (1))), (value), ( s__Table_create())) // INLINED!!
+                call s__IPool_link(this,value , (LoadInteger(Table___ht, (IPool___ITEMS), (this)))) // INLINED!!
+                call SaveInteger(Table___ht, (IPool___ITEMS), (this), ( (LoadInteger(Table___ht, (IPool___ITEMS), (this))) + 1)) //Increase item stack size // INLINED!!
             endif
             call s__IPool_shiftWeight(this,value , weight)
         endfunction
@@ -2631,14 +2631,14 @@ function CTL__DT takes integer l__CTL__t returns nothing
         function s__IPool_copy takes integer this returns integer
             local integer new= (s__TableArray__staticgetindex(5)) // INLINED!!
             local integer i
-            local integer j= (LoadInteger(Table__ht, (IPool__ITEMS), (this))) // INLINED!!
+            local integer j= (LoadInteger(Table___ht, (IPool___ITEMS), (this))) // INLINED!!
             local integer t= ((((this))) + (2)) // INLINED!!
             loop
                 set j=j - 1
                 exitwhen 0 > j
                 
-                set i=(LoadInteger(Table__ht, (t), (j))) // INLINED!!
-                call s__IPool_add(new,i , (LoadInteger(Table__ht, ((((((this)))) + (4))), ((i))))) // INLINED!!
+                set i=(LoadInteger(Table___ht, (t), (j))) // INLINED!!
+                call s__IPool_add(new,i , (LoadInteger(Table___ht, ((((((this)))) + (4))), ((i))))) // INLINED!!
             endloop
             return new
         endfunction
@@ -2666,14 +2666,14 @@ function CTL__DT takes integer l__CTL__t returns nothing
 //library Jump:
     
     
-    function Jump__GetLocZ takes real x,real y returns real
-        call MoveLocation(Jump__loc, x, y)
-        return GetLocationZ(Jump__loc)
+    function Jump___GetLocZ takes real x,real y returns real
+        call MoveLocation(Jump___loc, x, y)
+        return GetLocationZ(Jump___loc)
     endfunction
     
-    function Jump__DestructableFilter takes nothing returns boolean
-        if GetDestructableLife(GetFilterDestructable()) > 0 and GetDestructableOccluderHeight(GetFilterDestructable()) > Jump__flh then
-            set Jump__b=true
+    function Jump___DestructableFilter takes nothing returns boolean
+        if GetDestructableLife(GetFilterDestructable()) > 0 and GetDestructableOccluderHeight(GetFilterDestructable()) > Jump___flh then
+            set Jump___b=true
         endif
         return false
     endfunction
@@ -2696,13 +2696,13 @@ function CTL__DT takes integer l__CTL__t returns nothing
         
 //Implemented from module CTL:
         function s__Jump_create takes nothing returns integer
-            return CTL__CT(s__Jump_rctl32)
+            return CTL___CT(s__Jump_rctl32)
         endfunction
         function s__Jump_destroy takes integer this returns nothing
-            call CTL__DT(this)
+            call CTL___DT(this)
         endfunction
         function s__Jump_ectl32 takes nothing returns boolean
-            local integer this=CTL__rf[s__Jump_rctl32]
+            local integer this=CTL___rf[s__Jump_rctl32]
             local real x
             local real y
             local real z
@@ -2713,39 +2713,39 @@ function CTL__DT takes integer l__CTL__t returns nothing
                 exitwhen 0 == this
             set x=GetUnitX(s__Jump_u[this]) + s__Jump_sx[this]
             set y=GetUnitY(s__Jump_u[this]) + s__Jump_sy[this]
-            set z=Jump__GetLocZ(x , y) - s__Jump_z0[this]
+            set z=Jump___GetLocZ(x , y) - s__Jump_z0[this]
             set s__Jump_t[this]=s__Jump_t[this] + s__Jump_dt[this]
             set fh=s__Jump_sinZ[this] * s__Jump_t[this] - s__Jump_g[this] * s__Jump_t[this] * s__Jump_t[this] / 2. - z + s__Jump_dfh[this]
             if s__Jump_t[this] < s__Jump_tEnd[this] then
-                set Jump__b=false
+                set Jump___b=false
                 if s__Jump_colDD[this] > 0 then
-                    call SetRect(Jump__rct, x - s__Jump_colDD[this], y - s__Jump_colDD[this], x + s__Jump_colDD[this], y + s__Jump_colDD[this])
-                    call EnumDestructablesInRect(Jump__rct, Condition(function Jump__DestructableFilter), null)
+                    call SetRect(Jump___rct, x - s__Jump_colDD[this], y - s__Jump_colDD[this], x + s__Jump_colDD[this], y + s__Jump_colDD[this])
+                    call EnumDestructablesInRect(Jump___rct, Condition(function Jump___DestructableFilter), null)
                 endif
-                if fh < s__Jump_colUZ[this] and not Jump__b then
-                    set Jump__flh=fh
-                    call GroupEnumUnitsInRange(Jump__enu, x, y, Jump__MAX_RAD, null)
-                    call GroupRemoveUnit(Jump__enu, s__Jump_u[this])
+                if fh < s__Jump_colUZ[this] and not Jump___b then
+                    set Jump___flh=fh
+                    call GroupEnumUnitsInRange(Jump___enu, x, y, Jump___MAX_RAD, null)
+                    call GroupRemoveUnit(Jump___enu, s__Jump_u[this])
                     loop
-                        set un=FirstOfGroup(Jump__enu)
-                        exitwhen un == null or Jump__b
+                        set un=FirstOfGroup(Jump___enu)
+                        exitwhen un == null or Jump___b
                         if IsUnitInRange(un, s__Jump_u[this], s__Jump_col[this] + 1) and not IsUnitType(un, UNIT_TYPE_DEAD) and not IsUnitType(un, UNIT_TYPE_FLYING) then
-                            set Jump__b=true
+                            set Jump___b=true
                             set un=null
                             set s__Jump_sx[this]=0
                             set s__Jump_sy[this]=0
                             set s__Jump_endX[this]=GetUnitX(s__Jump_u[this])
                             set s__Jump_endY[this]=GetUnitY(s__Jump_u[this])
-                            call GroupClear(Jump__enu)
+                            call GroupClear(Jump___enu)
                         else
-                            call GroupRemoveUnit(Jump__enu, un)
+                            call GroupRemoveUnit(Jump___enu, un)
                         endif
                     endloop
-                    if not Jump__b then
+                    if not Jump___b then
                         call SetUnitX(s__Jump_u[this], x)
                         call SetUnitY(s__Jump_u[this], y)
                     endif
-                elseif not Jump__b then
+                elseif not Jump___b then
                     call SetUnitX(s__Jump_u[this], x)
                     call SetUnitY(s__Jump_u[this], y)
                 else
@@ -2772,33 +2772,33 @@ function CTL__DT takes integer l__CTL__t returns nothing
                 set EVENT_JUMP_FINISH=1
                 set EVENT_JUMP_UNIT=null
                 set s__Jump_u[this]=null
-                call CTL__DT((this)) // INLINED!!
+                call CTL___DT((this)) // INLINED!!
             endif
 //Implemented from module CTLNull:
-                set this=CTL__n[this]
+                set this=CTL___n[this]
             endloop
 //Implemented from module CTLEnd:
             return false
         endfunction
         function s__Jump_CTLEnd___onInit takes nothing returns nothing
-            set s__Jump_rctl32=CTL__A(function s__Jump_ectl32)
+            set s__Jump_rctl32=CTL___A(function s__Jump_ectl32)
         endfunction
     
         function s__Jump_start takes unit un,real x1,real y1,real maxZ,real time,real gravity returns integer
-            local integer this= (CTL__CT(s__Jump_rctl32)) // INLINED!!
+            local integer this= (CTL___CT(s__Jump_rctl32)) // INLINED!!
             local real x0= GetUnitX(un)
             local real y0= GetUnitY(un)
             local real angle= Atan2(y1 - y0, x1 - x0)
             local real dist= SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 ))
             local real speed= dist / time * 0.031250000
-            local real z1= Jump__GetLocZ(x1 , y1)
+            local real z1= Jump___GetLocZ(x1 , y1)
             
             set s__Jump_u[this]=un
             set s__Jump_t[this]=0
             set s__Jump_endX[this]=x1
             set s__Jump_endY[this]=y1
             set s__Jump_g[this]=gravity
-            set s__Jump_z0[this]=Jump__GetLocZ(x0 , y0)
+            set s__Jump_z0[this]=Jump___GetLocZ(x0 , y0)
             set s__Jump_sx[this]=Cos(angle) * speed
             set s__Jump_sy[this]=Sin(angle) * speed
             set s__Jump_dfh[this]=GetUnitDefaultFlyHeight(un)
@@ -2806,10 +2806,10 @@ function CTL__DT takes integer l__CTL__t returns nothing
 
 
 
-                set s__Jump_col[this]=Jump__U_COL_D
+                set s__Jump_col[this]=Jump___U_COL_D
 
-            set s__Jump_colDD[this]=Jump__D_COL_D
-            set s__Jump_colUZ[this]=Jump__U_COL_Z
+            set s__Jump_colDD[this]=Jump___D_COL_D
+            set s__Jump_colUZ[this]=Jump___U_COL_Z
             
             if s__Jump_z0[this] < z1 then
                 set maxZ=maxZ + z1 - s__Jump_z0[this]
@@ -3238,35 +3238,35 @@ endfunction
 //============================================================================
  
 //============================================================================
-//Implemented from module SpellEffectEvent__M:
+//Implemented from module SpellEffectEvent___M:
    
 
 
 
 
    
-    function s__SpellEffectEvent__S_onCast takes nothing returns nothing
+    function s__SpellEffectEvent___S_onCast takes nothing returns nothing
 
-            call TriggerEvaluate((LoadTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (GetSpellAbilityId())))) // INLINED!!
+            call TriggerEvaluate((LoadTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (GetSpellAbilityId())))) // INLINED!!
 
 
 
     endfunction
  
-    function s__SpellEffectEvent__S_SpellEffectEvent__M___onInit takes nothing returns nothing
+    function s__SpellEffectEvent___S_SpellEffectEvent___M___onInit takes nothing returns nothing
 
-            set s__SpellEffectEvent__S_tb=s__Table_create()
+            set s__SpellEffectEvent___S_tb=s__Table_create()
 
-        call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT , function s__SpellEffectEvent__S_onCast)
+        call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT , function s__SpellEffectEvent___S_onCast)
     endfunction
  
 //============================================================================
 function RegisterSpellEffectEvent takes integer abil,code onCast returns nothing
 
-        if not (HaveSavedHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil))) then // INLINED!!
-            call SaveTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil), ( CreateTrigger())) // INLINED!!
+        if not (HaveSavedHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil))) then // INLINED!!
+            call SaveTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil), ( CreateTrigger())) // INLINED!!
         endif
-        call TriggerAddCondition((LoadTriggerHandle(Table__ht, (((s__SpellEffectEvent__S_tb))), (abil))), Filter(onCast)) // INLINED!!
+        call TriggerAddCondition((LoadTriggerHandle(Table___ht, (((s__SpellEffectEvent___S_tb))), (abil))), Filter(onCast)) // INLINED!!
 
 
 
@@ -3322,20 +3322,20 @@ endfunction
         
         function s__ItemDrop_FilterDrop takes nothing returns boolean
             local unit u= GetTriggerUnit()
-            local integer dat= (LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (GetUnitTypeId(u)))) // INLINED!!
+            local integer dat= (LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (GetUnitTypeId(u)))) // INLINED!!
             
             local integer Handle= GetHandleId(u)
             
-            if (LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (Handle))) != 0 then // INLINED!!
+            if (LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (Handle))) != 0 then // INLINED!!
                 
-                if (LoadInteger(Table__ht, (ItemDropSystem__DropBoth), (Handle))) == 1 then // INLINED!!
+                if (LoadInteger(Table___ht, (ItemDropSystem___DropBoth), (Handle))) == 1 then // INLINED!!
                     
                     if dat != 0 then
                     
                         call s__ItemDrop_ProcessDrop(dat,u , false , GetKillingUnit())
                     endif
                 endif
-                set dat=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (Handle))) // INLINED!!
+                set dat=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (Handle))) // INLINED!!
                 call s__ItemDrop_ProcessDrop(dat,u , true , GetKillingUnit())
                 
                 call s__ItemDrop_deallocate(dat)
@@ -3362,9 +3362,9 @@ endfunction
             local real x= GetUnitX(dying)
             local real y= GetUnitY(dying)
             local boolean array IsLooped
-            local integer this= (LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (GetUnitTypeId(dying)))) // INLINED!!
+            local integer this= (LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (GetUnitTypeId(dying)))) // INLINED!!
             if IsSpecific then
-                set this=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(dying)))) // INLINED!!
+                set this=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(dying)))) // INLINED!!
                 set dropmax=s__ItemDrop_DropItemsMaxS[this]
             else
                 set dropmax=s__ItemDrop_DropItemsMax[this]
@@ -3372,7 +3372,7 @@ endfunction
             loop
                 set i=GetRandomInt(0, s__ItemDrop_ItemsMax[this] - 1)
                 if not IsLooped[i] then
-                    if random <= ( ( ( s___ItemDrop_Chance[s__ItemDrop_Chance[this]+i] ) * BonusGetMulti(killer) ) + (BonusChance__BonusDirect[(LoadInteger(Table__ht, (BonusChance__Hash), (GetHandleId((killer)))))]) ) then // INLINED!!
+                    if random <= ( ( ( s___ItemDrop_Chance[s__ItemDrop_Chance[this]+i] ) * BonusGetMulti(killer) ) + (BonusChance___BonusDirect[(LoadInteger(Table___ht, (BonusChance___Hash), (GetHandleId((killer)))))]) ) then // INLINED!!
                         set dropped=dropped + 1
                         call CreateItem(s___ItemDrop_ItemList[s__ItemDrop_ItemList[this]+i], x, y)
                     endif
@@ -3387,7 +3387,7 @@ endfunction
         
         function s__ItemDrop_InitUnit takes integer UnitRawCode,integer DropItemsMax returns nothing
             set s__ItemDrop_data=s__ItemDrop__allocate()
-            call SaveInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode), ( s__ItemDrop_data)) // INLINED!!
+            call SaveInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode), ( s__ItemDrop_data)) // INLINED!!
             set s__ItemDrop_DropItemsMax[s__ItemDrop_data]=DropItemsMax
         endfunction
         
@@ -3396,11 +3396,11 @@ endfunction
         function s__ItemDrop_InitUnitSpecific takes unit u,integer DropItemsMax,boolean ProcessBoth returns nothing
             local integer UnitCode= GetHandleId(u)
             set s__ItemDrop_data=s__ItemDrop__allocate()
-            call SaveInteger(Table__ht, (ItemDropSystem__SpecDrop), (UnitCode), ( s__ItemDrop_data)) // INLINED!!
+            call SaveInteger(Table___ht, (ItemDropSystem___SpecDrop), (UnitCode), ( s__ItemDrop_data)) // INLINED!!
             if ProcessBoth then
-                call SaveInteger(Table__ht, (ItemDropSystem__DropBoth), (UnitCode), ( 1)) // INLINED!!
+                call SaveInteger(Table___ht, (ItemDropSystem___DropBoth), (UnitCode), ( 1)) // INLINED!!
             else
-                call SaveInteger(Table__ht, (ItemDropSystem__DropBoth), (UnitCode), ( 0)) // INLINED!!
+                call SaveInteger(Table___ht, (ItemDropSystem___DropBoth), (UnitCode), ( 0)) // INLINED!!
             endif
             set s__ItemDrop_DropItemsMaxS[s__ItemDrop_data]=DropItemsMax
         endfunction
@@ -3408,9 +3408,9 @@ endfunction
         
         
         function s__ItemDrop_AddItem takes integer UnitRawCode,integer ItemRawCode,real Chance returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
             
-            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem__ITEMS_MAX then
+            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem___ITEMS_MAX then
                 set s___ItemDrop_ItemList[s__ItemDrop_ItemList[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=ItemRawCode
                 set s___ItemDrop_Chance[s__ItemDrop_Chance[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=Chance
                 set s__ItemDrop_ItemsMax[s__ItemDrop_data]=s__ItemDrop_ItemsMax[s__ItemDrop_data] + 1
@@ -3424,9 +3424,9 @@ endfunction
         
         
         function s__ItemDrop_AddItemSpecific takes unit u,integer ItemRawCode,real Chance returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
             
-            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem__ITEMS_MAX then
+            if s__ItemDrop_ItemsMax[s__ItemDrop_data] <= ItemDropSystem___ITEMS_MAX then
                 set s___ItemDrop_ItemList[s__ItemDrop_ItemList[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=ItemRawCode
                 set s___ItemDrop_Chance[s__ItemDrop_Chance[s__ItemDrop_data]+s__ItemDrop_ItemsMax[s__ItemDrop_data]]=Chance
                 set s__ItemDrop_ItemsMax[s__ItemDrop_data]=s__ItemDrop_ItemsMax[s__ItemDrop_data] + 1
@@ -3442,7 +3442,7 @@ endfunction
         function s__ItemDrop_RemoveItems takes integer UnitRawCode,integer ItemRawCode returns nothing
             local integer i= 0
             local boolean end= false
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
             loop
                 exitwhen end
                 
@@ -3468,7 +3468,7 @@ endfunction
         function s__ItemDrop_RemoveItemSpecific takes unit u,integer ItemRawCode returns nothing
             local integer i= 0
             local boolean end= false
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
             loop
                 exitwhen end
                 
@@ -3492,37 +3492,37 @@ endfunction
         
         
         function s__ItemDrop_ChangeDropMax takes integer UnitRawCode,integer Max returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (UnitRawCode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (UnitRawCode))) // INLINED!!
             set s__ItemDrop_DropItemsMax[s__ItemDrop_data]=Max
         endfunction
         
         
         
         function s__ItemDrop_ChangeDropMaxSpecific takes unit u,integer Max returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
             set s__ItemDrop_DropItemsMaxS[s__ItemDrop_data]=Max
         endfunction
         
         
         function s__ItemDrop_Unregister takes integer rawcode returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__GenDrop), (rawcode))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___GenDrop), (rawcode))) // INLINED!!
             call s__ItemDrop_deallocate(s__ItemDrop_data)
         endfunction
         
         function s__ItemDrop_UnregisterSpecific takes unit u returns nothing
-            set s__ItemDrop_data=(LoadInteger(Table__ht, (ItemDropSystem__SpecDrop), (GetHandleId(u)))) // INLINED!!
+            set s__ItemDrop_data=(LoadInteger(Table___ht, (ItemDropSystem___SpecDrop), (GetHandleId(u)))) // INLINED!!
             call s__ItemDrop_deallocate(s__ItemDrop_data)
         endfunction
         
-//Implemented from module ItemDropSystem__IDS_initsystem:
+//Implemented from module ItemDropSystem___IDS_initsystem:
         
         
         
         function s__ItemDrop_onInit takes nothing returns nothing
             call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_DEATH , function s__ItemDrop_FilterDrop)
-            set ItemDropSystem__GenDrop=s__Table_create()
-            set ItemDropSystem__SpecDrop=s__Table_create()
-            set ItemDropSystem__DropBoth=s__Table_create()
+            set ItemDropSystem___GenDrop=s__Table_create()
+            set ItemDropSystem___SpecDrop=s__Table_create()
+            set ItemDropSystem___DropBoth=s__Table_create()
         endfunction
         
         
@@ -4560,7 +4560,7 @@ function CreateUnitsForPlayer0 takes nothing returns nothing
 
     set u=BlzCreateUnitWithSkin(p, 'hfoo', - 28160.5, - 27508.1, 261.274, 'hfoo')
     set u=BlzCreateUnitWithSkin(p, 'hfoo', - 27918.4, - 28299.2, 261.274, 'hfoo')
-    set u=BlzCreateUnitWithSkin(p, 'H003', 18114.5, 14995.0, 283.159, 'H003')
+    set u=BlzCreateUnitWithSkin(p, 'H003', 16826.0, 16034.9, 283.159, 'H003')
 endfunction
 
 //===========================================================================
@@ -4813,23 +4813,23 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n03N', - 3027.4, 12050.2, 312.966, 'n03N')
     set u=BlzCreateUnitWithSkin(p, 'n03H', 642.6, 14519.4, 284.820, 'n03H')
     set gg_unit_n026_0148=BlzCreateUnitWithSkin(p, 'n026', - 7406.2, 4010.4, 262.098, 'n026')
-    set u=BlzCreateUnitWithSkin(p, 'n00M', 12352.6, 9871.3, 310.077, 'n00M')
+    set u=BlzCreateUnitWithSkin(p, 'n00M', 17796.9, 13978.6, 310.077, 'n00M')
     set u=BlzCreateUnitWithSkin(p, 'n03J', 13305.1, 11261.7, 231.555, 'n03J')
-    set u=BlzCreateUnitWithSkin(p, 'n00M', 11343.9, 10477.2, 97.463, 'n00M')
-    set u=BlzCreateUnitWithSkin(p, 'n00M', 11696.7, 11413.0, 38.420, 'n00M')
-    set u=BlzCreateUnitWithSkin(p, 'n00M', 13958.9, 12131.3, 263.889, 'n00M')
-    set u=BlzCreateUnitWithSkin(p, 'n00M', 12648.9, 11338.5, 67.799, 'n00M')
-    set u=BlzCreateUnitWithSkin(p, 'n01B', 15086.4, 12821.3, 208.000, 'n01B')
-    set u=BlzCreateUnitWithSkin(p, 'n01B', 14220.2, 14403.5, 2.889, 'n01B')
+    set u=BlzCreateUnitWithSkin(p, 'n00M', 17659.9, 13862.4, 97.463, 'n00M')
+    set u=BlzCreateUnitWithSkin(p, 'n00M', 17763.9, 14680.4, 38.420, 'n00M')
+    set u=BlzCreateUnitWithSkin(p, 'n00M', 17702.1, 13720.4, 263.889, 'n00M')
+    set u=BlzCreateUnitWithSkin(p, 'n00M', 17779.6, 14283.4, 67.799, 'n00M')
+    set u=BlzCreateUnitWithSkin(p, 'n01B', 17473.3, 17507.7, 208.000, 'n01B')
+    set u=BlzCreateUnitWithSkin(p, 'n01B', 16435.0, 17510.4, 2.889, 'n01B')
     set u=BlzCreateUnitWithSkin(p, 'n00N', - 15380.6, - 4952.9, 270.000, 'n00N')
     set u=BlzCreateUnitWithSkin(p, 'n00N', - 14630.3, - 4968.0, 270.000, 'n00N')
     set u=BlzCreateUnitWithSkin(p, 'n00O', - 4925.4, - 3647.5, 91.343, 'n00O')
     set u=BlzCreateUnitWithSkin(p, 'n00O', - 3268.2, - 2098.9, 283.665, 'n00O')
     set u=BlzCreateUnitWithSkin(p, 'n00O', - 443.9, - 2838.9, 275.000, 'n00O')
     set u=BlzCreateUnitWithSkin(p, 'n00O', 338.6, - 2907.7, 275.000, 'n00O')
-    set u=BlzCreateUnitWithSkin(p, 'n00X', 13087.4, 13212.8, 348.673, 'n00X')
-    set u=BlzCreateUnitWithSkin(p, 'n00X', 14921.0, 11796.1, 166.195, 'n00X')
-    set u=BlzCreateUnitWithSkin(p, 'n00X', 12490.2, 12460.5, 34.564, 'n00X')
+    set u=BlzCreateUnitWithSkin(p, 'n00X', 14948.8, 15704.1, 348.673, 'n00X')
+    set u=BlzCreateUnitWithSkin(p, 'n00X', 15935.8, 15539.5, 166.195, 'n00X')
+    set u=BlzCreateUnitWithSkin(p, 'n00X', 17776.3, 14479.3, 34.564, 'n00X')
     set u=BlzCreateUnitWithSkin(p, 'n00P', - 4950.1, - 7413.1, 92.300, 'n00P')
     set t=CreateTrigger()
     call TriggerRegisterUnitEvent(t, u, EVENT_UNIT_DEATH)
@@ -5151,7 +5151,7 @@ function CreateUnitsForPlayer11 takes nothing returns nothing
     set u=BlzCreateUnitWithSkin(p, 'n046', - 3030.6, 20335.6, 212.260, 'n046')
     set u=BlzCreateUnitWithSkin(p, 'n046', - 3448.4, 19548.4, 29.675, 'n046')
     set u=BlzCreateUnitWithSkin(p, 'n046', - 4017.4, 18696.6, 239.688, 'n046')
-    set u=BlzCreateUnitWithSkin(p, 'n01B', 18006.0, 14411.2, 249.185, 'n01B')
+    set u=BlzCreateUnitWithSkin(p, 'n01B', 18035.2, 16160.7, 249.185, 'n01B')
     set u=BlzCreateUnitWithSkin(p, 'n047', 6561.0, 12544.4, 230.742, 'n047')
     set u=BlzCreateUnitWithSkin(p, 'n047', 7765.2, 12249.6, 229.799, 'n047')
     set u=BlzCreateUnitWithSkin(p, 'n047', 7064.1, 12799.1, 356.254, 'n047')
@@ -8855,163 +8855,163 @@ endfunction
 // Trigger: AddEnchantables
 //===========================================================================
 // scope AddEnchantables begins
-    function AddEnchantables__AddEnchantables takes nothing returns nothing
+    function AddEnchantables___AddEnchantables takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 	set weapon_to_struct=s__Table_create()
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I0AI'), ( 'I0AK')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I06C'), ( 'I06M')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I024'), ( 'I06O')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I001'), ( 'I06P')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00J'), ( 'I06Q')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I003'), ( 'I06R')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I06B'), ( 'I06S')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I006'), ( 'I06T')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00C'), ( 'I06U')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I025'), ( 'I070')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I06H'), ( 'I06V')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I028'), ( 'I06W')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03E'), ( 'I06X')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I008'), ( 'I06Y')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I049'), ( 'I06Z')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I009'), ( 'I071')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I017'), ( 'I072')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I06K'), ( 'I073')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00B'), ( 'I074')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03G'), ( 'I075')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I027'), ( 'I076')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00D'), ( 'I077')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00H'), ( 'I078')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I05G'), ( 'I079')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03D'), ( 'I07A')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I026'), ( 'I07B')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00O'), ( 'I07C')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I018'), ( 'I07D')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00P'), ( 'I07E')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00K'), ( 'I07F')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03A'), ( 'I07G')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00V'), ( 'I07H')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00Y'), ( 'I07I')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00Z'), ( 'I07J')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03B'), ( 'I07K')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I011'), ( 'I07L')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I002'), ( 'I07M')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03S'), ( 'I07N')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I02E'), ( 'I07O')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I015'), ( 'I07P')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I05I'), ( 'I07Q')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I000'), ( 'I07R')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00T'), ( 'I07S')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I01B'), ( 'I07T')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03L'), ( 'I07U')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I00A'), ( 'I07V')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03C'), ( 'I07W')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I03K'), ( 'I07X')) // INLINED!!
-	call SaveInteger(Table__ht, (weapon_to_struct), ('I082'), ( 'I083')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I0AI'), ( 'I0AK')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I06C'), ( 'I06M')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I024'), ( 'I06O')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I001'), ( 'I06P')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00J'), ( 'I06Q')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I003'), ( 'I06R')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I06B'), ( 'I06S')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I006'), ( 'I06T')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00C'), ( 'I06U')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I025'), ( 'I070')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I06H'), ( 'I06V')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I028'), ( 'I06W')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03E'), ( 'I06X')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I008'), ( 'I06Y')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I049'), ( 'I06Z')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I009'), ( 'I071')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I017'), ( 'I072')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I06K'), ( 'I073')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00B'), ( 'I074')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03G'), ( 'I075')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I027'), ( 'I076')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00D'), ( 'I077')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00H'), ( 'I078')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I05G'), ( 'I079')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03D'), ( 'I07A')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I026'), ( 'I07B')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00O'), ( 'I07C')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I018'), ( 'I07D')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00P'), ( 'I07E')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00K'), ( 'I07F')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03A'), ( 'I07G')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00V'), ( 'I07H')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00Y'), ( 'I07I')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00Z'), ( 'I07J')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03B'), ( 'I07K')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I011'), ( 'I07L')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I002'), ( 'I07M')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03S'), ( 'I07N')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I02E'), ( 'I07O')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I015'), ( 'I07P')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I05I'), ( 'I07Q')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I000'), ( 'I07R')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00T'), ( 'I07S')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I01B'), ( 'I07T')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03L'), ( 'I07U')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I00A'), ( 'I07V')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03C'), ( 'I07W')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I03K'), ( 'I07X')) // INLINED!!
+	call SaveInteger(Table___ht, (weapon_to_struct), ('I082'), ( 'I083')) // INLINED!!
 	
     endfunction
 
-    function AddEnchantables__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables)
+    function AddEnchantables___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables)
     endfunction
 // scope AddEnchantables ends
 //===========================================================================
 // Trigger: AddTypeFamilies
 //===========================================================================
 // scope AddTypeFamilies begins
-    function AddTypeFamilies__ApplyTypeFamilies takes nothing returns nothing
+    function AddTypeFamilies___ApplyTypeFamilies takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 
 		set type_family=s__Table_create()
 	   
 	// Archer
-		call SaveInteger(Table__ht, (type_family), ('H01S'), ( 1)) // Flying Archer // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H003'), ( 1)) // Archer Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01G'), ( 1)) // Archer Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01P'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01S'), ( 1)) // Flying Archer // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H003'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01G'), ( 1)) // Archer Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01P'), ( 1)) // Archer Type // INLINED!!
 		
 	// Bacon
-		call SaveInteger(Table__ht, (type_family), ('H027'), ( 2)) // Bacon Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H02B'), ( 2)) // Flying Bacon // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H027'), ( 2)) // Bacon Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H02B'), ( 2)) // Flying Bacon // INLINED!!
 
 	// Chaos
-		call SaveInteger(Table__ht, (type_family), ('H005'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01C'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01K'), ( 3)) // Chaos Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01J'), ( 3)) // Chaotic Flyer // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H005'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01C'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01K'), ( 3)) // Chaos Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01J'), ( 3)) // Chaotic Flyer // INLINED!!
 
 	// Dragon
-		call SaveInteger(Table__ht, (type_family), ('H02X'), ( 4)) // Dragon // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H02X'), ( 4)) // Dragon // INLINED!!
 
 	// Furbolg Mage Type
-		call SaveInteger(Table__ht, (type_family), ('H031'), ( 5)) // Furbolg Mage // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H033'), ( 5)) // Flying Furbolg Mage // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H031'), ( 5)) // Furbolg Mage // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H033'), ( 5)) // Flying Furbolg Mage // INLINED!!
 		
 	// Furbolg Warrior Type
-		call SaveInteger(Table__ht, (type_family), ('H032'), ( 6)) // Furbolg Warrior // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H035'), ( 6)) // Flying Furbolg Warrior // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H032'), ( 6)) // Furbolg Warrior // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H035'), ( 6)) // Flying Furbolg Warrior // INLINED!!
 
 	// Furbolg Tracker Type
-		call SaveInteger(Table__ht, (type_family), ('H030'), ( 7)) // Furbolg Tracker // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H034'), ( 7)) // Flying Furbolg Tracker // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H030'), ( 7)) // Furbolg Tracker // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H034'), ( 7)) // Flying Furbolg Tracker // INLINED!!
 
 	// Heroic Type
-		call SaveInteger(Table__ht, (type_family), ('H008'), ( 8)) // Heroic Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01B'), ( 8)) // Heroic Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01L'), ( 8)) // Legendary Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01T'), ( 8)) // Flying Hero // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H008'), ( 8)) // Heroic Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01B'), ( 8)) // Heroic Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01L'), ( 8)) // Legendary Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01T'), ( 8)) // Flying Hero // INLINED!!
 
 	// Killer Chicken
-		call SaveInteger(Table__ht, (type_family), ('H02W'), ( 9)) // Killer Chicken // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H02W'), ( 9)) // Killer Chicken // INLINED!!
 
 	// Mage Type
-		call SaveInteger(Table__ht, (type_family), ('H006'), ( 10)) // Mage Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01D'), ( 10)) // MageType // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01M'), ( 10)) // Mage Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01U'), ( 10)) // Flying Magician // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H006'), ( 10)) // Mage Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01D'), ( 10)) // MageType // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01M'), ( 10)) // Mage Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01U'), ( 10)) // Flying Magician // INLINED!!
 
 	// Normal Type
-		call SaveInteger(Table__ht, (type_family), ('H002'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01E'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01N'), ( 11)) // Normal Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01V'), ( 11)) // Flying Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H002'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01E'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01N'), ( 11)) // Normal Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01V'), ( 11)) // Flying Type // INLINED!!
 
 	// Ownage Type
-		call SaveInteger(Table__ht, (type_family), ('H007'), ( 12)) // Ownage Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01F'), ( 12)) // Ownage Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01O'), ( 12)) // Godly Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01W'), ( 12)) // Flying Ownage // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H007'), ( 12)) // Ownage Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01F'), ( 12)) // Ownage Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01O'), ( 12)) // Godly Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01W'), ( 12)) // Flying Ownage // INLINED!!
 		
 	// Panda Type
-		call SaveInteger(Table__ht, (type_family), ('H02Y'), ( 13)) // Panda // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H02Z'), ( 13)) // Flying Panda // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H02Y'), ( 13)) // Panda // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H02Z'), ( 13)) // Flying Panda // INLINED!!
 
 	// Penguin Type
-		call SaveInteger(Table__ht, (type_family), ('H026'), ( 14)) // Killer Penguin // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H026'), ( 14)) // Killer Penguin // INLINED!!
 
 	// Satanic Type
-		call SaveInteger(Table__ht, (type_family), ('H028'), ( 15)) // Satanic Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H028'), ( 15)) // Satanic Type // INLINED!!
 
 	//  Siege Type
-		call SaveInteger(Table__ht, (type_family), ('H004'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01H'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01Q'), ( 16)) // Siege Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01X'), ( 16)) // Flying Sniper // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H004'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01H'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01Q'), ( 16)) // Siege Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01X'), ( 16)) // Flying Sniper // INLINED!!
 
 	// Sniper Type
-		call SaveInteger(Table__ht, (type_family), ('H009'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01I'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01R'), ( 17)) // Sniper Type // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H01Y'), ( 17)) // Flying Sniper // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H009'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01I'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01R'), ( 17)) // Sniper Type // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H01Y'), ( 17)) // Flying Sniper // INLINED!!
 
     	// Unarmed
-        	call SaveInteger(Table__ht, (type_family), ('H001'), ( 18)) // Unarmed Type // INLINED!!
+        	call SaveInteger(Table___ht, (type_family), ('H001'), ( 18)) // Unarmed Type // INLINED!!
 
 	// Claw Type
-		call SaveInteger(Table__ht, (type_family), ('H03H'), ( 19)) // Claw Type (Normal) // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H03I'), ( 19)) // Claw Type (Divine) // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H03J'), ( 19)) // Claw Type (Fortified) // INLINED!!
-		call SaveInteger(Table__ht, (type_family), ('H03K'), ( 19)) // Flying Claw Type (Flying) // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H03H'), ( 19)) // Claw Type (Normal) // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H03I'), ( 19)) // Claw Type (Divine) // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H03J'), ( 19)) // Claw Type (Fortified) // INLINED!!
+		call SaveInteger(Table___ht, (type_family), ('H03K'), ( 19)) // Flying Claw Type (Flying) // INLINED!!
 
         
 		set typeToFortified[1]='H01G' // Archer
@@ -9090,206 +9090,206 @@ endfunction
 		set typeToFlying[19]='H03K' // Claw
     endfunction
 
-    function AddTypeFamilies__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies)
+    function AddTypeFamilies___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies)
     endfunction
 // scope AddTypeFamilies ends
 //===========================================================================
 // Trigger: AddItemTypes
 //===========================================================================
 // scope AddItemTypes begins
-    function AddItemTypes__ApplyItemTypes takes nothing returns nothing
+    function AddItemTypes___ApplyItemTypes takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 		
 		set item_to_unit_type=s__Table_create()
 	
 	// Archer	
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I006'), ( 'H003')) // Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06T'), ( 'H003')) // Enchanced Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I008'), ( 'H003')) // Cross Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Y'), ( 'H003')) // Enchanced Cross Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03S'), ( 'H003')) // Pheonix Feather Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07N'), ( 'H003')) // Enchanced Pheonix Feather Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03C'), ( 'H003')) // Wind Force // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07W'), ( 'H003')) // Enchanced Wind Force // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09A'), ( 'H003')) // Bow of Arctic Wrath // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09B'), ( 'H003')) // Creator Ownage Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09I'), ( 'H003')) // Volcanic Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I0A8'), ( 'H003')) // Ghostly Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I006'), ( 'H003')) // Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06T'), ( 'H003')) // Enchanced Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I008'), ( 'H003')) // Cross Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Y'), ( 'H003')) // Enchanced Cross Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03S'), ( 'H003')) // Pheonix Feather Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07N'), ( 'H003')) // Enchanced Pheonix Feather Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03C'), ( 'H003')) // Wind Force // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07W'), ( 'H003')) // Enchanced Wind Force // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09A'), ( 'H003')) // Bow of Arctic Wrath // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09B'), ( 'H003')) // Creator Ownage Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09I'), ( 'H003')) // Volcanic Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I0A8'), ( 'H003')) // Ghostly Bow // INLINED!!
 		
 	// Bacon
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I052'), ( 'H027')) // Swine Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I052'), ( 'H027')) // Swine Suit // INLINED!!
 	
 	// Chaos
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00M'), ( 'H005')) // Soul Caliber // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00L'), ( 'H005')) // Glass Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I049'), ( 'H005')) // Crystal Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Z'), ( 'H005')) // Enchanced Crystal Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I01E'), ( 'H005')) // Sword of Lava // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00A'), ( 'H005')) // Toxic Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07V'), ( 'H005')) // Enchanced Toxic Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I082'), ( 'H005')) // Gold Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I083'), ( 'H005')) // Enchanced Gold Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00O'), ( 'H005')) // Gold Spear // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07C'), ( 'H005')) // Enchanced Gold Spear // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03L'), ( 'H005')) // Sword of Time // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07U'), ( 'H005')) // Enchanced Sword of Time // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I04E'), ( 'H005')) // Eternal Weapon // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I05Y'), ( 'H005')) // Envenomed Dagger // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06B'), ( 'H005')) // Blood Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06S'), ( 'H005')) // Enchanced Blood Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08T'), ( 'H005')) // Living Weapon // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08U'), ( 'H005')) // Arctic Wrath Bringer // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I090'), ( 'H005')) // Forbidden Malefaction // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00M'), ( 'H005')) // Soul Caliber // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00L'), ( 'H005')) // Glass Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I049'), ( 'H005')) // Crystal Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Z'), ( 'H005')) // Enchanced Crystal Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I01E'), ( 'H005')) // Sword of Lava // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00A'), ( 'H005')) // Toxic Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07V'), ( 'H005')) // Enchanced Toxic Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I082'), ( 'H005')) // Gold Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I083'), ( 'H005')) // Enchanced Gold Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00O'), ( 'H005')) // Gold Spear // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07C'), ( 'H005')) // Enchanced Gold Spear // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03L'), ( 'H005')) // Sword of Time // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07U'), ( 'H005')) // Enchanced Sword of Time // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I04E'), ( 'H005')) // Eternal Weapon // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I05Y'), ( 'H005')) // Envenomed Dagger // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06B'), ( 'H005')) // Blood Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06S'), ( 'H005')) // Enchanced Blood Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08T'), ( 'H005')) // Living Weapon // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08U'), ( 'H005')) // Arctic Wrath Bringer // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I090'), ( 'H005')) // Forbidden Malefaction // INLINED!!
 		
 	// Dragon
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I097'), ( 'H02X')) // Dragon Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I097'), ( 'H02X')) // Dragon Suit // INLINED!!
 
 	// Furbolg Mage Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09K'), ( 'H031')) // Furbolg Mage Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09K'), ( 'H031')) // Furbolg Mage Suit // INLINED!!
 		
 	// Furbolg Warrior Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09L'), ( 'H032')) // Furbolg Warrior Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09L'), ( 'H032')) // Furbolg Warrior Suit // INLINED!!
 		
 	// Furbolg Tracker Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09M'), ( 'H030')) // Furbolg Tracker Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09M'), ( 'H030')) // Furbolg Tracker Suit // INLINED!!
 		
 	// Heroic Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00C'), ( 'H008')) // Champion Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06U'), ( 'H008')) // Enchanced Champion Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06H'), ( 'H008')) // Champion Dagger // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06V'), ( 'H008')) // Enchanced Champion Dagger // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I024'), ( 'H008')) // Arena Masters Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06O'), ( 'H008')) // Enchanced Arena Masters Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03K'), ( 'H008')) // X-Caliber // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07X'), ( 'H008')) // Enchanced X-Caliber // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I053'), ( 'H008')) // Legendary Weapon // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06K'), ( 'H008')) // Dragon Slayer Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I073'), ( 'H008')) // Enchanced Dragon Slayer Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08X'), ( 'H008')) // Ubiquitous Profligate // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00C'), ( 'H008')) // Champion Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06U'), ( 'H008')) // Enchanced Champion Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06H'), ( 'H008')) // Champion Dagger // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06V'), ( 'H008')) // Enchanced Champion Dagger // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I024'), ( 'H008')) // Arena Masters Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06O'), ( 'H008')) // Enchanced Arena Masters Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03K'), ( 'H008')) // X-Caliber // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07X'), ( 'H008')) // Enchanced X-Caliber // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I053'), ( 'H008')) // Legendary Weapon // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06K'), ( 'H008')) // Dragon Slayer Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I073'), ( 'H008')) // Enchanced Dragon Slayer Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08X'), ( 'H008')) // Ubiquitous Profligate // INLINED!!
 		
 	// Killer Chicken
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08J'), ( 'H02W')) // Chicken Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08J'), ( 'H02W')) // Chicken Suit // INLINED!!
 		
 	// Mage Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06C'), ( 'H006')) // Arcane Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06M'), ( 'H006')) // Enchanced Arcane Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06D'), ( 'H006')) // Summoners Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00Y'), ( 'H006')) // Magic Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07I'), ( 'H006')) // Enchanced Magic Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I05G'), ( 'H006')) // Get-o Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I079'), ( 'H006')) // Enchanced Get-o Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I002'), ( 'H006')) // Nature Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07M'), ( 'H006')) // Enchanced Nature Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00Z'), ( 'H006')) // Magicians Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07J'), ( 'H006')) // Enchanced Magicians Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I02E'), ( 'H006')) // Power Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07O'), ( 'H006')) // Enchanced Power Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03Y'), ( 'H006')) // Rift Wand // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I05I'), ( 'H006')) // Sea Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07Q'), ( 'H006')) // Enchanced Sea Staff // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I05T'), ( 'H006')) // Water Scythe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I094'), ( 'H006')) // Elusive Zebra Cane // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I092'), ( 'H006')) // Pristine Beast Crest // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08Z'), ( 'H006')) // Presanctified Celestial Malinger // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I0AB'), ( 'H006')) // Ownage Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06C'), ( 'H006')) // Arcane Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06M'), ( 'H006')) // Enchanced Arcane Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06D'), ( 'H006')) // Summoners Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00Y'), ( 'H006')) // Magic Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07I'), ( 'H006')) // Enchanced Magic Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I05G'), ( 'H006')) // Get-o Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I079'), ( 'H006')) // Enchanced Get-o Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I002'), ( 'H006')) // Nature Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07M'), ( 'H006')) // Enchanced Nature Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00Z'), ( 'H006')) // Magicians Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07J'), ( 'H006')) // Enchanced Magicians Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I02E'), ( 'H006')) // Power Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07O'), ( 'H006')) // Enchanced Power Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03Y'), ( 'H006')) // Rift Wand // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I05I'), ( 'H006')) // Sea Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07Q'), ( 'H006')) // Enchanced Sea Staff // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I05T'), ( 'H006')) // Water Scythe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I094'), ( 'H006')) // Elusive Zebra Cane // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I092'), ( 'H006')) // Pristine Beast Crest // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08Z'), ( 'H006')) // Presanctified Celestial Malinger // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I0AB'), ( 'H006')) // Ownage Wand // INLINED!!
 		
 	// Normal Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I001'), ( 'H002')) // Arm Scythes // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08O'), ( 'H002')) // A Tale of old beggining // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00J'), ( 'H002')) // Axe of Smartassness // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I003'), ( 'H002')) // Badass Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I070'), ( 'H002')) // Blessed Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09X'), ( 'H002')) // Bronze Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I025'), ( 'H002')) // Cursed Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I028'), ( 'H002')) // Cobalt Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I017'), ( 'H002')) // Double Edged Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00B'), ( 'H002')) // Dual Bladed Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I027'), ( 'H002')) // Electric Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08Y'), ( 'H002')) // get-o sord // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I018'), ( 'H002')) // Heavy Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00K'), ( 'H002')) // Katana // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00V'), ( 'H002')) // Long Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I011'), ( 'H002')) // Meat Cleaver // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03J'), ( 'H002')) // Ragnarok // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00T'), ( 'H002')) // Small Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I015'), ( 'H002')) // Scythe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I000'), ( 'H002')) // Short Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I01B'), ( 'H002')) // Striped Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I093'), ( 'H002')) // Treasure Finding Shoval // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08W'), ( 'H002')) // Yataghan // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06P'), ( 'H002')) // Enchanced Arm Scythes // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I009'), ( 'H002')) // Death Sickle // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06R'), ( 'H002')) // Enchanced Badass Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I071'), ( 'H002')) // Enchanced Death Sickle // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I072'), ( 'H002')) // Enchanced Double Edged Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I074'), ( 'H002')) // Enchanced Dual Bladed Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06Q'), ( 'H002')) // Enchanced Axe of Smartassness // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07L'), ( 'H002')) // Enchanced Meat Cleaver // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06W'), ( 'H002')) // Enchanced Cobalt Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07T'), ( 'H002')) // Enchanced Striped Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I076'), ( 'H002')) // Enchanced Electric Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07H'), ( 'H002')) // Enchanced Long Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07S'), ( 'H002')) // Enchanced Small Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07R'), ( 'H002')) // Enchanced Short Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07P'), ( 'H002')) // Enchanced Scythe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07D'), ( 'H002')) // Enchanced Heavy Axe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07F'), ( 'H002')) // Enchanced Katana // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I001'), ( 'H002')) // Arm Scythes // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08O'), ( 'H002')) // A Tale of old beggining // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00J'), ( 'H002')) // Axe of Smartassness // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I003'), ( 'H002')) // Badass Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I070'), ( 'H002')) // Blessed Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09X'), ( 'H002')) // Bronze Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I025'), ( 'H002')) // Cursed Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I028'), ( 'H002')) // Cobalt Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I017'), ( 'H002')) // Double Edged Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00B'), ( 'H002')) // Dual Bladed Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I027'), ( 'H002')) // Electric Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08Y'), ( 'H002')) // get-o sord // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I018'), ( 'H002')) // Heavy Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00K'), ( 'H002')) // Katana // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00V'), ( 'H002')) // Long Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I011'), ( 'H002')) // Meat Cleaver // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03J'), ( 'H002')) // Ragnarok // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00T'), ( 'H002')) // Small Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I015'), ( 'H002')) // Scythe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I000'), ( 'H002')) // Short Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I01B'), ( 'H002')) // Striped Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I093'), ( 'H002')) // Treasure Finding Shoval // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08W'), ( 'H002')) // Yataghan // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06P'), ( 'H002')) // Enchanced Arm Scythes // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I009'), ( 'H002')) // Death Sickle // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06R'), ( 'H002')) // Enchanced Badass Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I071'), ( 'H002')) // Enchanced Death Sickle // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I072'), ( 'H002')) // Enchanced Double Edged Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I074'), ( 'H002')) // Enchanced Dual Bladed Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06Q'), ( 'H002')) // Enchanced Axe of Smartassness // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07L'), ( 'H002')) // Enchanced Meat Cleaver // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06W'), ( 'H002')) // Enchanced Cobalt Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07T'), ( 'H002')) // Enchanced Striped Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I076'), ( 'H002')) // Enchanced Electric Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07H'), ( 'H002')) // Enchanced Long Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07S'), ( 'H002')) // Enchanced Small Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07R'), ( 'H002')) // Enchanced Short Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07P'), ( 'H002')) // Enchanced Scythe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07D'), ( 'H002')) // Enchanced Heavy Axe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07F'), ( 'H002')) // Enchanced Katana // INLINED!!
 		
 	// Ownage Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09R'), ( 'H007')) // Dagger of Ba'al // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I01M'), ( 'H007')) // Creators Ownage // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I04N'), ( 'H007')) // Turtle Tooth Sword // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I04Z'), ( 'H007')) // Guardian Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08A'), ( 'H007')) // Ghostly Edge // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I087'), ( 'H007')) // Brolys Book // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08L'), ( 'H007')) // Absolute Zero // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08M'), ( 'H007')) // Condensed Anti-Matter Blade // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I0A6'), ( 'H007')) // Planet Destroyer // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09R'), ( 'H007')) // Dagger of Ba'al // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I01M'), ( 'H007')) // Creators Ownage // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I04N'), ( 'H007')) // Turtle Tooth Sword // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I04Z'), ( 'H007')) // Guardian Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08A'), ( 'H007')) // Ghostly Edge // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I087'), ( 'H007')) // Brolys Book // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08L'), ( 'H007')) // Absolute Zero // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08M'), ( 'H007')) // Condensed Anti-Matter Blade // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I0A6'), ( 'H007')) // Planet Destroyer // INLINED!!
 	
 	// Panda Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I09J'), ( 'H02Y')) // Panda Suit // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I09J'), ( 'H02Y')) // Panda Suit // INLINED!!
 		
 	// Penguin Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I051'), ( 'H026')) // Penguin Battle Gear // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I051'), ( 'H026')) // Penguin Battle Gear // INLINED!!
 		
 	// Satanic Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I05U'), ( 'H028')) // Satanic Sickle // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I085'), ( 'H028')) // Diabolic Scythe // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08V'), ( 'H028')) // Maleficent Knive // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I05U'), ( 'H028')) // Satanic Sickle // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I085'), ( 'H028')) // Diabolic Scythe // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08V'), ( 'H028')) // Maleficent Knive // INLINED!!
 		
 	//  Siege Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00P'), ( 'H004')) // Heavy Hammer // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07E'), ( 'H004')) // Enchanced heavy Hammer // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00H'), ( 'H004')) // Frost Club // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I078'), ( 'H004')) // Enchanced Frost Club // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03D'), ( 'H004')) // Ginormous Dual Axes // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07A'), ( 'H004')) // Enchanced Ginormous Dual Axes // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03E'), ( 'H004')) // Cranium Crackers // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I06X'), ( 'H004')) // Enchanced Cranium Crackers // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I091'), ( 'H004')) // Kinematic Viscosity // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00P'), ( 'H004')) // Heavy Hammer // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07E'), ( 'H004')) // Enchanced heavy Hammer // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00H'), ( 'H004')) // Frost Club // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I078'), ( 'H004')) // Enchanced Frost Club // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03D'), ( 'H004')) // Ginormous Dual Axes // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07A'), ( 'H004')) // Enchanced Ginormous Dual Axes // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03E'), ( 'H004')) // Cranium Crackers // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I06X'), ( 'H004')) // Enchanced Cranium Crackers // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I091'), ( 'H004')) // Kinematic Viscosity // INLINED!!
 		
 	// Sniper Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03A'), ( 'H009')) // Long Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07G'), ( 'H009')) // Enchanced Long Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I00D'), ( 'H009')) // Elvish Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I077'), ( 'H009')) // Enchanced Elvish Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03B'), ( 'H009')) // Marksman Bow // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07K'), ( 'H009')) // Enchanced Marksman Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03A'), ( 'H009')) // Long Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07G'), ( 'H009')) // Enchanced Long Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I00D'), ( 'H009')) // Elvish Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I077'), ( 'H009')) // Enchanced Elvish Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03B'), ( 'H009')) // Marksman Bow // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07K'), ( 'H009')) // Enchanced Marksman Bow // INLINED!!
 
 	// Claw Type
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I026'), ( 'H03H')) // Gold Claw // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I07B'), ( 'H03H')) // Enchanced Gold Claw // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03G'), ( 'H03H')) // Dual Claws // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I075'), ( 'H03H')) // Enchanced Dual Claws // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I054'), ( 'H03H')) // Devil Dual Claws // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I03F'), ( 'H03H')) // Wrapters Claws // INLINED!!
-		call SaveInteger(Table__ht, (item_to_unit_type), ('I08B'), ( 'H03H')) // Kitten Claws // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I026'), ( 'H03H')) // Gold Claw // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I07B'), ( 'H03H')) // Enchanced Gold Claw // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03G'), ( 'H03H')) // Dual Claws // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I075'), ( 'H03H')) // Enchanced Dual Claws // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I054'), ( 'H03H')) // Devil Dual Claws // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I03F'), ( 'H03H')) // Wrapters Claws // INLINED!!
+		call SaveInteger(Table___ht, (item_to_unit_type), ('I08B'), ( 'H03H')) // Kitten Claws // INLINED!!
 
     endfunction
 
-    function AddItemTypes__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes)
+    function AddItemTypes___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes)
     endfunction
 // scope AddItemTypes ends
 //===========================================================================
@@ -9318,17 +9318,17 @@ function Trig_ChangeTypeByItem_Actions takes nothing returns nothing
 	endif
 	
 	// If the unit type the item represents is unknown do nothing
-	if ( not (HaveSavedInteger(Table__ht, (item_to_unit_type), (item_type))) ) then // INLINED!!
+	if ( not (HaveSavedInteger(Table___ht, (item_to_unit_type), (item_type))) ) then // INLINED!!
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 50.00, "Uknown type. Report this to eejin")
 		return
 	endif
 	
 	// If of same type family then do nothing (eg. Normal type and Normal Flyer
-	if ( (LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit())))) == (LoadInteger(Table__ht, (type_family), ((LoadInteger(Table__ht, (item_to_unit_type), (item_type)))))) ) then // INLINED!!
+	if ( (LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit())))) == (LoadInteger(Table___ht, (type_family), ((LoadInteger(Table___ht, (item_to_unit_type), (item_type)))))) ) then // INLINED!!
 		return
 	endif
 
-	set bj_lastCreatedUnit=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), (LoadInteger(Table__ht, (item_to_unit_type), (item_type))), GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit())) // INLINED!!
+	set bj_lastCreatedUnit=CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), (LoadInteger(Table___ht, (item_to_unit_type), (item_type))), GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit())) // INLINED!!
 	
 	set hp=GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE)
 	set mp=GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA)
@@ -9395,11 +9395,11 @@ function Trig_ChangeTypeBySpell_Actions takes nothing returns nothing
  local real hp
  local real mp
 	if ( GetSpellAbilityId() == 'A08V' ) then
-		set newType=typeToFortified[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToFortified[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	elseif ( GetSpellAbilityId() == 'A08W' ) then // Divine Essence
-		set newType=typeToDivine[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToDivine[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	elseif ( GetSpellAbilityId() == 'A08X' ) then // Flight
-		set newType=typeToFlying[(LoadInteger(Table__ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
+		set newType=typeToFlying[(LoadInteger(Table___ht, (type_family), (GetUnitTypeId(GetTriggerUnit()))))] // INLINED!!
 	endif
 	
 	if ( newType == - 1 ) then
@@ -11594,7 +11594,7 @@ endfunction
 // All this fuckingwork I had to do to create this list. Was seperated into 43 different triggers
 //===========================================================================
 // scope AddSpellTypes begins
-    function AddSpellTypes__ApplySpellTypes takes nothing returns nothing
+    function AddSpellTypes___ApplySpellTypes takes nothing returns nothing
         call DestroyTimer(GetExpiredTimer())
 		
 		// Initialise playerAbilities
@@ -11680,83 +11680,83 @@ endfunction
 
 		// Map spell items to matching ability
 		set spellToAbility=s__Table_create()
-		call SaveInteger(Table__ht, (spellToAbility), ('I01J'), ( 0)) // Ultima // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01N'), ( 1)) // Twilight // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01O'), ( 2)) // Soul Drain // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01P'), ( 3)) // Circle of Death // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01Q'), ( 4)) // Wake of Fire // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01R'), ( 5)) // Metallic Erruption // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01S'), ( 6)) // Concentrated Energy // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01U'), ( 7)) // THC Cloud // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01V'), ( 8)) // Deathblow // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01W'), ( 9)) // Siesmic Assualt // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01X'), ( 10)) // Rip Tide // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01Y'), ( 11)) // Mega Flare // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01Z'), ( 12)) // Mega Magic // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I020'), ( 13)) // Super Hex // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I021'), ( 14)) // Psychic Sightnings // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I022'), ( 15)) // Lit Fury // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I023'), ( 16)) // Auto Heal // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I029'), ( 17)) // Hyper Heal // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02C'), ( 18)) // Ice Quake // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02G'), ( 19)) // Sun Storm // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02F'), ( 20)) // Summon - Basic Elemental  // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02P'), ( 21)) // Summon - Lightning Lizard // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02T'), ( 22)) // Summon - Steam Being 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02S'), ( 23)) // Summon - Evil Tree 		 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02X'), ( 24)) // Summon - Gold Lizard 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02U'), ( 25)) // Summon - Ground Charger 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02R'), ( 26)) // Summon - Hippy 			 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02Y'), ( 27)) // Summon - Lava Runner 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I032'), ( 28)) // Summon - Lesser Alien 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02Z'), ( 29)) // Summon - Molten Machine 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02W'), ( 30)) // Summon - Mud Monster 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I034'), ( 31)) // Summon - Overgrown Hedge  // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I038'), ( 32)) // Summon - Savage Shrub 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I035'), ( 33)) // Summon - Seige Engine 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I037'), ( 34)) // Summon - Critical Charger // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I036'), ( 35)) // Summon - Toxic Spider 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I031'), ( 36)) // Summon - Tri Elemental 	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I039'), ( 37)) // Summon - Vampire			 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I02V'), ( 38)) // Summon - Wet Current		 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I030'), ( 39)) // Summon - Wild Murlock	 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I033'), ( 40)) // Summon - Wraith			 // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I03H'), ( 41)) // Hyper Burn // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I03I'), ( 42)) // Mental Bitch Slap // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I03O'), ( 43)) // Eternal Life // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I01T'), ( 44)) // EXP Booster // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I03P'), ( 45)) // Echo Blast // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I03T'), ( 46)) // Bloody Tornado // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I048'), ( 47)) // Adamant Armor // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04U'), ( 48)) // Fire // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04V'), ( 49)) // Lightning // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04W'), ( 50)) // Minor Heal // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04B'), ( 51)) // Rock Skin // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04C'), ( 52)) // Divine Essence // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04D'), ( 53)) // Flight // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I04M'), ( 54)) // Master Summoning // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I05L'), ( 55)) // Advanced Summoning // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I05M'), ( 56)) // Electric Skin // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I05N'), ( 57)) // Fire Skin // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I05O'), ( 58)) // Combust // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I06L'), ( 59)) // Turbo Heal // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I07Y'), ( 60)) // Critical // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I080'), ( 61)) // Stone Gaze // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I088'), ( 62)) // Presure Release // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I055'), ( 63)) // Devil Booster // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I08D'), ( 64)) // ChronoSphere // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I08H'), ( 65)) // Full Heal // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I0AA'), ( 66)) // Mega Shard // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I0AH'), ( 67)) // Critical Strike // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I0AG'), ( 68)) // Evasion // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I0AJ'), ( 69)) // Dhorak's Rage // INLINED!!
-		call SaveInteger(Table__ht, (spellToAbility), ('I0AE'), ( 70)) // Godly summoning // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01J'), ( 0)) // Ultima // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01N'), ( 1)) // Twilight // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01O'), ( 2)) // Soul Drain // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01P'), ( 3)) // Circle of Death // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01Q'), ( 4)) // Wake of Fire // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01R'), ( 5)) // Metallic Erruption // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01S'), ( 6)) // Concentrated Energy // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01U'), ( 7)) // THC Cloud // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01V'), ( 8)) // Deathblow // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01W'), ( 9)) // Siesmic Assualt // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01X'), ( 10)) // Rip Tide // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01Y'), ( 11)) // Mega Flare // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01Z'), ( 12)) // Mega Magic // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I020'), ( 13)) // Super Hex // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I021'), ( 14)) // Psychic Sightnings // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I022'), ( 15)) // Lit Fury // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I023'), ( 16)) // Auto Heal // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I029'), ( 17)) // Hyper Heal // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02C'), ( 18)) // Ice Quake // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02G'), ( 19)) // Sun Storm // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02F'), ( 20)) // Summon - Basic Elemental  // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02P'), ( 21)) // Summon - Lightning Lizard // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02T'), ( 22)) // Summon - Steam Being 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02S'), ( 23)) // Summon - Evil Tree 		 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02X'), ( 24)) // Summon - Gold Lizard 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02U'), ( 25)) // Summon - Ground Charger 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02R'), ( 26)) // Summon - Hippy 			 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02Y'), ( 27)) // Summon - Lava Runner 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I032'), ( 28)) // Summon - Lesser Alien 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02Z'), ( 29)) // Summon - Molten Machine 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02W'), ( 30)) // Summon - Mud Monster 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I034'), ( 31)) // Summon - Overgrown Hedge  // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I038'), ( 32)) // Summon - Savage Shrub 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I035'), ( 33)) // Summon - Seige Engine 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I037'), ( 34)) // Summon - Critical Charger // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I036'), ( 35)) // Summon - Toxic Spider 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I031'), ( 36)) // Summon - Tri Elemental 	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I039'), ( 37)) // Summon - Vampire			 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I02V'), ( 38)) // Summon - Wet Current		 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I030'), ( 39)) // Summon - Wild Murlock	 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I033'), ( 40)) // Summon - Wraith			 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I03H'), ( 41)) // Hyper Burn // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I03I'), ( 42)) // Mental Bitch Slap // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I03O'), ( 43)) // Eternal Life // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I01T'), ( 44)) // EXP Booster // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I03P'), ( 45)) // Echo Blast // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I03T'), ( 46)) // Bloody Tornado // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I048'), ( 47)) // Adamant Armor // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04U'), ( 48)) // Fire // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04V'), ( 49)) // Lightning // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04W'), ( 50)) // Minor Heal // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04B'), ( 51)) // Rock Skin // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04C'), ( 52)) // Divine Essence // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04D'), ( 53)) // Flight // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I04M'), ( 54)) // Master Summoning // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I05L'), ( 55)) // Advanced Summoning // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I05M'), ( 56)) // Electric Skin // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I05N'), ( 57)) // Fire Skin // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I05O'), ( 58)) // Combust // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I06L'), ( 59)) // Turbo Heal // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I07Y'), ( 60)) // Critical // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I080'), ( 61)) // Stone Gaze // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I088'), ( 62)) // Presure Release // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I055'), ( 63)) // Devil Booster // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I08D'), ( 64)) // ChronoSphere // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I08H'), ( 65)) // Full Heal // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I0AA'), ( 66)) // Mega Shard // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I0AH'), ( 67)) // Critical Strike // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I0AG'), ( 68)) // Evasion // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I0AJ'), ( 69)) // Dhorak's Rage // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbility), ('I0AE'), ( 70)) // Godly summoning // INLINED!!
 		
 		set spellToAbilityLevel=s__Table_create()
-		call SaveInteger(Table__ht, (spellToAbilityLevel), ('I0AF'), ( 2)) // Lightning 2 // INLINED!!
+		call SaveInteger(Table___ht, (spellToAbilityLevel), ('I0AF'), ( 2)) // Lightning 2 // INLINED!!
 		
 		set spellUpgradeToAbility=s__Table_create()
-		call SaveInteger(Table__ht, (spellUpgradeToAbility), ('I0AF'), ( 'A0EN')) // Lightning 2 // INLINED!!
+		call SaveInteger(Table___ht, (spellUpgradeToAbility), ('I0AF'), ( 'A0EN')) // Lightning 2 // INLINED!!
 		
 		set summoningAbilities[0]=20 // Summon - Basic Elemental 
 		set summoningAbilities[1]=21 // Summon - Lightning Lizard
@@ -11784,8 +11784,8 @@ endfunction
 		set summoningAbilities[23]=70 // Godly Summoning
     endfunction
 
-    function AddSpellTypes__Init takes nothing returns nothing
-        call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes__ApplySpellTypes)
+    function AddSpellTypes___Init takes nothing returns nothing
+        call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes___ApplySpellTypes)
     endfunction
 // scope AddSpellTypes ends
 //===========================================================================
@@ -11795,9 +11795,9 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
     local integer i= 0
  local integer j= 0
  local boolean isSummoningAbility= false
-	if ( (HaveSavedInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+	if ( (HaveSavedInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 		// Check if spell is already learned
-		if ( PlayerHasSpell(GetOwningPlayer(GetTriggerUnit()) , (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))) ) then // INLINED!!
+		if ( PlayerHasSpell(GetOwningPlayer(GetTriggerUnit()) , (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))) ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You already have this spell.")
 			call CreateItem(GetItemTypeId(GetManipulatedItem()), GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
@@ -11807,7 +11807,7 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
 		set i=0
 		loop
 			exitwhen i > summoningAbilitiesCount - 1
-			if ( summoningAbilities[i] == (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+			if ( summoningAbilities[i] == (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 				set isSummoningAbility=true
 				call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "Found summoning ability")
 				set i=summoningAbilitiesCount
@@ -11839,8 +11839,8 @@ function Trig_Learn_Spell_Actions takes nothing returns nothing
 		loop
 			exitwhen i > 6
 			if ( s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i] == - 1 ) then
-				call UnitAddAbility(GetTriggerUnit(), abilities[(LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))]) // INLINED!!
-				set s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i]= (LoadInteger(Table__ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) // INLINED!!
+				call UnitAddAbility(GetTriggerUnit(), abilities[(LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem()))))]) // INLINED!!
+				set s__playerAbilities[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 7 + i]= (LoadInteger(Table___ht, (spellToAbility), (GetItemTypeId(GetManipulatedItem())))) // INLINED!!
 				return
 			endif
 			set i=i + 1
@@ -11864,22 +11864,22 @@ endfunction
 function Trig_Upgrade_Spell_Actions takes nothing returns nothing
  local integer spellID= GetItemTypeId(GetManipulatedItem())
 
-	if ( (HaveSavedInteger(Table__ht, (spellUpgradeToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
+	if ( (HaveSavedInteger(Table___ht, (spellUpgradeToAbility), (GetItemTypeId(GetManipulatedItem())))) ) then // INLINED!!
 		// Check if unit has spell or too low a level
-		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID)))) < ( (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID))) ) - 1 ) then // INLINED!!
+		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID)))) < ( (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID))) ) - 1 ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You have not learned the base spell or the previous spell level.")
 			call CreateItem(spellID, GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
 		endif
 		
 		// Check if unit has this level already or higher
-		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID)))) >= (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID))) ) then // INLINED!!
+		if ( GetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID)))) >= (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID))) ) then // INLINED!!
 			call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 200.00, "You have already mastered this level.")
 			call CreateItem(spellID, GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
 			return
 		endif
 		
-		call SetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table__ht, (spellUpgradeToAbility), (spellID))), (LoadInteger(Table__ht, (spellToAbilityLevel), (spellID)))) // INLINED!!
+		call SetUnitAbilityLevel(GetTriggerUnit(), (LoadInteger(Table___ht, (spellUpgradeToAbility), (spellID))), (LoadInteger(Table___ht, (spellToAbilityLevel), (spellID)))) // INLINED!!
 	endif
 endfunction
 
@@ -12137,11 +12137,11 @@ endfunction
     
         function s__JumpingStomp_DestructableFilter takes nothing returns boolean
             if GetDestructableLife(GetFilterDestructable()) > 0 then
-                call IssueTargetOrder(JumpSpellvJASS__HARVESTER, "harvest", GetFilterDestructable())
-                if GetUnitCurrentOrder(JumpSpellvJASS__HARVESTER) == OrderId("harvest") then
+                call IssueTargetOrder(JumpSpellvJASS___HARVESTER, "harvest", GetFilterDestructable())
+                if GetUnitCurrentOrder(JumpSpellvJASS___HARVESTER) == OrderId("harvest") then
                     call KillDestructable(GetFilterDestructable())
                 endif
-                call IssueImmediateOrder(JumpSpellvJASS__HARVESTER, "stop")
+                call IssueImmediateOrder(JumpSpellvJASS___HARVESTER, "stop")
             endif
         return false
     endfunction
@@ -12152,9 +12152,9 @@ endfunction
             if not IsUnitType(EVENT_JUMP_UNIT, UNIT_TYPE_DEAD) then
                 set x=GetUnitX(EVENT_JUMP_UNIT)
                 set y=GetUnitY(EVENT_JUMP_UNIT)
-                call DestroyEffect(AddSpecialEffect(JumpSpellvJASS__EFF, x, y))
-                call SetRect(JumpSpellvJASS__REC, x - JumpSpellvJASS__AOE, y - JumpSpellvJASS__AOE, x + JumpSpellvJASS__AOE, y + JumpSpellvJASS__AOE)
-                call EnumDestructablesInRect(JumpSpellvJASS__REC, Condition(function s__JumpingStomp_DestructableFilter), null)
+                call DestroyEffect(AddSpecialEffect(JumpSpellvJASS___EFF, x, y))
+                call SetRect(JumpSpellvJASS___REC, x - JumpSpellvJASS___AOE, y - JumpSpellvJASS___AOE, x + JumpSpellvJASS___AOE, y + JumpSpellvJASS___AOE)
+                call EnumDestructablesInRect(JumpSpellvJASS___REC, Condition(function s__JumpingStomp_DestructableFilter), null)
             endif
             return false
         endfunction
@@ -12166,8 +12166,8 @@ endfunction
             local real x1= GetSpellTargetX()
             local real y1= GetSpellTargetY()
             // Here I make each jump take at least 0.5 seconds. The distance add to the jump time with 0.5 factor.
-            local real time= 0.5 + 0.5 * SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 )) / JumpSpellvJASS__SPEED
-            call s__Jump_start(GetTriggerUnit() , GetSpellTargetX() , GetSpellTargetY() , JumpSpellvJASS__MAX_HEIGHT , time , JumpSpellvJASS__GRAVITY)
+            local real time= 0.5 + 0.5 * SquareRoot(( x1 - x0 ) * ( x1 - x0 ) + ( y1 - y0 ) * ( y1 - y0 )) / JumpSpellvJASS___SPEED
+            call s__Jump_start(GetTriggerUnit() , GetSpellTargetX() , GetSpellTargetY() , JumpSpellvJASS___MAX_HEIGHT , time , JumpSpellvJASS___GRAVITY)
             
             
             
@@ -12181,7 +12181,7 @@ endfunction
         endfunction
         
         function s__JumpingStomp_onOrder takes nothing returns boolean
-            if GetIssuedOrderId() == JumpSpellvJASS__OID and not IsPointJumpable(GetOrderPointX() , GetOrderPointY()) then
+            if GetIssuedOrderId() == JumpSpellvJASS___OID and not IsPointJumpable(GetOrderPointX() , GetOrderPointY()) then
                 call PauseUnit(GetTriggerUnit(), true)
                 call IssueImmediateOrder(GetTriggerUnit(), "stop")
                 call PauseUnit(GetTriggerUnit(), false)
@@ -12198,13 +12198,13 @@ endfunction
             call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER)
             call TriggerAddCondition(t, Condition(function s__JumpingStomp_onOrder))
             
-            call RegisterSpellEffectEvent(JumpSpellvJASS__AID , function s__JumpingStomp_onCast)
+            call RegisterSpellEffectEvent(JumpSpellvJASS___AID , function s__JumpingStomp_onCast)
             
-            set JumpSpellvJASS__HARVESTER=CreateUnit(Player(15), 'hpea', 0, 0, 0)
-            call UnitAddAbility(JumpSpellvJASS__HARVESTER, 'Aloc')
-            call ShowUnit(JumpSpellvJASS__HARVESTER, false)
+            set JumpSpellvJASS___HARVESTER=CreateUnit(Player(15), 'hpea', 0, 0, 0)
+            call UnitAddAbility(JumpSpellvJASS___HARVESTER, 'Aloc')
+            call ShowUnit(JumpSpellvJASS___HARVESTER, false)
             
-            set JumpSpellvJASS__TAB=s__Table_create()
+            set JumpSpellvJASS___TAB=s__Table_create()
         endfunction
 // scope JumpSpellvJASS ends
 
@@ -18319,7 +18319,7 @@ function Trig_Enhancementability_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Enhancementability_Funcboi takes nothing returns nothing
-    if ( (HaveSavedInteger(Table__ht, (weapon_to_struct), (GetItemTypeId(GetEnumItem())))) ) then // INLINED!!
+    if ( (HaveSavedInteger(Table___ht, (weapon_to_struct), (GetItemTypeId(GetEnumItem())))) ) then // INLINED!!
 	call AddSpecialEffectLocBJ(GetItemLoc(GetEnumItem()), "Abilities\\Spells\\Human\\Heal\\HealTarget.mdl")
     endif
 endfunction
@@ -35815,12 +35815,12 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs2448335750")
-call ExecuteFunc("IsTerrainWalkable__Init")
-call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables__AddEnchantables) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies__ApplyTypeFamilies) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes__ApplyItemTypes) // INLINED!!
-call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes__ApplySpellTypes) // INLINED!!
+call ExecuteFunc("jasshelper__initstructs534491328")
+call ExecuteFunc("IsTerrainWalkable___Init")
+call TimerStart(CreateTimer(), 0.01, false, function AddEnchantables___AddEnchantables) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddTypeFamilies___ApplyTypeFamilies) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddItemTypes___ApplyItemTypes) // INLINED!!
+call TimerStart(CreateTimer(), 0.01, false, function AddSpellTypes___ApplySpellTypes) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddItems__ApplyIDS) // INLINED!!
 call TimerStart(CreateTimer(), 0.01, false, function AddKillQuests___AddKillQuests) // INLINED!!
 
@@ -35899,14 +35899,14 @@ function sa___prototype28_s__TableArray_clean takes nothing returns boolean
             set end=i
         endif
         loop
-            call FlushChildHashtable(Table__ht, (a)) // INLINED!!
+            call FlushChildHashtable(Table___ht, (a)) // INLINED!!
             set a=a + 1
             exitwhen a == end
         endloop
     return true
 endfunction
 
-function jasshelper__initstructs2448335750 takes nothing returns nothing
+function jasshelper__initstructs534491328 takes nothing returns nothing
     set st__BigNum_l_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__BigNum_l_onDestroy,Condition( function sa__BigNum_l_onDestroy))
     set st__Savecode_onDestroy=CreateTrigger()
@@ -35967,12 +35967,12 @@ function jasshelper__initstructs2448335750 takes nothing returns nothing
 
 
 
-call ExecuteFunc("s__IPool_IPool__Init___onInit")
+call ExecuteFunc("s__IPool_IPool___Init___onInit")
 
 call ExecuteFunc("s__Jump_CTLEnd___onInit")
 
 
-call ExecuteFunc("s__SpellEffectEvent__S_SpellEffectEvent__M___onInit")
+call ExecuteFunc("s__SpellEffectEvent___S_SpellEffectEvent___M___onInit")
 
 
 

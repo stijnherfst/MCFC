@@ -20269,3 +20269,15 @@ STRING 5634
 Clouds White
 }
 
+STRING 5636
+// Doodads: D00V (chapel), Name (Name)
+{
+chapel
+}
+
+STRING 5637
+// Doodads: D00W (Floor Bricks Dark), Name (Name)
+{
+Floor Bricks Dark
+}
+
