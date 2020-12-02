@@ -20311,3 +20311,93 @@ STRING 5646
 Casket Gold
 }
 
+STRING 5647
+// Doodads: D02R (Door), Name (Name)
+{
+Door
+}
+
+STRING 5648
+// Doodads: D02S (Wall Brick T), Name (Name)
+{
+Wall Brick T
+}
+
+STRING 5649
+// Doodads: D02T (Wall Brick Medium), Name (Name)
+{
+Wall Brick Medium
+}
+
+STRING 5650
+// Doodads: D02U (Wall Brick Short), Name (Name)
+{
+Wall Brick Short
+}
+
+STRING 5651
+// Doodads: D02V (Wall Brick Corner), Name (Name)
+{
+Wall Brick Corner
+}
+
+STRING 5652
+// Destructibles: B008 (Wall), Name (Name)
+{
+Wall
+}
+
+STRING 5653
+// Doodads: D02W (Torch Cranked), Name (Name)
+{
+Torch Cranked
+}
+
+STRING 5654
+// Items: I0AP (Torch), Name (Name)
+{
+Torch
+}
+
+STRING 5655
+// Items: I0AP (Torch), Ubertip (Tooltip - Extended)
+{
+Provides light in the Darkness, but you might not like what you see coming.
+}
+
+STRING 5656
+// Items: I0AP (Torch), Description (Description)
+{
+Provides light in the Darkness, but you might not like what you see coming.
+}
+
+STRING 5657
+// Items: I0AP (Torch), Tip (Tooltip - Basic)
+{
+Torch
+}
+
+STRING 5658
+// Abilities: A0F5 (Torch), Name (Name)
+{
+Torch
+}
+
+STRING 5659
+// Units: n04O (Simple Skeleton), Name (Name)
+{
+Simple Skeleton
+}
+
+STRING 5660
+// Units: n04P (Ghoul Skeleton), Name (Name)
+{
+Ghoul Skeleton
+}
+
+STRING 5661
+// Units: n04Q (Abomination Skeleton), Name (Name)
+{
+Abomination Skeleton
+}
+
