@@ -1,21 +1,2 @@
-*.w3a diff=w3diff
-*.w3b diff=w3diff
-*.w3c diff=w3diff
-*.w3d diff=w3diff
-#this is an example of an excluded file
-#*.w3e diff=w3diff
-*.w3f diff=w3diff
-*.w3h diff=w3diff
-*.w3i diff=w3diff
-*.w3q diff=w3diff
-*.w3r diff=w3diff
-#w3s is currently not supported
-#*.w3s diff=w3diff
-*.w3t diff=w3diff
-*.w3u diff=w3diff
-
-#these are here to disable end-of-line conversion
-*.j -text
-*.json -text
-*.lua -text
-*.wts -text
+# Auto detect text files and perform LF normalization
+* text=auto
