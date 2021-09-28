@@ -1,10 +1,6 @@
-const maxAbilities = 7
+export const maxAbilities = 7
 
-class PlayerInfo {
-    loaded: boolean
+export class PlayerInfo {
     hero: unit
     abilities: number[]
-
 }
-
-export let Players: PlayerInfo[]

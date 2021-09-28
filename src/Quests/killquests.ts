@@ -22,8 +22,8 @@ const killQuests: KillQuest[] = [
         xp: 1500,
         xpSteps: 3,
         item: 0,
-        startText: "Looks like you need alot of work before you become a master go kill 25 basic elementals and i'll help you train",
-        endText: "Good job on killing 25 basic elementals your ready to beging training\nAll players gain 1500 exp!"
+        startText: "Looks like you need a lot of work before you become a master go kill 25 basic elementals and I'll help you train",
+        endText: "Good job on killing 25 basic elementals you're ready to begin training\nAll players gain 1500 exp!"
     },
     { 
         monsterID: FourCC('n00L'),
@@ -31,8 +31,8 @@ const killQuests: KillQuest[] = [
         xp: 2500,
         xpSteps: 5,
         item: 0,
-        startText: "Theres way to many toxic spiders in the forest go kill 30 of them and i'll help you train",
-        endText: "Good job on killing 30 toxic spiders your ready to begin training"
+        startText: "Theres way to many toxic spiders in the forest go kill 30 of them and I'll help you train",
+        endText: "Good job on killing 30 toxic spiders you're ready to begin training"
     },
     { 
         monsterID: FourCC('n00A'),

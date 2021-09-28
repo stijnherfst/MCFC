@@ -1,4 +1,4 @@
-const spellToAbility : Record<number, number> = {
+export const spellToAbility : Record<number, number> = {
     [FourCC('I01J')]: FourCC('A01J'),	// Ultima
     [FourCC('I01N')]: FourCC('A01M'),	// Twilight
     [FourCC('I01O')]: FourCC('A01O'),	// Soul Drain
@@ -72,7 +72,7 @@ const spellToAbility : Record<number, number> = {
     [FourCC('I0AE')]: FourCC('A0EO'),	// Godly summoning
 }
 
-const summoningAbilities : Array<, number> = {
+export const summoningAbilities : Record<number, number> = {
     [FourCC('I02F')]: FourCC('A02P'),	// Summon - Basic Elemental 	
     [FourCC('I02P')]: FourCC('A06X'),	// Summon - Lightning Lizard 	
     [FourCC('I02T')]: FourCC('A06Y'),	// Summon - Steam Being 		

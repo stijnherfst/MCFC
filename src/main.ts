@@ -1,7 +1,7 @@
 import { addScriptHook, W3TS_HOOK } from "w3ts/hooks";
 import { Timer, TimerDialog } from "w3ts"
 
-import { spawnMasterCrafters } from "spawnMasterCrafters";
+import { PlayerSpawn } from "spawnMasterCrafters";
 import { fuckTeleporters } from "fuckTeleporters";
 import { changeTypeByItem } from "changeTypeByItem";
 
@@ -40,8 +40,11 @@ import { initKillQuests } from "Quests/killquests"
 import { initBacon } from "Quests/baconRace"
 import { initSatansHelper } from "Quests/satansHelper"
 
+import { LearnSpell } from "Spells/learnSpell"
+
 
 import * as saveLoad  from "saveLoad";
+import { PlayerInfo } from "player";
 
 function tsMain() {
 	BlzLoadTOCFile("war3mapImported/ui.toc")
@@ -49,7 +52,10 @@ function tsMain() {
 	initQuest()
 	initMisc()
 
-	spawnMasterCrafters()
+	let players: PlayerInfo[] = []
+	let spawn = new PlayerSpawn(players)
+
+	// spawnMasterCrafters()
 	fuckTeleporters()
 	changeTypeByItem()
 	
@@ -84,6 +90,9 @@ function tsMain() {
 	initKillQuests()
 	initBacon()
 	initSatansHelper()
+
+	// initLearnSpell()
+	let learn = new LearnSpell(players)
 
 	saveLoad.initSaveLoad()
 
