@@ -12,46 +12,45 @@ let dialog : TimerDialog
 
 let spawnTimer : Timer
 
-let waveCount = 7
 let waveCurrent = 0
 
 let waves : Array<Array<[number, number]>> = [
     [
         [FourCC('n04C'), 2], // Hok-Tok
     ],
-    // [
-    //     [FourCC('n04C'), 4], // Hok-Tok
-    //     [FourCC('n04D'), 2], // Hak-Prak
-    // ],
-    // [
-    //     [FourCC('n04C'), 8], // Hok-Tok
-    //     [FourCC('n04D'), 5], // Hak-Prak
-    //     [FourCC('n04H'), 2], // Quik-Tok
-    // ],
-    // [
-    //     [FourCC('n04C'), 10], // Hok-Tok
-    //     [FourCC('n04D'), 7], // Hak-Prak
-    //     [FourCC('n04H'), 3], // Quik-Tok
-    //     [FourCC('n04F'), 2], // Tok-Pok
-    // ],
-    // [
-    //     [FourCC('n04C'), 12], // Hok-Tok
-    //     [FourCC('n04D'), 8], // Hak-Prak
-    //     [FourCC('n04H'), 4], // Quik-Tok
-    //     [FourCC('n04F'), 4], // Tok-Pok
-    // ],
-    // [
-    //     [FourCC('n04C'), 12], // Hok-Tok
-    //     [FourCC('n04D'), 10], // Hak-Prak
-    //     [FourCC('n04H'), 8], // Quik-Tok
-    //     [FourCC('n04F'), 5], // Tok-Pok
-    // ],
-    // [
-    //     [FourCC('n04C'), 12], // Hok-Tok
-    //     [FourCC('n04D'), 12], // Hak-Prak
-    //     [FourCC('n04H'), 10], // Quik-Tok
-    //     [FourCC('n04F'), 8], // Tok-Pok
-    // ],
+    [
+        [FourCC('n04C'), 4], // Hok-Tok
+        [FourCC('n04D'), 2], // Hak-Prak
+    ],
+    [
+        [FourCC('n04C'), 8], // Hok-Tok
+        [FourCC('n04D'), 5], // Hak-Prak
+        [FourCC('n04H'), 2], // Quik-Tok
+    ],
+    [
+        [FourCC('n04C'), 10], // Hok-Tok
+        [FourCC('n04D'), 7], // Hak-Prak
+        [FourCC('n04H'), 3], // Quik-Tok
+        [FourCC('n04F'), 2], // Tok-Pok
+    ],
+    [
+        [FourCC('n04C'), 12], // Hok-Tok
+        [FourCC('n04D'), 8], // Hak-Prak
+        [FourCC('n04H'), 4], // Quik-Tok
+        [FourCC('n04F'), 4], // Tok-Pok
+    ],
+    [
+        [FourCC('n04C'), 12], // Hok-Tok
+        [FourCC('n04D'), 10], // Hak-Prak
+        [FourCC('n04H'), 8], // Quik-Tok
+        [FourCC('n04F'), 5], // Tok-Pok
+    ],
+    [
+        [FourCC('n04C'), 12], // Hok-Tok
+        [FourCC('n04D'), 12], // Hak-Prak
+        [FourCC('n04H'), 10], // Quik-Tok
+        [FourCC('n04F'), 8], // Tok-Pok
+    ],
 ]
 
 let spawnstuff = false
@@ -153,12 +152,12 @@ function startWaveSpawn() {
             spawnTimer.destroy()
             return
         }
-        print("beta")
+
         print(waveCurrent)
         spawnWave(waveCurrent)
 
         waveCurrent++;
-        if (waveCurrent == waveCount - 1) {
+        if (waveCurrent == waves.length - 1) {
             spawnTimer.destroy()
             spawnDhorak()
         }
@@ -209,7 +208,7 @@ function spawnHealer() {
 function checkVolcanoEmpty() {
     let g = new Group()
     g.enumUnitsInRect(Rectangle.fromHandle(gg_rct_Volcano_Challenge), () => GetOwningPlayer(GetEnumUnit()) != Player(11))
-    print(g.size)
+
     if (g.size == 0) {
         ForGroupBJ(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11)), () => ExplodeUnitBJ(GetEnumUnit()))
         DisableTrigger(healerTrigger)

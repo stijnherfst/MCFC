@@ -39,9 +39,9 @@ import { initDungeon } from "Areas/Dungeon/dungeon"
 import { initKillQuests } from "Quests/killquests"
 import { initBacon } from "Quests/baconRace"
 import { initSatansHelper } from "Quests/satansHelper"
+import { initGoldShroom } from "Quests/goldShroom"
 
 import { LearnSpell } from "Spells/learnSpell"
-
 
 import * as saveLoad  from "saveLoad";
 import { PlayerInfo } from "player";
@@ -90,6 +90,7 @@ function tsMain() {
 	initKillQuests()
 	initBacon()
 	initSatansHelper()
+	initGoldShroom()
 
 	// initLearnSpell()
 	let learn = new LearnSpell(players)
