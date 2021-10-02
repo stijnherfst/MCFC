@@ -8,7 +8,7 @@ function mysticWater() {
     DisplayTimedTextToForce( GetPlayersAll(), 25.00, "Matt: I was in the forest and i saw a gigantic hedge! it must have drank the mystic water if u can kill this overgrown shrub the mystic water would be yours")
 }
 
-export function initGoldShroom() {
+export function initMysticWater() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_Matt)
     TriggerAddAction(enterTrigger, () => mysticWater())
