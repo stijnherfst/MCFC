@@ -9,7 +9,7 @@ function crystalSword() {
     UnitAddItemByIdSwapped( FourCC('I049'), GetTriggerUnit() )
 }
 
-function initCrytalSword() {
+export function initCrytalSword() {
     let trigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_PICKUP_ITEM)
     TriggerAddAction(trigger, () => crystalSword())

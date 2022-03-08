@@ -22,7 +22,7 @@ function chrissyReturn() {
     UnitAddItemByIdSwapped(FourCC('I046'), GetTriggerUnit())
 }
 
-function initChrissy() {
+export function initChrissy() {
     let enter = CreateTrigger()
     TriggerRegisterEnterRectSimple(enter, gg_rct_Chrissy_forge)
     TriggerAddAction(enter, () => chrissy())

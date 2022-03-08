@@ -10,8 +10,7 @@ function koronasGrave() {
     CreateItemLoc(FourCC('I009'), GetRectCenter(gg_rct_koronas_grave) )
 }
 
-//===========================================================================
-function initKoronasGrave() {
+export function initKoronasGrave() {
     let trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(trigger, gg_rct_koronas_grave )
     TriggerAddAction(trigger, () => koronasGrave() )

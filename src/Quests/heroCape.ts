@@ -23,7 +23,7 @@ function heroCape() {
     DisplayTimedTextToForce( GetPlayersAll(), 20.00, "Arthas: This cape is yours if you become a hero type")
 }
 
-export function initGoldShroom() {
+export function initHeroCape() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_hero_cape)
     TriggerAddAction(enterTrigger, () => heroCape())

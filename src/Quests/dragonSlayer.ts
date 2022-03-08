@@ -36,7 +36,7 @@ function dragonSlayerReturnSeaBones() {
     DisplayTimedTextToForce(GetPlayersAll(), 20.00, "Dragon Slayer: Excelent work you've defeated a Sea Dragon here take this")
 }
 
-function initDragonSlayer() {
+export function initDragonSlayer() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_Dragon_Slayer )
     TriggerAddAction(enterTrigger, () => initDragonSlayer())

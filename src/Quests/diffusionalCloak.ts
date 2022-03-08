@@ -8,7 +8,7 @@ function diffusionalCloak() {
     DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Shadow Hunter: hiding inside a whirl pool is a diffusional monster defeating it was no easy task but i found this cool cloak off it")
 }
 
-export function initGoldShroom() {
+export function initDiffusionalCloak() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_shadow_hunter)
     TriggerAddAction(enterTrigger, () => diffusionalCloak())

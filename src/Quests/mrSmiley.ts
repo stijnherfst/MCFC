@@ -7,7 +7,7 @@ function mrSmiley() {
     DisplayTimedTextToForce(GetPlayersAll(), 35.00, "Korona was one scary bitch but we finally captured her and imprisoned her inside this ancient seal i'm keeping gaurd i dont wanna have to fight her again so i hid all the secret seals so the lock will never be broken" )
 }
 
-function initMrSmiley() {
+export function initMrSmiley() {
     let trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(trigger, gg_rct_Korona)
     TriggerAddAction(trigger, () => mrSmiley())

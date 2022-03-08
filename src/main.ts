@@ -1,9 +1,12 @@
 import { addScriptHook, W3TS_HOOK } from "w3ts/hooks";
 import { Timer, TimerDialog } from "w3ts"
 
-import { PlayerSpawn } from "spawnMasterCrafters";
+import { PlayerSpawn } from "Initialization/spawnMasterCrafters";
 import { fuckTeleporters } from "fuckTeleporters";
-import { changeTypeByItem } from "changeTypeByItem";
+
+import { initChangeTypeByItem } from "ItemsAndTypes/changeTypeByItem";
+import { initTwoHandedCheck } from "ItemsAndTypes/twoHanded";
+import { initArrows } from "ItemsAndTypes/arrows";
 
 import { addStrength } from "Stats/addStrength";
 import { addAgility } from "Stats/addAgility";
@@ -31,17 +34,37 @@ import { initRoll } from "Commands/roll"
 import { initRespawn } from "respawn"
 
 import { initItemDrops } from "Item Drops/itemDrops"
+import { initRareDrops } from "Item Drops/rareDrops"
 
 import { initVolcano } from "Areas/Volcano/volcano"
 import { initChapel } from "Areas/Chapel/chapel"
 import { initDungeon } from "Areas/Dungeon/dungeon"
 
-import { initKillQuests } from "Quests/killquests"
-import { initBacon } from "Quests/baconRace"
-import { initSatansHelper } from "Quests/satansHelper"
-import { initGoldShroom } from "Quests/goldShroom"
+import { initArmageddon } from "Quests/armageddon"
+import { initBaconRace } from "Quests/baconRace"
+import { initChrissy } from "Quests/chrissy"
+import { initCrytalSword } from "Quests/crystalSword";
+import { initDarkSummoner } from "Quests/darkSummoner";
+import { initDiffusionalCloak } from "Quests/diffusionalCloak";
+import { initDragonSlayer } from "Quests/dragonSlayer";
+import { initGoldenChicken } from "Quests/goldenChicken";
+import { initGoldShroom } from "Quests/goldShroom";
+import { initHeroCape } from "Quests/heroCape";
+import { initKillQuests } from "Quests/killquests";
+import { initKoronasGrave } from "Quests/koronasGrave";
+import { initMagicShroom } from "Quests/magicShroom";
+import { initMrSmiley } from "Quests/mrSmiley";
+import { initMysticWater } from "Quests/mysticWater";
+import { initRiftZone } from "Quests/riftZone";
+import { initRipTideMage } from "Quests/riptideMage";
+import { initSage } from "Quests/sage";
+import { initSatansHelper } from "Quests/satansHelper";
+import { initSecretSeal } from "Quests/secretSeal";
 
 import { LearnSpell } from "Spells/learnSpell"
+
+
+import { initLavaHot } from "Areas/Fiery Lands/lavaHot";
 
 import * as saveLoad  from "saveLoad";
 import { PlayerInfo } from "player";
@@ -55,9 +78,11 @@ function tsMain() {
 	let players: PlayerInfo[] = []
 	let spawn = new PlayerSpawn(players)
 
-	// spawnMasterCrafters()
 	fuckTeleporters()
-	changeTypeByItem()
+
+	initChangeTypeByItem()
+	initTwoHandedCheck()
+	initArrows()
 	
 	addStrength()
 	addAgility()
@@ -82,17 +107,35 @@ function tsMain() {
 	initRespawn()
 
 	initItemDrops()
+	initRareDrops()
 
 	initVolcano()
 	initChapel()
 	initDungeon()
 
-	initKillQuests()
-	initBacon()
-	initSatansHelper()
+	initArmageddon()
+	initBaconRace()
+	initChrissy()
+	initCrytalSword()
+	initDarkSummoner()
+	initDiffusionalCloak()
+	initDragonSlayer()
+	initGoldenChicken()
 	initGoldShroom()
+	initHeroCape()
+	initKillQuests()
+	initKoronasGrave()
+	initMagicShroom()
+	initMrSmiley()
+	initMysticWater()
+	initRiftZone()
+	initRipTideMage()
+	initSage()
+	initSatansHelper()
+	initSecretSeal()
 
-	// initLearnSpell()
+	initLavaHot()
+
 	let learn = new LearnSpell(players)
 
 	saveLoad.initSaveLoad()

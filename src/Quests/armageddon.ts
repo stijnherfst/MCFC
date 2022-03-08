@@ -1,5 +1,5 @@
 let timerWindow: timerdialog;
-let timer: timer
+let timer = CreateTimer()
 
 let hunt: trigger;
 
@@ -71,7 +71,7 @@ function godsHunt() {
     })
 }
 
-function initArmageddon() {
+export function initArmageddon() {
     let timerTrigger = CreateTrigger()
     TriggerRegisterTimerEventSingle(timerTrigger, 5)
     TriggerAddAction(timerTrigger, () => startTimer())

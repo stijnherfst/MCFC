@@ -27,7 +27,7 @@ function killSpellcaster() {
     KillUnit( GetSpellAbilityUnit() )
 }
 
-function initBaconBoss() {
+export function initBaconBoss() {
     let trigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_ATTACKED)
     TriggerAddAction(trigger, () => killAttacker())

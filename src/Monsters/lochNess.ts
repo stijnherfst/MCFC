@@ -42,7 +42,7 @@ function checkpoint5() {
     IssuePointOrderLocBJ(GetTriggerUnit(), "attack", GetRectCenter(gg_rct_lock_ness_1))
 }
 
-function initLochNess() {
+export function initLochNess() {
     let startTrigger = CreateTrigger()
     TriggerRegisterTimerEventSingle(startTrigger, 5)
     TriggerAddAction(startTrigger, () => startLochNess())

@@ -77,7 +77,7 @@ function baconKilled() {
     ForGroup(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(() => IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO))), () => AddHeroXP(GetEnumUnit(), 5000, true))
 }
 
-export function initBacon() {
+export function initBaconRace() {
     startTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(startTrigger, gg_rct_Bacon_Jokey)
     TriggerAddAction(startTrigger, () => start())

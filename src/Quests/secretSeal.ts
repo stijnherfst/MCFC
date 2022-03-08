@@ -81,7 +81,7 @@ function secretSeal() {
     CreateNUnitsAtLoc(1, FourCC('n03R'), Player(11), GetRectCenter(gg_rct_pandaspawn), 360.00)
 }
 
-function initSecretSeal() {
+export function initSecretSeal() {
     let secretSealTrigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(secretSealTrigger, EVENT_PLAYER_UNIT_USE_ITEM)
     TriggerAddAction(secretSealTrigger, () => secretSeal)

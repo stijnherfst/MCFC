@@ -1,5 +1,5 @@
-import { itemTypes } from "itemTypes"
-import { typeFamilies, typeToFortified, typeToDivine, typeToFlying } from "typeFamilies"
+import { itemTypes } from "ItemsAndTypes/itemTypes"
+import { typeFamilies, typeToFortified, typeToDivine, typeToFlying } from "ItemsAndTypes/typeFamilies"
 
 function changeType() {
 	if (GetSpellAbilityId() != FourCC('A08V') && GetSpellAbilityId() != FourCC('A08W') && GetSpellAbilityId() != FourCC('A08X')) {

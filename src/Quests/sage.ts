@@ -8,7 +8,7 @@ function sage() {
     DisplayTimedTextToForce( GetPlayersAll(), 35.00, "Sage: hello there young Master Crafter I am Sage the sole survivor from the war of the gods there appears to be only 2 ancient ones left... a god and a fallen god... I fear the false god although sealed away may yet be revitalized" )
 }
 
-function initSage() {
+export function initSage() {
     let enters = CreateTrigger()
     TriggerRegisterEnterRectSimple(enters, gg_rct_Sage)
     TriggerAddAction(enters, () => sage())

@@ -8,7 +8,7 @@ function magicShroomReturn() {
     AdjustPlayerStateBJ(50, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 }
 
-export function initGoldShroom() {
+export function initMagicShroom() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_XHippy)
     TriggerAddAction(enterTrigger, () => magicShroomReturn())

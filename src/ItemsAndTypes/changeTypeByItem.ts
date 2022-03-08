@@ -1,5 +1,5 @@
-import { itemTypes } from "itemTypes"
-import { typeFamilies } from "typeFamilies"
+import { itemTypes } from "ItemsAndTypes/itemTypes"
+import { typeFamilies } from "ItemsAndTypes/typeFamilies"
 
 function changeType() {
 	if (GetItemType(GetManipulatedItem()) != ITEM_TYPE_ARTIFACT) {
@@ -23,7 +23,9 @@ function changeType() {
 		return;
 	}
 
+	
 	let item_type = GetItemTypeId(GetManipulatedItem())
+
 	// If of same type family then do nothing (eg. Normal type and Normal Flyer
 	if (typeFamilies[GetUnitTypeId(GetTriggerUnit())] == typeFamilies[itemTypes[item_type]]) {
 		return
@@ -64,7 +66,7 @@ function changeType() {
 	print("Changed type by item")
 }
 
-export function changeTypeByItem() {
+export function initChangeTypeByItem() {
 	let trigger = CreateTrigger();
 
 	for (let i = 0; i < 10; i++) {

@@ -109,7 +109,6 @@ export class LearnSpell {
 	learnSpell() {
 		let itemID = GetItemTypeId(GetManipulatedItem());
 		if (!spellToAbility.has(itemID)) {
-			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10.00, "Some error has occured. Report this in the Discord: itemID " + itemID.toString())
 			return
 		}
 

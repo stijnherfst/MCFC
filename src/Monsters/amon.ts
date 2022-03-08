@@ -12,7 +12,7 @@ function spawnAmon() {
     DisableTrigger( GetTriggeringTrigger() )
 }
 
-function initAmon() {
+export function initAmon() {
     let trigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_DEATH)
     TriggerAddAction(trigger, () => spawnAmon())

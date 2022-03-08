@@ -30,7 +30,7 @@ function showText() {
     DisableTrigger(GetTriggeringTrigger())
 }
 
-function initLegendaryChampion() {
+export function initLegendaryChampion() {
     let trigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_DEATH)
     TriggerAddAction(trigger, () => spawnLegendaryChampion())
