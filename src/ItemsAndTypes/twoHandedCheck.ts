@@ -80,27 +80,5 @@ export const twoHandedItems:number[] = [
     FourCC('I09A'), // Bow of Arctic Wrath
     FourCC('I09B'), // Creator Ownage Bow
     FourCC('I09I'), // Volcanic Bow
-    FourCC('I0A8') // Ghostly BowFourCC(),
+    FourCC('I0A8') // Ghostly Bow,
 ]
-
-function TwoHandedCheck() {
-    if (!twoHandedItems.includes(GetItemTypeId(GetManipulatedItem()))) {
-        return
-    }
-
-    for (let i = 0; i < 6; i += 1) {
-        if (twoHandedItems.includes(Unit.fromEvent().getItemInSlot(i).id)) {
-            UnitDropItem(GetTriggerUnit(), GetItemTypeId(GetManipulatedItem()))
-        }
-    }
-}
-
-export function initTwoHandedCheck() {
-	let trigger = CreateTrigger();
-
-	for (let i = 0; i < 10; i++) {
-		TriggerRegisterPlayerUnitEvent(trigger, Player(i), EVENT_PLAYER_UNIT_PICKUP_ITEM, null);
-	}
-
-	TriggerAddAction(trigger, () => TwoHandedCheck());
-}

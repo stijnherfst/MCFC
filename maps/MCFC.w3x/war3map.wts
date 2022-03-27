@@ -7355,12 +7355,6 @@ STRING 2378
 Li|cffffcc00g|rhtning
 }
 
-STRING 2379
-// Abilities: A09A (Lightning), Ubertip (Tooltip - Normal - Extended)
-{
-Deals 55 dmg bounces up to 4 times
-}
-
 STRING 2380
 // Abilities: A09B (Fire), Name (Name)
 {
@@ -7377,12 +7371,6 @@ STRING 2382
 // Abilities: A09B (Fire), Tip (Tooltip - Normal)
 {
 |cffffcc00F|rire
-}
-
-STRING 2383
-// Abilities: A09B (Fire), Ubertip (Tooltip - Normal - Extended)
-{
-Deals 60 dmg and burns for 5 dmg a second
 }
 
 STRING 2384
@@ -16700,12 +16688,6 @@ STRING 5280
 Summons a monster depending on how much Int you have - 800 int = Flaming Rock - 1200 int = Super Hippy 1600 int = Spawn of Nature 2000 int = Diffusional Monster
 }
 
-STRING 5290
-// Abilities: A0EN (Lightning), Ubertip (Tooltip - Normal - Extended)
-{
-Deals 30 + (Int * 0.25) dmg bounces up to 4 times
-}
-
 STRING 5291
 // Units: n044 (Slimy Booger), Name (Name)
 {
@@ -17852,12 +17834,6 @@ STRING 5516
 Massively heals all allies
 }
 
-STRING 5517
-// Abilities: A0EY (Full Heal), Ubertip (Tooltip - Normal - Extended)
-{
-Heals (7000 + int) hp to all allies in the area
-}
-
 STRING 5519
 // Abilities: A0EY (Full Heal), Researchtip (Tooltip - Learn)
 {
@@ -18834,28 +18810,51 @@ STRING 5849
 Some slimy chunks of assorted yellow, green and brownish mushy yucky appear from the swamp.
 }
 
-STRING 5850
+STRING 5855
+// Abilities: A09A (Lightning), Ubertip (Tooltip - Normal - Extended)
 {
-Commence carnage!
+Deals |cff8080ff45|r (30 + int * 0.25) damage, bounces up to 4 times
 }
 
-STRING 5851
+STRING 5856
+// Abilities: A0EN (Lightning), Ubertip (Tooltip - Normal - Extended)
 {
-You will never survive in here mortal!
+Deals |cff8080ff45|r (30 + int * 0.25) damage, bounces up to 4 times
 }
 
-STRING 5852
+STRING 5857
+// Abilities: A02C (Minor Heal), EditorSuffix (Editor Suffix)
 {
-WAVE 3
+(hippy)
 }
 
-STRING 5853
+STRING 5858
+// Abilities: A09B (Fire), Ubertip (Tooltip - Normal - Extended)
 {
-WAVE 7
+Deals 50 (50 + 15% intelligence) dmg and burns for 5 dmg a second
 }
 
-STRING 5854
+STRING 5859
+// Abilities: A0EY (Full Heal), Ubertip (Tooltip - Normal - Extended)
 {
-YOU ARE NOT DONE! IT IS NOT OVER!
+Heals x (7000 + 100% intelligence) hp to all allies in the area
+}
+
+STRING 5862
+// Abilities: A0F6 (Dhorak2), Name (Name)
+{
+Dhorak2
+}
+
+STRING 5863
+// Abilities: A0F6 (Dhorak2), Tip (Tooltip - Normal)
+{
+Dhorak2
+}
+
+STRING 5864
+// Abilities: A0F6 (Dhorak2), Ubertip (Tooltip - Normal - Extended)
+{
+Dhorak2
 }
 

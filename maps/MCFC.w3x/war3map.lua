@@ -53,11 +53,7 @@ udg_raremonsterhp = 0
 udg_stringParts = __jarray("")
 udg_stringPartsCount = 0
 udg_MerchantQuestReward = 0
-udg_VolcanoTimer = nil
-udg_Volcano_Timer_Window = nil
-udg_VolcanoPoint = nil
 udg_Summoned_Unit = {}
-udg_dhorak = nil
 udg_ArenaChallengePlayer = nil
 udg_ArenaAcceptPlayer = nil
 gg_rct_Farsight_reveal = nil
@@ -241,32 +237,8 @@ gg_trg_Freeze = nil
 gg_trg_Black_Hole = nil
 gg_trg_Black_Hole_2 = nil
 gg_trg_Black_Hole_suck = nil
-gg_trg_inventory_1 = nil
-gg_trg_inventory_2 = nil
-gg_trg_inventory_3 = nil
-gg_trg_inventory_4 = nil
-gg_trg_inventory_5 = nil
-gg_trg_inventory_6 = nil
-gg_trg_inventory_7 = nil
-gg_trg_inventory_8 = nil
-gg_trg_inventory_9 = nil
-gg_trg_inventory_10 = nil
-gg_trg_Leave_Inventory = nil
-gg_trg_item_ownership = nil
-gg_trg_item_drop = nil
-gg_trg_item_class = nil
-gg_trg_AddSpellTypes = nil
-gg_trg_Learn_Spell = nil
-gg_trg_Upgrade_Spell = nil
-gg_trg_Remove_Spell = nil
 gg_trg_Spell_Floating_Text = nil
-gg_trg_Example = nil
-gg_trg_Minor_Heal = nil
-gg_trg_Lightning_lvl_1 = nil
-gg_trg_Full_Heal = nil
-gg_trg_Lightning_lvl_2 = nil
 gg_trg_Jump = nil
-gg_trg_Dhoraks_Rage = nil
 gg_trg_Ultima = nil
 gg_trg_Ultima_Abi_2 = nil
 gg_trg_Twilight_learn = nil
@@ -334,8 +306,6 @@ gg_trg_S_advanced_summon = nil
 gg_trg_Advanced_Summoning = nil
 gg_trg_Master_Summoning = nil
 gg_trg_Godly_Summoning = nil
-gg_trg_Weapon_enchance = nil
-gg_trg_Enhancementability = nil
 gg_trg_hero_cape = nil
 gg_trg_Cursed_Blade = nil
 gg_trg_Gold_Sword = nil
@@ -460,23 +430,8 @@ gg_trg_Enter_Bridge = nil
 gg_trg_Move_5 = nil
 gg_trg_Move_6 = nil
 gg_trg_Escort_Quest_End = nil
-gg_trg_Volcano_Lava = nil
-gg_trg_Volcano_Message = nil
-gg_trg_Volcano_Timer = nil
-gg_trg_Volcano_Players_Alive = nil
-gg_trg_Volcano_Wave_1 = nil
-gg_trg_Volcano_Wave_2 = nil
-gg_trg_Volcano_Wave_3 = nil
-gg_trg_Volcano_Wave_4 = nil
-gg_trg_Volcano_Wave_5 = nil
-gg_trg_Volcano_Wave_6 = nil
-gg_trg_Volcano_Wave_7 = nil
-gg_trg_Volcano_Dhorak_Enrage = nil
-gg_trg_Volcano_Final_Wave = nil
-gg_trg_Volcano_Dhorak_Healers = nil
 gg_trg_Volcano_Done = nil
 gg_trg_Untitled_Trigger_002 = nil
-gg_trg_Chapel_Enter = nil
 gg_trg_Dungeon_Enter = nil
 gg_trg_Chapel_Leave = nil
 gg_unit_h00U_0050 = nil
@@ -487,7 +442,6 @@ gg_unit_n022_0341 = nil
 gg_unit_h037_0158 = nil
 gg_unit_n01E_0213 = nil
 gg_unit_O000_0353 = nil
-gg_unit_h00R_0272 = nil
 gg_unit_h00Q_0271 = nil
 gg_unit_h00W_0243 = nil
 gg_unit_h00X_0185 = nil
@@ -497,7 +451,6 @@ gg_unit_h011_0238 = nil
 gg_unit_h013_0241 = nil
 gg_unit_n01T_0303 = nil
 gg_unit_h018_0304 = nil
-gg_unit_h01A_0408 = nil
 gg_unit_h020_0319 = nil
 gg_unit_h021_0320 = nil
 gg_unit_n01E_0321 = nil
@@ -541,7 +494,6 @@ function InitGlobals()
     end
     udg_stringPartsCount = 0
     udg_MerchantQuestReward = 4
-    udg_VolcanoTimer = CreateTimer()
 end
 
 function ItemTable000000_DropItems()
@@ -1097,25 +1049,35 @@ end
 function CreateAllItems()
     local itemID
     BlzCreateItemWithSkin(FourCC("I02I"), 13697.7, -14764.4, FourCC("I02I"))
-    BlzCreateItemWithSkin(FourCC("I03M"), -1683.9, -13528.0, FourCC("I03M"))
-    BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I03C"), 13609.0, -15283.4, FourCC("I03C"))
     BlzCreateItemWithSkin(FourCC("I03M"), -1946.4, -12659.0, FourCC("I03M"))
-    BlzCreateItemWithSkin(FourCC("I05J"), 13836.7, -15300.6, FourCC("I05J"))
+    BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I03M"), -1683.9, -13528.0, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I04U"), 13349.4, -9848.7, FourCC("I04U"))
+    BlzCreateItemWithSkin(FourCC("I04V"), 13218.2, -9851.8, FourCC("I04V"))
+    BlzCreateItemWithSkin(FourCC("I04W"), 13119.5, -9852.0, FourCC("I04W"))
+    BlzCreateItemWithSkin(FourCC("I05J"), 13989.9, -14714.7, FourCC("I05J"))
     BlzCreateItemWithSkin(FourCC("I069"), 13595.4, -14895.5, FourCC("I069"))
     BlzCreateItemWithSkin(FourCC("I06G"), 14139.3, -15849.4, FourCC("I06G"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 14028.9, -15616.7, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 13968.4, -15547.5, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 13967.2, -15616.7, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 14029.6, -15550.8, FourCC("I06N"))
     BlzCreateItemWithSkin(FourCC("I06T"), 13572.2, -14619.7, FourCC("I06T"))
     BlzCreateItemWithSkin(FourCC("I06Y"), 13693.9, -14621.5, FourCC("I06Y"))
-    BlzCreateItemWithSkin(FourCC("I08H"), 14382.6, -15345.6, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I07W"), 13620.2, -15429.5, FourCC("I07W"))
     BlzCreateItemWithSkin(FourCC("I08H"), 14372.6, -15238.8, FourCC("I08H"))
     BlzCreateItemWithSkin(FourCC("I08H"), 14272.3, -15348.2, FourCC("I08H"))
     BlzCreateItemWithSkin(FourCC("I08H"), 14266.8, -15218.5, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I08H"), 14382.6, -15345.6, FourCC("I08H"))
     BlzCreateItemWithSkin(FourCC("I08N"), 14266.0, -14906.1, FourCC("I08N"))
     BlzCreateItemWithSkin(FourCC("I099"), 13577.5, -14761.0, FourCC("I099"))
     BlzCreateItemWithSkin(FourCC("I0A2"), 14256.7, -14795.3, FourCC("I0A2"))
     BlzCreateItemWithSkin(FourCC("I0A3"), 14265.8, -15040.1, FourCC("I0A3"))
     BlzCreateItemWithSkin(FourCC("I0A8"), 14378.1, -14911.5, FourCC("I0A8"))
-    BlzCreateItemWithSkin(FourCC("I0A9"), 14025.8, -15933.0, FourCC("I0A9"))
     BlzCreateItemWithSkin(FourCC("I0A9"), 14375.0, -14803.5, FourCC("I0A9"))
+    BlzCreateItemWithSkin(FourCC("I0A9"), 14025.8, -15933.0, FourCC("I0A9"))
+    BlzCreateItemWithSkin(FourCC("I0AJ"), 13245.5, -9729.1, FourCC("I0AJ"))
     BlzCreateItemWithSkin(FourCC("I0AP"), 14387.2, -15043.0, FourCC("I0AP"))
 end
 
@@ -1147,22 +1109,22 @@ function CreateUnitsForPlayer10()
     UnitAddItemToSlotById(u, FourCC("I087"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("h02K"), 10883.7, -13537.5, 320.000, FourCC("h02K"))
     UnitAddItemToSlotById(u, FourCC("I054"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h037"), -4893.0, 14421.3, 280.000, FourCC("h037"))
+    gg_unit_h037_0158 = BlzCreateUnitWithSkin(p, FourCC("h037"), -4893.0, 14421.3, 280.000, FourCC("h037"))
     u = BlzCreateUnitWithSkin(p, FourCC("h024"), 12149.6, -10160.4, 270.000, FourCC("h024"))
     UnitAddItemToSlotById(u, FourCC("I03V"), 0)
     UnitAddItemToSlotById(u, FourCC("I03K"), 1)
     u = BlzCreateUnitWithSkin(p, FourCC("h00T"), 13797.7, -11145.9, 150.000, FourCC("h00T"))
     UnitAddItemToSlotById(u, FourCC("I00X"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h00V"), 11083.5, -14050.5, 20.000, FourCC("h00V"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h011"), 11436.4, -15409.2, 218.920, FourCC("h011"))
-    UnitAddItemToSlotById(u, FourCC("I00F"), 0)
-    UnitAddItemToSlotById(u, FourCC("I003"), 1)
-    u = BlzCreateUnitWithSkin(p, FourCC("h013"), 13114.3, -10752.9, 125.000, FourCC("h013"))
-    UnitAddItemToSlotById(u, FourCC("I02G"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h010"), 15957.4, -12944.2, 275.000, FourCC("h010"))
+    gg_unit_h00V_0237 = BlzCreateUnitWithSkin(p, FourCC("h00V"), 11083.5, -14050.5, 20.000, FourCC("h00V"))
+    gg_unit_h011_0238 = BlzCreateUnitWithSkin(p, FourCC("h011"), 11436.4, -15409.2, 218.920, FourCC("h011"))
+    UnitAddItemToSlotById(gg_unit_h011_0238, FourCC("I00F"), 0)
+    UnitAddItemToSlotById(gg_unit_h011_0238, FourCC("I003"), 1)
+    gg_unit_h013_0241 = BlzCreateUnitWithSkin(p, FourCC("h013"), 13114.3, -10752.9, 125.000, FourCC("h013"))
+    UnitAddItemToSlotById(gg_unit_h013_0241, FourCC("I02G"), 0)
+    gg_unit_h010_0257 = BlzCreateUnitWithSkin(p, FourCC("h010"), 15957.4, -12944.2, 275.000, FourCC("h010"))
     u = BlzCreateUnitWithSkin(p, FourCC("h015"), 15877.3, -10546.7, 182.329, FourCC("h015"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h018"), 14203.6, -10148.6, 225.000, FourCC("h018"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h02D"), 9042.3, -2728.3, 224.260, FourCC("h02D"))
+    gg_unit_h018_0304 = BlzCreateUnitWithSkin(p, FourCC("h018"), 14203.6, -10148.6, 225.000, FourCC("h018"))
+    gg_unit_h02D_0318 = BlzCreateUnitWithSkin(p, FourCC("h02D"), 9042.3, -2728.3, 224.260, FourCC("h02D"))
     u = BlzCreateUnitWithSkin(p, FourCC("h02G"), 13787.2, -9685.6, 191.574, FourCC("h02G"))
     UnitAddItemToSlotById(u, FourCC("I06H"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("h02J"), 11168.2, -15169.5, 320.000, FourCC("h02J"))
@@ -1188,8 +1150,8 @@ function CreateUnitsForPlayer10()
     UnitAddItemToSlotById(u, FourCC("I08C"), 1)
     gg_unit_h02S_0351 = BlzCreateUnitWithSkin(p, FourCC("h02S"), 12019.1, -15943.7, 88.629, FourCC("h02S"))
     UnitAddItemToSlotById(gg_unit_h02S_0351, FourCC("I08L"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("O000"), 12803.7, -11263.3, 66.301, FourCC("O000"))
-    UnitAddItemToSlotById(u, FourCC("I024"), 0)
+    gg_unit_O000_0353 = BlzCreateUnitWithSkin(p, FourCC("O000"), 12803.7, -11263.3, 66.301, FourCC("O000"))
+    UnitAddItemToSlotById(gg_unit_O000_0353, FourCC("I024"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("h02V"), 12238.3, -15951.4, 88.226, FourCC("h02V"))
     UnitAddItemToSlotById(u, FourCC("I08M"), 0)
     UnitAddItemToSlotById(u, FourCC("I08N"), 1)
@@ -1379,7 +1341,7 @@ function CreateUnitsForPlayer11()
     u = BlzCreateUnitWithSkin(p, FourCC("n00T"), -3840.9, 8901.7, 275.000, FourCC("n00T"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03N"), -3027.4, 12050.2, 312.966, FourCC("n03N"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03H"), 642.6, 14519.4, 284.820, FourCC("n03H"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n026"), -7406.2, 4010.4, 262.098, FourCC("n026"))
+    gg_unit_n026_0148 = BlzCreateUnitWithSkin(p, FourCC("n026"), -7406.2, 4010.4, 262.098, FourCC("n026"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00M"), 17796.9, 13978.6, 310.077, FourCC("n00M"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03J"), 13305.1, 11261.7, 231.555, FourCC("n03J"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00M"), 17659.9, 13862.4, 97.463, FourCC("n00M"))
@@ -1892,13 +1854,13 @@ function CreateNeutralPassiveBuildings()
     local life
     u = BlzCreateUnitWithSkin(p, FourCC("ntn2"), 1824.0, -5664.0, 270.000, FourCC("ntn2"))
     u = BlzCreateUnitWithSkin(p, FourCC("nmh1"), 1760.0, -5856.0, 270.000, FourCC("nmh1"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n01E"), 26368.0, -11648.0, 270.000, FourCC("n01E"))
+    gg_unit_n01E_0023 = BlzCreateUnitWithSkin(p, FourCC("n01E"), 26368.0, -11648.0, 270.000, FourCC("n01E"))
     u = BlzCreateUnitWithSkin(p, FourCC("n013"), 12928.0, -10368.0, 270.000, FourCC("n013"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n01E"), 11968.0, -10624.0, 270.000, FourCC("n01E"))
+    gg_unit_n01E_0213 = BlzCreateUnitWithSkin(p, FourCC("n01E"), 11968.0, -10624.0, 270.000, FourCC("n01E"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01J"), -14336.0, 832.0, 270.000, FourCC("n01J"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n01T"), 13568.0, -10368.0, 270.000, FourCC("n01T"))
+    gg_unit_n01T_0303 = BlzCreateUnitWithSkin(p, FourCC("n01T"), 13568.0, -10368.0, 270.000, FourCC("n01T"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01W"), -6592.0, 10368.0, 270.000, FourCC("n01W"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n01E"), 13440.0, -15104.0, 270.000, FourCC("n01E"))
+    gg_unit_n01E_0321 = BlzCreateUnitWithSkin(p, FourCC("n01E"), 13440.0, -15104.0, 270.000, FourCC("n01E"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01J"), -13120.0, 4864.0, 270.000, FourCC("n01J"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04A"), 27840.0, -9984.0, 270.000, FourCC("n04A"))
 end
@@ -1909,17 +1871,17 @@ function CreateNeutralPassive()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("h00X"), 9210.5, -2085.4, 258.330, FourCC("h00X"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h00W"), 1933.8, -5785.2, 300.000, FourCC("h00W"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h00Z"), 9429.5, -1829.3, 250.000, FourCC("h00Z"))
-    UnitAddItemToSlotById(u, FourCC("I03Y"), 0)
+    gg_unit_h00X_0185 = BlzCreateUnitWithSkin(p, FourCC("h00X"), 9210.5, -2085.4, 258.330, FourCC("h00X"))
+    gg_unit_h00W_0243 = BlzCreateUnitWithSkin(p, FourCC("h00W"), 1933.8, -5785.2, 300.000, FourCC("h00W"))
+    gg_unit_h00Z_0256 = BlzCreateUnitWithSkin(p, FourCC("h00Z"), 9429.5, -1829.3, 250.000, FourCC("h00Z"))
+    UnitAddItemToSlotById(gg_unit_h00Z_0256, FourCC("I03Y"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("n01O"), 15935.1, -12127.7, 273.030, FourCC("n01O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01O"), 16105.5, -12169.0, 237.806, FourCC("n01O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01O"), 15830.4, -12127.8, 8.647, FourCC("n01O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01O"), 15445.5, -12329.1, 350.442, FourCC("n01O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01O"), 15653.2, -12266.6, 36.388, FourCC("n01O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h00Q"), 15526.1, -6429.2, 100.000, FourCC("h00Q"))
-    UnitAddItemToSlotById(u, FourCC("I002"), 0)
+    gg_unit_h00Q_0271 = BlzCreateUnitWithSkin(p, FourCC("h00Q"), 15526.1, -6429.2, 100.000, FourCC("h00Q"))
+    UnitAddItemToSlotById(gg_unit_h00Q_0271, FourCC("I002"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("h00R"), 13727.4, 8960.2, 224.588, FourCC("h00R"))
     UnitAddItemToSlotById(u, FourCC("I01H"), 0)
     UnitAddItemToSlotById(u, FourCC("I03S"), 1)
@@ -2114,8 +2076,8 @@ function CreateRegions()
     gg_rct_Lava_3 = Rect(-14336.0, -11200.0, -13824.0, -10528.0)
     gg_rct_Lava_2 = Rect(-14848.0, -10656.0, -14240.0, -10016.0)
     gg_rct_Lava_1 = Rect(-16064.0, -14784.0, -15552.0, -13568.0)
-    gg_rct_Volcano_Challenge = Rect(-15072.0, -24192.0, -10848.0, -20224.0)
-    gg_rct_Enter_The_Volcano = Rect(-11040.0, -22720.0, -10528.0, -21760.0)
+    gg_rct_Volcano_Challenge = Rect(-15072.0, -24192.0, -10752.0, -20224.0)
+    gg_rct_Enter_The_Volcano = Rect(-11072.0, -22720.0, -10784.0, -21760.0)
     gg_rct_Volcano_Spawn = Rect(-13728.0, -23520.0, -11456.0, -20448.0)
     gg_rct_Volcano_Dhorak = Rect(-13184.0, -22752.0, -12960.0, -22528.0)
     gg_rct_Volcano_Lava_1 = Rect(-12064.0, -22464.0, -11616.0, -21280.0)
@@ -2290,11 +2252,259 @@ function Trig_Unit_References_Actions()
     ShowUnitHide(gg_unit_h02S_0351)
     ShowUnitHide(gg_unit_h03L_0679)
     ShowUnitShow(gg_unit_n014_0105)
+    ShowUnitShow(gg_unit_n01E_0321)
+    ShowUnitShow(gg_unit_n01T_0303)
+    ShowUnitShow(gg_unit_n01E_0023)
+    ShowUnitShow(gg_unit_n01E_0213)
+    ShowUnitShow(gg_unit_h02D_0318)
+    ShowUnitShow(gg_unit_h00Q_0271)
+    ShowUnitShow(gg_unit_h00Z_0256)
+    ShowUnitShow(gg_unit_h00W_0243)
+    ShowUnitShow(gg_unit_h010_0257)
+    ShowUnitShow(gg_unit_h011_0238)
+    ShowUnitShow(gg_unit_h037_0158)
+    ShowUnitShow(gg_unit_h013_0241)
+    ShowUnitShow(gg_unit_n026_0148)
+    ShowUnitShow(gg_unit_h00X_0185)
+    ShowUnitShow(gg_unit_h00V_0237)
+    ShowUnitShow(gg_unit_h018_0304)
+    ShowUnitShow(gg_unit_O000_0353)
 end
 
 function InitTrig_Unit_References()
     gg_trg_Unit_References = CreateTrigger()
     TriggerAddAction(gg_trg_Unit_References, Trig_Unit_References_Actions)
+end
+
+function Trig_Glass_repair_Conditions()
+    if (not (GetOwningPlayer(GetTriggerUnit()) ~= Player(11))) then
+        return false
+    end
+    return true
+end
+
+function Trig_Glass_repair_Actions()
+    DialogClearBJ(udg_glassrepairdialog)
+    udg_glassrepair = GetEnteringUnit()
+    DialogAddButtonBJ(udg_glassrepairdialog, "TRIGSTR_5760")
+    udg_Glassswordrepair = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_glassrepairdialog, "TRIGSTR_5761")
+    udg_no = GetLastCreatedButtonBJ()
+    DialogDisplayBJ(true, udg_glassrepairdialog, GetOwningPlayer(GetTriggerUnit()))
+end
+
+function InitTrig_Glass_repair()
+    gg_trg_Glass_repair = CreateTrigger()
+    TriggerRegisterEnterRectSimple(gg_trg_Glass_repair, gg_rct_Crafty)
+    TriggerAddCondition(gg_trg_Glass_repair, Condition(Trig_Glass_repair_Conditions))
+    TriggerAddAction(gg_trg_Glass_repair, Trig_Glass_repair_Actions)
+end
+
+function Trig_Glass_repair_yes_Conditions()
+    if (not (GetClickedButtonBJ() == udg_Glassswordrepair)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Glass_repair_yes_Func003C()
+    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 249)) then
+        return false
+    end
+    if (not (UnitHasItemOfTypeBJ(udg_glassrepair, FourCC("I02Q")) == true)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Glass_repair_yes_Actions()
+    if (Trig_Glass_repair_yes_Func003C()) then
+        AdjustPlayerStateBJ(-250, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+        RemoveItem(GetItemOfTypeFromUnitBJ(udg_glassrepair, FourCC("I02Q")))
+        UnitAddItemByIdSwapped(FourCC("I00L"), udg_glassrepair)
+    else
+        DialogClearBJ(udg_glassrepairdialog)
+    end
+end
+
+function InitTrig_Glass_repair_yes()
+    gg_trg_Glass_repair_yes = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Glass_repair_yes, udg_glassrepairdialog)
+    TriggerAddCondition(gg_trg_Glass_repair_yes, Condition(Trig_Glass_repair_yes_Conditions))
+    TriggerAddAction(gg_trg_Glass_repair_yes, Trig_Glass_repair_yes_Actions)
+end
+
+function Trig_Glass_repair_no_Conditions()
+    if (not (GetClickedButtonBJ() == udg_no)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Glass_repair_no_Actions()
+    DialogClearBJ(udg_glassrepairdialog)
+end
+
+function InitTrig_Glass_repair_no()
+    gg_trg_Glass_repair_no = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Glass_repair_no, udg_glassrepairdialog)
+    TriggerAddCondition(gg_trg_Glass_repair_no, Condition(Trig_Glass_repair_no_Conditions))
+    TriggerAddAction(gg_trg_Glass_repair_no, Trig_Glass_repair_no_Actions)
+end
+
+function Trig_Secret_Sam_Actions()
+    DialogClearBJ(udg_SecretSam)
+    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5764")
+    udg_MasterSecret = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5765")
+    udg_SecretSummoning = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5766")
+    udg_GoldShroom = GetLastCreatedButtonBJ()
+    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5767")
+    udg_SecretSeals = GetLastCreatedButtonBJ()
+    DialogDisplayBJ(true, udg_SecretSam, GetOwningPlayer(GetTriggerUnit()))
+end
+
+function InitTrig_Secret_Sam()
+    gg_trg_Secret_Sam = CreateTrigger()
+    TriggerRegisterEnterRectSimple(gg_trg_Secret_Sam, gg_rct_Secret_Sam)
+    TriggerAddAction(gg_trg_Secret_Sam, Trig_Secret_Sam_Actions)
+end
+
+function Trig_Masters_Conditions()
+    if (not (GetClickedButtonBJ() == udg_MasterSecret)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Masters_Func003Func002001001()
+    return (GetTriggerPlayer() == GetFilterPlayer())
+end
+
+function Trig_Masters_Func003C()
+    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Masters_Actions()
+    if (Trig_Masters_Func003C()) then
+        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Masters_Func003Func002001001)), 30, "TRIGSTR_5768")
+        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+    else
+        DialogClearBJ(udg_SecretSam)
+    end
+end
+
+function InitTrig_Masters()
+    gg_trg_Masters = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Masters, udg_SecretSam)
+    TriggerAddCondition(gg_trg_Masters, Condition(Trig_Masters_Conditions))
+    TriggerAddAction(gg_trg_Masters, Trig_Masters_Actions)
+end
+
+function Trig_secret_summoning_Conditions()
+    if (not (GetClickedButtonBJ() == udg_SecretSummoning)) then
+        return false
+    end
+    return true
+end
+
+function Trig_secret_summoning_Func003Func001001001()
+    return (GetTriggerPlayer() == GetFilterPlayer())
+end
+
+function Trig_secret_summoning_Func003C()
+    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
+        return false
+    end
+    return true
+end
+
+function Trig_secret_summoning_Actions()
+    if (Trig_secret_summoning_Func003C()) then
+        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_secret_summoning_Func003Func001001001)), 30, "TRIGSTR_5769")
+        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+    else
+        DialogClearBJ(udg_SecretSam)
+    end
+end
+
+function InitTrig_secret_summoning()
+    gg_trg_secret_summoning = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_secret_summoning, udg_SecretSam)
+    TriggerAddCondition(gg_trg_secret_summoning, Condition(Trig_secret_summoning_Conditions))
+    TriggerAddAction(gg_trg_secret_summoning, Trig_secret_summoning_Actions)
+end
+
+function Trig_Gold_shroom_Conditions()
+    if (not (GetClickedButtonBJ() == udg_GoldShroom)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Gold_shroom_Func003Func002001001()
+    return (GetTriggerPlayer() == GetFilterPlayer())
+end
+
+function Trig_Gold_shroom_Func003C()
+    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Gold_shroom_Actions()
+    if (Trig_Gold_shroom_Func003C()) then
+        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Gold_shroom_Func003Func002001001)), 30, "TRIGSTR_5770")
+        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+    else
+        DialogClearBJ(udg_SecretSam)
+    end
+end
+
+function InitTrig_Gold_shroom()
+    gg_trg_Gold_shroom = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Gold_shroom, udg_SecretSam)
+    TriggerAddCondition(gg_trg_Gold_shroom, Condition(Trig_Gold_shroom_Conditions))
+    TriggerAddAction(gg_trg_Gold_shroom, Trig_Gold_shroom_Actions)
+end
+
+function Trig_Secret_seals_Conditions()
+    if (not (GetClickedButtonBJ() == udg_SecretSeals)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Secret_seals_Func003Func002001001()
+    return (GetTriggerPlayer() == GetFilterPlayer())
+end
+
+function Trig_Secret_seals_Func003C()
+    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Secret_seals_Actions()
+    if (Trig_Secret_seals_Func003C()) then
+        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Secret_seals_Func003Func002001001)), 30, "TRIGSTR_5771")
+        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+    else
+        DialogClearBJ(udg_SecretSam)
+    end
+end
+
+function InitTrig_Secret_seals()
+    gg_trg_Secret_seals = CreateTrigger()
+    TriggerRegisterDialogEventBJ(gg_trg_Secret_seals, udg_SecretSam)
+    TriggerAddCondition(gg_trg_Secret_seals, Condition(Trig_Secret_seals_Conditions))
+    TriggerAddAction(gg_trg_Secret_seals, Trig_Secret_seals_Actions)
 end
 
 function Trig_turtle_1_Conditions()
@@ -9247,611 +9457,6 @@ function InitTrig_S_advanced_summon()
     TriggerAddAction(gg_trg_S_advanced_summon, Trig_S_advanced_summon_Actions)
 end
 
-function Trig_Weapon_enchance_Conditions()
-    if (not (GetItemTypeId(GetManipulatedItem()) == FourCC("I06N"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func001C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I0AI"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func002C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06C"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func003C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I024"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func004C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func005C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00J"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func006C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I003"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func007C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06B"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func008C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I006"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func009C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00C"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func010C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I025"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func011C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06H"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func012C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I028"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func013C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03E"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func014C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I008"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func015C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I049"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func016C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I009"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func017C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I017"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func018C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06K"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func019C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00B"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func020C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03G"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func021C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I027"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func022C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00D"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func023C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00H"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func024C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I05G"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func025C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03D"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func026C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I026"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func027C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00O"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func028C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I018"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func029C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00P"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func030C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00K"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func031C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03A"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func032C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00V"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func033C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00Y"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func034C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00Z"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func035C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03B"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func036C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I011"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func037C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I002"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func038C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03S"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func039C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I02E"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func040C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I015"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func041C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I05I"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func042C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I000"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func043C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00T"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func044C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I01B"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func045C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03L"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func046C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func047C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03C"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func048C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03K"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Func049C()
-    if (not (IsItemOwned(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I082"))) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Weapon_enchance_Actions()
-    if (Trig_Weapon_enchance_Func001C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I0AI")))
-        UnitAddItemByIdSwapped(FourCC("I0AK"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func002C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06C")))
-        UnitAddItemByIdSwapped(FourCC("I06M"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func003C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I024")))
-        UnitAddItemByIdSwapped(FourCC("I06O"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func004C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I001")))
-        UnitAddItemByIdSwapped(FourCC("I06P"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func005C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00J")))
-        UnitAddItemByIdSwapped(FourCC("I06Q"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func006C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I003")))
-        UnitAddItemByIdSwapped(FourCC("I06R"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func007C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06B")))
-        UnitAddItemByIdSwapped(FourCC("I06S"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func008C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I006")))
-        UnitAddItemByIdSwapped(FourCC("I06T"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func009C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00C")))
-        UnitAddItemByIdSwapped(FourCC("I06U"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func010C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I025")))
-        UnitAddItemByIdSwapped(FourCC("I070"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func011C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06H")))
-        UnitAddItemByIdSwapped(FourCC("I06V"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func012C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I028")))
-        UnitAddItemByIdSwapped(FourCC("I06W"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func013C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03E")))
-        UnitAddItemByIdSwapped(FourCC("I06X"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func014C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I008")))
-        UnitAddItemByIdSwapped(FourCC("I06Y"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func015C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I049")))
-        UnitAddItemByIdSwapped(FourCC("I06Z"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func016C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I009")))
-        UnitAddItemByIdSwapped(FourCC("I071"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func017C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I017")))
-        UnitAddItemByIdSwapped(FourCC("I072"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func018C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I06K")))
-        UnitAddItemByIdSwapped(FourCC("I073"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func019C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00B")))
-        UnitAddItemByIdSwapped(FourCC("I074"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func020C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03G")))
-        UnitAddItemByIdSwapped(FourCC("I075"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func021C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I027")))
-        UnitAddItemByIdSwapped(FourCC("I076"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func022C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00D")))
-        UnitAddItemByIdSwapped(FourCC("I077"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func023C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00H")))
-        UnitAddItemByIdSwapped(FourCC("I078"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func024C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I05G")))
-        UnitAddItemByIdSwapped(FourCC("I079"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func025C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03D")))
-        UnitAddItemByIdSwapped(FourCC("I07A"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func026C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I026")))
-        UnitAddItemByIdSwapped(FourCC("I07B"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func027C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00O")))
-        UnitAddItemByIdSwapped(FourCC("I07C"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func028C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I018")))
-        UnitAddItemByIdSwapped(FourCC("I07D"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func029C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00P")))
-        UnitAddItemByIdSwapped(FourCC("I07E"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func030C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00K")))
-        UnitAddItemByIdSwapped(FourCC("I07F"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func031C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03A")))
-        UnitAddItemByIdSwapped(FourCC("I07G"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func032C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00V")))
-        UnitAddItemByIdSwapped(FourCC("I07H"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func033C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00Y")))
-        UnitAddItemByIdSwapped(FourCC("I07I"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func034C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00Z")))
-        UnitAddItemByIdSwapped(FourCC("I07J"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func035C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03B")))
-        UnitAddItemByIdSwapped(FourCC("I07K"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func036C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I011")))
-        UnitAddItemByIdSwapped(FourCC("I07L"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func037C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I002")))
-        UnitAddItemByIdSwapped(FourCC("I07M"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func038C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03S")))
-        UnitAddItemByIdSwapped(FourCC("I07N"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func039C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I02E")))
-        UnitAddItemByIdSwapped(FourCC("I07O"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func040C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I015")))
-        UnitAddItemByIdSwapped(FourCC("I07P"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func041C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I05I")))
-        UnitAddItemByIdSwapped(FourCC("I07Q"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func042C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I000")))
-        UnitAddItemByIdSwapped(FourCC("I07R"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func043C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00T")))
-        UnitAddItemByIdSwapped(FourCC("I07S"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func044C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I01B")))
-        UnitAddItemByIdSwapped(FourCC("I07T"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func045C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03L")))
-        UnitAddItemByIdSwapped(FourCC("I07U"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func046C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I00A")))
-        UnitAddItemByIdSwapped(FourCC("I07V"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func047C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03C")))
-        UnitAddItemByIdSwapped(FourCC("I07W"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func048C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I03K")))
-        UnitAddItemByIdSwapped(FourCC("I07X"), GetTriggerUnit())
-    else
-    end
-    if (Trig_Weapon_enchance_Func049C()) then
-        RemoveItem(GetItemOfTypeFromUnitBJ(GetTriggerUnit(), FourCC("I082")))
-        UnitAddItemByIdSwapped(FourCC("I083"), GetTriggerUnit())
-    else
-    end
-end
-
-function InitTrig_Weapon_enchance()
-    gg_trg_Weapon_enchance = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Weapon_enchance, EVENT_PLAYER_UNIT_USE_ITEM)
-    TriggerAddCondition(gg_trg_Weapon_enchance, Condition(Trig_Weapon_enchance_Conditions))
-    TriggerAddAction(gg_trg_Weapon_enchance, Trig_Weapon_enchance_Actions)
-end
-
 function Trig_hero_cape_Func002C()
     if (not (GetUnitTypeId(GetTriggerUnit()) ~= FourCC("H008"))) then
         return false
@@ -15724,6 +15329,14 @@ end
 
 function InitCustomTriggers()
     InitTrig_Unit_References()
+    InitTrig_Glass_repair()
+    InitTrig_Glass_repair_yes()
+    InitTrig_Glass_repair_no()
+    InitTrig_Secret_Sam()
+    InitTrig_Masters()
+    InitTrig_secret_summoning()
+    InitTrig_Gold_shroom()
+    InitTrig_Secret_seals()
     InitTrig_turtle_1()
     InitTrig_turtle_2()
     InitTrig_turtle_3()
@@ -15807,7 +15420,6 @@ function InitCustomTriggers()
     InitTrig_S_Vampire()
     InitTrig_S_master_summoner()
     InitTrig_S_advanced_summon()
-    InitTrig_Weapon_enchance()
     InitTrig_hero_cape()
     InitTrig_Cursed_Blade()
     InitTrig_Gold_Sword()

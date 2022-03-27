@@ -1,7 +1,7 @@
 import { itemTypes } from "ItemsAndTypes/itemTypes"
 import { typeFamilies } from "ItemsAndTypes/typeFamilies"
 
-function changeType() {
+export function changeType() {
 	if (GetItemType(GetManipulatedItem()) != ITEM_TYPE_ARTIFACT) {
 		return;
 	}
@@ -18,11 +18,11 @@ function changeType() {
 		}
 	}
 
-	if (weaponCount >= 2) {
+	if (weaponCount > 1) {
 		DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You already have a weapon equiped")
-		return;
+		UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetUnitLoc(GetTriggerUnit()))
+		return
 	}
-
 	
 	let item_type = GetItemTypeId(GetManipulatedItem())
 
@@ -31,27 +31,40 @@ function changeType() {
 		return
 	}
 
-	bj_lastCreatedUnit = CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), itemTypes[item_type], GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit()))
-	
+	let str = GetHeroStr(GetTriggerUnit(), false);
+	let agi = GetHeroAgi(GetTriggerUnit(), false);
+	let int = GetHeroInt(GetTriggerUnit(), false);
+	let xp = GetHeroXP(GetTriggerUnit());
+	let item1 = UnitItemInSlot(GetTriggerUnit(), 0);
+	let item2 = UnitItemInSlot(GetTriggerUnit(), 1);
+	let item3 = UnitItemInSlot(GetTriggerUnit(), 2);	
+	let item4 = UnitItemInSlot(GetTriggerUnit(), 3);
+	let item5 = UnitItemInSlot(GetTriggerUnit(), 4);
+	let item6 = UnitItemInSlot(GetTriggerUnit(), 5);
+
 	let hp = GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE)
 	let mp = GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA)
 
-	SetHeroStr(bj_lastCreatedUnit, GetHeroStr(GetTriggerUnit(), false), true);
-	SetHeroAgi(bj_lastCreatedUnit, GetHeroAgi(GetTriggerUnit(), false), true);
-	SetHeroInt(bj_lastCreatedUnit, GetHeroInt(GetTriggerUnit(), false), true);
-	SetHeroXP(bj_lastCreatedUnit, GetHeroXP(GetTriggerUnit()), false);
+	let loc = GetUnitLoc(GetTriggerUnit())
+	let facing = GetUnitFacing(GetTriggerUnit())
+
+	RemoveUnit(GetTriggerUnit());
+	bj_lastCreatedUnit = CreateUnitAtLoc(GetTriggerPlayer(), itemTypes[item_type], loc, facing )
+
+	SetHeroStr(bj_lastCreatedUnit, str, true);
+	SetHeroAgi(bj_lastCreatedUnit, agi, true);
+	SetHeroInt(bj_lastCreatedUnit, int, true);
+	SetHeroXP(bj_lastCreatedUnit, xp, false);
 	
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 0));
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 1));
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 2));	
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 3));
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 4));
-	UnitAddItem(bj_lastCreatedUnit, UnitItemInSlot(GetTriggerUnit(), 5));
+	UnitAddItem(bj_lastCreatedUnit, item1);
+	UnitAddItem(bj_lastCreatedUnit, item2);
+	UnitAddItem(bj_lastCreatedUnit, item3);	
+	UnitAddItem(bj_lastCreatedUnit, item4);
+	UnitAddItem(bj_lastCreatedUnit, item5);
+	UnitAddItem(bj_lastCreatedUnit, item6);
 
 	SetUnitState(bj_lastCreatedUnit, UNIT_STATE_LIFE, hp);
 	SetUnitState(bj_lastCreatedUnit, UNIT_STATE_MANA, mp);
-	
-	RemoveUnit(GetTriggerUnit());
 	
 	for (let i = 0; i < 7; i++) {
 		//let temp_ability = abilities[playerAbilities[GetPlayerId(GetOwningPlayer(bj_lastCreatedUnit)) * 7 + i]]
@@ -63,15 +76,4 @@ function changeType() {
 		ClearSelection();
 		SelectUnit(bj_lastCreatedUnit, true);
 	}
-	print("Changed type by item")
-}
-
-export function initChangeTypeByItem() {
-	let trigger = CreateTrigger();
-
-	for (let i = 0; i < 10; i++) {
-		TriggerRegisterPlayerUnitEvent(trigger, Player(i), EVENT_PLAYER_UNIT_PICKUP_ITEM, null);
-	}
-
-	TriggerAddAction(trigger, () => changeType());
 }

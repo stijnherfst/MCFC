@@ -12,6 +12,15 @@ let dialog : TimerDialog
 
 let spawnTimer : Timer
 
+enum State {
+    Idle,
+    Countdown,
+    Spawning,
+    Dhorak
+}
+
+let state = State.Idle
+
 let waveCurrent = 0
 
 let waves : Array<Array<[number, number]>> = [
@@ -53,8 +62,6 @@ let waves : Array<Array<[number, number]>> = [
     ],
 ]
 
-let spawnstuff = false
-
 function wait(howMuch: number) {
     const timer = new Timer();
     const co = coroutine.running();
@@ -69,8 +76,8 @@ function wait(howMuch: number) {
 }
 
 function dhorakDies() {
+    ForGroupBJ(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11)), () => ExplodeUnitBJ(GetEnumUnit()))
     DisableTrigger(healerTrigger)
-    EnableTrigger(enterTrigger)
     ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B004_13629)
     DestroyTrigger(dhorakDiesTrigger)
 }
@@ -84,7 +91,7 @@ function spawnDhorak() {
 
         for (let i = 0; i < 20; i++) {
             let point = GetRandomLocInRect(gg_rct_Volcano_Spawn)
-            let effect = AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
+            AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
             
             let sound = CreateSound("Abilities/Spells/other/Incinerate/Incinerate1.flac", false, true, true, 1, 1, "DefaultEAXON")
             SetSoundPosition(sound, GetLocationX(point), GetLocationY(point), 0)
@@ -105,7 +112,7 @@ function spawnDhorak() {
 
         for (let i = 0; i < 10; i++) {
             let point = GetRandomLocInRect(gg_rct_Volcano_Spawn)
-            let effect = AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
+            AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
             
             let sound = CreateSound("Abilities/Spells/other/Incinerate/Incinerate1.flac", false, true, true, 1, 1, "DefaultEAXON")
             SetSoundPosition(sound, GetLocationX(point), GetLocationY(point), 0)
@@ -124,7 +131,7 @@ function spawnWave(wave : number) {
         for (let i = 0; i < waves[wave].length; i++) {
             for (let j = 0; j < waves[wave][i][1]; j++) {
                 let point = GetRandomLocInRect(gg_rct_Volcano_Spawn)
-                let effect = AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
+                AddSpecialEffectLoc("Abilities/Spells/Other/Incinerate/FireLordDeathExplode.mdl", point)
                       
                 let sound = CreateSound("Abilities/Spells/other/Incinerate/Incinerate1.flac", false, true, true, 1, 1, "DefaultEAXON")
                 SetSoundPosition(sound, GetLocationX(point), GetLocationY(point), 0)
@@ -143,41 +150,56 @@ function spawnWave(wave : number) {
 }
 
 function startWaveSpawn() {
-    spawnstuff = true;
     spawnTimer = new Timer().start(1, true, () => {
+        if (state != State.Spawning) {
+            spawnTimer.destroy()
+            return
+        }
+
         if (CountUnitsInGroup(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11))) != 0) {
             return
         }
-        if (!spawnstuff) {
-            spawnTimer.destroy()
-            return
-        }
 
-        print(waveCurrent)
-        spawnWave(waveCurrent)
-
-        waveCurrent++;
+        print("Current wave: " + waveCurrent.toString())
+           
         if (waveCurrent == waves.length - 1) {
             spawnTimer.destroy()
+            state = State.Dhorak
             spawnDhorak()
+        } else {
+            spawnWave(waveCurrent)
         }
+        waveCurrent++;
     })
 }
 
 function showMessage() {
-    DisableTrigger(enterTrigger)
+    if (state != State.Idle) {
+        return;
+    }
+
+    if (GetOwningPlayer(GetTriggerUnit()) == Player(11)) {
+        return
+    }
+
     EnableTrigger(emptyTrigger)
     countdown = new Timer()
     dialog = new TimerDialog(countdown)
-    dialog.setTitle("Carnage")
     dialog.display = true
 
+    state = State.Countdown
     countdown.start(5, false, () => {
-        DisplayTextToForce( bj_FORCE_ALL_PLAYERS, "Commence carnage!" )
-        ModifyGateBJ(bj_GATEOPERATION_CLOSE, gg_dest_B004_13629)
-        startWaveSpawn()
+        if (state != State.Countdown) {
+            return
+        }
+
         dialog.destroy()
         countdown.destroy()
+        DisplayTextToForce( bj_FORCE_ALL_PLAYERS, "Commence carnage!" )
+        ModifyGateBJ(bj_GATEOPERATION_CLOSE, gg_dest_B004_13629)
+
+        state = State.Spawning
+        startWaveSpawn()
     })
 }
 
@@ -207,19 +229,20 @@ function spawnHealer() {
 
 function checkVolcanoEmpty() {
     let g = new Group()
-    g.enumUnitsInRect(Rectangle.fromHandle(gg_rct_Volcano_Challenge), () => GetOwningPlayer(GetEnumUnit()) != Player(11))
+    g.enumUnitsInRect(Rectangle.fromHandle(gg_rct_Volcano_Challenge), () => GetOwningPlayer(GetFilterUnit()) != Player(11))
 
     if (g.size == 0) {
+        state = State.Idle
+        countdown.destroy()
+        dialog.display = false
+        dialog.destroy()
+
         ForGroupBJ(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11)), () => ExplodeUnitBJ(GetEnumUnit()))
         DisableTrigger(healerTrigger)
         EnableTrigger(enterTrigger)
         ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B004_13629)
         DestroyTrigger(dhorakDiesTrigger)
         DisableTrigger(emptyTrigger)
-        spawnstuff = false
-        spawnTimer.destroy()
-        countdown.destroy()
-        dialog.destroy()
         waveCurrent = 0
     }
     g.destroy()

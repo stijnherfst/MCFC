@@ -49,3 +49,60 @@ const enchantableWeapons: Record<number, number> = {
 	[FourCC('I03K')]: FourCC('I07X'),
 	[FourCC('I082')]: FourCC('I083')
 };
+
+function canEnchant() {
+	if (GetItemTypeId(GetEnumItem()) in enchantableWeapons) {
+		AddSpecialEffectLocBJ( GetItemLoc(GetEnumItem()), "Abilities\\Spells\\Human\\Heal\\HealTarget.mdl")
+
+	}
+}
+
+function enhancementability() {
+    if (GetItemTypeId(GetManipulatedItem()) != FourCC('I06N')) {
+		return
+	}
+
+	EnumItemsInRectBJ( RectFromCenterSizeBJ(GetUnitLoc(GetManipulatingUnit()), 600.00, 600.00), () => canEnchant())
+}
+
+function enchantItem() {
+	if (GetItemTypeId(GetManipulatedItem()) != FourCC('I06N')) {
+		return
+	}
+
+	for (let i = 0; i < 6; i++) {
+		let item = UnitItemInSlot(GetTriggerUnit(), i);
+		if (item == null) {
+			continue
+		}
+
+		if (!(GetItemTypeId(item) in enchantableWeapons)) {
+			continue
+		}
+
+		DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You sense that your weapon has gotten stronger and feels extra girthy in your hands")
+		
+		let item_id = GetItemTypeId(item)
+		RemoveItem(item)
+		UnitAddItemById(GetTriggerUnit(), enchantableWeapons[item_id])
+		return
+	}
+
+	// Otherwise player hasn't received enchanted item, recreate book
+	DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You open the book but nothing happens")
+	CreateItemLoc(GetItemTypeId(GetManipulatedItem()), GetUnitLoc(GetTriggerUnit()))
+}
+
+export function initEnchantItem() {
+	let trigger = CreateTrigger();
+
+	for (let i = 0; i < 10; i++) {
+		TriggerRegisterPlayerUnitEvent(trigger, Player(i), EVENT_PLAYER_UNIT_USE_ITEM, null);
+	}
+
+	TriggerAddAction(trigger, () => enchantItem());
+
+	let enhancementabilityTrigger = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ( enhancementabilityTrigger, EVENT_PLAYER_UNIT_DROP_ITEM )
+    TriggerAddAction( enhancementabilityTrigger, () =>  enhancementability())
+}

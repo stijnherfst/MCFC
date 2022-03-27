@@ -1,3 +1,4 @@
+import { Group, MapPlayer } from "w3ts";
 import { maxAbilities, PlayerInfo } from "../player"
 
 const spellToAbility = new Map([
@@ -50,7 +51,7 @@ const spellToAbility = new Map([
     [FourCC('I03T'), FourCC('A08O')],	// Bloody Tornado
     [FourCC('I048'), FourCC('A08U')],	// Adamant Armor
     [FourCC('I04U'), FourCC('A09B')],	// Fire
-    [FourCC('I04V'), FourCC('A0EN')],	// Lightning
+    [FourCC('I04V'), FourCC('A09A')],	// Lightning
     [FourCC('I04W'), FourCC('A09C')],	// Minor Heal
     [FourCC('I04B'), FourCC('A08V')],	// Rock Skin
     [FourCC('I04C'), FourCC('A08W')],	// Divine Essence
@@ -66,7 +67,7 @@ const spellToAbility = new Map([
     [FourCC('I088'), FourCC('A0B5')],	// Presure Release
     [FourCC('I055'), FourCC('A09N')],	// Devil Booster
     [FourCC('I08D'), FourCC('A0BC')],	// ChronoSphere
-    [FourCC('I08H'), FourCC('A0EY')],	// Full Heal
+    [FourCC('I08H'), FourCC('A0CD')],	// Full Heal
     [FourCC('I0AA'), FourCC('A0ED')],	// Mega Shard
     [FourCC('I0AH'), FourCC('A0EP')],  	// Critical Strike
     [FourCC('I0AG'), FourCC('A0EQ')],	// Evasion
@@ -104,6 +105,13 @@ export class LearnSpell {
 		let trigger = CreateTrigger()
 		TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_USE_ITEM)
 		TriggerAddAction(trigger, () => this.learnSpell())
+
+        let removeTrigger = CreateTrigger();
+        for (let i = 0; i < 10; i++) {
+            TriggerRegisterPlayerChatEvent(removeTrigger, Player(i), "-remove", false);
+        }
+
+        TriggerAddAction(removeTrigger, () => this.removeSpell());
 	}
 
 	learnSpell() {
@@ -130,4 +138,27 @@ export class LearnSpell {
 		player.abilities.push(ability);
 		UnitAddAbility(GetTriggerUnit(), ability);
 	}
+
+    removeSpell() {
+        if (GetEventPlayerChatString().substring(0, 7) != "-remove") {
+            return;
+        }
+
+        let player_id = GetPlayerId(GetTriggerPlayer());
+
+        for (let i = 0; i < this.players[player_id].abilities.length; i += 1) {
+            let ability_id = this.players[player_id].abilities[i];
+            if (GetObjectName(ability_id) != GetEventPlayerChatString().substring(8)) {
+                continue;
+            }
+
+            let g = new Group()
+            g.enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(() => !IsUnitType(GetEnumUnit(), UNIT_TYPE_HERO)))
+            let hero = g.first
+
+            UnitRemoveAbility(hero.handle, ability_id)
+            this.players[player_id].abilities.splice(i, 1)
+            return
+        }
+    }
 }

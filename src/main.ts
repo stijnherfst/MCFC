@@ -4,9 +4,9 @@ import { Timer, TimerDialog } from "w3ts"
 import { PlayerSpawn } from "Initialization/spawnMasterCrafters";
 import { fuckTeleporters } from "fuckTeleporters";
 
-import { initChangeTypeByItem } from "ItemsAndTypes/changeTypeByItem";
-import { initTwoHandedCheck } from "ItemsAndTypes/twoHanded";
+import { initCheckItemPickup } from "ItemsAndTypes/checkItemPickup";
 import { initArrows } from "ItemsAndTypes/arrows";
+import { initEnchantItem } from "ItemsAndTypes/enchantableWeapons";
 
 import { addStrength } from "Stats/addStrength";
 import { addAgility } from "Stats/addAgility";
@@ -25,11 +25,12 @@ import { initInventory } from "Messages/inventory"
 import { initBecomingMaster } from "Messages/becomingMaster"
 import { initPlayerDies } from "Messages/playerDies"
 
-import { initZoom } from "Commands/zoom"
 import { initClear } from "Commands/clear"
+import { initMoveToInventory } from "Commands/inventory";
 import { initMovespeed } from "Commands/movespeed"
 import { initSuicide } from "Commands/suicide"
 import { initRoll } from "Commands/roll"
+import { initZoom } from "Commands/zoom"
 
 import { initRespawn } from "respawn"
 
@@ -61,8 +62,13 @@ import { initSage } from "Quests/sage";
 import { initSatansHelper } from "Quests/satansHelper";
 import { initSecretSeal } from "Quests/secretSeal";
 
-import { LearnSpell } from "Spells/learnSpell"
+import { LearnSpell } from "Spell Systems/learnSpell"
 
+import { initDharoksRage } from "Spells/dharoksRage"
+import { initLightning } from "Spells/lightning"
+import { initFullHeal } from "Spells/fullHeal"
+import { initMinorHeal } from "Spells/minorHeal"
+import { initFire } from "Spells/fire"
 
 import { initLavaHot } from "Areas/Fiery Lands/lavaHot";
 
@@ -80,9 +86,10 @@ function tsMain() {
 
 	fuckTeleporters()
 
-	initChangeTypeByItem()
-	initTwoHandedCheck()
+	initCheckItemPickup()
+	// initTwoHandedCheck()
 	initArrows()
+	initEnchantItem()
 	
 	addStrength()
 	addAgility()
@@ -98,11 +105,12 @@ function tsMain() {
 	initBecomingMaster()
 	initPlayerDies()
 
-	initZoom()
 	initClear()
+	initMoveToInventory()
 	initMovespeed()
-	initSuicide()
 	initRoll()
+	initSuicide()
+	initZoom()
 
 	initRespawn()
 
@@ -137,6 +145,12 @@ function tsMain() {
 	initLavaHot()
 
 	let learn = new LearnSpell(players)
+
+	initDharoksRage()
+	initLightning()
+	initFullHeal()
+	initMinorHeal()
+	initFire()
 
 	saveLoad.initSaveLoad()
 

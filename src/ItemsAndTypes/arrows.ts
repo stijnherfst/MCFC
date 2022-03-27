@@ -35,7 +35,7 @@ function ArrowCheck() {
         return
     }
     
-    UnitDropItem(GetTriggerUnit(), GetItemTypeId(GetManipulatedItem()))
+    UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetUnitLoc(GetTriggerUnit()))
 }
 
 export function initArrows() {
