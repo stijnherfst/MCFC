@@ -7,7 +7,7 @@ function chrissy() {
         return
     }
 
-    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Adamant Armored Rock", "Find a way to destroy the adamand armored rock and bring the adamant to chrissy", "ReplaceableTextures\\CommandButtons\\BTNColdArrows.blp")
+    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Adamant Armored Rock", "Find a way to destroy the adamant armored rock and bring the adamant to chrissy", "ReplaceableTextures\\CommandButtons\\BTNColdArrows.blp")
     DisableTrigger(GetTriggeringTrigger())
     DisplayTimedTextToForce(GetPlayersAll(), 25.00, "A giant invisible adamant covered rock is to the east of here if you can find a way to destroy it i could make an incredibly strong peice of armor from it")
 }

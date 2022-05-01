@@ -180,7 +180,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.3 - 11-01-2021
+Version 7.4 - 22-04-2022
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -18314,12 +18314,6 @@ STRING 5615
 Round Floor
 }
 
-STRING 5616
-// Doodads: D00N (Bricks Clean), Name (Name)
-{
-Bricks Clean
-}
-
 STRING 5617
 // Doodads: D00O (Round Stairs), Name (Name)
 {
@@ -18578,56 +18572,6 @@ STRING 5661
 Abomination Skeleton
 }
 
-STRING 5760
-{
-Repair glass item for 250 gold?
-}
-
-STRING 5761
-{
-Nothing to repair right now
-}
-
-STRING 5764
-{
-How to become a master
-}
-
-STRING 5765
-{
-Summoning
-}
-
-STRING 5766
-{
-Gold Mushroom
-}
-
-STRING 5767
-{
-Secret Seals
-}
-
-STRING 5768
-{
-The max level is 9999 but theres lots of items that add stats if you ever get 500 str, agi, or int you wont get a master ability anymore
-}
-
-STRING 5769
-{
-many monsters (lv 18 and lower) have a 1% to drop a summoning spell once you have that you can summon that monster whenever you want
-}
-
-STRING 5770
-{
-Theres a giant gold shroom on the top left island cut it down and take the shroom and you'll start seeing invisible things like me everywhere theres many secrets to be found
-}
-
-STRING 5771
-{
-Korona has been traped behind an Ancient Seal if some 1 were to break all 6 secret seals she would be free once again... find the cotton mouth wanderers in the desert if you wish to learn more
-}
-
 STRING 5772
 {
 You can only have 7 spells
@@ -18775,41 +18719,6 @@ STRING 5804
 This time there will be no escape mortals
 }
 
-STRING 5810
-{
-Arena Free for all deathmatch!
-}
-
-STRING 5811
-{
-Setting Brawler Level...
-}
-
-STRING 5812
-{
-Equiping Brawler...
-}
-
-STRING 5813
-{
-FIGHT!!!!
-}
-
-STRING 5814
-{
-Arena Fight over the winners reward is in his inventory the arena is now open for new challengers
-}
-
-STRING 5848
-{
-Oi ya fella, is that a bum bag or are ya just happy to see me? Anyway we been looking to get our freight trolley over em pond, but them goobers are obstructing the foothpath. Lend us a hand and we will give ya something. We'll leave in a bit.
-}
-
-STRING 5849
-{
-Some slimy chunks of assorted yellow, green and brownish mushy yucky appear from the swamp.
-}
-
 STRING 5855
 // Abilities: A09A (Lightning), Ubertip (Tooltip - Normal - Extended)
 {
@@ -18856,5 +18765,35 @@ STRING 5864
 // Abilities: A0F6 (Dhorak2), Ubertip (Tooltip - Normal - Extended)
 {
 Dhorak2
+}
+
+STRING 5865
+// Units: h03M (Guard), Name (Name)
+{
+Guard
+}
+
+STRING 5866
+// Doodads: D02X (Wall Undead1), Name (Name)
+{
+Wall Undead1
+}
+
+STRING 5867
+// Doodads: D02Y (Wall Undead2), Name (Name)
+{
+Wall Undead2
+}
+
+STRING 5868
+// Doodads: D00N (Bricks Clean Dark), Name (Name)
+{
+Bricks Clean Dark
+}
+
+STRING 5869
+// Doodads: D02Z (Bricks Clean Light), Name (Name)
+{
+Bricks Clean Light
 }
 

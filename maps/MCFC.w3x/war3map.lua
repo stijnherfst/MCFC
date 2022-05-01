@@ -18,7 +18,6 @@ udg_Summon8 = nil
 udg_Summon9 = nil
 udg_Summon10 = nil
 udg_EchoBlast = nil
-udg_Arena = nil
 udg_glassrepair = nil
 udg_glassrepairdialog = nil
 udg_Glassswordrepair = nil
@@ -31,18 +30,10 @@ udg_GoldShroom = nil
 udg_saveTemp = ""
 udg_rndTemp = 0
 udg_SecretSeals = nil
-udg_ArenaTimer = 0
-udg_ArenaBrawler = nil
 udg_Bacontimer = nil
 udg_bacontimerwindow = nil
 udg_Armageddon = nil
-udg_ArenaTimerWindow = nil
 udg_Armagedontimerwindow = nil
-udg_ChallengePlayer = nil
-udg_AcceptPlayer = nil
-udg_Champion = nil
-udg_ArenaRnd = 0
-udg_ArenaMonster = nil
 udg_presurerelaese = 0
 udg_pressuretarget = nil
 udg_PressureCaster = nil
@@ -52,10 +43,11 @@ udg_BlackHole = nil
 udg_raremonsterhp = 0
 udg_stringParts = __jarray("")
 udg_stringPartsCount = 0
-udg_MerchantQuestReward = 0
+udg_VolcanoTimer = nil
+udg_Volcano_Timer_Window = nil
+udg_VolcanoPoint = nil
 udg_Summoned_Unit = {}
-udg_ArenaChallengePlayer = nil
-udg_ArenaAcceptPlayer = nil
+udg_dhorak = nil
 gg_rct_Farsight_reveal = nil
 gg_rct_Town_tele = nil
 gg_rct_Anti_town = nil
@@ -205,14 +197,6 @@ gg_snd_mortal_kombat2 = nil
 gg_snd_Incinerate1 = nil
 gg_snd_Incinerate101 = nil
 gg_trg_Unit_References = nil
-gg_trg_Glass_repair = nil
-gg_trg_Glass_repair_yes = nil
-gg_trg_Glass_repair_no = nil
-gg_trg_Secret_Sam = nil
-gg_trg_Masters = nil
-gg_trg_secret_summoning = nil
-gg_trg_Gold_shroom = nil
-gg_trg_Secret_seals = nil
 gg_trg_My_Black_hole = nil
 gg_trg_My_Black_hole_L = nil
 gg_trg_My_Black_hole_bow = nil
@@ -238,7 +222,6 @@ gg_trg_Black_Hole = nil
 gg_trg_Black_Hole_2 = nil
 gg_trg_Black_Hole_suck = nil
 gg_trg_Spell_Floating_Text = nil
-gg_trg_Jump = nil
 gg_trg_Ultima = nil
 gg_trg_Ultima_Abi_2 = nil
 gg_trg_Twilight_learn = nil
@@ -414,24 +397,23 @@ gg_trg_rare_drop = nil
 gg_trg_lv_40_less = nil
 gg_trg_lv_40 = nil
 gg_trg_lv_100 = nil
-gg_trg_Free_for_all_Copy = nil
-gg_trg_Arena_Challenge = nil
-gg_trg_Arena_Accept = nil
-gg_trg_Arena_Check = nil
-gg_trg_Arena_PVP = nil
-gg_trg_Arena_Human_Wins = nil
-gg_trg_Trader_Dies = nil
-gg_trg_Escord_Quest_Start = nil
-gg_trg_Move_1 = nil
-gg_trg_Move_2 = nil
-gg_trg_Move_3 = nil
-gg_trg_Move_4 = nil
-gg_trg_Enter_Bridge = nil
-gg_trg_Move_5 = nil
-gg_trg_Move_6 = nil
-gg_trg_Escort_Quest_End = nil
+gg_trg_Volcano_Lava = nil
+gg_trg_Volcano_Message = nil
+gg_trg_Volcano_Timer = nil
+gg_trg_Volcano_Players_Alive = nil
+gg_trg_Volcano_Wave_1 = nil
+gg_trg_Volcano_Wave_2 = nil
+gg_trg_Volcano_Wave_3 = nil
+gg_trg_Volcano_Wave_4 = nil
+gg_trg_Volcano_Wave_5 = nil
+gg_trg_Volcano_Wave_6 = nil
+gg_trg_Volcano_Wave_7 = nil
+gg_trg_Volcano_Dhorak_Enrage = nil
+gg_trg_Volcano_Final_Wave = nil
+gg_trg_Volcano_Dhorak_Healers = nil
 gg_trg_Volcano_Done = nil
 gg_trg_Untitled_Trigger_002 = nil
+gg_trg_Chapel_Enter = nil
 gg_trg_Dungeon_Enter = nil
 gg_trg_Chapel_Leave = nil
 gg_unit_h00U_0050 = nil
@@ -458,10 +440,6 @@ gg_unit_n026_0148 = nil
 gg_unit_h02S_0351 = nil
 gg_unit_h02P_0347 = nil
 gg_unit_n01E_0023 = nil
-gg_unit_h03D_0534 = nil
-gg_unit_h03E_0533 = nil
-gg_unit_h03G_0556 = nil
-gg_unit_h03G_0557 = nil
 gg_unit_h03L_0679 = nil
 gg_dest_B000_1013 = nil
 gg_dest_B004_13629 = nil
@@ -475,15 +453,12 @@ function InitGlobals()
         udg_abilityarray[i] = ""
         i = i + 1
     end
-    udg_Arena = CreateTimer()
     udg_glassrepairdialog = DialogCreate()
     udg_SecretSam = DialogCreate()
     udg_saveTemp = ""
     udg_rndTemp = 0
-    udg_ArenaTimer = 0
     udg_Bacontimer = CreateTimer()
     udg_Armageddon = CreateTimer()
-    udg_ArenaRnd = 0
     udg_presurerelaese = 0
     udg_raremonsterhp = 0
     i = 0
@@ -493,7 +468,7 @@ function InitGlobals()
         i = i + 1
     end
     udg_stringPartsCount = 0
-    udg_MerchantQuestReward = 4
+    udg_VolcanoTimer = CreateTimer()
 end
 
 function ItemTable000000_DropItems()
@@ -973,13 +948,14 @@ function CreateAllDestructables()
     local d
     local t
     local life
+    gg_dest_B000_1013 = BlzCreateDestructableWithSkin(FourCC("B000"), 13248.0, -11456.0, 45.000, 1.000, 0, FourCC("B000"))
     gg_dest_B004_13629 = BlzCreateDestructableWithSkin(FourCC("B004"), -10752.0, -22208.0, 0.000, 1.500, 0, FourCC("B004"))
     d = BlzCreateDestructableWithSkin(FourCC("LOcg"), 11328.0, 320.0, 359.700, 0.933, 0, FourCC("LOcg"))
     t = CreateTrigger()
     TriggerRegisterDeathEvent(t, d)
     TriggerAddAction(t, SaveDyingWidget)
     TriggerAddAction(t, ItemTable000000_DropItems)
-    d = BlzCreateDestructableWithSkin(FourCC("LTbr"), 13472.0, -15712.0, 343.000, 1.360, 0, FourCC("LTbr"))
+    d = BlzCreateDestructableWithSkin(FourCC("LTbr"), 13536.0, -14176.0, 343.000, 1.360, 0, FourCC("LTbr"))
     t = CreateTrigger()
     TriggerRegisterDeathEvent(t, d)
     TriggerAddAction(t, SaveDyingWidget)
@@ -1048,37 +1024,43 @@ end
 
 function CreateAllItems()
     local itemID
-    BlzCreateItemWithSkin(FourCC("I02I"), 13697.7, -14764.4, FourCC("I02I"))
-    BlzCreateItemWithSkin(FourCC("I03C"), 13609.0, -15283.4, FourCC("I03C"))
-    BlzCreateItemWithSkin(FourCC("I03M"), -1946.4, -12659.0, FourCC("I03M"))
-    BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I02I"), 15662.8, -13758.7, FourCC("I02I"))
+    BlzCreateItemWithSkin(FourCC("I03C"), 15574.1, -14277.6, FourCC("I03C"))
     BlzCreateItemWithSkin(FourCC("I03M"), -1683.9, -13528.0, FourCC("I03M"))
-    BlzCreateItemWithSkin(FourCC("I04U"), 13349.4, -9848.7, FourCC("I04U"))
-    BlzCreateItemWithSkin(FourCC("I04V"), 13218.2, -9851.8, FourCC("I04V"))
-    BlzCreateItemWithSkin(FourCC("I04W"), 13119.5, -9852.0, FourCC("I04W"))
-    BlzCreateItemWithSkin(FourCC("I05J"), 13989.9, -14714.7, FourCC("I05J"))
-    BlzCreateItemWithSkin(FourCC("I069"), 13595.4, -14895.5, FourCC("I069"))
-    BlzCreateItemWithSkin(FourCC("I06G"), 14139.3, -15849.4, FourCC("I06G"))
-    BlzCreateItemWithSkin(FourCC("I06N"), 14028.9, -15616.7, FourCC("I06N"))
-    BlzCreateItemWithSkin(FourCC("I06N"), 13968.4, -15547.5, FourCC("I06N"))
-    BlzCreateItemWithSkin(FourCC("I06N"), 13967.2, -15616.7, FourCC("I06N"))
-    BlzCreateItemWithSkin(FourCC("I06N"), 14029.6, -15550.8, FourCC("I06N"))
-    BlzCreateItemWithSkin(FourCC("I06T"), 13572.2, -14619.7, FourCC("I06T"))
-    BlzCreateItemWithSkin(FourCC("I06Y"), 13693.9, -14621.5, FourCC("I06Y"))
-    BlzCreateItemWithSkin(FourCC("I07W"), 13620.2, -15429.5, FourCC("I07W"))
-    BlzCreateItemWithSkin(FourCC("I08H"), 14372.6, -15238.8, FourCC("I08H"))
-    BlzCreateItemWithSkin(FourCC("I08H"), 14272.3, -15348.2, FourCC("I08H"))
-    BlzCreateItemWithSkin(FourCC("I08H"), 14266.8, -15218.5, FourCC("I08H"))
-    BlzCreateItemWithSkin(FourCC("I08H"), 14382.6, -15345.6, FourCC("I08H"))
-    BlzCreateItemWithSkin(FourCC("I08N"), 14266.0, -14906.1, FourCC("I08N"))
-    BlzCreateItemWithSkin(FourCC("I099"), 13577.5, -14761.0, FourCC("I099"))
-    BlzCreateItemWithSkin(FourCC("I0A2"), 14256.7, -14795.3, FourCC("I0A2"))
-    BlzCreateItemWithSkin(FourCC("I0A3"), 14265.8, -15040.1, FourCC("I0A3"))
-    BlzCreateItemWithSkin(FourCC("I0A8"), 14378.1, -14911.5, FourCC("I0A8"))
-    BlzCreateItemWithSkin(FourCC("I0A9"), 14375.0, -14803.5, FourCC("I0A9"))
-    BlzCreateItemWithSkin(FourCC("I0A9"), 14025.8, -15933.0, FourCC("I0A9"))
-    BlzCreateItemWithSkin(FourCC("I0AJ"), 13245.5, -9729.1, FourCC("I0AJ"))
-    BlzCreateItemWithSkin(FourCC("I0AP"), 14387.2, -15043.0, FourCC("I0AP"))
+    BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I03M"), -1946.4, -12659.0, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I05J"), 15955.1, -13708.9, FourCC("I05J"))
+    BlzCreateItemWithSkin(FourCC("I069"), 15560.5, -13889.8, FourCC("I069"))
+    BlzCreateItemWithSkin(FourCC("I06G"), 16104.4, -14843.7, FourCC("I06G"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 15994.0, -14611.0, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 15933.6, -14541.7, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 15994.8, -14545.1, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06N"), 15932.3, -14611.0, FourCC("I06N"))
+    BlzCreateItemWithSkin(FourCC("I06T"), 15537.3, -13613.9, FourCC("I06T"))
+    BlzCreateItemWithSkin(FourCC("I06Y"), 15659.0, -13615.7, FourCC("I06Y"))
+    BlzCreateItemWithSkin(FourCC("I07W"), 15585.3, -14423.8, FourCC("I07W"))
+    BlzCreateItemWithSkin(FourCC("I08H"), 16337.8, -14233.1, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I08H"), 16237.4, -14342.5, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I08H"), 16347.7, -14339.8, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I08H"), 16232.0, -14212.8, FourCC("I08H"))
+    BlzCreateItemWithSkin(FourCC("I08N"), 16231.2, -13900.3, FourCC("I08N"))
+    BlzCreateItemWithSkin(FourCC("I099"), 15542.6, -13755.3, FourCC("I099"))
+    BlzCreateItemWithSkin(FourCC("I0A2"), 16221.9, -13789.6, FourCC("I0A2"))
+    BlzCreateItemWithSkin(FourCC("I0A3"), 16231.0, -14034.3, FourCC("I0A3"))
+    BlzCreateItemWithSkin(FourCC("I0A8"), 16343.3, -13905.8, FourCC("I0A8"))
+    BlzCreateItemWithSkin(FourCC("I0A9"), 15990.9, -14927.2, FourCC("I0A9"))
+    BlzCreateItemWithSkin(FourCC("I0A9"), 16340.1, -13797.7, FourCC("I0A9"))
+    BlzCreateItemWithSkin(FourCC("I0AP"), 16352.3, -14037.2, FourCC("I0AP"))
+end
+
+function CreateBuildingsForPlayer0()
+    local p = Player(0)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("uslh"), -19904.0, -22528.0, 270.000, FourCC("uslh"))
+    u = BlzCreateUnitWithSkin(p, FourCC("uzig"), -19616.0, -22944.0, 270.000, FourCC("uzig"))
 end
 
 function CreateUnitsForPlayer0()
@@ -1090,10 +1072,10 @@ function CreateUnitsForPlayer0()
     u = BlzCreateUnitWithSkin(p, FourCC("hfoo"), -28160.5, -27508.1, 261.274, FourCC("hfoo"))
     u = BlzCreateUnitWithSkin(p, FourCC("hfoo"), -27918.4, -28299.2, 261.274, FourCC("hfoo"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -17026.6, -28195.7, 163.218, FourCC("hpea"))
-    u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -18511.7, -24689.5, 201.023, FourCC("hpea"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -19105.5, -28239.5, 201.023, FourCC("hpea"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -22019.0, -24091.5, 89.893, FourCC("hpea"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -21140.0, -26416.6, 57.394, FourCC("hpea"))
+    u = BlzCreateUnitWithSkin(p, FourCC("hpea"), -22008.7, -25634.5, 272.797, FourCC("hpea"))
 end
 
 function CreateUnitsForPlayer10()
@@ -1105,9 +1087,9 @@ function CreateUnitsForPlayer10()
     gg_unit_h00U_0050 = BlzCreateUnitWithSkin(p, FourCC("h00U"), 13183.6, -10664.7, 150.000, FourCC("h00U"))
     UnitAddItemToSlotById(gg_unit_h00U_0050, FourCC("I01M"), 0)
     UnitAddItemToSlotById(gg_unit_h00U_0050, FourCC("I081"), 1)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02M"), 11230.4, -15765.1, 42.380, FourCC("h02M"))
-    UnitAddItemToSlotById(u, FourCC("I087"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02K"), 10883.7, -13537.5, 320.000, FourCC("h02K"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02L"), 10883.5, -13482.6, 335.667, FourCC("h02L"))
+    UnitAddItemToSlotById(u, FourCC("I03F"), 0)
+    u = BlzCreateUnitWithSkin(p, FourCC("h02K"), 10886.4, -13081.6, 320.000, FourCC("h02K"))
     UnitAddItemToSlotById(u, FourCC("I054"), 0)
     gg_unit_h037_0158 = BlzCreateUnitWithSkin(p, FourCC("h037"), -4893.0, 14421.3, 280.000, FourCC("h037"))
     u = BlzCreateUnitWithSkin(p, FourCC("h024"), 12149.6, -10160.4, 270.000, FourCC("h024"))
@@ -1116,7 +1098,7 @@ function CreateUnitsForPlayer10()
     u = BlzCreateUnitWithSkin(p, FourCC("h00T"), 13797.7, -11145.9, 150.000, FourCC("h00T"))
     UnitAddItemToSlotById(u, FourCC("I00X"), 0)
     gg_unit_h00V_0237 = BlzCreateUnitWithSkin(p, FourCC("h00V"), 11083.5, -14050.5, 20.000, FourCC("h00V"))
-    gg_unit_h011_0238 = BlzCreateUnitWithSkin(p, FourCC("h011"), 11436.4, -15409.2, 218.920, FourCC("h011"))
+    gg_unit_h011_0238 = BlzCreateUnitWithSkin(p, FourCC("h011"), 12451.3, -14281.4, 218.920, FourCC("h011"))
     UnitAddItemToSlotById(gg_unit_h011_0238, FourCC("I00F"), 0)
     UnitAddItemToSlotById(gg_unit_h011_0238, FourCC("I003"), 1)
     gg_unit_h013_0241 = BlzCreateUnitWithSkin(p, FourCC("h013"), 13114.3, -10752.9, 125.000, FourCC("h013"))
@@ -1127,50 +1109,50 @@ function CreateUnitsForPlayer10()
     gg_unit_h02D_0318 = BlzCreateUnitWithSkin(p, FourCC("h02D"), 9042.3, -2728.3, 224.260, FourCC("h02D"))
     u = BlzCreateUnitWithSkin(p, FourCC("h02G"), 13787.2, -9685.6, 191.574, FourCC("h02G"))
     UnitAddItemToSlotById(u, FourCC("I06H"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02J"), 11168.2, -15169.5, 320.000, FourCC("h02J"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02J"), 10887.5, -13217.9, 320.000, FourCC("h02J"))
     UnitAddItemToSlotById(u, FourCC("I04N"), 0)
     UnitAddItemToSlotById(u, FourCC("I04R"), 1)
     UnitAddItemToSlotById(u, FourCC("I04P"), 2)
     UnitAddItemToSlotById(u, FourCC("I04O"), 3)
     UnitAddItemToSlotById(u, FourCC("I04Q"), 4)
     UnitAddItemToSlotById(u, FourCC("I04S"), 5)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02I"), 11165.7, -15372.2, 320.000, FourCC("h02I"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02I"), 10881.8, -13354.6, 320.000, FourCC("h02I"))
     UnitAddItemToSlotById(u, FourCC("I04Z"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02L"), 11161.5, -15581.6, 335.667, FourCC("h02L"))
-    UnitAddItemToSlotById(u, FourCC("I03F"), 0)
+    u = BlzCreateUnitWithSkin(p, FourCC("h02M"), 10932.5, -13590.9, 42.380, FourCC("h02M"))
+    UnitAddItemToSlotById(u, FourCC("I087"), 0)
     u = BlzCreateUnitWithSkin(p, FourCC("h02C"), 12549.2, -9683.0, 200.000, FourCC("h02C"))
     UnitAddItemToSlotById(u, FourCC("I05S"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02N"), 11373.1, -15878.8, 49.905, FourCC("h02N"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02N"), 11728.6, -14803.5, 61.753, FourCC("h02N"))
     UnitAddItemToSlotById(u, FourCC("I085"), 0)
     UnitAddItemToSlotById(u, FourCC("I086"), 1)
-    gg_unit_h02P_0347 = BlzCreateUnitWithSkin(p, FourCC("h02P"), 11561.2, -15940.1, 87.903, FourCC("h02P"))
+    gg_unit_h02P_0347 = BlzCreateUnitWithSkin(p, FourCC("h02P"), 11855.4, -14859.6, 87.903, FourCC("h02P"))
     UnitAddItemToSlotById(gg_unit_h02P_0347, FourCC("I08A"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02Q"), 11798.5, -15943.7, 88.786, FourCC("h02Q"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02Q"), 12014.9, -14859.6, 88.786, FourCC("h02Q"))
     UnitAddItemToSlotById(u, FourCC("I08B"), 0)
     UnitAddItemToSlotById(u, FourCC("I08C"), 1)
-    gg_unit_h02S_0351 = BlzCreateUnitWithSkin(p, FourCC("h02S"), 12019.1, -15943.7, 88.629, FourCC("h02S"))
+    gg_unit_h02S_0351 = BlzCreateUnitWithSkin(p, FourCC("h02S"), 12171.7, -14862.1, 88.629, FourCC("h02S"))
     UnitAddItemToSlotById(gg_unit_h02S_0351, FourCC("I08L"), 0)
     gg_unit_O000_0353 = BlzCreateUnitWithSkin(p, FourCC("O000"), 12803.7, -11263.3, 66.301, FourCC("O000"))
     UnitAddItemToSlotById(gg_unit_O000_0353, FourCC("I024"), 0)
-    u = BlzCreateUnitWithSkin(p, FourCC("h02V"), 12238.3, -15951.4, 88.226, FourCC("h02V"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h02V"), 12325.6, -14859.6, 88.226, FourCC("h02V"))
     UnitAddItemToSlotById(u, FourCC("I08M"), 0)
     UnitAddItemToSlotById(u, FourCC("I08N"), 1)
     u = BlzCreateUnitWithSkin(p, FourCC("h01A"), 12840.0, -10133.8, 324.906, FourCC("h01A"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h036"), 10888.0, -13382.5, 320.000, FourCC("h036"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h036"), 10890.8, -12926.6, 320.000, FourCC("h036"))
     UnitAddItemToSlotById(u, FourCC("I09R"), 0)
     UnitAddItemToSlotById(u, FourCC("I09V"), 1)
     UnitAddItemToSlotById(u, FourCC("I09S"), 2)
     UnitAddItemToSlotById(u, FourCC("I09U"), 3)
     UnitAddItemToSlotById(u, FourCC("I09Q"), 4)
     UnitAddItemToSlotById(u, FourCC("I09W"), 5)
-    u = BlzCreateUnitWithSkin(p, FourCC("h039"), 10896.1, -13045.5, 320.000, FourCC("h039"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h039"), 10894.2, -12791.1, 320.000, FourCC("h039"))
     UnitAddItemToSlotById(u, FourCC("I0A6"), 0)
     UnitAddItemToSlotById(u, FourCC("I0A7"), 1)
     UnitAddItemToSlotById(u, FourCC("I0A3"), 2)
     UnitAddItemToSlotById(u, FourCC("I0A4"), 3)
     UnitAddItemToSlotById(u, FourCC("I0A2"), 4)
     UnitAddItemToSlotById(u, FourCC("I0A5"), 5)
-    u = BlzCreateUnitWithSkin(p, FourCC("h03A"), 10894.1, -12865.7, 320.000, FourCC("h03A"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h03A"), 10896.3, -12651.3, 320.000, FourCC("h03A"))
     UnitAddItemToSlotById(u, FourCC("I0AB"), 0)
     UnitAddItemToSlotById(u, FourCC("I09F"), 1)
     UnitAddItemToSlotById(u, FourCC("I09Z"), 2)
@@ -1193,6 +1175,9 @@ function CreateUnitsForPlayer10()
     u = BlzCreateUnitWithSkin(p, FourCC("h03D"), 16595.2, -15580.7, 295.760, FourCC("h03D"))
     u = BlzCreateUnitWithSkin(p, FourCC("h03G"), 17077.3, -15543.6, 98.719, FourCC("h03G"))
     u = BlzCreateUnitWithSkin(p, FourCC("h03G"), 16653.3, -15383.7, 15.025, FourCC("h03G"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h03M"), 13052.0, -9670.1, 44.491, FourCC("h03M"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h03M"), 13418.0, -9661.7, 117.557, FourCC("h03M"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h03M"), 15001.4, -13627.0, 19.010, FourCC("h03M"))
 end
 
 function CreateUnitsForPlayer11()
@@ -1812,7 +1797,7 @@ function CreateNeutralHostile()
     u = BlzCreateUnitWithSkin(p, FourCC("nsca"), -27574.0, -22760.4, 307.011, FourCC("nsca"))
     u = BlzCreateUnitWithSkin(p, FourCC("nsca"), -27470.3, -22733.4, 66.085, FourCC("nsca"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -21250.8, -28975.9, 183.521, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04Q"), -19812.9, -25050.0, 268.574, FourCC("n04Q"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n04Q"), -19726.0, -25042.3, 268.574, FourCC("n04Q"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -22825.4, -26227.3, 183.521, FourCC("n04O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -21630.2, -26444.1, 183.521, FourCC("n04O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -21185.2, -27346.7, 183.521, FourCC("n04O"))
@@ -1820,26 +1805,6 @@ function CreateNeutralHostile()
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -20295.7, -25576.2, 183.521, FourCC("n04O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -19285.6, -25544.6, 183.521, FourCC("n04O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18520.9, -25452.1, 183.521, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18150.8, -24546.4, 157.560, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18201.6, -24342.8, 266.591, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18097.0, -24082.1, 177.995, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18192.1, -23958.5, 337.389, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18035.2, -23746.7, 130.862, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18206.2, -23194.7, 157.944, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18132.7, -23476.5, 59.240, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18228.1, -23532.8, 269.854, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18846.1, -23232.8, 352.232, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -19003.1, -23340.2, 354.243, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18973.4, -23528.2, 174.106, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18869.2, -23693.8, 182.159, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18960.9, -23851.4, 68.436, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18967.4, -24171.7, 248.189, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -19044.2, -24332.9, 2.703, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18948.1, -24482.5, 294.530, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18904.1, -24343.0, 257.088, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -18891.2, -24642.9, 63.800, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -19056.2, -24501.6, 170.777, FourCC("n04O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n04O"), -19036.3, -24014.7, 9.207, FourCC("n04O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04P"), -17633.0, -26488.8, 309.388, FourCC("n04P"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04P"), -17948.3, -26990.6, 309.388, FourCC("n04P"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04P"), -18598.6, -25669.6, 309.388, FourCC("n04P"))
@@ -1860,7 +1825,7 @@ function CreateNeutralPassiveBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n01J"), -14336.0, 832.0, 270.000, FourCC("n01J"))
     gg_unit_n01T_0303 = BlzCreateUnitWithSkin(p, FourCC("n01T"), 13568.0, -10368.0, 270.000, FourCC("n01T"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01W"), -6592.0, 10368.0, 270.000, FourCC("n01W"))
-    gg_unit_n01E_0321 = BlzCreateUnitWithSkin(p, FourCC("n01E"), 13440.0, -15104.0, 270.000, FourCC("n01E"))
+    gg_unit_n01E_0321 = BlzCreateUnitWithSkin(p, FourCC("n01E"), 13952.0, -14720.0, 270.000, FourCC("n01E"))
     u = BlzCreateUnitWithSkin(p, FourCC("n01J"), -13120.0, 4864.0, 270.000, FourCC("n01J"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04A"), 27840.0, -9984.0, 270.000, FourCC("n04A"))
 end
@@ -1933,6 +1898,7 @@ function CreateNeutralPassive()
 end
 
 function CreatePlayerBuildings()
+    CreateBuildingsForPlayer0()
 end
 
 function CreatePlayerUnits()
@@ -1954,7 +1920,7 @@ function CreateRegions()
     gg_rct_Farsight_reveal = Rect(10624.0, -9632.0, 10752.0, -9504.0)
     gg_rct_Town_tele = Rect(12960.0, -9632.0, 13568.0, -9376.0)
     gg_rct_Anti_town = Rect(14272.0, -6880.0, 14880.0, -6336.0)
-    gg_rct_revive = Rect(14048.0, -15296.0, 14400.0, -14816.0)
+    gg_rct_revive = Rect(13472.0, -15008.0, 14336.0, -14464.0)
     gg_rct_Top_of_the_World = Rect(16096.0, 17216.0, 17728.0, 17952.0)
     gg_rct_XHippy = Rect(15456.0, -6560.0, 15616.0, -6272.0)
     gg_rct_Sara = Rect(13536.0, 8768.0, 13856.0, 9024.0)
@@ -1963,12 +1929,12 @@ function CreateRegions()
     gg_rct_Crafty = Rect(10976.0, -14208.0, 11200.0, -13888.0)
     gg_rct_Rip_Tide_Mage = Rect(1792.0, -5952.0, 2112.0, -5728.0)
     gg_rct_Rip_Tide_bad_guy = Rect(-160.0, -3200.0, 32.0, -3072.0)
-    gg_rct_Town = Rect(10624.0, -16480.0, 15360.0, -9728.0)
+    gg_rct_Town = Rect(10624.0, -15456.0, 15360.0, -9728.0)
     gg_rct_Diffusional = Rect(-4000.0, -32.0, -3648.0, 416.0)
     gg_rct_Rift_region = Rect(9312.0, -1952.0, 9568.0, -1696.0)
     gg_rct_chicken_return = Rect(15648.0, -12928.0, 15808.0, -12864.0)
     gg_rct_chicken_zone = Rect(15552.0, -12832.0, 16160.0, -11936.0)
-    gg_rct_wing_guy_2 = Rect(11712.0, -14976.0, 11840.0, -14848.0)
+    gg_rct_wing_guy_2 = Rect(11872.0, -14688.0, 12000.0, -14560.0)
     gg_rct_Secret_Sam = Rect(15680.0, -10688.0, 15968.0, -10400.0)
     gg_rct_Sage = Rect(2336.0, -10880.0, 2688.0, -10528.0)
     gg_rct_Bacon_Remove = Rect(-5856.0, -15840.0, -5504.0, -15488.0)
@@ -2247,264 +2213,37 @@ end
 
 function Trig_Unit_References_Actions()
     KillDestructable(gg_dest_B004_13629)
+    ShowDestructableBJ(true, gg_dest_B000_1013)
     ShowUnitHide(gg_unit_h02P_0347)
     ShowUnitHide(gg_unit_h00U_0050)
     ShowUnitHide(gg_unit_h02S_0351)
     ShowUnitHide(gg_unit_h03L_0679)
     ShowUnitShow(gg_unit_n014_0105)
-    ShowUnitShow(gg_unit_n01E_0321)
-    ShowUnitShow(gg_unit_n01T_0303)
-    ShowUnitShow(gg_unit_n01E_0023)
+    ShowUnitShow(gg_unit_h010_0257)
+    ShowUnitShow(gg_unit_h011_0238)
+    ShowUnitShow(gg_unit_h00V_0237)
+    ShowUnitShow(gg_unit_h018_0304)
     ShowUnitShow(gg_unit_n01E_0213)
+    ShowUnitShow(gg_unit_n01T_0303)
+    ShowUnitShow(gg_unit_n01E_0321)
+    ShowUnitShow(gg_unit_n01E_0023)
+    ShowUnitShow(gg_unit_h037_0158)
     ShowUnitShow(gg_unit_h02D_0318)
     ShowUnitShow(gg_unit_h00Q_0271)
     ShowUnitShow(gg_unit_h00Z_0256)
     ShowUnitShow(gg_unit_h00W_0243)
-    ShowUnitShow(gg_unit_h010_0257)
-    ShowUnitShow(gg_unit_h011_0238)
-    ShowUnitShow(gg_unit_h037_0158)
-    ShowUnitShow(gg_unit_h013_0241)
+    ShowUnitShow(gg_unit_h00W_0243)
     ShowUnitShow(gg_unit_n026_0148)
-    ShowUnitShow(gg_unit_h00X_0185)
-    ShowUnitShow(gg_unit_h00V_0237)
-    ShowUnitShow(gg_unit_h018_0304)
+    ShowUnitShow(gg_unit_n022_0341)
+    ShowUnitShow(gg_unit_h021_0320)
+    ShowUnitShow(gg_unit_h013_0241)
     ShowUnitShow(gg_unit_O000_0353)
+    ShowUnitShow(gg_unit_h00X_0185)
 end
 
 function InitTrig_Unit_References()
     gg_trg_Unit_References = CreateTrigger()
     TriggerAddAction(gg_trg_Unit_References, Trig_Unit_References_Actions)
-end
-
-function Trig_Glass_repair_Conditions()
-    if (not (GetOwningPlayer(GetTriggerUnit()) ~= Player(11))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Glass_repair_Actions()
-    DialogClearBJ(udg_glassrepairdialog)
-    udg_glassrepair = GetEnteringUnit()
-    DialogAddButtonBJ(udg_glassrepairdialog, "TRIGSTR_5760")
-    udg_Glassswordrepair = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_glassrepairdialog, "TRIGSTR_5761")
-    udg_no = GetLastCreatedButtonBJ()
-    DialogDisplayBJ(true, udg_glassrepairdialog, GetOwningPlayer(GetTriggerUnit()))
-end
-
-function InitTrig_Glass_repair()
-    gg_trg_Glass_repair = CreateTrigger()
-    TriggerRegisterEnterRectSimple(gg_trg_Glass_repair, gg_rct_Crafty)
-    TriggerAddCondition(gg_trg_Glass_repair, Condition(Trig_Glass_repair_Conditions))
-    TriggerAddAction(gg_trg_Glass_repair, Trig_Glass_repair_Actions)
-end
-
-function Trig_Glass_repair_yes_Conditions()
-    if (not (GetClickedButtonBJ() == udg_Glassswordrepair)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Glass_repair_yes_Func003C()
-    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 249)) then
-        return false
-    end
-    if (not (UnitHasItemOfTypeBJ(udg_glassrepair, FourCC("I02Q")) == true)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Glass_repair_yes_Actions()
-    if (Trig_Glass_repair_yes_Func003C()) then
-        AdjustPlayerStateBJ(-250, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-        RemoveItem(GetItemOfTypeFromUnitBJ(udg_glassrepair, FourCC("I02Q")))
-        UnitAddItemByIdSwapped(FourCC("I00L"), udg_glassrepair)
-    else
-        DialogClearBJ(udg_glassrepairdialog)
-    end
-end
-
-function InitTrig_Glass_repair_yes()
-    gg_trg_Glass_repair_yes = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Glass_repair_yes, udg_glassrepairdialog)
-    TriggerAddCondition(gg_trg_Glass_repair_yes, Condition(Trig_Glass_repair_yes_Conditions))
-    TriggerAddAction(gg_trg_Glass_repair_yes, Trig_Glass_repair_yes_Actions)
-end
-
-function Trig_Glass_repair_no_Conditions()
-    if (not (GetClickedButtonBJ() == udg_no)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Glass_repair_no_Actions()
-    DialogClearBJ(udg_glassrepairdialog)
-end
-
-function InitTrig_Glass_repair_no()
-    gg_trg_Glass_repair_no = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Glass_repair_no, udg_glassrepairdialog)
-    TriggerAddCondition(gg_trg_Glass_repair_no, Condition(Trig_Glass_repair_no_Conditions))
-    TriggerAddAction(gg_trg_Glass_repair_no, Trig_Glass_repair_no_Actions)
-end
-
-function Trig_Secret_Sam_Actions()
-    DialogClearBJ(udg_SecretSam)
-    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5764")
-    udg_MasterSecret = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5765")
-    udg_SecretSummoning = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5766")
-    udg_GoldShroom = GetLastCreatedButtonBJ()
-    DialogAddButtonBJ(udg_SecretSam, "TRIGSTR_5767")
-    udg_SecretSeals = GetLastCreatedButtonBJ()
-    DialogDisplayBJ(true, udg_SecretSam, GetOwningPlayer(GetTriggerUnit()))
-end
-
-function InitTrig_Secret_Sam()
-    gg_trg_Secret_Sam = CreateTrigger()
-    TriggerRegisterEnterRectSimple(gg_trg_Secret_Sam, gg_rct_Secret_Sam)
-    TriggerAddAction(gg_trg_Secret_Sam, Trig_Secret_Sam_Actions)
-end
-
-function Trig_Masters_Conditions()
-    if (not (GetClickedButtonBJ() == udg_MasterSecret)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Masters_Func003Func002001001()
-    return (GetTriggerPlayer() == GetFilterPlayer())
-end
-
-function Trig_Masters_Func003C()
-    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Masters_Actions()
-    if (Trig_Masters_Func003C()) then
-        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Masters_Func003Func002001001)), 30, "TRIGSTR_5768")
-        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-    else
-        DialogClearBJ(udg_SecretSam)
-    end
-end
-
-function InitTrig_Masters()
-    gg_trg_Masters = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Masters, udg_SecretSam)
-    TriggerAddCondition(gg_trg_Masters, Condition(Trig_Masters_Conditions))
-    TriggerAddAction(gg_trg_Masters, Trig_Masters_Actions)
-end
-
-function Trig_secret_summoning_Conditions()
-    if (not (GetClickedButtonBJ() == udg_SecretSummoning)) then
-        return false
-    end
-    return true
-end
-
-function Trig_secret_summoning_Func003Func001001001()
-    return (GetTriggerPlayer() == GetFilterPlayer())
-end
-
-function Trig_secret_summoning_Func003C()
-    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
-        return false
-    end
-    return true
-end
-
-function Trig_secret_summoning_Actions()
-    if (Trig_secret_summoning_Func003C()) then
-        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_secret_summoning_Func003Func001001001)), 30, "TRIGSTR_5769")
-        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-    else
-        DialogClearBJ(udg_SecretSam)
-    end
-end
-
-function InitTrig_secret_summoning()
-    gg_trg_secret_summoning = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_secret_summoning, udg_SecretSam)
-    TriggerAddCondition(gg_trg_secret_summoning, Condition(Trig_secret_summoning_Conditions))
-    TriggerAddAction(gg_trg_secret_summoning, Trig_secret_summoning_Actions)
-end
-
-function Trig_Gold_shroom_Conditions()
-    if (not (GetClickedButtonBJ() == udg_GoldShroom)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Gold_shroom_Func003Func002001001()
-    return (GetTriggerPlayer() == GetFilterPlayer())
-end
-
-function Trig_Gold_shroom_Func003C()
-    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Gold_shroom_Actions()
-    if (Trig_Gold_shroom_Func003C()) then
-        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Gold_shroom_Func003Func002001001)), 30, "TRIGSTR_5770")
-        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-    else
-        DialogClearBJ(udg_SecretSam)
-    end
-end
-
-function InitTrig_Gold_shroom()
-    gg_trg_Gold_shroom = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Gold_shroom, udg_SecretSam)
-    TriggerAddCondition(gg_trg_Gold_shroom, Condition(Trig_Gold_shroom_Conditions))
-    TriggerAddAction(gg_trg_Gold_shroom, Trig_Gold_shroom_Actions)
-end
-
-function Trig_Secret_seals_Conditions()
-    if (not (GetClickedButtonBJ() == udg_SecretSeals)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Secret_seals_Func003Func002001001()
-    return (GetTriggerPlayer() == GetFilterPlayer())
-end
-
-function Trig_Secret_seals_Func003C()
-    if (not (GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) > 49)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Secret_seals_Actions()
-    if (Trig_Secret_seals_Func003C()) then
-        DisplayTimedTextToForce(GetPlayersMatching(Condition(Trig_Secret_seals_Func003Func002001001)), 30, "TRIGSTR_5771")
-        AdjustPlayerStateBJ(-50, GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-    else
-        DialogClearBJ(udg_SecretSam)
-    end
-end
-
-function InitTrig_Secret_seals()
-    gg_trg_Secret_seals = CreateTrigger()
-    TriggerRegisterDialogEventBJ(gg_trg_Secret_seals, udg_SecretSam)
-    TriggerAddCondition(gg_trg_Secret_seals, Condition(Trig_Secret_seals_Conditions))
-    TriggerAddAction(gg_trg_Secret_seals, Trig_Secret_seals_Actions)
 end
 
 function Trig_turtle_1_Conditions()
@@ -14096,1247 +13835,8 @@ function InitTrig_lv_100()
     TriggerAddAction(gg_trg_lv_100, Trig_lv_100_Actions)
 end
 
-function Trig_Arena_Challenge_Actions()
-    DisplayTimedTextToForce(GetPlayersAll(), 30, (GetPlayerName(GetTriggerPlayer()) .. " has challenged you to an arena fight type -accept to accept his challenge"))
-    udg_ArenaChallengePlayer = GetTriggerPlayer()
-    EnableTrigger(gg_trg_Arena_Accept)
-    DisableTrigger(GetTriggeringTrigger())
-end
-
-function InitTrig_Arena_Challenge()
-    gg_trg_Arena_Challenge = CreateTrigger()
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(0), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(1), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(2), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(3), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(4), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(5), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(6), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(7), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(8), "-challenge", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Challenge, Player(9), "-challenge", true)
-    TriggerAddAction(gg_trg_Arena_Challenge, Trig_Arena_Challenge_Actions)
-end
-
-function Trig_Arena_Accept_Conditions()
-    if (not (udg_ArenaChallengePlayer ~= GetTriggerPlayer())) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Accept_Func003001002()
-    return (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO) == true)
-end
-
-function Trig_Arena_Accept_Func003002()
-    SetUnitPositionLocFacingBJ(GetEnumUnit(), GetRectCenter(gg_rct_arena_3), 270.00)
-end
-
-function Trig_Arena_Accept_Func004001002()
-    return (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO) == true)
-end
-
-function Trig_Arena_Accept_Func004002()
-    SetUnitPositionLocFacingBJ(GetEnumUnit(), GetRectCenter(gg_rct_arena_7), 270.00)
-end
-
-function Trig_Arena_Accept_Actions()
-    udg_ArenaAcceptPlayer = GetTriggerPlayer()
-    PauseTimerBJ(true, udg_Arena)
-    ForGroupBJ(GetUnitsOfPlayerMatching(udg_ArenaChallengePlayer, Condition(Trig_Arena_Accept_Func003001002)), Trig_Arena_Accept_Func003002)
-    ForGroupBJ(GetUnitsOfPlayerMatching(GetTriggerPlayer(), Condition(Trig_Arena_Accept_Func004001002)), Trig_Arena_Accept_Func004002)
-    SetPlayerAllianceStateBJ(udg_ArenaAcceptPlayer, udg_ArenaChallengePlayer, bj_ALLIANCE_UNALLIED)
-    SetPlayerAllianceStateBJ(udg_ArenaChallengePlayer, udg_ArenaAcceptPlayer, bj_ALLIANCE_UNALLIED)
-    PanCameraToTimedLocForPlayer(udg_ArenaChallengePlayer, GetRectCenter(gg_rct_arena_brawler), 1.00)
-    PanCameraToTimedLocForPlayer(GetTriggerPlayer(), GetRectCenter(gg_rct_arena_brawler), 1.00)
-    PlaySoundBJ(gg_snd_mortal_kombat2)
-    EnableTrigger(gg_trg_Arena_Check)
-    EnableTrigger(gg_trg_Arena_PVP)
-    DisableTrigger(GetTriggeringTrigger())
-end
-
-function InitTrig_Arena_Accept()
-    gg_trg_Arena_Accept = CreateTrigger()
-    DisableTrigger(gg_trg_Arena_Accept)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(0), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(1), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(2), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(3), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(4), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(5), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(6), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(7), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(8), "-accept", true)
-    TriggerRegisterPlayerChatEvent(gg_trg_Arena_Accept, Player(9), "-accept", true)
-    TriggerAddCondition(gg_trg_Arena_Accept, Condition(Trig_Arena_Accept_Conditions))
-    TriggerAddAction(gg_trg_Arena_Accept, Trig_Arena_Accept_Actions)
-end
-
-function Trig_Arena_Check_Func008001001002()
-    return (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO) == true)
-end
-
-function Trig_Arena_Check_Conditions()
-    if (not (CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Arena, Condition(Trig_Arena_Check_Func008001001002))) == 0)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Check_Actions()
-    bj_forLoopAIndex = 1
-    bj_forLoopAIndexEnd = 11
-    while (true) do
-        if (bj_forLoopAIndex > bj_forLoopAIndexEnd) then break end
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(0), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(1), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(2), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(3), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(4), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(5), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(6), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(7), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(8), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(9), bj_ALLIANCE_ALLIED)
-        SetPlayerAllianceStateBJ(ConvertedPlayer(GetForLoopIndexA()), Player(10), bj_ALLIANCE_ALLIED)
-        bj_forLoopAIndex = bj_forLoopAIndex + 1
-    end
-    RemoveUnit(udg_ArenaMonster)
-    udg_ArenaChallengePlayer = ConvertedPlayer(11)
-    EnableTrigger(gg_trg_Arena_Challenge)
-    DisableTrigger(gg_trg_Arena_Accept)
-    DisableTrigger(gg_trg_Arena_PVP)
-    DisableTrigger(GetTriggeringTrigger())
-end
-
-function InitTrig_Arena_Check()
-    gg_trg_Arena_Check = CreateTrigger()
-    DisableTrigger(gg_trg_Arena_Check)
-    TriggerRegisterTimerEventPeriodic(gg_trg_Arena_Check, 10.00)
-    TriggerAddCondition(gg_trg_Arena_Check, Condition(Trig_Arena_Check_Conditions))
-    TriggerAddAction(gg_trg_Arena_Check, Trig_Arena_Check_Actions)
-end
-
-function Trig_Arena_PVP_Func017C()
-    if (GetOwningPlayer(GetTriggerUnit()) == udg_ArenaChallengePlayer) then
-        return true
-    end
-    if (GetOwningPlayer(GetTriggerUnit()) == udg_ArenaAcceptPlayer) then
-        return true
-    end
-    return false
-end
-
-function Trig_Arena_PVP_Func018C()
-    if (GetOwningPlayer(GetKillingUnitBJ()) == udg_ArenaChallengePlayer) then
-        return true
-    end
-    if (GetOwningPlayer(GetKillingUnitBJ()) == udg_ArenaAcceptPlayer) then
-        return true
-    end
-    return false
-end
-
-function Trig_Arena_PVP_Conditions()
-    if (not (RectContainsUnit(gg_rct_Arena, GetTriggerUnit()) == true)) then
-        return false
-    end
-    if (not (IsUnitType(GetTriggerUnit(), UNIT_TYPE_HERO) == true)) then
-        return false
-    end
-    if (not Trig_Arena_PVP_Func017C()) then
-        return false
-    end
-    if (not Trig_Arena_PVP_Func018C()) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func002C()
-    if (not (udg_ArenaRnd == 1)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func003C()
-    if (not (udg_ArenaRnd == 2)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func004C()
-    if (not (udg_ArenaRnd == 3)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func005C()
-    if (not (udg_ArenaRnd == 4)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func006C()
-    if (not (udg_ArenaRnd == 5)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func007C()
-    if (not (udg_ArenaRnd == 6)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func008C()
-    if (not (udg_ArenaRnd == 7)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func009C()
-    if (not (udg_ArenaRnd == 8)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func010C()
-    if (not (udg_ArenaRnd == 9)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func011C()
-    if (not (udg_ArenaRnd == 10)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011Func012C()
-    if (not (udg_ArenaRnd == 11)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func011C()
-    if (not (GetHeroLevel(GetDyingUnit()) >= 1)) then
-        return false
-    end
-    if (not (GetHeroLevel(GetDyingUnit()) <= 50)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func002C()
-    if (not (udg_ArenaRnd == 1)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func003C()
-    if (not (udg_ArenaRnd == 2)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func004C()
-    if (not (udg_ArenaRnd == 3)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func005C()
-    if (not (udg_ArenaRnd == 4)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func006C()
-    if (not (udg_ArenaRnd == 5)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func007C()
-    if (not (udg_ArenaRnd == 6)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func008C()
-    if (not (udg_ArenaRnd == 7)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func009C()
-    if (not (udg_ArenaRnd == 8)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func010C()
-    if (not (udg_ArenaRnd == 9)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012Func011C()
-    if (not (udg_ArenaRnd == 10)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func012C()
-    if (not (GetHeroLevel(GetDyingUnit()) >= 51)) then
-        return false
-    end
-    if (not (GetHeroLevel(GetDyingUnit()) <= 150)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func002C()
-    if (not (udg_ArenaRnd == 1)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func003C()
-    if (not (udg_ArenaRnd == 2)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func004C()
-    if (not (udg_ArenaRnd == 3)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func005C()
-    if (not (udg_ArenaRnd == 4)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func006C()
-    if (not (udg_ArenaRnd == 5)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func007C()
-    if (not (udg_ArenaRnd == 6)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func008C()
-    if (not (udg_ArenaRnd == 7)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func009C()
-    if (not (udg_ArenaRnd == 8)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func010C()
-    if (not (udg_ArenaRnd == 9)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013Func011C()
-    if (not (udg_ArenaRnd == 10)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func013C()
-    if (not (GetHeroLevel(GetDyingUnit()) >= 151)) then
-        return false
-    end
-    if (not (GetHeroLevel(GetDyingUnit()) <= 300)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func002C()
-    if (not (udg_ArenaRnd == 1)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func003C()
-    if (not (udg_ArenaRnd == 2)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func004C()
-    if (not (udg_ArenaRnd == 3)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func005C()
-    if (not (udg_ArenaRnd == 4)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func006C()
-    if (not (udg_ArenaRnd == 5)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func007C()
-    if (not (udg_ArenaRnd == 6)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func008C()
-    if (not (udg_ArenaRnd == 7)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func009C()
-    if (not (udg_ArenaRnd == 8)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func010C()
-    if (not (udg_ArenaRnd == 9)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func011C()
-    if (not (udg_ArenaRnd == 10)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014Func012C()
-    if (not (udg_ArenaRnd == 11)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Func014C()
-    if (not (GetHeroLevel(GetDyingUnit()) >= 301)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_PVP_Actions()
-    SetPlayerAllianceStateBJ(udg_ArenaAcceptPlayer, udg_ArenaChallengePlayer, bj_ALLIANCE_ALLIED)
-    SetPlayerAllianceStateBJ(udg_ArenaChallengePlayer, udg_ArenaAcceptPlayer, bj_ALLIANCE_ALLIED)
-    SetPlayerAllianceStateBJ(GetOwningPlayer(GetKillingUnitBJ()), Player(10), bj_ALLIANCE_ALLIED)
-    DisableTrigger(GetTriggeringTrigger())
-    EnableTrigger(gg_trg_Arena_Human_Wins)
-    DisplayTimedTextToForce(GetPlayersAll(), 20.00, (GetPlayerName(GetOwningPlayer(GetKillingUnitBJ())) .. " has won! and now has a chance to fight an arena monster and win prizes!"))
-    udg_Champion = GetKillingUnitBJ()
-    SetUnitLifePercentBJ(udg_Champion, 100)
-    SetUnitManaPercentBJ(udg_Champion, 100)
-    SetUnitPositionLocFacingBJ(udg_Champion, GetRectCenter(gg_rct_arena_5), 270.00)
-    if (Trig_Arena_PVP_Func011C()) then
-        udg_ArenaRnd = GetRandomInt(1, 11)
-        if (Trig_Arena_PVP_Func011Func002C()) then
-            CreateNUnitsAtLoc(1, FourCC("n002"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func003C()) then
-            CreateNUnitsAtLoc(1, FourCC("n005"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func004C()) then
-            CreateNUnitsAtLoc(1, FourCC("n006"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func005C()) then
-            CreateNUnitsAtLoc(1, FourCC("n003"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func006C()) then
-            CreateNUnitsAtLoc(1, FourCC("n007"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func007C()) then
-            CreateNUnitsAtLoc(1, FourCC("n000"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func008C()) then
-            CreateNUnitsAtLoc(1, FourCC("n004"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func009C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02J"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func010C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02K"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func011C()) then
-            CreateNUnitsAtLoc(1, FourCC("n012"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func011Func012C()) then
-            CreateNUnitsAtLoc(1, FourCC("n00J"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-    else
-    end
-    if (Trig_Arena_PVP_Func012C()) then
-        udg_ArenaRnd = GetRandomInt(1, 10)
-        if (Trig_Arena_PVP_Func012Func002C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02L"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func003C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02M"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func004C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02N"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func005C()) then
-            CreateNUnitsAtLoc(1, FourCC("n025"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func006C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02O"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func007C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02P"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func008C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02Q"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func009C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02R"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func010C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02S"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func012Func011C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02T"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-    else
-    end
-    if (Trig_Arena_PVP_Func013C()) then
-        udg_ArenaRnd = GetRandomInt(1, 10)
-        if (Trig_Arena_PVP_Func013Func002C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02U"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func003C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02V"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func004C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02W"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func005C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02X"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func006C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02Z"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func007C()) then
-            CreateNUnitsAtLoc(1, FourCC("n02Y"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func008C()) then
-            CreateNUnitsAtLoc(1, FourCC("n030"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func009C()) then
-            CreateNUnitsAtLoc(1, FourCC("n031"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func010C()) then
-            CreateNUnitsAtLoc(1, FourCC("n032"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func013Func011C()) then
-            CreateNUnitsAtLoc(1, FourCC("O000"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            UnitAddItemByIdSwapped(FourCC("I024"), GetLastCreatedUnit())
-            UnitAddItemByIdSwapped(FourCC("I02N"), GetLastCreatedUnit())
-            UnitAddItemByIdSwapped(FourCC("I004"), GetLastCreatedUnit())
-            UnitAddItemByIdSwapped(FourCC("I012"), GetLastCreatedUnit())
-            UnitAddItemByIdSwapped(FourCC("I01I"), GetLastCreatedUnit())
-            SetHeroLevelBJ(GetLastCreatedUnit(), 75, false)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-    else
-    end
-    if (Trig_Arena_PVP_Func014C()) then
-        udg_ArenaRnd = GetRandomInt(1, 11)
-        if (Trig_Arena_PVP_Func014Func002C()) then
-            CreateNUnitsAtLoc(1, FourCC("n033"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func003C()) then
-            CreateNUnitsAtLoc(1, FourCC("n035"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func004C()) then
-            CreateNUnitsAtLoc(1, FourCC("n036"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func005C()) then
-            CreateNUnitsAtLoc(1, FourCC("n037"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func006C()) then
-            CreateNUnitsAtLoc(1, FourCC("n038"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func007C()) then
-            CreateNUnitsAtLoc(1, FourCC("n039"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func008C()) then
-            CreateNUnitsAtLoc(1, FourCC("n03A"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func009C()) then
-            CreateNUnitsAtLoc(1, FourCC("h021"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func010C()) then
-            CreateNUnitsAtLoc(1, FourCC("n03B"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func011C()) then
-            CreateNUnitsAtLoc(1, FourCC("n03C"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-        if (Trig_Arena_PVP_Func014Func012C()) then
-            CreateNUnitsAtLoc(1, FourCC("n03D"), Player(10), GetRectCenter(gg_rct_Arena_monster), 90.00)
-            udg_ArenaMonster = GetLastCreatedUnit()
-        else
-        end
-    else
-    end
-end
-
-function InitTrig_Arena_PVP()
-    gg_trg_Arena_PVP = CreateTrigger()
-    DisableTrigger(gg_trg_Arena_PVP)
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Arena_PVP, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddCondition(gg_trg_Arena_PVP, Condition(Trig_Arena_PVP_Conditions))
-    TriggerAddAction(gg_trg_Arena_PVP, Trig_Arena_PVP_Actions)
-end
-
-function Trig_Arena_Human_Wins_Conditions()
-    if (not (GetDyingUnit() == udg_ArenaMonster)) then
-        return false
-    end
-    if (not (GetKillingUnitBJ() == udg_Champion)) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func006C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n002"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func007C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n005"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func008C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n006"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func009C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n003"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func010C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n007"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func011C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n000"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func012C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n004"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func013C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02J"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func014C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02K"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func015C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n012"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func016C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n00J"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func017C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02L"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func018C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02M"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func019C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02N"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func020C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n025"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func021C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02O"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func022C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02P"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func023C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02Q"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func024C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02R"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func025C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02S"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func026C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02T"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func027C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02U"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func028C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02V"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func029C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02W"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func030C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02X"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func031C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02Z"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func032C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n02Y"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func033C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n030"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func034C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n031"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func035C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n032"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func036C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("O000"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func037C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n033"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func038C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n035"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func039C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n036"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func040C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n037"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func041C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n038"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func042C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n039"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func043C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n03A"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func044C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("h021"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func045C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n03B"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func046C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n03C"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Func047C()
-    if (not (GetUnitTypeId(GetDyingUnit()) == FourCC("n03D"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Arena_Human_Wins_Actions()
-    PauseTimerBJ(false, udg_Arena)
-    SetUnitPositionLoc(udg_Champion, GetRectCenter(gg_rct_revive))
-    DisplayTimedTextToForce(GetPlayersAll(), 10.00, "TRIGSTR_5814")
-    RemoveUnit(udg_ArenaMonster)
-    if (Trig_Arena_Human_Wins_Func006C()) then
-        CreateItemLoc(FourCC("I02T"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func007C()) then
-        CreateItemLoc(FourCC("I02S"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func008C()) then
-        CreateItemLoc(FourCC("I01B"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func009C()) then
-        CreateItemLoc(FourCC("I02P"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func010C()) then
-        CreateItemLoc(FourCC("I05M"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func011C()) then
-        CreateItemLoc(FourCC("I02F"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func012C()) then
-        CreateItemLoc(FourCC("I02R"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func013C()) then
-        CreateItemLoc(FourCC("I079"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func014C()) then
-        CreateItemLoc(FourCC("I07R"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func015C()) then
-        CreateItemLoc(FourCC("I00X"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func016C()) then
-        CreateItemLoc(FourCC("I05E"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func017C()) then
-        CreateItemLoc(FourCC("I06B"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func018C()) then
-        CreateItemLoc(FourCC("I07Y"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func019C()) then
-        CreateItemLoc(FourCC("I031"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-        CreateItemLoc(FourCC("I030"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func020C()) then
-        CreateItemLoc(FourCC("I07Z"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func021C()) then
-        CreateItemLoc(FourCC("I07F"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func022C()) then
-        CreateItemLoc(FourCC("I076"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func023C()) then
-        CreateItemLoc(FourCC("I077"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func024C()) then
-        CreateItemLoc(FourCC("I07E"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func025C()) then
-        CreateItemLoc(FourCC("I07G"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func026C()) then
-        CreateItemLoc(FourCC("I060"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func027C()) then
-        CreateItemLoc(FourCC("I01U"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func028C()) then
-        CreateItemLoc(FourCC("I022"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func029C()) then
-        CreateItemLoc(FourCC("I07P"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func030C()) then
-        CreateItemLoc(FourCC("I03E"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func031C()) then
-        CreateItemLoc(FourCC("I07H"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-        CreateItemLoc(FourCC("I04C"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func032C()) then
-        CreateItemLoc(FourCC("I078"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func033C()) then
-        CreateItemLoc(FourCC("I06Y"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func034C()) then
-        CreateItemLoc(FourCC("I03B"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func035C()) then
-        CreateItemLoc(FourCC("I07I"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func036C()) then
-        CreateItemLoc(FourCC("I024"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func037C()) then
-        CreateItemLoc(FourCC("I06P"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func038C()) then
-        CreateItemLoc(FourCC("I07N"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func039C()) then
-        CreateItemLoc(FourCC("I048"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func040C()) then
-        CreateItemLoc(FourCC("I07T"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func041C()) then
-        CreateItemLoc(FourCC("I074"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func042C()) then
-        CreateItemLoc(FourCC("I07M"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func043C()) then
-        CreateItemLoc(FourCC("I080"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func044C()) then
-        CreateItemLoc(FourCC("I081"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func045C()) then
-        CreateItemLoc(FourCC("I025"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func046C()) then
-        CreateItemLoc(FourCC("I082"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-    if (Trig_Arena_Human_Wins_Func047C()) then
-        CreateItemLoc(FourCC("I084"), GetPlayerStartLocationLoc(GetOwningPlayer(GetKillingUnitBJ())))
-    else
-    end
-end
-
-function InitTrig_Arena_Human_Wins()
-    gg_trg_Arena_Human_Wins = CreateTrigger()
-    DisableTrigger(gg_trg_Arena_Human_Wins)
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Arena_Human_Wins, EVENT_PLAYER_UNIT_DEATH)
-    TriggerAddCondition(gg_trg_Arena_Human_Wins, Condition(Trig_Arena_Human_Wins_Conditions))
-    TriggerAddAction(gg_trg_Arena_Human_Wins, Trig_Arena_Human_Wins_Actions)
-end
-
 function InitCustomTriggers()
     InitTrig_Unit_References()
-    InitTrig_Glass_repair()
-    InitTrig_Glass_repair_yes()
-    InitTrig_Glass_repair_no()
-    InitTrig_Secret_Sam()
-    InitTrig_Masters()
-    InitTrig_secret_summoning()
-    InitTrig_Gold_shroom()
-    InitTrig_Secret_seals()
     InitTrig_turtle_1()
     InitTrig_turtle_2()
     InitTrig_turtle_3()
@@ -15528,11 +14028,6 @@ function InitCustomTriggers()
     InitTrig_lv_40_less()
     InitTrig_lv_40()
     InitTrig_lv_100()
-    InitTrig_Arena_Challenge()
-    InitTrig_Arena_Accept()
-    InitTrig_Arena_Check()
-    InitTrig_Arena_PVP()
-    InitTrig_Arena_Human_Wins()
 end
 
 function InitCustomPlayerSlots()
