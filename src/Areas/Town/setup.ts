@@ -13,7 +13,7 @@ defeat the arena monster to win`
 }
 
 //===========================================================================
-function initSetup() {
+export function initSetup() {
     let trigger = CreateTrigger(  )
     TriggerRegisterTimerEventSingle( trigger, 1.00 )
     TriggerAddAction( trigger, () => setup() )

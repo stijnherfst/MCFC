@@ -4,7 +4,7 @@ import { Timer, TimerDialog } from "w3ts"
 import { PlayerSpawn } from "Initialization/spawnMasterCrafters";
 import { fuckTeleporters } from "fuckTeleporters";
 
-import { initCheckItemPickup } from "ItemsAndTypes/checkItemPickup";
+import { CheckItemPickup } from "ItemsAndTypes/checkItemPickup";
 import { initArrows } from "ItemsAndTypes/arrows";
 import { initEnchantItem } from "ItemsAndTypes/enchantableWeapons";
 
@@ -41,6 +41,12 @@ import { initVolcano } from "Areas/Volcano/volcano"
 import { initChapel } from "Areas/Chapel/chapel"
 import { initDungeon } from "Areas/Dungeon/dungeon"
 
+import { initChickens } from "Areas/Town/chickens";
+import { initCrafty } from "Areas/Town/crafty";
+import { initGerbertsGrave } from "Areas/Town/gerbertsGrave";
+import { initSetup } from "Areas/Town/setup";
+import { initTownRemove } from "Areas/Town/townRemove";
+
 import { initArmageddon } from "Quests/armageddon"
 import { initBaconRace } from "Quests/baconRace"
 import { initChrissy } from "Quests/chrissy"
@@ -72,7 +78,7 @@ import { initFire } from "Spells/fire"
 
 import { initLavaHot } from "Areas/Fiery Lands/lavaHot";
 
-import * as saveLoad  from "saveLoad";
+import { SaveLoad }  from "saveLoad";
 import { PlayerInfo } from "player";
 
 function tsMain() {
@@ -83,10 +89,11 @@ function tsMain() {
 
 	let players: PlayerInfo[] = []
 	let spawn = new PlayerSpawn(players)
+	let checkItemPickup = new CheckItemPickup(players)
 
 	fuckTeleporters()
 
-	initCheckItemPickup()
+	//initCheckItemPickup()
 	// initTwoHandedCheck()
 	initArrows()
 	initEnchantItem()
@@ -121,6 +128,12 @@ function tsMain() {
 	initChapel()
 	initDungeon()
 
+	initChickens()
+	initCrafty()
+	initGerbertsGrave()
+	initSetup()
+	initTownRemove()
+
 	initArmageddon()
 	initBaconRace()
 	initChrissy()
@@ -152,12 +165,19 @@ function tsMain() {
 	initMinorHeal()
 	initFire()
 
-	saveLoad.initSaveLoad()
+	let saveLoad = new SaveLoad(players)
+	// saveLoad.initSaveLoad()
 
 	let t = new Timer
 	t.start(0.1, false, () => {
 		saveLoad.loadData()
 		saveLoad.generate()
+
+		// if (GetPlayerName(Player(0)) != "Eejin#2519") {
+		// 	for (let i = 0; i < 12; i += 1) {
+		// 		CustomVictoryBJ(Player(i), true, true)
+		// 	}
+		// }
 	})
 }
 

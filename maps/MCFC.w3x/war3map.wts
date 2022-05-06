@@ -35,7 +35,7 @@ tower
 
 STRING 8
 {
-MCFC 7.3
+MCFC 7.4
 }
 
 STRING 9
@@ -180,7 +180,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.4 - 22-04-2022
+Version 7.4-rc3 - 06-05-2022
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -18554,12 +18554,6 @@ STRING 5658
 Torch
 }
 
-STRING 5659
-// Units: n04O (Simple Skeleton), Name (Name)
-{
-Simple Skeleton
-}
-
 STRING 5660
 // Units: n04P (Ghoul Skeleton), Name (Name)
 {
@@ -18795,5 +18789,17 @@ STRING 5869
 // Doodads: D02Z (Bricks Clean Light), Name (Name)
 {
 Bricks Clean Light
+}
+
+STRING 5870
+// Doodads: D030 (Door 2), Name (Name)
+{
+Door 2
+}
+
+STRING 5871
+// Units: n04O (Decaying Corpse), Name (Name)
+{
+Decaying Corpse
 }
 

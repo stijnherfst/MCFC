@@ -1,7 +1,8 @@
 import { itemTypes } from "ItemsAndTypes/itemTypes"
 import { typeFamilies } from "ItemsAndTypes/typeFamilies"
+import { PlayerInfo } from "player";
 
-export function changeType() {
+export function changeType(players: PlayerInfo[]) {
 	if (GetItemType(GetManipulatedItem()) != ITEM_TYPE_ARTIFACT) {
 		return;
 	}
@@ -66,10 +67,8 @@ export function changeType() {
 	SetUnitState(bj_lastCreatedUnit, UNIT_STATE_LIFE, hp);
 	SetUnitState(bj_lastCreatedUnit, UNIT_STATE_MANA, mp);
 	
-	for (let i = 0; i < 7; i++) {
-		//let temp_ability = abilities[playerAbilities[GetPlayerId(GetOwningPlayer(bj_lastCreatedUnit)) * 7 + i]]
-		//UnitAddAbility(bj_lastCreatedUnit, temp_ability)
-		//SetUnitAbilityLevel(bj_lastCreatedUnit, temp_ability, GetUnitAbilityLevel(GetTriggerUnit(), temp_ability))
+	for (let ability of players[GetPlayerId(GetTriggerPlayer())].abilities) {
+		UnitAddAbility(bj_lastCreatedUnit, ability)
 	}
 	
 	if (GetLocalPlayer() == GetOwningPlayer(bj_lastCreatedUnit)) {

@@ -4,7 +4,7 @@ function gerbertsGrave() {
     DisableTrigger( GetTriggeringTrigger() )
 }
 
-function initGerbertsGrave() {
+export function initGerbertsGrave() {
     let trigger = CreateTrigger(  )
     TriggerRegisterEnterRectSimple( trigger, gg_rct_GraveRegion )
     TriggerAddAction( trigger, () => gerbertsGrave() )

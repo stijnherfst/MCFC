@@ -27,7 +27,7 @@ function chickenDies() {
     CreateNUnitsAtLoc( 1, FourCC('n01O'), Player(PLAYER_NEUTRAL_PASSIVE), GetRectCenter(gg_rct_chicken_zone), bj_UNIT_FACING )
 }
 
-function initChickens() {
+export function initChickens() {
     let trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple( trigger, gg_rct_chicken_return )
     TriggerAddAction( trigger, () => johnsText )

@@ -248,10 +248,22 @@ function checkVolcanoEmpty() {
     g.destroy()
 }
 
+function runAway() {
+    if (GetOwningPlayer(GetTriggerUnit()) != Player(11)) {
+        return
+    }
+
+    SetUnitPositionLoc(GetTriggerUnit(), GetRectCenter(gg_rct_VolcanoRunAway))
+}
+
 export function initVolcano() {
     enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_Enter_The_Volcano )
     TriggerAddAction(enterTrigger, () => showMessage())
+
+    let otherEnemyEnters = CreateTrigger()
+    TriggerRegisterEnterRectSimple(otherEnemyEnters, gg_rct_Volcano_Surroundings )
+    TriggerAddAction(otherEnemyEnters, () => runAway())
 
     healerTrigger = CreateTrigger()
     DisableTrigger(healerTrigger)
