@@ -69,7 +69,7 @@ export function initSatansHelper() {
 
     let baconMoveTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(baconMoveTrigger, gg_rct_Bacon_move)
-    TriggerAddAction(baconSpawnTrigger, () => baconMove())
+    TriggerAddAction(baconMoveTrigger, () => baconMove())
 
     let baconRemoveTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(baconRemoveTrigger, gg_rct_Bacon_Remove)

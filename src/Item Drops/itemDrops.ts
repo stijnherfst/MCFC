@@ -36,7 +36,7 @@ const drops : Record<string, Array<Drop>> = {
 		{ itemID: FourCC('I08K'), chance: 2 },   	// Hat
 		{ itemID: FourCC('I099'), chance: 1.66 },	// Shoulder Guards
 		{ itemID: FourCC('I09O'), chance: 3.33 },	// Adderal
-		{ itemID: FourCC('I050'), chance: 3.33 },	// Bacon
+		// { itemID: FourCC('I050'), chance: 3.33 },	// Bacon
 	],
 
 	// Toxic Spider

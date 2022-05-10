@@ -5,7 +5,7 @@ export function initMisc() {
     AddSpecialEffectTarget("war3mapImported\\NSRPG_sword_lightblade.mdx", gg_unit_h02P_0347, "hand,right")
     AddSpecialEffectTarget("war3mapImported\\RuneSphere.mdx", gg_unit_h02S_0351, "hand,right")
 
-    SetPlayerState(Player(12), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(Player(11), PLAYER_STATE_GIVES_BOUNTY, 1)
 
     SetDestructableInvulnerable(gg_dest_B000_1013, true)
     ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B000_1013)
@@ -29,4 +29,7 @@ export function initMisc() {
         unit.getItemInSlot(5).setDropOnDeath(false)
         return false;
     }))
+
+    PanCameraToTimed(GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), 0)
+    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2300, 3)
 }

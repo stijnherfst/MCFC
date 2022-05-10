@@ -66,20 +66,20 @@ export class CheckItemPickup {
 	// Checks whether the player owns the item and doesn't already have one of the same class (hat, weapon, gloves, ...)
 	checkPickup() {
 		if (!this.ownsItem(GetManipulatedItem(), GetTriggerPlayer())) {
-			UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetUnitLoc(GetTriggerUnit()))
+			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
 			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You don't own this item")
 			return;
 		}
 
 		let item_type = GetItemType(GetManipulatedItem());
 		if (item_type != ITEM_TYPE_UNKNOWN && this.ownedItemClassCount(GetTriggerUnit(), item_type) > 1) {
-			UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetItemLoc(GetManipulatedItem()))
-			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You already have this item type")
+			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You are already wearing this type of item!")
 			return;
 		}
 
 		if (this.twoHandedCheck(GetTriggerUnit(), GetManipulatedItem())) {
-			UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetUnitLoc(GetTriggerUnit()))
+			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
 			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "Your left hand is not free for this awesome weapon/shield")
 			return;
 		}

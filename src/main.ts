@@ -80,6 +80,7 @@ import { initLavaHot } from "Areas/Fiery Lands/lavaHot";
 
 import { SaveLoad }  from "saveLoad";
 import { PlayerInfo } from "player";
+import { ChangeTypeBySpell } from "ItemsAndTypes/changeTypeBySpell";
 
 function tsMain() {
 	BlzLoadTOCFile("war3mapImported/ui.toc")
@@ -90,6 +91,7 @@ function tsMain() {
 	let players: PlayerInfo[] = []
 	let spawn = new PlayerSpawn(players)
 	let checkItemPickup = new CheckItemPickup(players)
+	let changeTypeBySpell = new ChangeTypeBySpell(players)
 
 	fuckTeleporters()
 
@@ -166,18 +168,11 @@ function tsMain() {
 	initFire()
 
 	let saveLoad = new SaveLoad(players)
-	// saveLoad.initSaveLoad()
 
 	let t = new Timer
 	t.start(0.1, false, () => {
 		saveLoad.loadData()
 		saveLoad.generate()
-
-		// if (GetPlayerName(Player(0)) != "Eejin#2519") {
-		// 	for (let i = 0; i < 12; i += 1) {
-		// 		CustomVictoryBJ(Player(i), true, true)
-		// 	}
-		// }
 	})
 }
 

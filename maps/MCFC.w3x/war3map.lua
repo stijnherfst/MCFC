@@ -181,6 +181,9 @@ gg_rct_Dungeon_Rush_1 = nil
 gg_rct_Dungeon_Rush_2 = nil
 gg_rct_Dungeon_Rush_3 = nil
 gg_rct_Dungeon_Rush_4 = nil
+gg_rct_Volcano_Surroundings = nil
+gg_rct_VolcanoRunAway = nil
+gg_rct_Overworld = nil
 gg_cam_Arena = nil
 gg_cam_Air_Fortress = nil
 gg_cam_Shroom_Cam = nil
@@ -442,9 +445,6 @@ gg_unit_n01E_0023 = nil
 gg_unit_h03L_0679 = nil
 gg_dest_B000_1013 = nil
 gg_dest_B004_13629 = nil
-gg_rct_Volcano_Surroundings = nil
-gg_rct_VolcanoRunAway = nil
-gg_rct_Overworld = nil
 function InitGlobals()
     local i = 0
     udg_RealVar = 0.0
@@ -1026,13 +1026,9 @@ end
 
 function CreateAllItems()
     local itemID
-    BlzCreateItemWithSkin(FourCC("I01P"), 14297.2, -14768.7, FourCC("I01P"))
-    BlzCreateItemWithSkin(FourCC("I023"), 14305.3, -14389.5, FourCC("I023"))
-    BlzCreateItemWithSkin(FourCC("I03M"), -1946.4, -12659.0, FourCC("I03M"))
     BlzCreateItemWithSkin(FourCC("I03M"), -1683.9, -13528.0, FourCC("I03M"))
+    BlzCreateItemWithSkin(FourCC("I03M"), -1946.4, -12659.0, FourCC("I03M"))
     BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
-    BlzCreateItemWithSkin(FourCC("I03T"), 14345.4, -14542.0, FourCC("I03T"))
-    BlzCreateItemWithSkin(FourCC("I08D"), 14331.6, -14668.6, FourCC("I08D"))
 end
 
 function CreateUnitsForPlayer0()

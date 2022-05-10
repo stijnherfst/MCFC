@@ -22,6 +22,7 @@ function start() {
         DisableTrigger(checkpoint2Trigger)
         DisableTrigger(winTrigger)
         DisplayTimedTextToForce(GetPlayersAll(), 30, "Sorry porker you were 2 slow to win this bacon race better luck next time")
+        EnableTrigger(startTrigger)
     })
     
     DisplayTimedTextToForce(GetPlayersAll(), 10, "Bacon Jokey: think you got what it takes to become prime speed bacon material? well race to the top of the vampire world and then to koronas grave then back here in under 4 minutes and i'll train you! ready GO!")
