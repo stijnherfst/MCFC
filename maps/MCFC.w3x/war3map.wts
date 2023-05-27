@@ -46,7 +46,9 @@ STRING 9
 STRING 10
 {
 Final saga of the master crafters.
-Updated and improved.
+
+Join our Discord: https://discord.gg/jRaWAGj
+For news, updates and hosting announcements.
 }
 
 STRING 11
@@ -180,7 +182,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.4-rc4 - 10-05-2022
+Version 7.4-rc5 27-05-2023
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -18801,5 +18803,23 @@ STRING 5871
 // Units: n04O (Decaying Corpse), Name (Name)
 {
 Decaying Corpse
+}
+
+STRING 5873
+// Doodads: D031 (Floor Cobblestone 1), Name (Name)
+{
+Floor Cobblestone 1
+}
+
+STRING 5874
+// Doodads: D032 (Floor Cobblestone 2), Name (Name)
+{
+Floor Cobblestone 2
+}
+
+STRING 5875
+// Units: n04R (Weapons Market), Name (Name)
+{
+Weapons Market
 }
 

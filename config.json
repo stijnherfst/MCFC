@@ -6,6 +6,11 @@
   "launchArgs": [
     "-launch",
     "-windowmode",
-    "windowed"
+    "windowed",
+    "-testmapprofile",
+    "Eejin#2519",
+    "-hd",
+    "0",
+    "-nowfpause"
   ]
 }

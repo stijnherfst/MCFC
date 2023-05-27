@@ -177,11 +177,11 @@ export class SaveLoad {
 					let code = codes[index]
 					new SyncRequest(MapPlayer.fromEvent(), code).then((res, req) => {
 						code = res.data
+						if (code == "") {
+							return;
+						}
+						this.loadCode(code)
 					});
-					if (code == "") {
-						return;
-					}
-					this.loadCode(code)
 				} else {
 					let tuple = this.generateCode()
 					if (GetLocalPlayer() === GetTriggerPlayer()) {
