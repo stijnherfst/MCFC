@@ -1,5 +1,5 @@
-import { typeFamilies, typeToFortified, typeToDivine, typeToFlying } from "ItemsAndTypes/typeFamilies"
-import { PlayerInfo } from "player";
+import { typeFamilies, typeToFortified, typeToDivine, typeToFlying } from "../ItemsAndTypes/typeFamilies"
+import { PlayerInfo } from "../player";
 
 export class ChangeTypeBySpell {
 	constructor(

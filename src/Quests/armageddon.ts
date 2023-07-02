@@ -4,7 +4,7 @@ let timer = CreateTimer()
 let hunt: trigger;
 
 function startTimer() {
-    StartTimerBJ(timer, false, 5000.00 )
+    TimerStart(timer, 5000.0, false, null)
     timerWindow = CreateTimerDialogBJ(timer, "Armageddon...")
 }
 

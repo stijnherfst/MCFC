@@ -1,6 +1,6 @@
-import { itemTypes } from "ItemsAndTypes/itemTypes"
-import { typeFamilies } from "ItemsAndTypes/typeFamilies"
-import { PlayerInfo } from "player";
+import { itemTypes } from "../ItemsAndTypes/itemTypes"
+import { typeFamilies } from "../ItemsAndTypes/typeFamilies"
+import { PlayerInfo } from "../player";
 
 export function changeType(players: PlayerInfo[]) {
 	if (GetItemType(GetManipulatedItem()) != ITEM_TYPE_ARTIFACT) {

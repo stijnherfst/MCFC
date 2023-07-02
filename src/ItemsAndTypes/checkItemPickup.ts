@@ -1,6 +1,6 @@
-import { changeType } from "ItemsAndTypes/changeTypeByItem"
-import { twoHandedItems } from "ItemsAndTypes/twoHandedCheck"
-import { PlayerInfo } from "player";
+import { changeType } from "../ItemsAndTypes/changeTypeByItem"
+import { twoHandedItems } from "../ItemsAndTypes/twoHandedCheck"
+import { PlayerInfo } from "../player";
 
 export class CheckItemPickup {
 	constructor(

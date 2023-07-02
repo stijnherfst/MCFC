@@ -14,7 +14,7 @@ function goldenChickenDies() {
     }
 
     DisplayTextToForce( GetPlayersAll(), "The gold chicken has been killed! all players gain +1 level" )
-    ForGroupBJ( GetUnitsInRectMatching(GetPlayableMapRect(), () => IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)), () => SetHeroLevelBJ( GetEnumUnit(), ( GetHeroLevel(GetEnumUnit()) + 1 ), false ))
+    ForGroupBJ( GetUnitsInRectMatching(GetPlayableMapRect(), Condition(() => IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO))), () => SetHeroLevelBJ( GetEnumUnit(), ( GetHeroLevel(GetEnumUnit()) + 1 ), false ))
 }
 
 function goldChickenReturn() {

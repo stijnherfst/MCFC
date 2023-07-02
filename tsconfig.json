@@ -1,27 +1,31 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "allowJs": true,
-    "target": "es2016",
+    "strict": true,
+    "strictNullChecks": false,
+    "allowJs": false,
+    "outDir": ".",
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
     "lib": [
-      "es2016"
+      "ESNext"
     ],
-    "moduleResolution": "classic",
+    "moduleResolution": "node",
     "paths": {
-      "*": [
-        "../node_modules/*/src/index",
-        "../node_modules/*/lib/index",
-        "../node_modules/*/index",
-        "../node_modules/*/dist/index",
-        "../node_modules/*"
+      "@objectdata/*": [
+        "./node_modules/war3-objectdata-th/dist/cjs/generated/constants/*"
       ]
     },
     "plugins": [
       {
-        "transform": "war3-transformer"
+        "transform": "war3-transformer",
+        "mapDir": "C:/Users/User/stack/Projects/MCFC/MCFC/maps/MCFC.w3x",
+        "entryFile": "C:/Users/User/stack/Projects/MCFC/MCFC/src/main.ts",
+        "outputDir": "C:/Users/User/stack/Projects/MCFC/MCFC/dist/MCFC.w3x"
       }
     ],
     "types": [
+      "@typescript-to-lua/language-extensions",
       "lua-types/core/coroutine",
       "lua-types/core/global",
       "lua-types/core/math",
@@ -31,13 +35,9 @@
       "lua-types/core/table",
       "lua-types/core/os",
       "lua-types/special/5.3",
-      "war3-types/core/compat",
-      "war3-types/core/common",
-      "war3-types/core/blizzard",
-      "war3-types/core/commonai",
-      "war3-types/core/polyfill",
-      "war3-types/special/w3ts",
-      "mdx-m3-viewer/src/types"
+      "war3-types-strict/1.33.0",
+      "war3-transformer/types",
+      "war3-objectdata-th/dist/cjs/objectdata"
     ]
   },
   "include": [
@@ -50,6 +50,11 @@
     "luaLibImport": "require",
     "noImplicitSelf": true,
     "luaBundle": "dist/tstl_output.lua",
-    "luaBundleEntry": "./src/main.ts"
+    "luaBundleEntry": "./src/main.ts",
+    "sourceMapTraceback": false,
+    "noResolvePaths": [
+      "typescript",
+      "typescript-to-lua"
+    ]
   }
 }

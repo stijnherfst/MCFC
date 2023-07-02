@@ -1,10 +1,18 @@
 import * as fs from "fs-extra";
 import * as path from "path";
-import War3Map from "mdx-m3-viewer/src/parsers/w3x/map";
+import War3Map from "mdx-m3-viewer-th/dist/cjs/parsers/w3x/map"
 import { compileMap, getFilesInDirectory, loadJsonFile, logger, toArrayBuffer, IProjectConfig } from "./utils";
 
 function main() {
   const config: IProjectConfig = loadJsonFile("config.json");
+  const minify = process.argv[2] === '-minify' || config.minifyScript
+
+  if(minify !== config.minifyScript){
+    logger.warn(`minifyScript has been overridden by command line argument "-minify"`)
+    config.minifyScript = minify
+  }
+
+
   const result = compileMap(config);
 
   if (!result) {

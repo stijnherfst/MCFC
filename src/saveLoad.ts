@@ -1,5 +1,5 @@
-import { maxAbilities, PlayerInfo } from "player"
-import { BinaryReader, BinaryWriter, Group, Unit, MapPlayer, File, SyncRequest, base64Encode, base64Decode, Item} from "w3ts"
+import { maxAbilities, PlayerInfo } from "./player"
+import { BinaryReader, BinaryWriter, Group, Unit, MapPlayer, File, SyncRequest, base64Encode, base64Decode, Item, Trigger} from "w3ts"
 
 let dialog : framehandle
 let title : framehandle
@@ -174,14 +174,12 @@ export class SaveLoad {
 			const index = i
 			TriggerAddAction(loadTrigger, () => {
 				if (this.modes[GetPlayerId(GetTriggerPlayer())] === Mode.load) {
-					let code = codes[index]
-					new SyncRequest(MapPlayer.fromEvent(), code).then((res, req) => {
-						code = res.data
-						if (code == "") {
-							return;
-						}
-						this.loadCode(code)
+					const t = Trigger.create();
+					t.registerPlayerSyncEvent(MapPlayer.fromEvent(), "load", false);
+					t.addAction(() => {
+						this.loadCode(BlzGetTriggerSyncData());
 					});
+					BlzSendSyncData("load", codes[index]);
 				} else {
 					let tuple = this.generateCode()
 					if (GetLocalPlayer() === GetTriggerPlayer()) {

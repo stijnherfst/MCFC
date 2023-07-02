@@ -1,7 +1,11 @@
 function secretSeal() {
+    DisplayTimedTextToForce(GetPlayersAll(), 40.00, "AAAAAAAAAAAA")
+    print(GetItemTypeId(GetManipulatedItem()))
+    print(FourCC('I08E'))
     if (GetItemTypeId(GetManipulatedItem()) != FourCC('I08E')) {
         return
     }
+    print("Got past")
 
     DisableTrigger(GetTriggeringTrigger())
     ForGroupBJ(GetUnitsOfTypeIdAll(FourCC('n025')), () => SetUnitPositionLocFacingBJ(gg_unit_n026_0148, GetRectCenter(gg_rct_penguinmove), 235.00))
@@ -82,6 +86,7 @@ function secretSeal() {
 }
 
 export function initSecretSeal() {
+    DisplayTimedTextToForce(GetPlayersAll(), 40.00, "BOIIIIIIIIIII")
     let secretSealTrigger = CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(secretSealTrigger, EVENT_PLAYER_UNIT_USE_ITEM)
     TriggerAddAction(secretSealTrigger, () => secretSeal)

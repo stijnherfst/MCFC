@@ -1,4 +1,4 @@
-import { PlayerInfo } from "player"
+import { PlayerInfo } from "../player"
 
 export class PlayerSpawn {
 	constructor(

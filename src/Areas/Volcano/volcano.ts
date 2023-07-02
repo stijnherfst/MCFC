@@ -205,7 +205,7 @@ function showMessage() {
 
 
 function spawnHealer() {
-    let healerCount = CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, () => GetUnitTypeId(GetFilterUnit()) == FourCC('n04G')))
+    let healerCount = CountUnitsInGroup(GetUnitsInRectMatching(gg_rct_Volcano_Challenge, Condition(() => GetUnitTypeId(GetFilterUnit()) == FourCC('n04G'))))
     if (healerCount > 1 ) {
         return
     }
