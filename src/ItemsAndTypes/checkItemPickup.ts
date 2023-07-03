@@ -67,20 +67,20 @@ export class CheckItemPickup {
 	checkPickup() {
 		if (!this.ownsItem(GetManipulatedItem(), GetTriggerPlayer())) {
 			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
-			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You don't own this item")
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You don't own this item")
 			return;
 		}
 
 		let item_type = GetItemType(GetManipulatedItem());
 		if (item_type != ITEM_TYPE_UNKNOWN && this.ownedItemClassCount(GetTriggerUnit(), item_type) > 1) {
 			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
-			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You are already wearing this type of item!")
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You are already wearing this type of item!")
 			return;
 		}
 
 		if (this.twoHandedCheck(GetTriggerUnit(), GetManipulatedItem())) {
 			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
-			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "Your left hand is not free for this awesome weapon/shield")
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "Your left hand is not free for this awesome weapon/shield")
 			return;
 		}
 

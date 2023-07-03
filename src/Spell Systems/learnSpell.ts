@@ -115,7 +115,6 @@ export class LearnSpell {
 	}
 
 	learnSpell() {
-        DisplayTimedTextToForce(GetPlayersAll(), 40.00, "BBBBBBBB")
 		let itemID = GetItemTypeId(GetManipulatedItem());
 		if (!spellToAbility.has(itemID)) {
 			return

@@ -63,14 +63,18 @@ export class SaveLoad {
 		}
 		
 		// Remove old hero
-		let g = new Group()
-		g.enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(() => !IsUnitType(GetEnumUnit(), UNIT_TYPE_HERO)))
-		const u = g.first
-		g.first.destroy()
+		let old_facing = 0.0;
+		Group.create().enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(function yeet() {
+			if (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)) {
+				old_facing = Group.getFilterUnit().facing;
+				RemoveUnit(GetFilterUnit())
+			}
+			return false
+		}))
 	
 		// Load new
 		MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_GOLD, reader.readInt32())
-		let unit = new Unit(MapPlayer.fromEvent(), FourCC("H001"), GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), u.facing)
+		let unit = Unit.create(MapPlayer.fromEvent(), FourCC("H001"), GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), old_facing)
 		bj_lastCreatedUnit = unit.handle
 		
 		unit.experience = reader.readFloat()
@@ -98,10 +102,10 @@ export class SaveLoad {
 	}
 	
 	generateCode() : [string, string] {
-		let g = new Group()
-		g.enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(() => !IsUnitType(GetEnumUnit(), UNIT_TYPE_HERO)))
+		let g = Group.create()
+		g.enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(() => IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)))
 		const u = g.first
-	
+
 		const writer = new BinaryWriter();
 		writer.writeString(u.owner.name)
 		writer.writeInt32(u.owner.getState(PLAYER_STATE_RESOURCE_GOLD))
@@ -179,7 +183,9 @@ export class SaveLoad {
 					t.addAction(() => {
 						this.loadCode(BlzGetTriggerSyncData());
 					});
-					BlzSendSyncData("load", codes[index]);
+					if (GetLocalPlayer() === GetTriggerPlayer()) {
+						BlzSendSyncData("load", codes[index]);
+					}
 				} else {
 					let tuple = this.generateCode()
 					if (GetLocalPlayer() === GetTriggerPlayer()) {

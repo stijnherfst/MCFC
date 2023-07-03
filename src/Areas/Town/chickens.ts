@@ -30,7 +30,7 @@ function chickenDies() {
 export function initChickens() {
     let trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple( trigger, gg_rct_chicken_return )
-    TriggerAddAction( trigger, () => johnsText )
+    TriggerAddAction( trigger, () => johnsText() )
 
     let chickenReturnTrigger = CreateTrigger(  )
     TriggerRegisterEnterRectSimple( chickenReturnTrigger, gg_rct_chicken_return )

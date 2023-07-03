@@ -3,7 +3,7 @@ function rareDropsSub40() {
 		return
 	}
 
-	if (GetOwningPlayer(GetDyingUnit()) == Player(11)) {
+	if (GetOwningPlayer(GetDyingUnit()) != Player(11)) {
 		return
 	}
 
@@ -23,7 +23,7 @@ function rareDropsSub40() {
 }
 
 function rareDrops40() {
-	if (GetOwningPlayer(GetDyingUnit()) == Player(11)) {
+	if (GetOwningPlayer(GetDyingUnit()) != Player(11)) {
 		return
 	}
 
@@ -55,7 +55,7 @@ function rareDrops40() {
 }
 
 function rareDrops100() {
-	if (GetOwningPlayer(GetDyingUnit()) == Player(11)) {
+	if (GetOwningPlayer(GetDyingUnit()) != Player(11)) {
 		return
 	}
 
