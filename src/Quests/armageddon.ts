@@ -9,7 +9,6 @@ function startTimer() {
 }
 
 function armageddon() {
-    RemoveUnit(gg_unit_n01E_0213)
     RemoveUnit(gg_unit_n01E_0321)
     CinematicModeBJ(true, GetPlayersAll() )
     ForForce( GetPlayersAll(), () => CameraSetupApplyForPlayer( true, gg_cam_Armagedon_cam, GetEnumPlayer(), 1.00 ) )

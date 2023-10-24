@@ -1,14 +1,12 @@
+import { Unit, MapPlayer } from "w3ts";
+
 function restoreAndCheck() {
-	let heroLvl = GetHeroLevel(GetTriggerUnit()) - 1
-	let strength = GetHeroStr(GetTriggerUnit(), false) - 1
-	let agility = GetHeroAgi(GetTriggerUnit(), false) - 1
-	let intelligence = GetHeroInt(GetTriggerUnit(), false) - 1
+	let u = Unit.fromEvent();
+	let woodAmount = u.level - math.max(u.strength - u.agility - u.intelligence, -u.level)
 
-	let woodAmount = heroLvl - strength - agility - intelligence
-
-	SetPlayerState(GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER, woodAmount)
-	SetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE, GetUnitState(GetTriggerUnit(), UNIT_STATE_MAX_LIFE))
-	SetUnitState(GetTriggerUnit(), UNIT_STATE_MANA, GetUnitState(GetTriggerUnit(), UNIT_STATE_MAX_MANA))
+	MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_LUMBER, woodAmount)
+	u.setState(UNIT_STATE_LIFE, u.getState(UNIT_STATE_MAX_LIFE))
+	u.setState(UNIT_STATE_MANA, u.getState(UNIT_STATE_MAX_MANA))
 }
 
 export function levelUp() {

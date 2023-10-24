@@ -77,11 +77,12 @@ export class SaveLoad {
 		let unit = Unit.create(MapPlayer.fromEvent(), FourCC("H001"), GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), old_facing)
 		bj_lastCreatedUnit = unit.handle
 		
-		unit.experience = reader.readFloat()
+		let experience = reader.readFloat()
 		unit.strength = reader.readInt32()
 		unit.agility = reader.readInt32()
 		unit.intelligence = reader.readInt32()
-		
+		unit.experience = experience
+
 		for (let i = 0; i < 6; i++) {
 			const id = reader.readUInt32()
 			if (id == 0) {
