@@ -110,7 +110,7 @@ export class SaveLoad {
 		const writer = new BinaryWriter();
 		writer.writeString(u.owner.name)
 		writer.writeInt32(u.owner.getState(PLAYER_STATE_RESOURCE_GOLD))
-	
+
 		writer.writeFloat(u.experience);
 		writer.writeInt32(u.strength)
 		writer.writeInt32(u.agility)

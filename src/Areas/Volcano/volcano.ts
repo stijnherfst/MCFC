@@ -150,7 +150,7 @@ function spawnWave(wave : number) {
 }
 
 function startWaveSpawn() {
-    spawnTimer = new Timer().start(1, true, () => {
+    spawnTimer = Timer.create().start(1, true, () => {
         if (state != State.Spawning) {
             spawnTimer.destroy()
             return
@@ -183,8 +183,8 @@ function showMessage() {
     }
 
     EnableTrigger(emptyTrigger)
-    countdown = new Timer()
-    dialog = new TimerDialog(countdown)
+    countdown = Timer.create()
+    dialog = TimerDialog.create(countdown)
     dialog.display = true
 
     state = State.Countdown
@@ -228,7 +228,7 @@ function spawnHealer() {
 }
 
 function checkVolcanoEmpty() {
-    let g = new Group()
+    let g = Group.create()
     g.enumUnitsInRect(Rectangle.fromHandle(gg_rct_Volcano_Challenge), () => GetOwningPlayer(GetFilterUnit()) != Player(11))
 
     if (g.size == 0) {

@@ -11,20 +11,6 @@ export function changeType(players: PlayerInfo[]) {
 		return;
 	}
 
-	let weaponCount = 0;
-	for (let i = 0; i < 6; i++) {
-		let item = UnitItemInSlot(GetTriggerUnit(), i);
-		if (item != null && GetItemType(item) == ITEM_TYPE_ARTIFACT) {
-			weaponCount++;
-		}
-	}
-
-	if (weaponCount > 1) {
-		DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "You already have a weapon equiped")
-		UnitDropItemPointLoc(GetTriggerUnit(), GetManipulatedItem(), GetUnitLoc(GetTriggerUnit()))
-		return
-	}
-	
 	let item_type = GetItemTypeId(GetManipulatedItem())
 
 	// If of same type family then do nothing (eg. Normal type and Normal Flyer

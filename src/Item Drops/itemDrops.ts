@@ -1057,6 +1057,7 @@ const drops : Record<string, Array<Drop>> = {
 	// Sand Crawler
 	[FourCC('n04K')]: [
 		{ itemID: FourCC('I0AO'), chance: 4 },		// Stringer Arrows
+		{ itemID: FourCC('Vjmz'), chance: 2.5 },	// Basic Barrier
 	],
 
 	// Sandy Chunks

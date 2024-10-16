@@ -1,2 +1,9 @@
 - Readd Secret Sam
 - Readd Crafty Glass Repair
+- Fix rock pathing
+- Trigger Giant Sand Worm
+- Trigger drop bear jump
+- Fix godly summoning
+- Lava fog is white ingame
+- Fix being able to spawn multiple summons
+- Disable double rare drops triggers (gui and TS)

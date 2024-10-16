@@ -96,6 +96,7 @@ const spellToAbility = new Map([
     [FourCC('I04M'), FourCC('A092')],	// Master Summoning				
     [FourCC('I05L'), FourCC('A0A1')],	// Advanced Summoning	
     [FourCC('I0AE'), FourCC('A0EO')],	// Godly summoning
+    [FourCC('Vjmz'), FourCC('Srwo')],	// Barrier
 ]);
 
 export class LearnSpell {

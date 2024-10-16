@@ -5,7 +5,6 @@ import { PlayerSpawn } from "./Initialization/spawnMasterCrafters";
 import { fuckTeleporters } from "./fuckTeleporters";
 
 import { CheckItemPickup } from "./ItemsAndTypes/checkItemPickup";
-import { initArrows } from "./ItemsAndTypes/arrows";
 import { initEnchantItem } from "./ItemsAndTypes/enchantableWeapons";
 
 import { addStrength } from "./Stats/addStrength";
@@ -24,6 +23,13 @@ import { initSkillPoints } from "./Messages/skillPoints"
 import { initInventory } from "./Messages/inventory"
 import { initBecomingMaster } from "./Messages/becomingMaster"
 import { initPlayerDies } from "./Messages/playerDies"
+
+import { initAmon } from "./Monsters/amon"
+import { initBaconBoss } from "./Monsters/baconBoss"
+import { initDropBear } from "./Monsters/dropbear"
+import { initLegendaryChampion } from "./Monsters/legendaryChampion"
+import { initLochNess } from "./Monsters/lochNess"
+import { initSandCrawler } from "./Monsters/sandCrawler"
 
 import { initClear } from "./Commands/clear"
 import { initMoveToInventory } from "./Commands/inventory";
@@ -69,12 +75,18 @@ import { initSatansHelper } from "./Quests/satansHelper";
 import { initSecretSeal } from "./Quests/secretSeal";
 
 import { LearnSpell } from "./Spell Systems/learnSpell"
+import { initSpellFloatingText } from "./Spell Systems/spellFloatingText";
 
+import { initBarrier } from "./Spells/barrier"
 import { initDharoksRage } from "./Spells/dharoksRage"
 import { initLightning } from "./Spells/lightning"
 import { initFullHeal } from "./Spells/fullHeal"
 import { initMinorHeal } from "./Spells/minorHeal"
 import { initFire } from "./Spells/fire"
+import { initGenericSummoning } from "./Spells/genericSummoning";
+import { initAdvancedSummoning } from "./Spells/advancedSummoning"
+import { initMasterSummoning } from "./Spells/masterSummoning"
+import { initGodlySummoning } from "./Spells/godlySummoning"
 
 import { initLavaHot } from "./Areas/Fiery Lands/lavaHot";
 
@@ -95,9 +107,6 @@ function tsMain() {
 
 	fuckTeleporters()
 
-	//initCheckItemPickup()
-	// initTwoHandedCheck()
-	initArrows()
 	initEnchantItem()
 	
 	addStrength()
@@ -113,6 +122,13 @@ function tsMain() {
 	initInventory()
 	initBecomingMaster()
 	initPlayerDies()
+
+	initAmon()
+	initBaconBoss()
+	initDropBear()
+	initLegendaryChampion()
+	initLochNess()
+	initSandCrawler()
 
 	initClear()
 	initMoveToInventory()
@@ -160,12 +176,18 @@ function tsMain() {
 	initLavaHot()
 
 	let learn = new LearnSpell(players)
+	initSpellFloatingText()
 
+	initBarrier();
 	initDharoksRage()
 	initLightning()
 	initFullHeal()
 	initMinorHeal()
 	initFire()
+	initGenericSummoning()
+	initAdvancedSummoning()
+	initMasterSummoning()
+	initGodlySummoning()
 
 	let saveLoad = new SaveLoad(players)
 

@@ -6,9 +6,10 @@ export function initMisc() {
     // AddSpecialEffectTarget("war3mapImported\\RuneSphere.mdx", gg_unit_h02S_0351, "hand,right")
 
     SetPlayerState(Player(11), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetDefaultDifficulty(MAP_DIFFICULTY_INSANE);
 
     // SetDestructableInvulnerable(gg_dest_B000_1013, true)
-    // ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B000_1013)
+    ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_LTg1_16732)
     ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B004_13629)
 
     Players.forEach(player => {
@@ -18,8 +19,7 @@ export function initMisc() {
         FogModifierStart(bj_lastCreatedFogModifier)
     });
 
-    let group = new Group()
-    group.enumUnitsInRect(Rectangle.getWorldBounds(), Filter(() => {
+    Group.create().enumUnitsInRect(Rectangle.getWorldBounds(), Filter(() => {
         let unit = Group.getEnumUnit()
         unit.getItemInSlot(0).setDropOnDeath(false)
         unit.getItemInSlot(1).setDropOnDeath(false)

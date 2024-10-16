@@ -30,7 +30,7 @@ tower
 
 STRING 008
 {
-MCFC 7.4
+MCFC 7.5
 }
 
 STRING 009
@@ -160,7 +160,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.4 02-07-2023
+Version 7.5 15-10-2024
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -1925,46 +1925,6 @@ STRING 1390
 Your near godlike strength has finally paid your a true master +25 dmg
 }
 
-STRING 1391
-{
-Masterful Speed
-}
-
-STRING 1392
-{
-Masterful Speed
-}
-
-STRING 1393
-{
-Your near god like speed has finally paid off you are now a true master with 50% evasion
-}
-
-STRING 1394
-{
-Masterful Speed
-}
-
-STRING 1395
-{
-Your near god like speed has finally paid off you are now a true master with 50% evasion
-}
-
-STRING 1396
-{
-Mastered Knowledge
-}
-
-STRING 1397
-{
-Mastered Knowledge
-}
-
-STRING 1398
-{
-Your mind has reached its limits you can feel magical energy flowing and forming all around which gives you the ability to dodge all magic based attacks
-}
-
 STRING 1399
 {
 Masters Strength
@@ -1975,19 +1935,9 @@ STRING 1408
 Your near godlike strength has finally paid your a true master +25 dmg
 }
 
-STRING 1409
-{
-Mastered Knowledge
-}
-
 STRING 141
 {
 Burning Shield
-}
-
-STRING 1410
-{
-Your mind has reached its limits you can feel magical energy flowing and forming all around which gives you the ability to dodge all magic based attacks
 }
 
 STRING 1416
@@ -2103,11 +2053,6 @@ stats +27 int/agi
 STRING 1491
 {
 stats +32 str/agi
-}
-
-STRING 1492
-{
-Armory
 }
 
 STRING 1497
@@ -2968,11 +2913,6 @@ Spirit Bacon
 STRING 1846
 {
 Gold Sheep
-}
-
-STRING 1847
-{
-God Slayer Shop
 }
 
 STRING 1848
@@ -5100,19 +5040,9 @@ STRING 2805
 deals 65/.33 secs and 25/1
 }
 
-STRING 2807
-{
-Summons a monster depending on how much Int you have - 75 int = Flaming Rock - 200 int = Super Hippy 300 int = Spawn of Nature 400 int = Diffusional Monster
-}
-
 STRING 2808
 {
 Advanced Summoning
-}
-
-STRING 2809
-{
-Summons a monster depending on how much Int you have - 75 int = Sea Dragon - 200 int = Holy Purger 300 int = Killer Penguin 400 int = Greater Alien
 }
 
 STRING 2814
@@ -12739,11 +12669,6 @@ STRING 528
 F
 }
 
-STRING 5280
-{
-Summons a monster depending on how much Int you have - 800 int = Flaming Rock - 1200 int = Super Hippy 1600 int = Spawn of Nature 2000 int = Diffusional Monster
-}
-
 STRING 529
 {
 F
@@ -14727,6 +14652,198 @@ ENV_Rock 04
 STRING 5888
 {
 ENV_Rock Giant 01
+}
+
+STRING 5889
+{
+Dune Worm
+}
+
+STRING 5890
+{
+Dune Worm
+}
+
+STRING 5891
+{
+Drop
+}
+
+STRING 5892
+{
+(Drop Bear Blink)
+}
+
+STRING 5893
+{
+Potion Seller
+}
+
+STRING 5894
+{
+Summons a monster depending on how much Int you have. 
+800 int - Flaming Rock
+1200 int - Super Hippy 
+1600 int - Spawn of Nature 
+2000 int - Diffusional Monster
+}
+
+STRING 5895
+{
+Summons a monster depending on how much Int you have.
+300 int - Flaming Rock 
+500 int - Super Hippy 
+650 int - Spawn of Nature 
+800 int - Diffusional Monster
+}
+
+STRING 5896
+{
+Summons a monster depending on how much Int you have.
+75 int - Sea Dragon
+200 int - Holy Purger 
+300 int - Killer Penguin 
+400 int - Greater Alien
+}
+
+STRING 5897
+{
+Barriers protect you from damage but don't block everything
+}
+
+STRING 5899
+{
+Barriers protect you from damage but don't block everything
+}
+
+STRING 5903
+{
+Spell - Basic Barrier
+}
+
+STRING 5904
+{
+Spell - Basic Barrier
+}
+
+STRING 5905
+{
+Basic Barrier
+}
+
+STRING 5906
+{
+B
+}
+
+STRING 5907
+{
+The barrier blocks up to 25 damage from passing through but drains 10 mp/s
+}
+
+STRING 5908
+{
+Activate Barrier
+}
+
+STRING 5909
+{
+Deactivate Barrier  to stop draining mana.
+}
+
+STRING 5910
+{
+Deactivate Barrier
+}
+
+STRING 5911
+{
+(new)
+}
+
+STRING 5912
+{
+B
+}
+
+STRING 5913
+{
+B
+}
+
+STRING 5915
+{
+Test Fire
+}
+
+STRING 5916
+{
+Dungeon Wall Cave
+}
+
+STRING 5917
+{
+Dungeon Wall Cave Half
+}
+
+STRING 5918
+{
+Dungeon Wall Cave Transition Left
+}
+
+STRING 5919
+{
+Dungeon Wall Cave Transition Right
+}
+
+STRING 5920
+{
+Dungeon Wall Cave Inner Corner
+}
+
+STRING 5921
+{
+Dungeon Wall Cave Outer Corner
+}
+
+STRING 5922
+{
+Dungeon Wall Icy Cave Half
+}
+
+STRING 5923
+{
+Dungeon Wall Icy Cave
+}
+
+STRING 5924
+{
+Dungeon Wall Icy Cave Diag Right
+}
+
+STRING 5925
+{
+Dungeon Wall Icy Cave Diag Left
+}
+
+STRING 5926
+{
+Dungeon Wall Icy Cave Transition Left
+}
+
+STRING 5927
+{
+Dungeon Wall Icy Cave Transition Right
+}
+
+STRING 5928
+{
+Dungeon Wall Icy Cave Inner Corner
+}
+
+STRING 5929
+{
+Dungeon Wall Icy Cave Outer Corner
 }
 
 STRING 593

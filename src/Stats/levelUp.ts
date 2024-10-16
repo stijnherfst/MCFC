@@ -2,7 +2,7 @@ import { Unit, MapPlayer } from "w3ts";
 
 function restoreAndCheck() {
 	let u = Unit.fromEvent();
-	let woodAmount = u.level - math.max(u.strength - u.agility - u.intelligence, -u.level)
+	let woodAmount = u.level - u.strength - u.agility - u.intelligence + 3
 
 	MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_LUMBER, woodAmount)
 	u.setState(UNIT_STATE_LIFE, u.getState(UNIT_STATE_MAX_LIFE))

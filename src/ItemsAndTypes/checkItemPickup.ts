@@ -2,6 +2,33 @@ import { changeType } from "../ItemsAndTypes/changeTypeByItem"
 import { twoHandedItems } from "../ItemsAndTypes/twoHandedCheck"
 import { PlayerInfo } from "../player";
 
+export const arrowTypes:number[] = [
+    FourCC('I05P'), // Crystal Tip Arrow heads
+    FourCC('I068'), // Battle Arrows
+    FourCC('I062'), // Wooden Arrows
+    FourCC('I063'), // Poison Arrows
+    FourCC('I065'), // Paralizing Bolts
+    FourCC('I066'), // Electric Arrows
+    FourCC('I067'), // Freezing Arrows
+    FourCC('I069'), // Marksmen Arrows
+    FourCC('I06G'), // Godly Arrows
+    FourCC('I0A9'), // Ghosty Arrows
+]
+
+export const archerTypes:number[] = [
+    FourCC('O001'), // Arena Brawler
+    FourCC('H001'), // Unarmed
+    FourCC('H01P'), // Archer Type (Divine)
+    FourCC('H003'), // Archer Type
+    FourCC('H01G'), // Archer Type (Fortified)
+    FourCC('H01S'), // Flying Archer
+    FourCC('H01R'), // Sniper Type
+    FourCC('H009'), // Sniper Type
+    FourCC('H01I'), // Sniper Type
+    FourCC('H01I'), // Sniper Type
+    FourCC('H01Y') // Flying Sniper
+]
+
 export class CheckItemPickup {
 	constructor(
 		private players: PlayerInfo[],
@@ -13,6 +40,10 @@ export class CheckItemPickup {
 		}
 	
 		TriggerAddAction(trigger, () => this.checkPickup());
+	}
+
+	ArrowCheck(unit: unit, item: item) {
+		return arrowTypes.includes(GetItemTypeId(item)) && !archerTypes.includes(GetUnitTypeId(unit));
 	}
 
 	// Whether the unit already has a weapon equipped that would prevent wearing a two handed weapon
@@ -53,7 +84,7 @@ export class CheckItemPickup {
 	ownedItemClassCount(unit: unit, item_type: itemtype) {
 		let owned = 0;
 		for (let i = 0; i < 6; i++) {
-			let item = UnitItemInSlot(GetTriggerUnit(), i);
+			let item = UnitItemInSlot(unit, i);
 
 			if (item != null && GetItemType(item) == item_type) {
 				owned += 1;
@@ -81,6 +112,12 @@ export class CheckItemPickup {
 		if (this.twoHandedCheck(GetTriggerUnit(), GetManipulatedItem())) {
 			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "Your left hand is not free for this awesome weapon/shield")
+			return;
+		}
+
+		if (this.ArrowCheck(GetTriggerUnit(), GetManipulatedItem())) {
+			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You are not an archer and arrows aren't made to be used as a sword")
 			return;
 		}
 

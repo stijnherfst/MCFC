@@ -7,11 +7,11 @@ function johnsText() {
 }
 
 function chickenReturn() {
-    if (GetUnitTypeId(GetEnteringUnit()) != FourCC('n01O')) {
+    if (GetUnitTypeId(GetLeavingUnit()) != FourCC('n01O')) {
         return
     }
 
-    SetUnitPositionLoc( GetEnteringUnit(), GetRectCenter(gg_rct_chicken_zone) )
+    SetUnitPositionLoc( GetLeavingUnit(), GetRectCenter(gg_rct_chicken_zone) )
 }
 
 function chickenDies() {
@@ -29,11 +29,11 @@ function chickenDies() {
 
 export function initChickens() {
     let trigger = CreateTrigger()
-    TriggerRegisterEnterRectSimple( trigger, gg_rct_chicken_return )
+    TriggerRegisterEnterRectSimple( trigger, gg_rct_chicken_zone )
     TriggerAddAction( trigger, () => johnsText() )
 
     let chickenReturnTrigger = CreateTrigger(  )
-    TriggerRegisterEnterRectSimple( chickenReturnTrigger, gg_rct_chicken_return )
+    TriggerRegisterLeaveRectSimple( chickenReturnTrigger, gg_rct_chicken_zone )
     TriggerAddAction( chickenReturnTrigger, () => chickenReturn() )
 
     let chickenDiesTrigger = CreateTrigger(  )
