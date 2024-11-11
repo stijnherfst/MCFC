@@ -5,7 +5,7 @@ function dragonSlayer() {
 
     DisableTrigger(GetTriggeringTrigger())
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Dragon Slayer", "Prove yourself to be a ass kicking dragon slayer go kill a Sea Dragon and a Crimson Dragon and return the bones to the dragon slayer in town", "ReplaceableTextures\\CommandButtons\\BTNpurpleDragonSpawn.blp")
-    DisplayTimedTextToForce(GetPlayersAll(), 25.00, "Dragon Slayer: think you have enough might to become a dragon slayer? start with a sea dragon if you can defeat than then try the crimson dragon")
+    DisplayTimedTextToForce(GetPlayersAll(), 25.00, "Dragon Slayer: Think you have enough might to become a dragon slayer? Bring me the bones of a Sea Dragon and if you can defeat than then try the Crimson Dragon")
 }
 
 function dragonSlayerReturnDragonBones() {
@@ -39,7 +39,7 @@ function dragonSlayerReturnSeaBones() {
 export function initDragonSlayer() {
     let enterTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(enterTrigger, gg_rct_Dragon_Slayer )
-    TriggerAddAction(enterTrigger, () => initDragonSlayer())
+    TriggerAddAction(enterTrigger, () => dragonSlayer())
 
     let returnTrigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(returnTrigger, gg_rct_Dragon_Slayer )

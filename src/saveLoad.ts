@@ -68,10 +68,14 @@ export class SaveLoad {
 			if (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)) {
 				old_facing = Group.getFilterUnit().facing;
 				RemoveUnit(GetFilterUnit())
+				print("Removing unit")
 			}
 			return false
 		}))
 	
+		// Reset state
+		this.players[GetPlayerId(GetTriggerPlayer())].abilities = []
+
 		// Load new
 		MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_GOLD, reader.readInt32())
 		let unit = Unit.create(MapPlayer.fromEvent(), FourCC("H001"), GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), old_facing)
@@ -98,7 +102,7 @@ export class SaveLoad {
 		for (let i = 0; i < ability_count; i++) {
 			const id = reader.readUInt32()
 			unit.addAbility(id)
-			this.players[GetPlayerId(GetTriggerPlayer())].abilities[i] = id
+			this.players[GetPlayerId(GetTriggerPlayer())].abilities.push(id)
 		}
 	}
 	
@@ -183,6 +187,7 @@ export class SaveLoad {
 					t.registerPlayerSyncEvent(MapPlayer.fromEvent(), "load", false);
 					t.addAction(() => {
 						this.loadCode(BlzGetTriggerSyncData());
+						t.destroy()
 					});
 					if (GetLocalPlayer() === GetTriggerPlayer()) {
 						BlzSendSyncData("load", codes[index]);

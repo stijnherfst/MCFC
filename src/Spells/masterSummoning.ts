@@ -15,7 +15,7 @@ function masterSummoning() {
 
     let int = GetHeroInt(GetTriggerUnit(), true)
     if (int > 800) { // Diffusional Monster
-        CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), FourCC("n00S"), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+        CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), FourCC("n00C"), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
     } else if (int > 650) { // Spawn of Nature
         CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), FourCC("n010"), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
     } else if (int > 500) { // Super Hippy

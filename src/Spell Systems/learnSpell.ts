@@ -136,8 +136,13 @@ export class LearnSpell {
 			return
 		}
 
-		player.abilities.push(ability);
-		UnitAddAbility(GetTriggerUnit(), ability);
+        if (!UnitAddAbility(GetTriggerUnit(), ability)) {
+            DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10.00, "You might have a spellbook that already contains the spell.")
+            CreateItem(itemID, GetUnitX(GetTriggerUnit()), GetUnitY(GetTriggerUnit()))
+            return
+        }
+
+        player.abilities.push(ability);
 	}
 
     removeSpell() {

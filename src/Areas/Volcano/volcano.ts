@@ -63,7 +63,7 @@ let waves : Array<Array<[number, number]>> = [
 ]
 
 function wait(howMuch: number) {
-    const timer = new Timer();
+    const timer = Timer.create();
     const co = coroutine.running();
   
     timer.start(howMuch, false, () => {

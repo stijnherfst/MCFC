@@ -1,5 +1,5 @@
 import { addScriptHook, W3TS_HOOK } from "w3ts/hooks";
-import { Timer, TimerDialog } from "w3ts"
+import { Timer } from "w3ts"
 
 import { PlayerSpawn } from "./Initialization/spawnMasterCrafters";
 import { fuckTeleporters } from "./fuckTeleporters";
@@ -37,6 +37,18 @@ import { initMovespeed } from "./Commands/movespeed"
 import { initSuicide } from "./Commands/suicide"
 import { initRoll } from "./Commands/roll"
 import { initZoom } from "./Commands/zoom"
+
+import { initAbsoluteZero } from "./CustomWeapons/absoluteZero";
+import { initAngelicBlessing } from "./CustomWeapons/angelicBlessing";
+import { initAshbringer } from "./CustomWeapons/ashbringer";
+import { initDevilDualClaws } from "./CustomWeapons/devilDualClaws";
+import { initDiabolicScythe } from "./CustomWeapons/diabolicScythe";
+import { initGhostlyEdge } from "./CustomWeapons/ghostlyEdge";
+import { initGuardianBlade } from "./CustomWeapons/guardianBlade";
+import { initHealingGloves } from "./CustomWeapons/healingGloves";
+import { initHealingGlovesOfTheFlame } from "./CustomWeapons/healingGlovesOfTheFlame";
+import { initNineLives } from "./CustomWeapons/nineLives";
+import { initTurtle } from "./CustomWeapons/turtle";
 
 import { initRespawn } from "./respawn"
 
@@ -77,22 +89,12 @@ import { initSecretSeal } from "./Quests/secretSeal";
 import { LearnSpell } from "./Spell Systems/learnSpell"
 import { initSpellFloatingText } from "./Spell Systems/spellFloatingText";
 
-import { initBarrier } from "./Spells/barrier"
-import { initDharoksRage } from "./Spells/dharoksRage"
-import { initLightning } from "./Spells/lightning"
-import { initFullHeal } from "./Spells/fullHeal"
-import { initMinorHeal } from "./Spells/minorHeal"
-import { initFire } from "./Spells/fire"
-import { initGenericSummoning } from "./Spells/genericSummoning";
-import { initAdvancedSummoning } from "./Spells/advancedSummoning"
-import { initMasterSummoning } from "./Spells/masterSummoning"
-import { initGodlySummoning } from "./Spells/godlySummoning"
-
 import { initLavaHot } from "./Areas/Fiery Lands/lavaHot";
 
 import { SaveLoad }  from "./saveLoad";
 import { PlayerInfo } from "./player";
 import { ChangeTypeBySpell } from "./ItemsAndTypes/changeTypeBySpell";
+import { initSpells } from "./initSpells";
 
 function tsMain() {
 	BlzLoadTOCFile("war3mapImported/ui.toc")
@@ -137,6 +139,18 @@ function tsMain() {
 	initSuicide()
 	initZoom()
 
+	initAbsoluteZero()
+	initAngelicBlessing()
+	initAshbringer()
+	initDevilDualClaws()
+	initDiabolicScythe()
+	initGhostlyEdge()
+	initGuardianBlade()
+	initHealingGloves()
+	initHealingGlovesOfTheFlame()
+	initNineLives()
+	initTurtle()
+
 	initRespawn()
 
 	initItemDrops()
@@ -178,16 +192,7 @@ function tsMain() {
 	let learn = new LearnSpell(players)
 	initSpellFloatingText()
 
-	initBarrier();
-	initDharoksRage()
-	initLightning()
-	initFullHeal()
-	initMinorHeal()
-	initFire()
-	initGenericSummoning()
-	initAdvancedSummoning()
-	initMasterSummoning()
-	initGodlySummoning()
+	initSpells()
 
 	let saveLoad = new SaveLoad(players)
 

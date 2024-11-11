@@ -1,3 +1,4 @@
+import { Item, Unit } from "w3ts";
 import { changeType } from "../ItemsAndTypes/changeTypeByItem"
 import { twoHandedItems } from "../ItemsAndTypes/twoHandedCheck"
 import { PlayerInfo } from "../player";
@@ -42,24 +43,23 @@ export class CheckItemPickup {
 		TriggerAddAction(trigger, () => this.checkPickup());
 	}
 
-	ArrowCheck(unit: unit, item: item) {
-		return arrowTypes.includes(GetItemTypeId(item)) && !archerTypes.includes(GetUnitTypeId(unit));
+	ArrowCheck(unit: Unit, item: Item) {
+		return arrowTypes.includes(item.typeId) && !archerTypes.includes(unit.typeId);
 	}
 
 	// Whether the unit already has a weapon equipped that would prevent wearing a two handed weapon
-	twoHandedCheck(unit: unit, item: item) {
-		if (!twoHandedItems.includes(GetItemTypeId(item))) {
+	twoHandedCheck(unit: Unit, item: Item) {
+		if (!twoHandedItems.includes(item.typeId)) {
 			return false
 		}
 
 		for (let i = 0; i < 6; i += 1) {
-			let item_in_slot = UnitItemInSlot(unit, i);
-			if (item_in_slot == null) {
+			let item_in_slot = unit.getItemInSlot(i);
+			if (item_in_slot == undefined) {
 				continue;
 			}
 
-			let item_id = GetItemTypeId(item_in_slot);
-			if (GetItemTypeId(item) != item_id && twoHandedItems.includes(item_id)) {
+			if (item.typeId != item_in_slot.typeId && twoHandedItems.includes(item_in_slot.typeId)) {
 				return true
 			}
 		}
@@ -67,13 +67,13 @@ export class CheckItemPickup {
 	}
 
 	/** Whether the player owns the item, also sets ownership if the item is unowned */
-	ownsItem(item: item, player: player) {
-		if (GetItemUserData(item) == 0) {
-			SetItemUserData(item, GetPlayerId(player) + 1)
+	ownsItem(item: Item, player: player) {
+		if (item.userData == 0) {
+			SetItemUserData(item.handle, GetPlayerId(player) + 1)
 			return true
 		}
 
-		if (GetItemUserData(item) != GetPlayerId(player) + 1) {
+		if (item.userData != GetPlayerId(player) + 1) {
 			return false;
 		} else {
 			return true
@@ -81,12 +81,12 @@ export class CheckItemPickup {
 	}
 
 	// How many items of a class a unit has
-	ownedItemClassCount(unit: unit, item_type: itemtype) {
+	ownedItemClassCount(unit: Unit, item_type: itemtype) {
 		let owned = 0;
 		for (let i = 0; i < 6; i++) {
-			let item = UnitItemInSlot(unit, i);
+			let item = unit.getItemInSlot(i)
 
-			if (item != null && GetItemType(item) == item_type) {
+			if (item != undefined && item.type == item_type) {
 				owned += 1;
 			}
 		}
@@ -94,31 +94,56 @@ export class CheckItemPickup {
 		return owned;
 	}
 
+	canWearHeroCape(unit: Unit, item: Item) {
+		if (item.typeId != FourCC("I03V")) {
+			return
+		}
+
+		if (unit.typeId == FourCC("H008") 
+			|| unit.typeId == FourCC("H01B")
+			|| unit.typeId == FourCC("H01L")
+			|| unit.typeId == FourCC("H01T")
+			|| unit.typeId == FourCC("O001")) {
+
+			return true
+		}
+
+		return false
+	}
+
 	// Checks whether the player owns the item and doesn't already have one of the same class (hat, weapon, gloves, ...)
 	checkPickup() {
-		if (!this.ownsItem(GetManipulatedItem(), GetTriggerPlayer())) {
-			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+		let unit = Unit.fromEvent()
+		let item = Item.fromEvent()
+
+		if (!this.ownsItem(item, GetTriggerPlayer())) {
+			unit.removeItem(item)
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You don't own this item")
 			return;
 		}
 
-		let item_type = GetItemType(GetManipulatedItem());
-		if (item_type != ITEM_TYPE_UNKNOWN && this.ownedItemClassCount(GetTriggerUnit(), item_type) > 1) {
-			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+		if (item.type != ITEM_TYPE_UNKNOWN && this.ownedItemClassCount(unit, item.type) > 1) {
+			unit.removeItem(item)
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You are already wearing this type of item!")
 			return;
 		}
 
-		if (this.twoHandedCheck(GetTriggerUnit(), GetManipulatedItem())) {
-			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+		if (this.twoHandedCheck(unit, item)) {
+			unit.removeItem(item)
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "Your left hand is not free for this awesome weapon/shield")
 			return;
 		}
 
-		if (this.ArrowCheck(GetTriggerUnit(), GetManipulatedItem())) {
-			UnitRemoveItem(GetTriggerUnit(), GetManipulatedItem())
+		if (this.ArrowCheck(unit, item)) {
+			unit.removeItem(item)
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "You are not an archer and arrows aren't made to be used as a sword")
 			return;
+		}
+
+		if (!this.canWearHeroCape(unit, item)) {
+			unit.removeItem(item)
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "The Hero cape can only be worn by true heroes")
+			return
 		}
 
 		changeType(this.players)

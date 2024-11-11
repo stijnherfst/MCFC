@@ -1,0 +1,51 @@
+function lightningFury() {
+    if (GetSpellAbilityId() != FourCC('A029')) {
+        return
+    }
+
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 100.00, 50.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 200.00, 100.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 300.00, 150.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 200.00, 200.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 100.00, 250.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), -100.00, 50.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), -200.00, 100.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), -300.00, 150.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), -200.00, 200.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+    PolledWait(0.10)
+    CreateNUnitsAtLoc(1, FourCC("h00J"), GetOwningPlayer(GetTriggerUnit()), OffsetLocation(GetUnitLoc(GetTriggerUnit()), -100.00, 250.00), bj_UNIT_FACING)
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetLastCreatedUnit())
+    UnitApplyTimedLifeBJ(2.00, FourCC("BTLF"), GetLastCreatedUnit())
+}
+
+export function initLightningFury() {
+    let trigger = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ( trigger, EVENT_PLAYER_UNIT_SPELL_CAST)
+    TriggerAddAction( trigger, () => lightningFury())
+}
