@@ -1,7 +1,7 @@
 import { Group, MapPlayer } from "w3ts"
 
 export const AbilityToSummon: Record<number, number> = { 
-	[FourCC('H01S')]: FourCC('n000'), // Summon Basic Elemental
+	[FourCC('A02P')]: FourCC('n000'), // Summon Basic Elemental
     [FourCC('A06X')]: FourCC('n003'), // Summon Lightning Lizard
     [FourCC('A06Y')]: FourCC('n002'), // Summon Steam Being
     [FourCC('A06Z')]: FourCC('n004'), // Summon Hippy
@@ -32,7 +32,7 @@ function genericSummoning() {
     // Get rid of previous summons
     Group.create().enumUnitsOfPlayer(MapPlayer.fromEvent(), Filter(function yeet() {
         if (!IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)) {
-            KillUnit(GetFilterUnit())
+            RemoveUnit(GetFilterUnit())
         }
         return false
     }))

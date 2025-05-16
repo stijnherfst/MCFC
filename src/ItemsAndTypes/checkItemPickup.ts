@@ -94,9 +94,9 @@ export class CheckItemPickup {
 		return owned;
 	}
 
-	canWearHeroCape(unit: Unit, item: Item) {
+	heroCapeCheck(unit: Unit, item: Item) {
 		if (item.typeId != FourCC("I03V")) {
-			return
+			return true
 		}
 
 		if (unit.typeId == FourCC("H008") 
@@ -140,7 +140,7 @@ export class CheckItemPickup {
 			return;
 		}
 
-		if (!this.canWearHeroCape(unit, item)) {
+		if (!this.heroCapeCheck(unit, item)) {
 			unit.removeItem(item)
 			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "The Hero cape can only be worn by true heroes")
 			return

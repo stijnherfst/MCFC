@@ -12,6 +12,7 @@ let confirmation : framehandle
 let deleteIndex: number
 
 const slotCount = 9
+const savecodeVersion = 1
 
 enum Mode {
 	load,
@@ -55,6 +56,12 @@ export class SaveLoad {
 	loadCode(code: string) {
 		const reader = new BinaryReader(base64Decode(code))
 	
+		const version = reader.readInt32()
+		if (version != savecodeVersion) {
+			DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, "The load code is from an older incompatible map version")
+			return
+		}
+
 		// Check if is is not a copied load code
 		const name = reader.readString()
 		if (name !== MapPlayer.fromEvent().name) {
@@ -68,7 +75,6 @@ export class SaveLoad {
 			if (IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)) {
 				old_facing = Group.getFilterUnit().facing;
 				RemoveUnit(GetFilterUnit())
-				print("Removing unit")
 			}
 			return false
 		}))
@@ -112,6 +118,7 @@ export class SaveLoad {
 		const u = g.first
 
 		const writer = new BinaryWriter();
+		writer.writeInt32(savecodeVersion)
 		writer.writeString(u.owner.name)
 		writer.writeInt32(u.owner.getState(PLAYER_STATE_RESOURCE_GOLD))
 

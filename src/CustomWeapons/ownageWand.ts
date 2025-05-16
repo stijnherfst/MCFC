@@ -30,7 +30,7 @@ function ownageWand() {
             UnitApplyTimedLifeBJ(60.00, FourCC("BTLF"), GetLastCreatedUnit())
         }
 
-        if (GetRandomInt(1, 100) == 1 && GetUnitLevel(GetAttackedUnitBJ()) <= 100)) {
+        if (GetRandomInt(1, 100) == 1 && GetUnitLevel(GetAttackedUnitBJ()) <= 100) {
             AddSpecialEffectTargetUnitBJ("overhead", GetAttackedUnitBJ(), "Abilities\\Spells\\Undead\\Unsummon\\UnsummonTarget.mdl")
             SetUnitLifeBJ(GetAttackedUnitBJ(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetAttackedUnitBJ()) * 0.50))
         }

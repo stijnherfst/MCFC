@@ -19,9 +19,9 @@
     "plugins": [
       {
         "transform": "war3-transformer",
-        "mapDir": "C:/Users/User/stack/Projects/MCFC/MCFC/maps/MCFC.w3x",
-        "entryFile": "C:/Users/User/stack/Projects/MCFC/MCFC/src/main.ts",
-        "outputDir": "C:/Users/User/stack/Projects/MCFC/MCFC/dist/MCFC.w3x"
+        "mapDir": "C:/stack/Projects/MCFC/MCFC/maps/MCFC.w3x",
+        "entryFile": "C:/stack/Projects/MCFC/MCFC/src/main.ts",
+        "outputDir": "C:/stack/Projects/MCFC/MCFC/dist/MCFC.w3x"
       }
     ],
     "types": [

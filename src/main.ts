@@ -27,9 +27,19 @@ import { initPlayerDies } from "./Messages/playerDies"
 import { initAmon } from "./Monsters/amon"
 import { initBaconBoss } from "./Monsters/baconBoss"
 import { initDropBear } from "./Monsters/dropbear"
+import { initCrimsonDragon } from "./Monsters/crimsonDragon";
+import { initKaniff } from "./Monsters/kaniff";
 import { initLegendaryChampion } from "./Monsters/legendaryChampion"
+import { initLitSkin } from "./Monsters/litSkin";
 import { initLochNess } from "./Monsters/lochNess"
+import { initMiniMe } from "./Monsters/miniMe";
+import { initRipTideCaster } from "./Monsters/ripTideCaster";
 import { initSandCrawler } from "./Monsters/sandCrawler"
+import { initMonsterRespawn } from "./Monsters/respawn";
+import { initSecretSealDies } from "./Monsters/secretSealDies";
+import { initSleepySpore } from "./Monsters/sleepySpore";
+import { initSuperSpore } from "./Monsters/superSpore";
+import { initTeslaCoil } from "./Monsters/teslaCoil";
 
 import { initClear } from "./Commands/clear"
 import { initMoveToInventory } from "./Commands/inventory";
@@ -38,17 +48,7 @@ import { initSuicide } from "./Commands/suicide"
 import { initRoll } from "./Commands/roll"
 import { initZoom } from "./Commands/zoom"
 
-import { initAbsoluteZero } from "./CustomWeapons/absoluteZero";
-import { initAngelicBlessing } from "./CustomWeapons/angelicBlessing";
-import { initAshbringer } from "./CustomWeapons/ashbringer";
-import { initDevilDualClaws } from "./CustomWeapons/devilDualClaws";
-import { initDiabolicScythe } from "./CustomWeapons/diabolicScythe";
-import { initGhostlyEdge } from "./CustomWeapons/ghostlyEdge";
-import { initGuardianBlade } from "./CustomWeapons/guardianBlade";
-import { initHealingGloves } from "./CustomWeapons/healingGloves";
-import { initHealingGlovesOfTheFlame } from "./CustomWeapons/healingGlovesOfTheFlame";
-import { initNineLives } from "./CustomWeapons/nineLives";
-import { initTurtle } from "./CustomWeapons/turtle";
+
 
 import { initRespawn } from "./respawn"
 
@@ -95,6 +95,7 @@ import { SaveLoad }  from "./saveLoad";
 import { PlayerInfo } from "./player";
 import { ChangeTypeBySpell } from "./ItemsAndTypes/changeTypeBySpell";
 import { initSpells } from "./initSpells";
+import { initWeapons } from "./initWeapons";
 
 function tsMain() {
 	BlzLoadTOCFile("war3mapImported/ui.toc")
@@ -128,9 +129,19 @@ function tsMain() {
 	initAmon()
 	initBaconBoss()
 	initDropBear()
+	initCrimsonDragon()
+	initKaniff()
 	initLegendaryChampion()
+	initLitSkin()
 	initLochNess()
+	initMiniMe()
+	initRipTideCaster()
 	initSandCrawler()
+	initMonsterRespawn()
+	initSecretSealDies()
+	initSleepySpore()
+	initSuperSpore()
+	initTeslaCoil()
 
 	initClear()
 	initMoveToInventory()
@@ -139,17 +150,7 @@ function tsMain() {
 	initSuicide()
 	initZoom()
 
-	initAbsoluteZero()
-	initAngelicBlessing()
-	initAshbringer()
-	initDevilDualClaws()
-	initDiabolicScythe()
-	initGhostlyEdge()
-	initGuardianBlade()
-	initHealingGloves()
-	initHealingGlovesOfTheFlame()
-	initNineLives()
-	initTurtle()
+	initWeapons()
 
 	initRespawn()
 
