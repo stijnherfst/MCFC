@@ -2,7 +2,7 @@ import { itemTypes } from "../ItemsAndTypes/itemTypes"
 import { typeFamilies } from "../ItemsAndTypes/typeFamilies"
 import { PlayerInfo } from "../player";
 
-export function changeType(players: PlayerInfo[]) {
+export function changeType(players: Record<number, PlayerInfo>) {
 	if (GetItemType(GetManipulatedItem()) != ITEM_TYPE_ARTIFACT) {
 		return;
 	}
@@ -12,6 +12,11 @@ export function changeType(players: PlayerInfo[]) {
 	}
 
 	let item_type = GetItemTypeId(GetManipulatedItem())
+
+	if (!(item_type in itemTypes)) {
+		print("Error, this item is an Artifact but not in the itemTypes")
+		return;
+	}
 
 	// If of same type family then do nothing (eg. Normal type and Normal Flyer
 	if (typeFamilies[GetUnitTypeId(GetTriggerUnit())] == typeFamilies[itemTypes[item_type]]) {
@@ -35,6 +40,12 @@ export function changeType(players: PlayerInfo[]) {
 	let loc = GetUnitLoc(GetTriggerUnit())
 	let facing = GetUnitFacing(GetTriggerUnit())
 
+	// Store cooldowns so we can apply them after the type change
+	let cooldowns : Record<string, number> = {}
+	for (let ability of players[GetPlayerId(GetTriggerPlayer())].abilities) {
+		cooldowns[ability] = BlzGetUnitAbilityCooldownRemaining(GetTriggerUnit(), ability)
+	}
+
 	RemoveUnit(GetTriggerUnit());
 	bj_lastCreatedUnit = CreateUnitAtLoc(GetTriggerPlayer(), itemTypes[item_type], loc, facing )
 
@@ -55,6 +66,7 @@ export function changeType(players: PlayerInfo[]) {
 	
 	for (let ability of players[GetPlayerId(GetTriggerPlayer())].abilities) {
 		UnitAddAbility(bj_lastCreatedUnit, ability)
+		BlzStartUnitAbilityCooldown(bj_lastCreatedUnit, ability, cooldowns[ability])
 	}
 	
 	if (GetLocalPlayer() == GetOwningPlayer(bj_lastCreatedUnit)) {

@@ -4,7 +4,7 @@ function kaniff() {
     }
 
     if (GetRandomInt(1, 100) == 1) {
-        CreateNUnitsAtLoc(1, FourCC("n001"), GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttacker()), bj_UNIT_FACING)
+        CreateNUnitsAtLoc(1, FourCC("n001"), GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
         UnitApplyTimedLifeBJ(5.00, FourCC("BTLF"), GetLastCreatedUnit())
     }
 }

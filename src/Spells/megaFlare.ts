@@ -3,7 +3,7 @@ function megaFlare() {
         return
     }
 
-    CreateNUnitsAtLoc(1, FourCC("n041"), GetOwningPlayer(GetSpellAbilityUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
+    CreateNUnitsAtLoc(1, FourCC("n041"), GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
     IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", GetSpellTargetUnit())
     UnitApplyTimedLifeBJ(7.00, FourCC("BTLF"), GetLastCreatedUnit())
 }

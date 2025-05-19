@@ -1086,6 +1086,10 @@ const drops : Record<string, Array<Drop>> = {
 }
 
 function itemDrops() {
+	if (GetOwningPlayer(GetTriggerUnit()) !== Player(11)) {
+		return;
+	}
+
 	if (!(GetUnitTypeId(GetTriggerUnit()) in drops)) {
 		return;
 	}

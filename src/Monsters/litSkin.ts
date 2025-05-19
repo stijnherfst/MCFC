@@ -4,7 +4,7 @@ function litSkin() {
     }
 
     if (GetRandomInt(1, 10) == 1) {
-        CreateNUnitsAtLoc(1, FourCC("h00N"), GetOwningPlayer(GetAttackedUnitBJ()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
+        CreateNUnitsAtLoc(1, FourCC("h00N"), GetOwningPlayer(GetTriggerUnit()), GetUnitLoc(GetTriggerUnit()), bj_UNIT_FACING)
         UnitApplyTimedLifeBJ(1.00, FourCC("BTLF"), GetLastCreatedUnit())
         IssueTargetOrderBJ(GetLastCreatedUnit(), "chainlightning", GetAttacker())
     }

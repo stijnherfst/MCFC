@@ -1,5 +1,5 @@
 function secretSeal() {
-    if (GetItemTypeId(GetManipulatedItem()) != FourCC('I08E')) {
+    if (GetItemTypeId(GetManipulatedItem()) != FourCC('I0AQ')) {
         return
     }
 

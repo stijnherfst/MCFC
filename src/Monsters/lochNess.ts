@@ -53,15 +53,15 @@ export function initLochNess() {
 
     let checkpoint2Trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(checkpoint2Trigger, gg_rct_lock_ness_2)
-    TriggerAddAction(checkpoint2Trigger, () => checkpoint1())
+    TriggerAddAction(checkpoint2Trigger, () => checkpoint2())
 
     let checkpoint3Trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(checkpoint3Trigger, gg_rct_lock_ness_3)
-    TriggerAddAction(checkpoint3Trigger, () => checkpoint1())
+    TriggerAddAction(checkpoint3Trigger, () => checkpoint3())
 
     let checkpoint4Trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(checkpoint4Trigger, gg_rct_lock_ness_4)
-    TriggerAddAction(checkpoint4Trigger, () => checkpoint1())
+    TriggerAddAction(checkpoint4Trigger, () => checkpoint4())
 
     let checkpoint5Trigger = CreateTrigger()
     TriggerRegisterEnterRectSimple(checkpoint5Trigger, gg_rct_lock_ness_5)

@@ -7,3 +7,4 @@
 - Lava fog is white ingame
 - Fix being able to spawn multiple summons
 - Disable double rare drops triggers (gui and TS)
+- Reduce final boss xp range (is map wide)

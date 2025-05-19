@@ -237,7 +237,7 @@ function checkVolcanoEmpty() {
         dialog.display = false
         dialog.destroy()
 
-        ForGroupBJ(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11)), () => ExplodeUnitBJ(GetEnumUnit()))
+        ForGroupBJ(GetUnitsInRectOfPlayer(gg_rct_Volcano_Challenge, Player(11)), () => RemoveUnit(GetEnumUnit()))
         DisableTrigger(healerTrigger)
         EnableTrigger(enterTrigger)
         ModifyGateBJ(bj_GATEOPERATION_OPEN, gg_dest_B004_13629)

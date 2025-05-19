@@ -32,4 +32,8 @@ export function initMisc() {
 
     PanCameraToTimed(GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), 0)
     SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2300, 3)
+
+    BlzChangeMinimapTerrainTex("war3mapMinimap.blp")
+
+    // SetCameraBoundsToRect(gg_rct_Overworld)
 }

@@ -101,7 +101,7 @@ const spellToAbility = new Map([
 
 export class LearnSpell {
 	constructor(
-		private players: PlayerInfo[],
+		private players: Record<number, PlayerInfo>,
 	) {
 		let trigger = CreateTrigger()
 		TriggerRegisterAnyUnitEventBJ(trigger, EVENT_PLAYER_UNIT_USE_ITEM)

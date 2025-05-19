@@ -3,7 +3,7 @@ function ripTideCaster() {
         return
     }
 
-    IssuePointOrderLocBJ(GetAttacker(), "carrionswarm", GetUnitLoc(GetAttackedUnitBJ()))
+    IssuePointOrderLocBJ(GetAttacker(), "carrionswarm", GetUnitLoc(GetAttacker()))
 }
 
 export function initRipTideCaster() {

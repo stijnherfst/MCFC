@@ -84,9 +84,7 @@ function rare_drop() {
 }
 
 function rare_monster_hp() {
-    for (let i = 0; i < GetUnitLevel(GetTriggerUnit()); i++) {
-        UnitAddItemByIdSwapped(FourCC("I095"), GetLastCreatedUnit())
-    }
+    BlzSetUnitMaxHP(GetLastCreatedUnit(), BlzGetUnitMaxHP(GetLastCreatedUnit()) + GetUnitLevel(GetLastCreatedUnit()) * 100)
 }
 
 function respawn() {

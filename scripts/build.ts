@@ -20,10 +20,16 @@ function main() {
     return;
   }
 
+  logger.info(`Renaming minimap...`);
+  fs.renameSync(`./dist/${config.mapFolder}/war3mapMap.blp`, `./dist/${config.mapFolder}/war3mapMinimap.blp`)
+  fs.renameSync(`./dist/${config.mapFolder}/war3mapPreview.tga`, `./dist/${config.mapFolder}/war3mapMap.tga`)
+  fs.removeSync(`./dist/${config.mapFolder}/war3map.mmp`)
+
   logger.info(`Creating w3x archive...`);
   if (!fs.existsSync(config.outputFolder)) {
     fs.mkdirSync(config.outputFolder);
   }
+  
 
   createMapFromDir(`${config.outputFolder}/${config.mapFolder}`, `./dist/${config.mapFolder}`);
 }

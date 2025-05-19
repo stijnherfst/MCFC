@@ -1,5 +1,5 @@
 import { maxAbilities, PlayerInfo } from "./player"
-import { BinaryReader, BinaryWriter, Group, Unit, MapPlayer, File, SyncRequest, base64Encode, base64Decode, Item, Trigger} from "w3ts"
+import { BinaryReader, BinaryWriter, Group, Unit, MapPlayer, File, SyncRequest, base64Encode, base64Decode, Item, Trigger, Frame} from "w3ts"
 
 let dialog : framehandle
 let title : framehandle
@@ -23,7 +23,7 @@ export class SaveLoad {
 	modes: Mode[] = []
 
 	constructor(
-		private players: PlayerInfo[],
+		private players: Record<number, PlayerInfo>,
 		
 	) {
 		{
@@ -84,6 +84,8 @@ export class SaveLoad {
 
 		// Load new
 		MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_GOLD, reader.readInt32())
+		// Explicitly set lumber to zero so it doesn't carry over from the current lumber value
+		MapPlayer.fromEvent().setState(PLAYER_STATE_RESOURCE_LUMBER, 0)
 		let unit = Unit.create(MapPlayer.fromEvent(), FourCC("H001"), GetRectCenterX(gg_rct_revive), GetRectCenterY(gg_rct_revive), old_facing)
 		bj_lastCreatedUnit = unit.handle
 		

@@ -35,7 +35,7 @@ tower
 
 STRING 8
 {
-MCFC 7.6
+MCFC 7.6.2
 }
 
 STRING 9
@@ -182,7 +182,7 @@ Only 1 god survived...
 Few Master Crafters still remain... 
 Fabled return of a classic...
 
-Version 7.6 16-05-2025
+Version 7.6.2 19-05-2025
 Join our Discord: https://discord.gg/jRaWAGj
 For news, updates and hosting announcements.
 }
@@ -1262,13 +1262,13 @@ Soul Drain
 }
 
 STRING 401
-// Abilities: A01O (Soul Drain), Researchhotkey (Hotkey - Learn)
+// Abilities: A06P (Hydro Bolt), Hotkey (Hotkey - Normal)
 {
 D
 }
 
 STRING 402
-// Abilities: A01O (Soul Drain), Hotkey (Hotkey - Normal)
+// Abilities: A099 (Air Anhilator), Hotkey (Hotkey - Normal)
 {
 D
 }
@@ -1298,13 +1298,13 @@ Circle of Death
 }
 
 STRING 407
-// Abilities: A01N (Circle of Death), Researchhotkey (Hotkey - Learn)
+// Abilities: A01V (Concentrated Energy), Hotkey (Hotkey - Normal)
 {
 C
 }
 
 STRING 408
-// Abilities: A01N (Circle of Death), Hotkey (Hotkey - Normal)
+// Abilities: A08K (Echo Blast), Hotkey (Hotkey - Normal)
 {
 C
 }
@@ -1358,7 +1358,7 @@ Creates a circle of death which will rotate around you and damage all enemies th
 }
 
 STRING 418
-// Units: h00B (Wake of fire), Name (Name)
+// Abilities: A01S (Wake of fire flame), Tip (Tooltip - Normal)
 {
 Wake of fire
 }
@@ -1376,7 +1376,7 @@ Spell - Wake of Fire
 }
 
 STRING 424
-// Abilities: A01Q (Wake of Fire), Name (Name)
+// Abilities: A0CC (Wake of Fire), Tip (Tooltip - Normal)
 {
 Wake of Fire
 }
@@ -1418,7 +1418,7 @@ Wake of fire flame
 }
 
 STRING 433
-// Units: h00C (Metallic Erruption), Name (Name)
+// Abilities: A01T (Metallic Erruption), Name (Name)
 {
 Metallic Erruption
 }
@@ -1448,19 +1448,19 @@ Creates metallic erruptions around the caster spewing out knives that shred your
 }
 
 STRING 438
-// Abilities: A01T (Metallic Erruption), Name (Name)
+// Abilities: A01U (Metallic Erruption), Name (Name)
 {
 Metallic Erruption
 }
 
 STRING 439
-// Abilities: A01T (Metallic Erruption), Hotkey (Hotkey - Normal)
+// Abilities: A01U (Metallic Erruption), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 440
-// Abilities: A01T (Metallic Erruption), Researchhotkey (Hotkey - Learn)
+// Abilities: A01U (Metallic Erruption), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -1478,13 +1478,13 @@ Creates metallic erruptions around the caster spewing out knives that shred your
 }
 
 STRING 444
-// Abilities: A01U (Metallic Erruption), Hotkey (Hotkey - Normal)
+// Abilities: A09C (Minor Heal), Researchhotkey (Hotkey - Learn)
 {
 E
 }
 
 STRING 445
-// Abilities: A01U (Metallic Erruption), Researchhotkey (Hotkey - Learn)
+// Abilities: A09C (Minor Heal), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -1532,13 +1532,13 @@ Concentrated Energy
 }
 
 STRING 453
-// Abilities: A01V (Concentrated Energy), Researchhotkey (Hotkey - Learn)
+// Abilities: A08K (Echo Blast), Unhotkey (Hotkey - Turn Off)
 {
 C
 }
 
 STRING 454
-// Abilities: A01V (Concentrated Energy), Hotkey (Hotkey - Normal)
+// Abilities: A0BC (Chrono Sphere), Hotkey (Hotkey - Normal)
 {
 C
 }
@@ -1718,7 +1718,7 @@ STRING 512
 }
 
 STRING 514
-// Abilities: A021 (Rip Tide caster), Hotkey (Hotkey - Normal)
+// Abilities: A02I (Hyper Heal), Unhotkey (Hotkey - Turn Off)
 {
 R
 }
@@ -1736,7 +1736,7 @@ STRING 516
 }
 
 STRING 518
-// Abilities: A022 (Rip Tide), Hotkey (Hotkey - Normal)
+// Abilities: A0AK (Turbo Heal), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -1796,13 +1796,13 @@ Mega Flare
 }
 
 STRING 528
-// Abilities: A023 (Mega Flare), Hotkey (Hotkey - Normal)
+// Abilities: A029 (Lightning Fury), Hotkey (Hotkey - Normal)
 {
 F
 }
 
 STRING 529
-// Abilities: A023 (Mega Flare), Researchhotkey (Hotkey - Learn)
+// Abilities: A06U (Frog it), Hotkey (Hotkey - Normal)
 {
 F
 }
@@ -1862,13 +1862,13 @@ Mega Magic
 }
 
 STRING 539
-// Abilities: A024 (Mega Magic), Researchhotkey (Hotkey - Learn)
+// Abilities: A0EN (Lightning), Hotkey (Hotkey - Normal)
 {
 G
 }
 
 STRING 540
-// Abilities: A024 (Mega Magic), Hotkey (Hotkey - Normal)
+// Abilities: A0EN (Lightning), Researchhotkey (Hotkey - Learn)
 {
 G
 }
@@ -1976,13 +1976,13 @@ Resotres 5 mana/sec and reveals random parts of the world
 }
 
 STRING 559
-// Abilities: A027 (Psychic Sightnings), Name (Name)
+// Buffs/Effects: B001 (Psychic Sightnings), Bufftip (Tooltip)
 {
 Psychic Sightnings
 }
 
 STRING 560
-// Abilities: A027 (Psychic Sightnings), Tip (Tooltip - Normal)
+// Buffs/Effects: B001 (Psychic Sightnings), EditorName (Name (Editor Only))
 {
 Psychic Sightnings
 }
@@ -2012,7 +2012,7 @@ Lit fury caster
 }
 
 STRING 568
-// Abilities: A029 (Lightning Fury), Hotkey (Hotkey - Normal)
+// Abilities: A0EY (Full Heal), Hotkey (Hotkey - Normal)
 {
 F
 }
@@ -2366,13 +2366,13 @@ Hyper Heal
 }
 
 STRING 673
-// Abilities: A02I (Hyper Heal), Researchhotkey (Hotkey - Learn)
+// Abilities: A0ED (Mega Shard), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 674
-// Abilities: A02I (Hyper Heal), Hotkey (Hotkey - Normal)
+// Abilities: A0ED (Mega Shard), Researchhotkey (Hotkey - Learn)
 {
 R
 }
@@ -3860,7 +3860,7 @@ Hydro Bolt
 }
 
 STRING 1141
-// Abilities: A06P (Hydro Bolt), Hotkey (Hotkey - Normal)
+// Abilities: A01O (Soul Drain), Researchhotkey (Hotkey - Learn)
 {
 D
 }
@@ -3998,7 +3998,7 @@ Frog it
 }
 
 STRING 1164
-// Abilities: A06U (Frog it), Hotkey (Hotkey - Normal)
+// Abilities: A023 (Mega Flare), Hotkey (Hotkey - Normal)
 {
 F
 }
@@ -5612,13 +5612,13 @@ Echo Slam
 }
 
 STRING 1683
-// Abilities: A08K (Echo Blast), Hotkey (Hotkey - Normal)
+// Abilities: A01N (Circle of Death), Researchhotkey (Hotkey - Learn)
 {
 C
 }
 
 STRING 1684
-// Abilities: A08K (Echo Blast), Unhotkey (Hotkey - Turn Off)
+// Abilities: A01N (Circle of Death), Hotkey (Hotkey - Normal)
 {
 C
 }
@@ -7130,7 +7130,7 @@ Air Anhilator
 }
 
 STRING 2344
-// Abilities: A099 (Air Anhilator), Hotkey (Hotkey - Normal)
+// Abilities: A01O (Soul Drain), Hotkey (Hotkey - Normal)
 {
 D
 }
@@ -7262,13 +7262,13 @@ Lightning
 }
 
 STRING 2376
-// Abilities: A09A (Lightning), Researchhotkey (Hotkey - Learn)
+// Abilities: A024 (Mega Magic), Researchhotkey (Hotkey - Learn)
 {
 G
 }
 
 STRING 2377
-// Abilities: A09A (Lightning), Hotkey (Hotkey - Normal)
+// Abilities: A024 (Mega Magic), Hotkey (Hotkey - Normal)
 {
 G
 }
@@ -7304,13 +7304,13 @@ Minor Heal
 }
 
 STRING 2385
-// Abilities: A09C (Minor Heal), Researchhotkey (Hotkey - Learn)
+// Abilities: A01T (Metallic Erruption), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 2386
-// Abilities: A09C (Minor Heal), Hotkey (Hotkey - Normal)
+// Abilities: A01T (Metallic Erruption), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -8843,13 +8843,13 @@ Turbo Heal
 }
 
 STRING 2950
-// Abilities: A02I (Hyper Heal), Unhotkey (Hotkey - Turn Off)
+// Abilities: A021 (Rip Tide caster), Hotkey (Hotkey - Normal)
 {
 R
 }
 
 STRING 2951
-// Abilities: A0AK (Turbo Heal), Hotkey (Hotkey - Normal)
+// Abilities: A022 (Rip Tide), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -8900,12 +8900,6 @@ STRING 2959
 // Abilities: A087 (Hyper Burn), Ubertip (Tooltip - Normal - Extended)
 {
 Burns your own mana to deal dmg equal to your maximum mana to an enemy
-}
-
-STRING 2960
-// Abilities: A08W (Divine Essence), Ubertip (Tooltip - Normal - Extended)
-{
-Evolve to the next level the time of acsension is upon you this divine essence has empowered your soul! 7 sec cast time
 }
 
 STRING 2963
@@ -9137,13 +9131,13 @@ Turns your oppenent into stone lower move speed by half attack speed by 10% and 
 }
 
 STRING 3001
-// Abilities: A0AQ (Stone Gaze), Hotkey (Hotkey - Normal)
+// Abilities: A09A (Lightning), Researchhotkey (Hotkey - Learn)
 {
 G
 }
 
 STRING 3002
-// Abilities: A0AQ (Stone Gaze), Researchhotkey (Hotkey - Learn)
+// Abilities: A09A (Lightning), Hotkey (Hotkey - Normal)
 {
 G
 }
@@ -10889,7 +10883,7 @@ Grants this unit extra EXP equal to the monster level of what you defeat
 }
 
 STRING 3703
-// Abilities: A0CC (Wake of Fire), Name (Name)
+// Abilities: A01Q (Wake of Fire), Name (Name)
 {
 Wake of Fire
 }
@@ -10901,7 +10895,7 @@ carrior swarm wake of fire
 }
 
 STRING 3705
-// Abilities: A0CC (Wake of Fire), Tip (Tooltip - Normal)
+// Abilities: A0CC (Wake of Fire), Name (Name)
 {
 Wake of Fire
 }
@@ -10925,7 +10919,7 @@ Full Heal
 }
 
 STRING 3728
-// Abilities: A0CD (Full Heal), Hotkey (Hotkey - Normal)
+// Abilities: A023 (Mega Flare), Researchhotkey (Hotkey - Learn)
 {
 F
 }
@@ -10961,13 +10955,13 @@ Chiken Beak
 }
 
 STRING 3737
-// Abilities: A01S (Wake of fire flame), Tip (Tooltip - Normal)
+// Units: h00B (Wake of fire), Name (Name)
 {
 Wake of fire
 }
 
 STRING 3738
-// Abilities: A01U (Metallic Erruption), Name (Name)
+// Units: h00C (Metallic Erruption), Name (Name)
 {
 Metallic Erruption
 }
@@ -11078,18 +11072,6 @@ STRING 3760
 // Buffs/Effects: B014 (HIGH TECH SORCERY), Bufftip (Tooltip)
 {
 Rare Monster
-}
-
-STRING 3763
-// Items: I095 (Manual of Health +100), Name (Name)
-{
-Manual of Health +100
-}
-
-STRING 3764
-// Items: I096 (Manual of Health +1000), Name (Name)
-{
-Manual of Health +1000
 }
 
 STRING 3765
@@ -11225,7 +11207,7 @@ caster
 }
 
 STRING 3793
-// Abilities: A0BC (Chrono Sphere), Hotkey (Hotkey - Normal)
+// Abilities: A01V (Concentrated Energy), Researchhotkey (Hotkey - Learn)
 {
 C
 }
@@ -11917,13 +11899,13 @@ Healing Gloves
 }
 
 STRING 4135
-// Buffs/Effects: B001 (Psychic Sightnings), Bufftip (Tooltip)
+// Abilities: A027 (Psychic Sightnings), Name (Name)
 {
 Psychic Sightnings
 }
 
 STRING 4136
-// Buffs/Effects: B001 (Psychic Sightnings), EditorName (Name (Editor Only))
+// Abilities: A027 (Psychic Sightnings), Tip (Tooltip - Normal)
 {
 Psychic Sightnings
 }
@@ -12775,13 +12757,13 @@ mdx new ownage staff
 }
 
 STRING 4524
-// Abilities: A0AK (Turbo Heal), Unhotkey (Hotkey - Turn Off)
+// Abilities: A02I (Hyper Heal), Researchhotkey (Hotkey - Learn)
 {
 R
 }
 
 STRING 4525
-// Abilities: A0ED (Mega Shard), Hotkey (Hotkey - Normal)
+// Abilities: A02I (Hyper Heal), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -16337,13 +16319,13 @@ Li|cffffcc00g|rhtning
 }
 
 STRING 5213
-// Abilities: A0EN (Lightning), Hotkey (Hotkey - Normal)
+// Abilities: A0AQ (Stone Gaze), Hotkey (Hotkey - Normal)
 {
 G
 }
 
 STRING 5214
-// Abilities: A0EN (Lightning), Researchhotkey (Hotkey - Learn)
+// Abilities: A0AQ (Stone Gaze), Researchhotkey (Hotkey - Learn)
 {
 G
 }
@@ -16361,7 +16343,7 @@ E
 }
 
 STRING 5219
-// Abilities: A0ED (Mega Shard), Researchhotkey (Hotkey - Learn)
+// Abilities: A0AK (Turbo Heal), Unhotkey (Hotkey - Turn Off)
 {
 R
 }
@@ -17488,12 +17470,6 @@ STRING 5470
 Turns your skin to rock giving you fortified armor. It takes 10 seconds to cast the hardening spell.
 }
 
-STRING 5471
-// Abilities: A08V (Rock Skin), Ubertip (Tooltip - Normal - Extended)
-{
-Turns your skin to rock giving you fortified armor. It takes 10 seconds to cast the hardening spell.
-}
-
 STRING 5474
 // Items: I008 (Cross bow), Description (Description)
 {
@@ -17650,12 +17626,6 @@ STRING 5502
 Eternal Aura
 }
 
-STRING 5503
-// Abilities: A08X (Flight), Ubertip (Tooltip - Normal - Extended)
-{
-Allows you to fly increases your movespeed but you'll be unarmored. You have to concetrate very hard for 5 seconds.
-}
-
 STRING 5504
 // Items: I00L (Glass Sword), Ubertip (Tooltip - Extended)
 {
@@ -17753,7 +17723,7 @@ STRING 5521
 }
 
 STRING 5523
-// Abilities: A0EY (Full Heal), Hotkey (Hotkey - Normal)
+// Abilities: A0CD (Full Heal), Hotkey (Hotkey - Normal)
 {
 F
 }
@@ -18884,5 +18854,47 @@ STRING 5930
 // Abilities: A024 (Mega Magic), Ubertip (Tooltip - Normal - Extended)
 {
 An incredibly powerful magic attack
+}
+
+STRING 5931
+// Items: I0AQ (Secret Seal), Tip (Tooltip - Basic)
+{
+Secret Seal
+}
+
+STRING 5932
+// Items: I0AQ (Secret Seal), Name (Name)
+{
+Secret Seal
+}
+
+STRING 5933
+// Items: I0AQ (Secret Seal), Ubertip (Tooltip - Extended)
+{
+It's tinkling and sparkling with secret power|n|cff0078d7Misc|r
+}
+
+STRING 5934
+// Items: I0AQ (Secret Seal), Description (Description)
+{
+Reveals the entire map.|n|cff0078d7Misc|r
+}
+
+STRING 5935
+// Abilities: A08V (Rock Skin), Ubertip (Tooltip - Normal - Extended)
+{
+Turns your skin to rock giving you fortified armor. It takes 10 seconds to cast the hardening spell and will leave you feeling soft on the inside.
+}
+
+STRING 5936
+// Abilities: A08W (Divine Essence), Ubertip (Tooltip - Normal - Extended)
+{
+Evolve to the next level the time of acsension is upon you this divine essence has empowered your soul! Takes 7 seconds to casts and damages you a lot so better be safe.
+}
+
+STRING 5937
+// Abilities: A08X (Flight), Ubertip (Tooltip - Normal - Extended)
+{
+Allows you to fly increases your movespeed but you'll be unarmored. You have to concentrate very hard for 5 seconds and will be drained after.
 }
 

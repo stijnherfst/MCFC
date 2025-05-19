@@ -32,7 +32,7 @@ export const archerTypes:number[] = [
 
 export class CheckItemPickup {
 	constructor(
-		private players: PlayerInfo[],
+		private players: Record<number, PlayerInfo>,
 	) {
 		let trigger = CreateTrigger();
 

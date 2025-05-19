@@ -3,7 +3,7 @@ function superSpore() {
         return
     }
 
-    IssueTargetOrderBJ(GetAttacker(), "sleep", GetAttackedUnitBJ())
+    IssueTargetOrderBJ(GetAttacker(), "sleep", GetAttacker())
 }
 
 export function initSuperSpore() {

@@ -3,7 +3,7 @@ function sleepySpore() {
         return
     }
 
-    IssueTargetOrderBJ(GetAttacker(), "sleep", GetAttackedUnitBJ())
+    IssueTargetOrderBJ(GetAttacker(), "sleep", GetAttacker())
 }
 
 export function initSleepySpore() {

@@ -2,7 +2,7 @@ import { PlayerInfo } from "../player"
 
 export class PlayerSpawn {
 	constructor(
-		private players: PlayerInfo[],
+		private players: Record<number, PlayerInfo>,
 	) {
 		let gg_trg_Spawn_Master_Crafters = CreateTrigger();
 		TriggerRegisterTimerEvent(gg_trg_Spawn_Master_Crafters, 2.00, false);
@@ -17,10 +17,15 @@ export class PlayerSpawn {
 
 			let hero = CreateUnitAtLoc(Player(i), FourCC('H001'), GetRandomLocInRect(gg_rct_revive), bj_UNIT_FACING)
 
-			this.players.push( {
+			this.players[i] = {
 				hero: hero,
-				abilities: []
-			})
+				abilities: [] 
+			}
+
+			// this.players.push( {
+			// 	hero: hero,
+			// 	abilities: []
+			// })
 		}
 	}
 }

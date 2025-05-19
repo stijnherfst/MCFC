@@ -103,7 +103,7 @@ function tsMain() {
 	initQuest()
 	initMisc()
 
-	let players: PlayerInfo[] = []
+	let players: Record<number, PlayerInfo> = {}
 	let spawn = new PlayerSpawn(players)
 	let checkItemPickup = new CheckItemPickup(players)
 	let changeTypeBySpell = new ChangeTypeBySpell(players)

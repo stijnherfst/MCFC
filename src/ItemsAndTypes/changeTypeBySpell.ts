@@ -3,7 +3,7 @@ import { PlayerInfo } from "../player";
 
 export class ChangeTypeBySpell {
 	constructor(
-		private players: PlayerInfo[],
+		private players: Record<number, PlayerInfo>,
 	) {
 		let trigger = CreateTrigger();
 
@@ -20,7 +20,7 @@ export class ChangeTypeBySpell {
 		}
 	
 		let newType = -1;
-		if (GetSpellAbilityId() == FourCC('A08V')) {
+		if (GetSpellAbilityId() == FourCC('A08V')) { // Rock Skin
 			newType = typeToFortified[typeFamilies[GetUnitTypeId(GetTriggerUnit())]]
 		} else if (GetSpellAbilityId() == FourCC('A08W')) { // Divine Essence
 			newType = typeToDivine[typeFamilies[GetUnitTypeId(GetTriggerUnit())]]
@@ -35,8 +35,8 @@ export class ChangeTypeBySpell {
 	
 		bj_lastCreatedUnit = CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), newType, GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit()))
 		
-		let hp = GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE)
-		let mp = GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA)
+		let hp = GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE) * 0.5
+		let mp = GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA) * 0.5
 	
 		SetHeroStr(bj_lastCreatedUnit, GetHeroStr(GetTriggerUnit(), false), true);
 		SetHeroAgi(bj_lastCreatedUnit, GetHeroAgi(GetTriggerUnit(), false), true);
