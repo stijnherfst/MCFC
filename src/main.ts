@@ -40,6 +40,7 @@ import { initSecretSealDies } from "./Monsters/secretSealDies";
 import { initSleepySpore } from "./Monsters/sleepySpore";
 import { initSuperSpore } from "./Monsters/superSpore";
 import { initTeslaCoil } from "./Monsters/teslaCoil";
+import { initRareMonsterSpells } from "./Monsters/rareMonsterSpells";
 
 import { initClear } from "./Commands/clear"
 import { initMoveToInventory } from "./Commands/inventory";
@@ -142,6 +143,7 @@ function tsMain() {
 	initSleepySpore()
 	initSuperSpore()
 	initTeslaCoil()
+	initRareMonsterSpells()
 
 	initClear()
 	initMoveToInventory()

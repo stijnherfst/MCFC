@@ -77,6 +77,11 @@ const drops : Record<string, Array<Drop>> = {
 		{ itemID: FourCC('I0AG'), chance: 2 },		// Spell - Evasion
 	],
 
+	// Gerberts Skeleton
+	[FourCC('n045')]: [
+		{ itemID: FourCC('I096'), chance: 100 },	// Gerbert's Diary
+	],
+
 	// Mud Monster
 	[FourCC('n008')]: [
 		{ itemID: FourCC('I05D'), chance: 1 },		// Small Axe (left handed)
@@ -655,6 +660,7 @@ const drops : Record<string, Array<Drop>> = {
 		{ itemID: FourCC('I087'), chance: 10 },		// Brolys Book
 		{ itemID: FourCC('I08B'), chance: 10 },		// Kitten Claws
 		{ itemID: FourCC('I08C'), chance: 10 },		// Nine Lives
+		{ itemID: FourCC('I0AQ'), chance: 100 },	// Secret Seal
 	],
 
 	// Panda Monstrosity
@@ -858,7 +864,7 @@ const drops : Record<string, Array<Drop>> = {
 		{ itemID: FourCC('I08S'), chance: 2.5 },	// Dino Tail
 	],
 
-	// Krakan
+	// Kraken
 	[FourCC('n03M')]: [
 		{ itemID: FourCC('I01J'), chance: 20 },		// Spell - Ultima
 		{ itemID: FourCC('I098'), chance: 10 },		// Kraken Scale Shield
@@ -1096,6 +1102,8 @@ function itemDrops() {
 	
 	drops[GetUnitTypeId(GetTriggerUnit())].forEach(drop => {
 		let random = GetRandomReal(0.0, 100.0)
+		print(random)
+		print(drop.chance)
 		if (random < drop.chance) {
 			CreateItem(drop.itemID, GetUnitX(GetDyingUnit()), GetUnitY(GetDyingUnit()))
 		}

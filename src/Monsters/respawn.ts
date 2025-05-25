@@ -39,52 +39,54 @@ function shouldRespawn() {
         || GetUnitTypeId(GetTriggerUnit()) == FourCC("n04C")
         || GetUnitTypeId(GetTriggerUnit()) == FourCC("n04F")
         || GetUnitTypeId(GetTriggerUnit()) == FourCC("n04E")
-        || GetUnitTypeId(GetTriggerUnit()) == FourCC("n04G"))
+        || GetUnitTypeId(GetTriggerUnit()) == FourCC("n04G")
+        || GetUnitTypeId(GetTriggerUnit()) == FourCC("n045")) // Gerbert's Skeleton
 }
 
-function rare_drop() {
+function rare_drop(unit: unit) {
     if (GetRandomInt(1, 10) != 1) {
         return
     }
 
     // Right
-    let level = GetUnitLevel(GetLastCreatedUnit())
+    let level = GetUnitLevel(unit)
     if (level <= 10) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I093"))
+        UnitAddItemById(unit, FourCC("I093"))
     } else if (level <= 20) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I094"))
+        UnitAddItemById(unit, FourCC("I094"))
     } else if (level <= 30) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08V"))
+        UnitAddItemById(unit, FourCC("I08V"))
     } else if (level <= 40) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I092"))
+        UnitAddItemById(unit, FourCC("I092"))
     } else if (level <= 50) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08T"))
+        UnitAddItemById(unit, FourCC("I08T"))
     } else if (level <= 60) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I091"))
+        UnitAddItemById(unit, FourCC("I091"))
     } else if (level <= 70) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08U"))
+        UnitAddItemById(unit, FourCC("I08U"))
     } else if (level <= 80) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08W"))
+        UnitAddItemById(unit, FourCC("I08W"))
     } else if (level <= 90) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I090"))
+        UnitAddItemById(unit, FourCC("I090"))
     } else if (level <= 99) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08Z"))
+        UnitAddItemById(unit, FourCC("I08Z"))
     } else if (level == 100) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I08X"))
+        UnitAddItemById(unit, FourCC("I08X"))
     }
 
     // Left
     if (level > 40 && level <= 50) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I0A0"))
+        UnitAddItemById(unit, FourCC("I0A0"))
     } else if (level > 80 && level <= 90) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I0A1"))
+        UnitAddItemById(unit, FourCC("I0A1"))
     } else if (level == 100) {
-        UnitAddItemById(GetLastCreatedUnit(), FourCC("I09P"))
+        UnitAddItemById(unit, FourCC("I09P"))
     }
 }
 
-function rare_monster_hp() {
-    BlzSetUnitMaxHP(GetLastCreatedUnit(), BlzGetUnitMaxHP(GetLastCreatedUnit()) + GetUnitLevel(GetLastCreatedUnit()) * 100)
+function rare_monster_hp(unit: unit) {
+    BlzSetUnitMaxHP(unit, BlzGetUnitMaxHP(unit) + GetUnitLevel(unit) * 100)
+    SetUnitLifePercentBJ(unit, 100)
 }
 
 function respawn() {
@@ -93,81 +95,82 @@ function respawn() {
     }
 
     TriggerSleepAction(30.00)
-    CreateNUnitsAtLoc(1, GetUnitTypeId(GetDyingUnit()), GetOwningPlayer(GetDyingUnit()), GetUnitLoc(GetDyingUnit()), bj_UNIT_FACING)
+    
+    const unit = CreateUnitAtLoc(GetOwningPlayer(GetDyingUnit()), GetUnitTypeId(GetDyingUnit()), GetUnitLoc(GetDyingUnit()), bj_UNIT_FACING)
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0CE"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        UnitAddItemByIdSwapped(FourCC("I096"), GetLastCreatedUnit())
-        SetUnitScalePercent(GetLastCreatedUnit(), 200.00, 200.00, 200.00)
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0CE"), unit)
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        UnitAddItemByIdSwapped(FourCC("I096"), unit)
+        SetUnitScalePercent(unit, 200.00, 200.00, 200.00)
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0CF"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("A06T"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("A09M"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("A06O"), GetLastCreatedUnit())
-        SetUnitVertexColorBJ(GetLastCreatedUnit(), 100, 0.00, 0.00, 0)
-        AddSpecialEffectTargetUnitBJ("chest", GetLastCreatedUnit(), "Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl")
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0CF"), unit)
+        UnitAddAbilityBJ(FourCC("A06T"), unit)
+        UnitAddAbilityBJ(FourCC("A09M"), unit)
+        UnitAddAbilityBJ(FourCC("A06O"), unit)
+        SetUnitVertexColorBJ(unit, 100, 0.00, 0.00, 0)
+        AddSpecialEffectTargetUnitBJ("chest", unit, "Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl")
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0CJ"), GetLastCreatedUnit())
-        SetUnitVertexColorBJ(GetLastCreatedUnit(), 75.00, 100.00, 100.00, 0)
-        AddSpecialEffectTargetUnitBJ("overhead", GetLastCreatedUnit(), "Abilities\\Weapons\\WitchDoctorMissile\\WitchDoctorMissile.mdl")
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0CJ"), unit)
+        SetUnitVertexColorBJ(unit, 75.00, 100.00, 100.00, 0)
+        AddSpecialEffectTargetUnitBJ("overhead", unit, "Abilities\\Weapons\\WitchDoctorMissile\\WitchDoctorMissile.mdl")
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0CK"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        SetUnitVertexColorBJ(GetLastCreatedUnit(), 10.00, 10.00, 10.00, 0)
-        AddSpecialEffectTargetUnitBJ("head", GetLastCreatedUnit(), "Abilities\\Spells\\Undead\\DeathCoil\\DeathCoilMissile.mdl")
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0CK"), unit)
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        SetUnitVertexColorBJ(unit, 10.00, 10.00, 10.00, 0)
+        AddSpecialEffectTargetUnitBJ("head", unit, "Abilities\\Spells\\Undead\\DeathCoil\\DeathCoilMissile.mdl")
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0CM"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("A0CL"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0CM"), unit)
+        UnitAddAbilityBJ(FourCC("A0CL"), unit)
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("S001"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        AddSpecialEffectTargetUnitBJ("head", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        AddSpecialEffectTargetUnitBJ("hand,right", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        AddSpecialEffectTargetUnitBJ("hand,left", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        AddSpecialEffectTargetUnitBJ("weapon,left", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        AddSpecialEffectTargetUnitBJ("weapon,right", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        AddSpecialEffectTargetUnitBJ("overhead", GetLastCreatedUnit(), "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("S001"), unit)
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        AddSpecialEffectTargetUnitBJ("head", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        AddSpecialEffectTargetUnitBJ("hand,right", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        AddSpecialEffectTargetUnitBJ("hand,left", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        AddSpecialEffectTargetUnitBJ("weapon,left", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        AddSpecialEffectTargetUnitBJ("weapon,right", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        AddSpecialEffectTargetUnitBJ("overhead", unit, "Abilities\\Spells\\NightElf\\SpiritOfVengeance\\SpiritOfVengeanceOrbs1.mdl")
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 
     if (GetRandomInt(1, 500) == 1) {
-        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(GetLastCreatedUnit()) + " has spawned")))
-        UnitAddAbilityBJ(FourCC("A0D0"), GetLastCreatedUnit())
-        AddSpecialEffectTargetUnitBJ("head", GetLastCreatedUnit(), "Abilities\\Weapons\\FaerieDragonMissile\\FaerieDragonMissile.mdl")
-        UnitAddAbilityBJ(FourCC("A04S"), GetLastCreatedUnit())
-        UnitAddAbilityBJ(FourCC("AInv"), GetLastCreatedUnit())
-        rare_monster_hp()
-        rare_drop()
+        DisplayTimedTextToForce(GetPlayersAll(), 15.00, ("Rare " + (GetUnitName(unit) + " has spawned")))
+        UnitAddAbilityBJ(FourCC("A0D0"), unit)
+        AddSpecialEffectTargetUnitBJ("head", unit, "Abilities\\Weapons\\FaerieDragonMissile\\FaerieDragonMissile.mdl")
+        UnitAddAbilityBJ(FourCC("A04S"), unit)
+        UnitAddAbilityBJ(FourCC("AInv"), unit)
+        rare_monster_hp(unit)
+        rare_drop(unit)
     }
 }
 

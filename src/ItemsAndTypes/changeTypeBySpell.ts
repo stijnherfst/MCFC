@@ -33,10 +33,16 @@ export class ChangeTypeBySpell {
 			return
 		}
 	
+		// Store cooldowns so we can apply them after the type change
+		let cooldowns : Record<string, number> = {}
+		for (let ability of this.players[GetPlayerId(GetTriggerPlayer())].abilities) {
+			cooldowns[ability] = BlzGetUnitAbilityCooldownRemaining(GetTriggerUnit(), ability)
+		}
+
 		bj_lastCreatedUnit = CreateUnitAtLoc(GetOwningPlayer(GetTriggerUnit()), newType, GetUnitLoc(GetTriggerUnit()), GetUnitFacing(GetTriggerUnit()))
 		
-		let hp = GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE) * 0.5
-		let mp = GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA) * 0.5
+		let hp = GetUnitState(GetTriggerUnit(), UNIT_STATE_LIFE)
+		let mp = GetUnitState(GetTriggerUnit(), UNIT_STATE_MANA)
 	
 		SetHeroStr(bj_lastCreatedUnit, GetHeroStr(GetTriggerUnit(), false), true);
 		SetHeroAgi(bj_lastCreatedUnit, GetHeroAgi(GetTriggerUnit(), false), true);
@@ -57,6 +63,7 @@ export class ChangeTypeBySpell {
 		
 		for (let ability of this.players[GetPlayerId(GetTriggerPlayer())].abilities) {
 			UnitAddAbility(bj_lastCreatedUnit, ability)
+			BlzStartUnitAbilityCooldown(bj_lastCreatedUnit, ability, cooldowns[ability])
 		}
 		
 		if (GetLocalPlayer() == GetOwningPlayer(bj_lastCreatedUnit)) {
