@@ -15,7 +15,7 @@ export function initMisc() {
     Players.forEach(player => {
         bj_lastCreatedFogModifier = CreateFogModifierRect(player.handle, FOG_OF_WAR_VISIBLE, gg_rct_Overworld, true, false)
         FogModifierStart(bj_lastCreatedFogModifier)
-        bj_lastCreatedFogModifier = CreateFogModifierRect(player.handle, FOG_OF_WAR_FOGGED, gg_rct_Dungeons, true, false)
+        bj_lastCreatedFogModifier = CreateFogModifierRect(player.handle, FOG_OF_WAR_MASKED, gg_rct_Dungeons, false, false)
         FogModifierStart(bj_lastCreatedFogModifier)
     });
 

@@ -163,6 +163,8 @@ gg_rct_inventory_8 = nil
 gg_rct_inventory_9 = nil
 gg_rct_inventory_10 = nil
 gg_rct_inventory_leave = nil
+gg_rct_Dungeon = nil
+gg_rct_Dungeon_Entrance = nil
 gg_cam_Arena = nil
 gg_cam_Air_Fortress = nil
 gg_cam_Shroom_Cam = nil
@@ -420,11 +422,14 @@ gg_dest_B004_13629 = nil
 gg_dest_LTg1_16732 = nil
 function InitGlobals()
     local i = 0
+
     udg_RealVar = 0.0
     udg_RealVar2 = 0.0
     i = 0
     while (true) do
-        if ((i > 1)) then break end
+        if (i > 1) then
+            break
+        end
         udg_abilityarray[i] = ""
         i = i + 1
     end
@@ -438,7 +443,9 @@ function InitGlobals()
     udg_raremonsterhp = 0
     i = 0
     while (true) do
-        if ((i > 50)) then break end
+        if (i > 50) then
+            break
+        end
         udg_stringParts[i] = ""
         i = i + 1
     end
@@ -451,6 +458,7 @@ function ItemTable000000_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -481,6 +489,7 @@ function Unit000038_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -510,6 +519,7 @@ function Unit000045_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -539,6 +549,7 @@ function Unit000161_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -568,6 +579,7 @@ function Unit000241_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -597,6 +609,7 @@ function Unit000293_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -634,6 +647,7 @@ function Doodad006791_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -664,6 +678,7 @@ function Doodad006794_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -694,6 +709,7 @@ function Doodad006795_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -724,6 +740,7 @@ function Doodad006796_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -754,6 +771,7 @@ function Doodad006798_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -784,6 +802,7 @@ function Doodad006799_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -814,6 +833,7 @@ function Doodad006800_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -844,6 +864,7 @@ function Doodad008365_DropItems()
     local trigUnit = nil
     local itemID = 0
     local canDrop = true
+
     trigWidget = bj_lastDyingWidget
     if (trigWidget == nil) then
         trigUnit = GetTriggerUnit()
@@ -870,12 +891,14 @@ function Doodad008365_DropItems()
 end
 
 function InitSounds()
-    gg_snd_mortal_kombat2 = CreateSound("war3mapImported\\mortal_kombat2.wav", false, false, false, 10, 10, "DefaultEAXON")
+    gg_snd_mortal_kombat2 =
+        CreateSound("war3mapImported\\mortal_kombat2.wav", false, false, false, 10, 10, "DefaultEAXON")
     SetSoundDuration(gg_snd_mortal_kombat2, 30312)
     SetSoundChannel(gg_snd_mortal_kombat2, 0)
     SetSoundVolume(gg_snd_mortal_kombat2, 127)
     SetSoundPitch(gg_snd_mortal_kombat2, 1.0)
-    gg_snd_Incinerate1 = CreateSound("Abilities\\Spells\\Other\\Incinerate\\Incinerate1.wav", false, true, true, 10, 10, "SpellsEAX")
+    gg_snd_Incinerate1 =
+        CreateSound("Abilities\\Spells\\Other\\Incinerate\\Incinerate1.wav", false, true, true, 10, 10, "SpellsEAX")
     SetSoundDuration(gg_snd_Incinerate1, 2716)
     SetSoundChannel(gg_snd_Incinerate1, 0)
     SetSoundVolume(gg_snd_Incinerate1, -1)
@@ -884,7 +907,8 @@ function InitSounds()
     SetSoundDistanceCutoff(gg_snd_Incinerate1, 3000.0)
     SetSoundConeAngles(gg_snd_Incinerate1, 0.0, 0.0, 127)
     SetSoundConeOrientation(gg_snd_Incinerate1, 0.0, 0.0, 0.0)
-    gg_snd_Incinerate101 = CreateSound("Abilities/Spells/Other/Incinerate/Incinerate1.flac", false, true, true, 0, 0, "SpellsEAX")
+    gg_snd_Incinerate101 =
+        CreateSound("Abilities/Spells/Other/Incinerate/Incinerate1.flac", false, true, true, 0, 0, "SpellsEAX")
     SetSoundParamsFromLabel(gg_snd_Incinerate101, "IncinerateDeath")
     SetSoundDuration(gg_snd_Incinerate101, 2716)
     SetSoundVolume(gg_snd_Incinerate101, 127)
@@ -894,7 +918,9 @@ function CreateAllDestructables()
     local d
     local t
     local life
-    gg_dest_B004_13629 = BlzCreateDestructableWithSkin(FourCC("B004"), -10752.0, -22208.0, 0.000, 1.500, 0, FourCC("B004"))
+
+    gg_dest_B004_13629 =
+        BlzCreateDestructableWithSkin(FourCC("B004"), -10752.0, -22208.0, 0.000, 1.500, 0, FourCC("B004"))
     d = BlzCreateDestructableWithSkin(FourCC("LOcg"), 11328.0, 320.0, 359.700, 0.933, 0, FourCC("LOcg"))
     t = CreateTrigger()
     TriggerRegisterDeathEvent(t, d)
@@ -960,11 +986,13 @@ function CreateAllDestructables()
     TriggerRegisterDeathEvent(t, d)
     TriggerAddAction(t, SaveDyingWidget)
     TriggerAddAction(t, ItemTable000000_DropItems)
-    gg_dest_LTg1_16732 = BlzCreateDestructableWithSkin(FourCC("LTg1"), 15104.0, -11712.0, 270.000, 0.900, 0, FourCC("LTg1"))
+    gg_dest_LTg1_16732 =
+        BlzCreateDestructableWithSkin(FourCC("LTg1"), 15104.0, -11712.0, 270.000, 0.900, 0, FourCC("LTg1"))
 end
 
 function CreateAllItems()
     local itemID
+
     BlzCreateItemWithSkin(FourCC("I00Y"), 15241.1, -9536.0, FourCC("I00Y"))
     BlzCreateItemWithSkin(FourCC("I01Z"), 15053.4, -13111.8, FourCC("I01Z"))
     BlzCreateItemWithSkin(FourCC("I03M"), -2006.2, -13248.9, FourCC("I03M"))
@@ -981,6 +1009,8 @@ function CreateAllItems()
     BlzCreateItemWithSkin(FourCC("I095"), 16217.1, -13065.4, FourCC("I095"))
     BlzCreateItemWithSkin(FourCC("I095"), 16148.2, -13038.1, FourCC("I095"))
     BlzCreateItemWithSkin(FourCC("I096"), 15083.8, -12857.2, FourCC("I096"))
+    BlzCreateItemWithSkin(FourCC("I0AP"), -24892.9, -22316.7, FourCC("I0AP"))
+    BlzCreateItemWithSkin(FourCC("I0AP"), -24931.2, -22366.2, FourCC("I0AP"))
 end
 
 function CreateUnitsForPlayer10()
@@ -989,6 +1019,7 @@ function CreateUnitsForPlayer10()
     local unitID
     local t
     local life
+
     gg_unit_h00U_0050 = BlzCreateUnitWithSkin(p, FourCC("h00U"), 14650.6, -13654.9, 352.226, FourCC("h00U"))
     UnitAddItemToSlotById(gg_unit_h00U_0050, FourCC("I01M"), 0)
     UnitAddItemToSlotById(gg_unit_h00U_0050, FourCC("I081"), 1)
@@ -1027,6 +1058,7 @@ function CreateUnitsForPlayer11()
     local unitID
     local t
     local life
+
     u = BlzCreateUnitWithSkin(p, FourCC("n018"), -6923.4, 12029.6, 217.380, FourCC("n018"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00V"), -15066.5, 3665.1, 333.423, FourCC("n00V"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00V"), -15337.1, 3395.9, 278.024, FourCC("n00V"))
@@ -1623,7 +1655,7 @@ function CreateUnitsForPlayer11()
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 4542.4, -12977.7, 110.892, FourCC("n03I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 4984.8, -10863.7, 201.459, FourCC("n03I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 6402.8, -12727.7, 287.480, FourCC("n03I"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 6508.3, -14641.2, 337.503, FourCC("n03I"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 6508.4, -14641.2, 337.503, FourCC("n03I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 7445.8, -14552.1, 106.532, FourCC("n03I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 8788.7, -15833.0, 328.340, FourCC("n03I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n03I"), 6812.4, -12710.8, 219.270, FourCC("n03I"))
@@ -1636,6 +1668,7 @@ function CreateNeutralPassiveBuildings()
     local unitID
     local t
     local life
+
     u = BlzCreateUnitWithSkin(p, FourCC("ntn2"), 1824.0, -5664.0, 270.000, FourCC("ntn2"))
     u = BlzCreateUnitWithSkin(p, FourCC("nmh1"), 1760.0, -5856.0, 270.000, FourCC("nmh1"))
     u = BlzCreateUnitWithSkin(p, FourCC("n04R"), 15456.0, -13280.0, 270.000, FourCC("n04R"))
@@ -1653,6 +1686,7 @@ function CreateNeutralPassive()
     local unitID
     local t
     local life
+
     u = BlzCreateUnitWithSkin(p, FourCC("h03A"), 22734.3, 28275.5, 329.762, FourCC("h03A"))
     UnitAddItemToSlotById(u, FourCC("I0AB"), 0)
     UnitAddItemToSlotById(u, FourCC("I09F"), 1)
@@ -1774,6 +1808,7 @@ end
 
 function CreateRegions()
     local we
+
     gg_rct_Town_tele = Rect(14880.0, -11776.0, 15328.0, -11616.0)
     gg_rct_Anti_town = Rect(14656.0, -8448.0, 15264.0, -7904.0)
     gg_rct_revive = Rect(14784.0, -13440.0, 15392.0, -12960.0)
@@ -1884,7 +1919,7 @@ function CreateRegions()
     gg_rct_Volcano_Lava_4 = Rect(-14688.0, -23456.0, -14400.0, -23168.0)
     gg_rct_Volcano_Lava_5 = Rect(-14848.0, -21472.0, -13664.0, -20832.0)
     gg_rct_Volcano_PotTok_Spawn1 = Rect(-13408.0, -21120.0, -11456.0, -20384.0)
-    gg_rct_Dungeons = Rect(-16384.0, -29184.0, -16288.0, 31104.0)
+    gg_rct_Dungeons = Rect(-32256.0, -29184.0, -16352.0, 32128.0)
     gg_rct_Rock_Avalanche = Rect(14944.0, 9440.0, 15328.0, 9824.0)
     gg_rct_Chapel = Rect(16544.0, 14912.0, 17376.0, 16192.0)
     gg_rct_Volcano_Surroundings = Rect(-10272.0, -22720.0, -9920.0, -21696.0)
@@ -1901,6 +1936,8 @@ function CreateRegions()
     gg_rct_inventory_9 = Rect(6144.0, 31712.0, 6560.0, 32192.0)
     gg_rct_inventory_10 = Rect(6752.0, 31712.0, 7168.0, 32192.0)
     gg_rct_inventory_leave = Rect(1024.0, 31616.0, 7168.0, 31744.0)
+    gg_rct_Dungeon = Rect(-24992.0, -22592.0, -24800.0, -22304.0)
+    gg_rct_Dungeon_Entrance = Rect(16672.0, -12672.0, 16896.0, -12320.0)
 end
 
 function CreateCameras()
@@ -2194,43 +2231,71 @@ function Trig_pressure_release_Actions()
     if (Trig_pressure_release_Func003C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5774")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 100.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Human\\DispelMagic\\DispelMagicTarget.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Human\\DispelMagic\\DispelMagicTarget.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func004C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5775")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 200.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Orc\\AncestralSpirit\\AncestralSpiritCaster.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Orc\\AncestralSpirit\\AncestralSpiritCaster.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func005C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5776")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 300.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func006C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5777")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 400.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\NightElf\\BattleRoar\\RoarCaster.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\NightElf\\BattleRoar\\RoarCaster.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func007C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5778")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 500.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func008C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5779")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 600.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func009C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5780")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 700.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func010C()) then
@@ -2242,13 +2307,21 @@ function Trig_pressure_release_Actions()
     if (Trig_pressure_release_Func011C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5782")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 900.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"
+        )
     else
     end
     if (Trig_pressure_release_Func012C()) then
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5783")
         UnitDamageTargetBJ(udg_PressureCaster, udg_pressuretarget, 1000.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_pressuretarget, "Objects\\Spawnmodels\\Human\\FragmentationShards\\FragBoomSpawn.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_pressuretarget,
+            "Objects\\Spawnmodels\\Human\\FragmentationShards\\FragBoomSpawn.mdl"
+        )
         udg_presurerelaese = 0
     else
     end
@@ -2323,7 +2396,18 @@ function Trig_Korona_kam_Actions()
     DisableTrigger(GetTriggeringTrigger())
     CinematicModeBJ(true, GetPlayersAll())
     ForForce(GetPlayersAll(), Trig_Korona_kam_Func003002)
-    TransmissionFromUnitTypeWithNameBJ(GetPlayersAll(), Player(11), FourCC("n01X"), "TRIGSTR_5803", GetRectCenter(gg_rct_Korona), gg_snd_mortal_kombat2, "TRIGSTR_5804", bj_TIMETYPE_ADD, 9.00, false)
+    TransmissionFromUnitTypeWithNameBJ(
+        GetPlayersAll(),
+        Player(11),
+        FourCC("n01X"),
+        "TRIGSTR_5803",
+        GetRectCenter(gg_rct_Korona),
+        gg_snd_mortal_kombat2,
+        "TRIGSTR_5804",
+        bj_TIMETYPE_ADD,
+        9.00,
+        false
+    )
     TriggerSleepAction(10.00)
     SetUnitOwner(gg_unit_h021_0320, Player(10), true)
     IssuePointOrderLocBJ(gg_unit_h021_0320, "attack", GetRectCenter(gg_rct_Korona))
@@ -2343,7 +2427,15 @@ function Trig_Korona_hunts_Func001002003001001002()
 end
 
 function Trig_Korona_hunts_Func001002()
-    IssuePointOrderLocBJ(GetEnumUnit(), "blink", GetUnitLoc(GroupPickRandomUnit(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Korona_hunts_Func001002003001001002)))))
+    IssuePointOrderLocBJ(
+        GetEnumUnit(),
+        "blink",
+        GetUnitLoc(
+            GroupPickRandomUnit(
+                GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Korona_hunts_Func001002003001001002))
+            )
+        )
+    )
 end
 
 function Trig_Korona_hunts_Func003002003001001002()
@@ -2351,7 +2443,15 @@ function Trig_Korona_hunts_Func003002003001001002()
 end
 
 function Trig_Korona_hunts_Func003002()
-    IssuePointOrderLocBJ(GetEnumUnit(), "attack", GetUnitLoc(GroupPickRandomUnit(GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Korona_hunts_Func003002003001001002)))))
+    IssuePointOrderLocBJ(
+        GetEnumUnit(),
+        "attack",
+        GetUnitLoc(
+            GroupPickRandomUnit(
+                GetUnitsInRectMatching(GetPlayableMapRect(), Condition(Trig_Korona_hunts_Func003002003001001002))
+            )
+        )
+    )
 end
 
 function Trig_Korona_hunts_Actions()
@@ -2376,7 +2476,13 @@ end
 
 function Trig_chicken_respawn_Actions()
     TriggerSleepAction(20.00)
-    CreateNUnitsAtLoc(1, GetUnitTypeId(GetDyingUnit()), GetOwningPlayer(GetDyingUnit()), GetUnitLoc(GetDyingUnit()), bj_UNIT_FACING)
+    CreateNUnitsAtLoc(
+        1,
+        GetUnitTypeId(GetDyingUnit()),
+        GetOwningPlayer(GetDyingUnit()),
+        GetUnitLoc(GetDyingUnit()),
+        bj_UNIT_FACING
+    )
 end
 
 function InitTrig_chicken_respawn()
@@ -2505,14 +2611,31 @@ function Trig_gravity_demon_black_hole_Actions()
         udg_RealVar = 100.00
         udg_RealVar2 = 360.00
         udg_BlackHolePoint = GetUnitLoc(GetAttackedUnitBJ())
-        udg_BlackHoleSuckUnits = GroupPickRandomUnit(GetUnitsInRangeOfLocMatching(400.00, GetUnitLoc(GetAttackedUnitBJ()), Condition(Trig_gravity_demon_black_hole_Func002Func004002001003)))
+        udg_BlackHoleSuckUnits =
+            GroupPickRandomUnit(
+            GetUnitsInRangeOfLocMatching(
+                400.00,
+                GetUnitLoc(GetAttackedUnitBJ()),
+                Condition(Trig_gravity_demon_black_hole_Func002Func004002001003)
+            )
+        )
         UnitAddTypeBJ(UNIT_TYPE_FLYING, udg_BlackHoleSuckUnits)
-        CreateNUnitsAtLoc(1, FourCC("h02U"), GetOwningPlayer(GetAttacker()), GetUnitLoc(GetAttackedUnitBJ()), bj_UNIT_FACING)
+        CreateNUnitsAtLoc(
+            1,
+            FourCC("h02U"),
+            GetOwningPlayer(GetAttacker()),
+            GetUnitLoc(GetAttackedUnitBJ()),
+            bj_UNIT_FACING
+        )
         udg_BlackHole = GetLastCreatedUnit()
         EnableTrigger(gg_trg_Black_Hole_suck)
         DisableTrigger(GetTriggeringTrigger())
         PolledWait(6.00)
-        AddSpecialEffectTargetUnitBJ("overhead", udg_BlackHole, "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl")
+        AddSpecialEffectTargetUnitBJ(
+            "overhead",
+            udg_BlackHole,
+            "Objects\\Spawnmodels\\Undead\\UDeathMedium\\UDeath.mdl"
+        )
         ForGroupBJ(GetUnitsOfTypeIdAll(FourCC("h02U")), Trig_gravity_demon_black_hole_Func002Func012002)
         ForGroupBJ(GetUnitsOfTypeIdAll(FourCC("h00A")), Trig_gravity_demon_black_hole_Func002Func013002)
         DisableTrigger(gg_trg_Black_Hole_suck)
@@ -2781,8 +2904,20 @@ function InitAllyPriorities()
 end
 
 function main()
-    SetCameraBounds(-16384.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -16384.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
-    SetDayNightModels("Environment\\DNC\\DNCDalaran\\DNCDalaranTerrain\\DNCDalaranTerrain.mdl", "Environment\\DNC\\DNCDalaran\\DNCDalaranUnit\\DNCDalaranUnit.mdl")
+    SetCameraBounds(
+        -32256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT),
+        -29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM),
+        29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT),
+        32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP),
+        -32256.0 + GetCameraMargin(CAMERA_MARGIN_LEFT),
+        32256.0 - GetCameraMargin(CAMERA_MARGIN_TOP),
+        29184.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT),
+        -29184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM)
+    )
+    SetDayNightModels(
+        "Environment\\DNC\\DNCDalaran\\DNCDalaranTerrain\\DNCDalaranTerrain.mdl",
+        "Environment\\DNC\\DNCDalaran\\DNCDalaranUnit\\DNCDalaranUnit.mdl"
+    )
     SetTerrainFogEx(0, 3500.0, 4250.0, 0.500, 0.000, 0.000, 0.000)
     NewSoundEnvironment("Default")
     SetAmbientDaySound("DalaranDay")
@@ -2821,4 +2956,3 @@ function config()
     InitCustomTeams()
     InitAllyPriorities()
 end
-
